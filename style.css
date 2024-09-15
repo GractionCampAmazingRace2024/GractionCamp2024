@@ -6,7 +6,6 @@
 
 .mainBody {
     font-family: Arial, sans-serif;
-    background-color: #444343;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +17,6 @@
         black 66.66%,   /* Middle third */
         yellow 66.66%   /* Bottom third */
     );
-
 }
 
 .login-container {
@@ -27,6 +25,7 @@
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 80vw;
+    max-width: 400px;
     height: 60vh;
     text-align: center;
     border: 3px solid black;
@@ -76,8 +75,7 @@ button:hover {
     margin-top: 10px;
 }
 
-
-/* Color Styles for Each Team */
+/* Color Styles for Each Team - Consider using a custom dropdown */
 option[value="green"] {
     background-color: greenyellow;
 }
@@ -101,42 +99,3 @@ option[value="yellow"] {
 option[value="admin"] {
     background-color: rgb(255, 0, 0);
 }
-
-
-
-/* 
-@media (max-width: 600px) {
-    .login-container {
-        width: 90vw;
-        height: auto;
-    }
-    h2 {
-        font-size: 18px;
-    }
-    button {
-        font-size: 14px;
-        padding: 8px;
-    }
-    input, select {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .login-container {
-        width: 85vw;
-        height: auto;
-    }
-    h2 {
-        font-size: 22px;
-    }
-}
-
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: inherit; 
-    }
-} 
-
-*/

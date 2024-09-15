@@ -1,7 +1,3 @@
-
-const username = document.getElementById('username').value;
-const password = document.getElementById('password').value;
-
 // Define a mapping of username and password pairs to their respective redirect pages
 const userCredentials = {
     'green': [
@@ -44,10 +40,10 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
             window.location.href = userData.page;
         } else {
             // Display error if the password does not match
-            document.getElementById('errorMessage').textContent = 'You May Not Proceed. Try Again';
+            document.getElementById('errorMessage').textContent = 'You may not proceed. Try again.';
         }
     } else {
         // Display error if the username is incorrect
-        document.getElementById('errorMessage').textContent = 'Is Your Team Name Correct?';
+        document.getElementById('errorMessage').textContent = 'Is your team name correct?';
     }
 });

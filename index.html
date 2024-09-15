@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
     
     <title>AMAZING RACE 2024</title>
-
 </head>
 <body class="mainBody">
     <div class="login-container">
@@ -24,7 +23,6 @@
                     <option value="orange" style="background-color:rgb(233, 117, 8)">Orange</option>
                     <option value="yellow" style="background-color:yellow">Yellow</option>
                     <option value="admin" style="background-color:rgb(226, 0, 0)">Admin</option>
-
                 </select>
             </div>
             <div class="input-container">
@@ -36,18 +34,16 @@
         </form>
     </div>
     <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+                console.log('Service Worker registration failed:', error);
+            });
+        }
+    </script>
 </body>
 </html>
-
-
-<script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
-        .then(registration => {
-            console.log('Service Worker registered with scope:', registration.scope);
-        })
-        .catch(error => {
-            console.log('Service Worker registration failed:', error);
-        });
-    }
-</script>
