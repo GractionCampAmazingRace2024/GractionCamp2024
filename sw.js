@@ -11,6 +11,9 @@ const resourcesToCache = [
     '/Images/amazing-race.png',
 
     // TEAMS
+    '/Teams/Admin/admin.css',
+    '/Teams/Admin/admin.html',
+
     '/Teams/Blue/blue.css',
     '/Teams/Blue/blue.html',
 
