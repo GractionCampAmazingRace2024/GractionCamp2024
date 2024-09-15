@@ -130,3 +130,11 @@ option[value="admin"] {
         font-size: 22px;
     }
 }
+
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: inherit; /* Use the existing background color */
+    }
+}

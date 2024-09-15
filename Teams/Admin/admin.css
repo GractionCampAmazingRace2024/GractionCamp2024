@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(190, 0, 0);
+    background-color: red;
     color: white;
     font-size: min(10vh, 10vw); /* Responsive font size */
     display: flex;
@@ -22,5 +22,12 @@ body {
 @media (max-width: 480px) {
     body {
         font-size: 6vw; /* Font size for phones */
+    }
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: inherit; /* Use the existing background color */
     }
 }
