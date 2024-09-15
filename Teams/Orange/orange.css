@@ -9,9 +9,3 @@ body{
 }
 
 
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: inherit; /* Use the existing background color */
-    }
-}

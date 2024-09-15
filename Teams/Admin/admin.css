@@ -12,22 +12,3 @@ body {
     text-align: center; /* Ensure text is centered */
 }
 
-/* Ensure that font size scales well across different screen sizes */
-@media (max-width: 768px) {
-    body {
-        font-size: 8vw; /* Font size for tablets and smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        font-size: 6vw; /* Font size for phones */
-    }
-}
-
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: inherit; /* Use the existing background color */
-    }
-}

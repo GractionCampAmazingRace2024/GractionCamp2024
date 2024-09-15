@@ -102,7 +102,9 @@ option[value="admin"] {
     background-color: rgb(255, 0, 0);
 }
 
-/* Mobile styles */
+
+
+/* 
 @media (max-width: 600px) {
     .login-container {
         width: 90vw;
@@ -120,7 +122,6 @@ option[value="admin"] {
     }
 }
 
-/* Tablet styles */
 @media (max-width: 1024px) {
     .login-container {
         width: 85vw;
@@ -132,9 +133,10 @@ option[value="admin"] {
 }
 
 
-/* Dark mode styles */
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: inherit; /* Use the existing background color */
+        background-color: inherit; 
     }
-}
+} 
+
+*/
