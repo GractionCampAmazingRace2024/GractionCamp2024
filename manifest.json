@@ -2,7 +2,7 @@
   "name": "Amazing Race 2024",
   "short_name": "AmazingRace",
   "start_url": "/GractionCamp2024/index.html",
-  "display": "fullscreen",
+  "display": "standalone",
   "background_color": "#444343",
   "theme_color": "#444343",
   "description": "The Amazing Race 2024 Web App",
