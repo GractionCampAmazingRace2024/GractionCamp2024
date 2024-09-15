@@ -19,7 +19,10 @@ const userCredentials = {
     'yellow': [
         { password: 'yellow', page: 'Teams/Yellow/yellow.html' },
         { password: 'jovin', page: 'Teams/Yellow/yellowclue1.html' }
-    ]
+    ],
+    'admin': [
+        { password: 'admin', page: 'Teams/Admin/admin.html' }
+    ],
 };
 
 document.getElementById('loginForm').addEventListener('submit', function(e) {

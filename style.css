@@ -94,10 +94,13 @@ option[value="orange"] {
     background-color: rgb(233, 117, 8);
 }
 
-option[value="yellow1"] {
+option[value="yellow"] {
     background-color: yellow;
 }
 
+option[value="admin"] {
+    background-color: rgb(255, 0, 0);
+}
 
 /* Mobile styles */
 @media (max-width: 600px) {

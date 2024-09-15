@@ -31,6 +31,8 @@ self.addEventListener('install', event => {
                 '/Yellow/yellow.html',
                 
             ]);
+        }).catch(error => {
+            console.error('Failed to cache', error);
         })
     );
 });

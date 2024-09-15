@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(190, 0, 0);
+    color: white;
+    font-size: min(10vh, 10vw); /* Responsive font size */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensures full screen coverage */
+    margin: 0; /* Remove default margin for consistent layout */
+    padding: 0;
+    overflow: hidden; /* Prevents scrolling if content is centered */
+    text-align: center; /* Ensure text is centered */
+}
+
+/* Ensure that font size scales well across different screen sizes */
+@media (max-width: 768px) {
+    body {
+        font-size: 8vw; /* Font size for tablets and smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 6vw; /* Font size for phones */
+    }
+}
