@@ -1,0 +1,9 @@
+
+body{
+    background-color: rgb(236, 148, 15);
+    color: rgb(0, 0, 0);
+    font-size: min(10vh, 10vw);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -2,17 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
 
-body {
+.mainBody {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-
 }
 
 .login-container {
@@ -69,41 +67,23 @@ button:hover {
 }
 
 
-/* style.css */
-
-/* Base styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+/* Color Styles for Each Team */
+option[value="green"] {
+    background-color: greenyellow;
 }
 
-.login-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+option[value="purple"] {
+    background-color: rgb(206, 63, 206);
 }
 
-h2 {
-    margin-bottom: 20px;
-    text-align: center;
+option[value="blue"] {
+    background-color: rgb(24, 199, 223);
 }
 
-/* Responsive styles */
-@media (max-width: 600px) {
-    .login-container {
-        width: 90%;
-    }
+option[value="orange"] {
+    background-color: rgb(233, 117, 8);
+}
 
-    select, input {
-        width: 100%;
-    }
+option[value="yellow1"] {
+    background-color: yellow;
 }

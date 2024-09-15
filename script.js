@@ -6,12 +6,12 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
     // Define a mapping of username and password pairs to their respective redirect pages
     const userCredentials = {
-        'green': { password: 'green', page: 'Pages/green.html' },
-        'purple': { password: 'purple', page: 'Pages/purple.html' },
-        'blue': { password: 'blue', page: 'Pages/blue.html' },
-        'orange': { password: 'orange', page: 'Pages/orange.html' },
-        'yellow': { password: 'yellow', page: 'Pages/yellow.html' },
-        'yellow': { password: 'jovin', page: 'Pages/yellowclue1.html' } 
+        'green': { password: 'green', page: 'Teams/Green/green.html' },
+        'purple': { password: 'purple', page: 'Teams/Purple/purple.html' },
+        'blue': { password: 'blue', page: 'Teams/Blue/blue.html' },
+        'orange': { password: 'orange', page: 'Teams/Orange/orange.html' },
+        'yellow': { password: 'yellow', page: 'Teams/Yellow/yellow.html' },
+        'yellow': { password: 'jovin', page: 'Teams/Yellow/yellowclue1.html' } 
     };
 
 

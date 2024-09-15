@@ -1,0 +1,9 @@
+
+body{
+    background-color: yellow;
+    color: black;
+    font-size: min(10vh, 10vw);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

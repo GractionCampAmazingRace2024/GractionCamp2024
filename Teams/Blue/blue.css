@@ -1,0 +1,11 @@
+
+
+
+body{
+    background-color: blue;
+    color: white;
+    font-size: min(10vh, 10vw);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
