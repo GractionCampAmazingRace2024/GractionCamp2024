@@ -8,7 +8,7 @@ const resourcesToCache = [
     '/manifest.json',
 
     // IMAGES
-    '/Images/amazing-race.png',
+    // '/Images/amazing-race.png',
 
     // TEAMS
     '/Teams/Admin/admin.css',
