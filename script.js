@@ -1,31 +1,50 @@
+
+const username = document.getElementById('username').value;
+const password = document.getElementById('password').value;
+
+// Define a mapping of username and password pairs to their respective redirect pages
+const userCredentials = {
+    'green': [
+        { password: 'green', page: 'Teams/Green/green.html' }
+    ],
+    'purple': [
+        { password: 'purple', page: 'Teams/Purple/purple.html' }
+    ],
+    'blue': [
+        { password: 'blue', page: 'Teams/Blue/blue.html' }
+    ],
+    'orange': [
+        { password: 'orange', page: 'Teams/Orange/orange.html' }
+    ],
+    'yellow': [
+        { password: 'yellow', page: 'Teams/Yellow/yellow.html' },
+        { password: 'jovin', page: 'Teams/Yellow/yellowclue1.html' }
+    ]
+};
+
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent form submission
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // Define a mapping of username and password pairs to their respective redirect pages
-    const userCredentials = {
-        'green': { password: 'green', page: 'Teams/Green/green.html' },
-        'purple': { password: 'purple', page: 'Teams/Purple/purple.html' },
-        'blue': { password: 'blue', page: 'Teams/Blue/blue.html' },
-        'orange': { password: 'orange', page: 'Teams/Orange/orange.html' },
-        'yellow': { password: 'yellow', page: 'Teams/Yellow/yellow.html' },
-        'yellow': { password: 'jovin', page: 'Teams/Yellow/yellowclue1.html' } 
-    };
-
-
     // Check if the username exists in the map
     if (userCredentials[username]) {
-        const userData = userCredentials[username];
+        // Get the list of credentials for this username
+        const credentials = userCredentials[username];
+        
+        // Find the credential that matches the password
+        const userData = credentials.find(cred => cred.password === password);
 
-        // Check if the password matches
-        if (password === userData.password) {
+        if (userData) {
+            // Redirect to the page if the password matches
             window.location.href = userData.page;
         } else {
+            // Display error if the password does not match
             document.getElementById('errorMessage').textContent = 'You May Not Proceed. Try Again';
         }
     } else {
+        // Display error if the username is incorrect
         document.getElementById('errorMessage').textContent = 'Is Your Team Name Correct?';
     }
 });
