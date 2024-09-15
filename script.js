@@ -1,54 +1,31 @@
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent form submission
-    
+
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
-    
 
-    if (username === 'green' && password === 'green') {
-        
-        window.location.href = 'Pages/green.html'; // Redirect to dashboard
+    // Define a mapping of username and password pairs to their respective redirect pages
+    const userCredentials = {
+        'green': { password: 'green', page: 'Pages/green.html' },
+        'purple': { password: 'purple', page: 'Pages/purple.html' },
+        'blue': { password: 'blue', page: 'Pages/blue.html' },
+        'orange': { password: 'orange', page: 'Pages/orange.html' },
+        'yellow': { password: 'yellow', page: 'Pages/yellow.html' },
+        'yellow': { password: 'clue', page: 'Pages/yellowclue1.html' } 
+    };
+
+
+    // Check if the username exists in the map
+    if (userCredentials[username]) {
+        const userData = userCredentials[username];
+
+        // Check if the password matches
+        if (password === userData.password) {
+            window.location.href = userData.page;
+        } else {
+            document.getElementById('errorMessage').textContent = 'You May Not Proceed. Try Again';
+        }
     } else {
-        document.getElementById('errorMessage').textContent = 'Invalid username or password';
+        document.getElementById('errorMessage').textContent = 'Is Your Team Name Correct?';
     }
-
-    if (username === 'purple' && password === 'purple') {
-        
-        window.location.href = 'Pages/purple.html'; // Redirect to dashboard
-    } else {
-        document.getElementById('errorMessage').textContent = 'Invalid username or password';
-    }
-    
-	if (username === 'blue' && password === 'blue') {
-        
-        window.location.href = 'Pages/blue.html'; // Redirect to dashboard
-    } else {
-        document.getElementById('errorMessage').textContent = 'Invalid username or password';
-    }
-
-    if (username === 'orange' && password === 'orange') {
-        
-        window.location.href = 'Pages/orange.html'; // Redirect to dashboard
-    } else {
-        document.getElementById('errorMessage').textContent = 'Invalid username or password';
-    }
-    if (username === 'yellow' && password === 'yellow') {
-        
-        window.location.href = 'Pages/yellow.html'; // Redirect to dashboard
-    } else {
-        document.getElementById('errorMessage').textContent = 'Wrong Answer To Clue';
-    }
-
-	if (username === 'yellow' && password === 'clue') {
-        
-        window.location.href = 'Pages/yellowclue1.html'; // Redirect to dashboard
-    } else {
-        document.getElementById('errorMessage').textContent = 'Wrong Answer To Clue';
-    }
-
-
-
-
-
-
 });
