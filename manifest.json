@@ -7,7 +7,7 @@
   "theme_color": "#444343",
   "description": "The Amazing Race 2024 Web App",
   "icons": [{
-    "src": "/Images/amazing-race.png",
+    "src": "/Images/finish-flag.png",
     "type": "image/png",
     "sizes": "192x192"
   }
