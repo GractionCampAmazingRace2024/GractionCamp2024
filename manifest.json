@@ -1,0 +1,22 @@
+{
+    "name": "Jovins AMAZING CODED amazing race",
+    "short_name": "AMAZING Race",
+    "description": "Participate in Jovins AMAZING CODED amazing race.",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4a90e2",
+    "icons": [
+      {
+        "src": "icon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "amazing-race.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  
