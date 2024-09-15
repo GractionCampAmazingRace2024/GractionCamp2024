@@ -5,17 +5,5 @@
   "display": "standalone",
   "background_color": "#444343",
   "theme_color": "#444343",
-  "description": "The Amazing Race 2024 Web App",
-  "icons": [
-    {
-      "src": "/Images/amazing-race.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/Images/amazing-race.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+  "description": "The Amazing Race 2024 Web App"
 }
