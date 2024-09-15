@@ -3,12 +3,33 @@ self.addEventListener('install', event => {
         caches.open('static-cache-v1').then(cache => {
             return cache.addAll([
                 '/',
+                // Main Root Directory Stuff
                 '/index.html',
                 '/style.css',
                 '/script.js',
                 '/manifest.json',
-                '/icons/icon-192x192.png',
-                '/icons/icon-512x512.png'
+
+                // Image Folders
+                '/Images/amazing-race.png',
+
+
+
+                // Teams
+                '/Blue/blue.css',
+                '/Blue/blue.html',
+
+                '/Green/green.css',
+                '/Green/green.html',
+
+                '/Orange/orange.css',
+                '/Orange/orange.html',
+
+                '/Purple/purple.css',
+                '/Purple/purple.html',
+
+                '/Yellow/yellow.css',
+                '/Yellow/yellow.html',
+                
             ]);
         })
     );
