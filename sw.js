@@ -11,21 +11,51 @@ const resourcesToCache = [
     // '/Images/amazing-race.png',
 
     // TEAMS
+    
+    '/GractionCamp2024/Teams/Admin/admin.css',
+    '/GractionCamp2024/Teams/Admin/admin.html',
+
     '/Teams/Admin/admin.css',
     '/Teams/Admin/admin.html',
+
+
+
+    '/GractionCamp2024/Teams/Blue/blue.css',
+    '/GractionCamp2024/Teams/Blue/blue.html',
 
     '/Teams/Blue/blue.css',
     '/Teams/Blue/blue.html',
 
+
+
+    '/GractionCamp2024/Teams/Green/green.css',
+    '/GractionCamp2024/Teams/Green/green.html',
+
     '/Teams/Green/green.css',
     '/Teams/Green/green.html',
+
+
+
+    '/GractionCamp2024/Teams/Orange/orange.css',
+    '/GractionCamp2024/Teams/Orange/orange.html',
 
     '/Teams/Orange/orange.css',
     '/Teams/Orange/orange.html',
 
+
+
+    '/GractionCamp2024/Teams/Purple/purple.css',
+    '/GractionCamp2024/Teams/Purple/purple.html',
+
     '/Teams/Purple/purple.css',
     '/Teams/Purple/purple.html',
     
+
+    
+    '/GractionCamp2024/Teams/Yellow/yellow.css',
+    '/GractionCamp2024/Teams/Yellow/yellow.html',
+    '/GractionCamp2024/Teams/Yellow/yellowclue1.html',
+
     '/Teams/Yellow/yellow.css',
     '/Teams/Yellow/yellow.html',
     '/Teams/Yellow/yellowclue1.html',
