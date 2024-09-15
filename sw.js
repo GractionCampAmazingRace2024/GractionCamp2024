@@ -10,6 +10,9 @@ const resourcesToCache = [
     // IMAGES
     '/GractionCamp2024/Images/amazing-race.png',
     '/Images/amazing-race.png',
+
+    '/GractionCamp2024/Images/finish-flag.png',
+    '/Images/finish-flag.png',
     
 
     // TEAMS
