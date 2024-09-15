@@ -11,7 +11,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         'blue': { password: 'blue', page: 'Pages/blue.html' },
         'orange': { password: 'orange', page: 'Pages/orange.html' },
         'yellow': { password: 'yellow', page: 'Pages/yellow.html' },
-        'yellow': { password: 'clue', page: 'Pages/yellowclue1.html' } 
+        'yellow': { password: 'jovin', page: 'Pages/yellowclue1.html' } 
     };
 
 
