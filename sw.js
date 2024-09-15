@@ -8,7 +8,9 @@ const resourcesToCache = [
     '/manifest.json',
 
     // IMAGES
-    // '/Images/amazing-race.png',
+    '/GractionCamp2024/Images/amazing-race.png',
+    '/Images/amazing-race.png',
+    
 
     // TEAMS
     
@@ -51,7 +53,7 @@ const resourcesToCache = [
     '/Teams/Purple/purple.html',
     
 
-    
+
     '/GractionCamp2024/Teams/Yellow/yellow.css',
     '/GractionCamp2024/Teams/Yellow/yellow.html',
     '/GractionCamp2024/Teams/Yellow/yellowclue1.html',
