@@ -6,6 +6,11 @@ const resourcesToCache = [
     '/style.css',
     '/script.js',
     '/manifest.json',
+    
+    '/GractionCamp2024/index.html',
+    '/GractionCamp2024/style.css',
+    '/GractionCamp2024/script.js',
+    '/GractionCamp2024/manifest.json',
 
     // IMAGES
     '/GractionCamp2024/Images/amazing-race.png',
