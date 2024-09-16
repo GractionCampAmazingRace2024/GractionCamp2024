@@ -27,7 +27,17 @@ const errorMessages = [
     'L Bozo',
     'Tough',
     'Skill Issue',
-    'That was not very slay'
+    'That was not very slay',
+    'ermmmm.... wrong',
+    'Hint: Try Harder',
+    'Amazing....',
+    'Maybe I need to verify if you are a robot or not',
+    'Womp Womp...',
+    'What the sigma',
+    'Chat... is this real?',
+    'What the skibidi toilet',
+    'One job...',
+    'Embarasing...',
 ];
 
 
@@ -70,7 +80,9 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
 
 function returnToIndex() {
-    window.location.href = '/GractionCamp2024/index.html'; 
+    window.location.href = '/GractionCamp2024/index.html';
+    history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry
+    history.pushState(null, null, '/GractionCamp2024/index.html'); // Push another fake entry for forward
 }
 
 
