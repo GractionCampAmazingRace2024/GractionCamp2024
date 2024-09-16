@@ -1,6 +1,5 @@
 {/* <script src="/GractionCamp2024/Scripts/users.js"></script> */}
- <script src="GractionCamp2024\Scripts\users.js"></script>
-
+<script src="/GractionCamp2024/Scripts/users.js" defer></script>
 
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent form submission
