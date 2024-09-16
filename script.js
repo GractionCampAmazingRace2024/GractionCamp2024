@@ -22,13 +22,15 @@ const userCredentials = {
     ],
 };
 
-
-
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent form submission
 
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
+
+    // Fake history push for back/forward button redirection
+    history.pushState(null, null, 'index.html'); // Push the fake entry
+    history.pushState(null, null, 'index.html'); // Push another fake entry for forward
 
     // Check if the username exists in the map
     if (userCredentials[username]) {
@@ -51,9 +53,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     }
 });
 
-
-window.addEventListener('popstate', function (event) {
-    // Redirect to index.html when the back button is pressed
-    window.location.href = '/GractionCamp2024/index.html';
-});
-
+// Override back button functionality to redirect to index.html
+window.onpopstate = function() {
+window.location.href = 'index.html';
+};
