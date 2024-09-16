@@ -1,4 +1,4 @@
-<script src="/GractionCamp2024/Scripts/users.js"></script>
+{/* <script src="/GractionCamp2024/Scripts/users.js"></script>
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -16,4 +16,4 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!userData) {
         window.location.href = '/GractionCamp2024/index.html';
     }
-});
+}); */}
