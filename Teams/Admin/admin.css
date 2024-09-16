@@ -1,14 +1,26 @@
 body {
-    background-color: red;
-    color: white;
-    font-size: min(10vh, 10vw); /* Responsive font size */
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ensures full screen coverage */
-    margin: 0; /* Remove default margin for consistent layout */
-    padding: 0;
-    overflow: hidden; /* Prevents scrolling if content is centered */
-    text-align: center; /* Ensure text is centered */
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        to right,         /* Horizontal gradient for landscape */
+        red 20%,    /* Left third */
+        black 20%,     /* Middle third */
+        black 80%,     /* Middle third */
+        red 80%     /* Right third */
+    );
+    font-size: min(10vh, 10vw);  /* Responsive text size */
+    color: white;
+    text-align: center;
+    transform: rotate(-90deg);    /* Rotate entire content for landscape */
+    transform-origin: center;    /* Rotate around center of the screen */
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;  /* Prevent scrollbars */
+}
