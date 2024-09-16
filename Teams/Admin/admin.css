@@ -21,17 +21,11 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    min-height: 100vh;
     font-size: min(10vh, 10vw);  /* Responsive text size */
     color: white;
     text-align: center;
-    transform: rotate(-90deg);    /* Rotate entire content for landscape */
-    transform-origin: center;    /* Rotate around center of the screen */
-    position: absolute;           /* Absolute positioning to cover entire viewport */
-    top: 50%;
-    left: 50%;
-    width: 100vw;                 /* Set width to cover the viewport */
-    height: 100vh;                /* Set height to cover the viewport */
-    margin-left: -50vw;           /* Center the rotated content horizontally */
-    margin-top: -50vh;            /* Center the rotated content vertically */
+    transform: rotate(-90deg);    /* Rotate content for landscape */
+    transform-origin: center;     /* Keep rotation centered */
+    width: 100vw;                 /* Ensure body takes full width */
+    height: 100vh;                /* Ensure body takes full height */
 }
