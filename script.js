@@ -17,7 +17,9 @@ const userCredentials = {
         { password: 'jovin', page: 'Teams/Yellow/yellowclue1.html' }
     ],
     'admin': [
-        { password: 'admin', page: 'Teams/Admin/admin.html' }
+        { password: 'admin', page: 'Teams/Admin/admin.html' },
+        { password: 'challenge1', page: 'Teams/Admin/admin1.html' },
+        { password: 'challenge2', page: 'Teams/Admin/admin2.html' }
     ],
 };
 
@@ -47,3 +49,11 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         document.getElementById('errorMessage').textContent = 'Is your team name correct?';
     }
 });
+
+function returnToIndex() {
+    window.location.href = 'index.html'; // Replace 'index.html' with the path to your index page
+}
+
+function testerReturnToIndex() {
+    window.location.href = '\GractionCamp2024\index.html'; // Replace 'index.html' with the path to your index page
+}

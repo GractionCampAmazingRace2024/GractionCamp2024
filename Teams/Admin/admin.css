@@ -7,16 +7,27 @@ body {
     height: 100vh;
     background: linear-gradient(
         to right,         /* Horizontal gradient for landscape */
-        red 20%,    /* Left third */
-        black 20%,     /* Middle third */
-        black 80%,     /* Middle third */
-        red 80%     /* Right third */
+        red 20vw,    /* Left third */
+        black 20vw,     /* Middle third */
+        black 80vw,     /* Middle third */
+        red 80vw     /* Right third */
     );
+    /* Ensure the background covers the entire viewport */
+    background-size: cover;
+
+    /* Prevent the background from repeating */
+    background-repeat: no-repeat;
+    
+    /* Ensure it covers the entire screen */
+    background-attachment: fixed;
+
     font-size: min(10vh, 10vw);  /* Responsive text size */
     color: white;
     text-align: center;
     transform: rotate(-90deg);    /* Rotate entire content for landscape */
     transform-origin: center;    /* Rotate around center of the screen */
+    
+
 }
 
 html, body {
