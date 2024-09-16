@@ -50,10 +50,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     }
 });
 
-function returnToIndex() {
-    window.location.href = '/index.html'; // Replace 'index.html' with the path to your index page
-}
 
-function testerReturnToIndex() {
+function ReturnToIndex() {
     window.location.href = '/GractionCamp2024/index.html'; // Replace 'index.html' with the path to your index page
 }
