@@ -22,6 +22,21 @@ const userCredentials = {
     ],
 };
 
+const errorMessages = [
+    'Womp Womp...',
+    'L Bozo',
+    'Tough',
+    'Skill Issue',
+    'That was not very slay'
+];
+
+
+function getRandomErrorMessage() {
+    const randomIndex = Math.floor(Math.random() * errorMessages.length);
+    return errorMessages[randomIndex];
+}
+
+
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent form submission
 
@@ -29,8 +44,8 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     const password = document.getElementById('password').value;
 
     // Fake history push for back/forward button redirection
-    history.pushState(null, null, 'index.html'); // Push the fake entry
-    history.pushState(null, null, 'index.html'); // Push another fake entry for forward
+    history.pushState(null, null, '/index.html'); // Push the fake entry
+    history.pushState(null, null, '/index.html'); // Push another fake entry for forward
 
     // Check if the username exists in the map
     if (userCredentials[username]) {
@@ -45,15 +60,12 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
             // Redirect to the page if the password matches
             window.location.href = userData.page;
+            history.pushState(null, null, '/index.html'); // Push the fake entry
+            history.pushState(null, null, '/index.html'); // Push another fake entry for forward
         } else {
-            document.getElementById('errorMessage').textContent = 'Womp Womp...';
+            document.getElementById('errorMessage').textContent = getRandomErrorMessage();
         }
     } else {
-        document.getElementById('errorMessage').textContent = 'Womp Womp... How have you done this...';
+        document.getElementById('errorMessage').textContent = getRandomErrorMessage();
     }
 });
-
-// Override back button functionality to redirect to index.html
-window.onpopstate = function() {
-window.location.href = 'index.html';
-};
