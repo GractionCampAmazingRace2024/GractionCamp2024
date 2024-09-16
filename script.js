@@ -54,3 +54,5 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 function ReturnToIndex() {
     window.location.href = '/GractionCamp2024/index.html'; // Replace 'index.html' with the path to your index page
 }
+
+

@@ -1,40 +1,37 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;  /* Prevent scrollbars */
+    width: 100vw;      /* Ensure full viewport width */
+    height: 100vh;     /* Ensure full viewport height */
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
     background: linear-gradient(
-        to right,         /* Horizontal gradient for landscape */
-        red 20vw,    /* Left third */
-        black 20vw,     /* Middle third */
-        black 80vw,     /* Middle third */
-        red 80vw     /* Right third */
+        to right,
+        red 20vw,
+        black 20vw,
+        black 80vw,
+        red 80vw
     );
-    /* Ensure the background covers the entire viewport */
     background-size: cover;
-
-    /* Prevent the background from repeating */
     background-repeat: no-repeat;
-    
-    /* Ensure it covers the entire screen */
     background-attachment: fixed;
-    /* Set minimum height to cover the viewport height */
     min-height: 100vh;
-
-
     font-size: min(10vh, 10vw);  /* Responsive text size */
     color: white;
     text-align: center;
     transform: rotate(-90deg);    /* Rotate entire content for landscape */
     transform-origin: center;    /* Rotate around center of the screen */
-    
-
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;  /* Prevent scrollbars */
+    position: absolute;           /* Absolute positioning to cover entire viewport */
+    top: 50%;
+    left: 50%;
+    width: 100vw;                 /* Set width to cover the viewport */
+    height: 100vh;                /* Set height to cover the viewport */
+    margin-left: -50vw;           /* Center the rotated content horizontally */
+    margin-top: -50vh;            /* Center the rotated content vertically */
 }
