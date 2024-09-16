@@ -20,6 +20,9 @@ body {
     
     /* Ensure it covers the entire screen */
     background-attachment: fixed;
+    /* Set minimum height to cover the viewport height */
+    min-height: 100vh;
+
 
     font-size: min(10vh, 10vw);  /* Responsive text size */
     color: white;
