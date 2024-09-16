@@ -37,7 +37,12 @@ const errorMessages = [
     'Chat... is this real?',
     'What the skibidi toilet',
     'One job...',
-    'Embarasing...',
+    'Embarassinggg....',
+    'Are you even trying?',
+    'Missed your shot...No Rizz',
+    'You got this one day!',
+    'Atleast you know what not to do',
+    'You miss all the shots you dont take... I guess...'
 ];
 
 
