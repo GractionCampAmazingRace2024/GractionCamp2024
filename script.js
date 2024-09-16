@@ -51,3 +51,9 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     }
 });
 
+
+window.addEventListener('popstate', function (event) {
+    // Redirect to index.html when the back button is pressed
+    window.location.href = '/GractionCamp2024/index.html';
+});
+

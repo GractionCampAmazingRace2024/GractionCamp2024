@@ -41,14 +41,11 @@ const resourcesToCache = [
 
     // TEAMS
     
-
-
     '/GractionCamp2024/Teams/Blue/blue.css',
     '/GractionCamp2024/Teams/Blue/blue.html',
 
     // '/Teams/Blue/blue.css',
     // '/Teams/Blue/blue.html',
-
 
 
     '/GractionCamp2024/Teams/Green/green.css',
