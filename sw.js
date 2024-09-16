@@ -12,6 +12,7 @@ const resourcesToCache = [
     '/GractionCamp2024/script.js',
     '/GractionCamp2024/manifest.json',
 
+    // TO BE CHANGEd ===========================================================
     // IMAGES
     '/GractionCamp2024/Images/amazing-race.png',
     '/Images/amazing-race.png',
@@ -19,6 +20,20 @@ const resourcesToCache = [
     '/GractionCamp2024/Images/finish-flag.png',
     '/Images/finish-flag.png',
     
+
+
+
+
+    // ADMIN STUFFF FOR JONO ===================================================
+    '/GractionCamp2024/Teams/Admin/admin.css',
+    '/GractionCamp2024/Teams/Admin/admin.html',
+    '/GractionCamp2024/Teams/Admin/admin1.html',
+    '/GractionCamp2024/Teams/Admin/admin2.html',
+    // ADMIN STUFFF FOR JONO ===================================================
+
+
+
+
 
     // TEAMS
     
