@@ -1,6 +1,6 @@
 {
   "name": "Amazing Race 2024",
-  "short_name": "AmazingRace",
+  "short_name": "Amazing Race",
   "start_url": "/GractionCamp2024/index.html",
   "display": "standalone",
   "scope": "/",
