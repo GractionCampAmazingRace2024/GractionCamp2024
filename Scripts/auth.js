@@ -1,4 +1,4 @@
-<script src="/GractionCamp2024/Scripts/user.js"></script>
+<script src="/GractionCamp2024/Scripts/users.js"></script>
 
 
 document.addEventListener('DOMContentLoaded', function() {
