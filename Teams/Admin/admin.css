@@ -1,31 +1,60 @@
 html, body {
     margin: 0;
     padding: 0;
-    overflow: hidden;  /* Prevent scrollbars */
-    width: 100vw;      /* Ensure full viewport width */
-    height: 100vh;     /* Ensure full viewport height */
+    overflow: hidden;  
+    width: 100vw;      
+    height: 100vh;     
 }
 
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(
-        to right,
-        red 20vw,
-        black 20vw,
-        black 80vw,
-        red 80vw
-    );
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-size: min(10vh, 10vw);  /* Responsive text size */
     color: white;
     text-align: center;
-    transform: rotate(-90deg);    /* Rotate content for landscape */
-    transform-origin: center;     /* Keep rotation centered */
-    width: 100vw;                 /* Ensure body takes full width */
-    height: 100vh;                /* Ensure body takes full height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.threeStripe{
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+    display: flex;
+    justify-content: center; /* Horizontally centers middleStripe */
+}
+
+.middleStripe{
+    width: 60vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#content{
+    color: white;
+    width: 100vh; 
+    height: 60vw;
+    transform: rotate(-90deg); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
+    position: absolute;
+    font-size: calc(min(8vw, 8vh));
+    padding: min(2vh, 2vw);
+}
+
+#returnToIndex {
+    position: absolute;
+    width: 10vh;
+    height: 10vw;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
 }
