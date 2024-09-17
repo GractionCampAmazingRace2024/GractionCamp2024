@@ -47,14 +47,28 @@ body {
     position: absolute;
     font-size: calc(min(8vw, 8vh));
     padding: min(2vh, 2vw);
+    
 }
 
+
 #returnToIndex {
-    position: absolute;
+    position: fixed;
     width: 20vw;
     height: 10vh;
-    z-index: 1;
     top: 0;
-    left: 0;
+    left:0vw;
+    padding: 0;
+    margin: 0;
+    background-color: red;
+    border: none;
+    font-size: calc(min(5vw, 5vh));
+    
 
+}
+
+#returnToIndex span {
+    display: inline-block;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    white-space: nowrap;
 }
