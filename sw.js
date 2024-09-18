@@ -6,7 +6,7 @@ const resourcesToCache = [
     '/GractionCamp2024/index.html',
     '/GractionCamp2024/style.css',
     '/GractionCamp2024/script.js',
-    '/GractionCamp2024/manifest.webmanifest',
+    '/GractionCamp2024/manifest.json',
 
     // TO BE CHANGEd ===========================================================
     // IMAGES
