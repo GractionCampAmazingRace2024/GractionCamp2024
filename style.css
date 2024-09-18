@@ -36,13 +36,14 @@ html {
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(
+    /* background: linear-gradient(
         to bottom,
-        yellow 33.33%,  /* Top third */
-        black 33.33%,   /* Middle third */
-        black 66.66%,   /* Middle third */
-        yellow 66.66%   /* Bottom third */
-    );
+        yellow 33.33%,  
+        black 33.33%,  
+        black 66.66%,   
+        yellow 66.66%   
+    ); */
+    background-color: #2cebeb;
     touch-action: none; /* Disables all touch actions including zooming */
     overflow-x: hidden; /* Prevents horizontal scrolling */
     padding-bottom: env(safe-area-inset-bottom);
@@ -58,6 +59,8 @@ html {
     height: 60vh;
     text-align: center;
     border: 3px solid black;
+    animation: rgb-border 5s infinite; 
+    border-width: 3px; /* Make the border a bit thicker to highlight the effect */
 }
 
 h2 {
@@ -86,6 +89,7 @@ input, select {
 
 button {
     width: 100%;
+    height: 36px;
     padding: 11px;
     margin-top: 15px;
     background-color: #646464;
@@ -97,7 +101,7 @@ button {
     font-weight: bolder;
 }
 
-.gradient-submit {
+#gradient-submit {
     background: linear-gradient(
         to bottom,
         yellow 20%,  /* Top third */
@@ -105,6 +109,7 @@ button {
         black 80%,   /* Middle third */
         yellow 80%   /* Bottom third */
     );
+    /* background: #6faf2b; */
 }
 
 button:hover {
@@ -121,6 +126,8 @@ button:hover {
     position: relative;
     display: inline-block;
     width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .dropdown-button {
@@ -156,12 +163,15 @@ button:hover {
 .dropdown-content {
     display: none;
     position: absolute;
+    top: 49px;
     width: 100%;
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 4px;
     z-index: 1;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid black;
+
 }
 
 .dropdown-item {
@@ -169,6 +179,7 @@ button:hover {
     cursor: pointer;
     font-size: 16px;
     text-align: left;
+
 }
 
 .show {
@@ -183,3 +194,26 @@ button:hover {
 #option-admin { background-color: red; }
 
 
+@keyframes rgb-border {
+    0% {
+        border-color: #cd66ff; /* Red */
+        box-shadow: 0 0 10px #cd66ff;
+    }
+    25% {
+        border-color: #ffa600; /* Red */
+        box-shadow: 0 0 10px #ffa600; 
+    }
+    50% {
+        border-color: #0119f1; /* Blue */
+        box-shadow: 0 0 10px #0119f1;
+    }
+    75% {
+        border-color: rgb(255, 255, 0); /* Yellow */
+        box-shadow: 0 0 10px rgb(255, 255, 0);
+    }
+    100% {
+        
+        border-color: #3ff707;/* Green */
+        box-shadow: 0 0 10px#3ff707;
+    }
+}

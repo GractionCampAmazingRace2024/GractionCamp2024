@@ -57,19 +57,16 @@ const errorMessages = [
     "That's a no from me",
 ];
 
-
 function getRandomErrorMessage() {
   const randomIndex = Math.floor(Math.random() * errorMessages.length);
   return errorMessages[randomIndex];
 }
 
 // Clear error message on dropdown click
-document
-  .querySelector(".dropdown-button")
-  .addEventListener("click", function () {
+document.querySelector(".dropdown-button").addEventListener("click", function () {
     document.querySelector(".dropdown-content").classList.toggle("show");
     document.getElementById("errorMessage").textContent = "";
-  });
+});
 
 document.querySelectorAll(".dropdown-item").forEach((item) => {
   item.addEventListener("click", function () {
@@ -80,6 +77,14 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
     // Set the background color of the dropdown button
     document.querySelector(".dropdown-button").style.backgroundColor =
       getComputedStyle(this).backgroundColor;
+
+    // Update border color and gradient based on the selected team
+    const color = teamColors[value];
+    if (color) {
+      document.querySelector(".login-container").style.borderColor = color;
+      document.querySelector(".login-container").style.boxShadow = `0 0 10px ${color}`;
+      document.getElementById("gradient-submit").style.background = `linear-gradient(to bottom, ${color} 20%, black 20%, black 80%, ${color} 80%)`;
+    }
 
     document.querySelector(".dropdown-content").classList.remove("show");
     document.getElementById("errorMessage").textContent = "";
@@ -184,3 +189,13 @@ document.addEventListener(
 document.addEventListener("gesturestart", function (e) {
   e.preventDefault();
 });
+
+// Map team colors to their corresponding gradient backgrounds
+const teamColors = {
+  'green': '#92d14f',
+  'purple': '#cd66ff',
+  'blue': '#01b0f1',
+  'orange': '#ffc000',
+  'yellow': 'yellow',
+  'admin': 'red'
+};
