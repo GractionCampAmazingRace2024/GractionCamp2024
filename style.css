@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;  
+    overflow-y: hidden; 
+    overflow-x: hidden;    
+}
+
 .mainBody {
     font-family: Arial, sans-serif;
     display: flex;
