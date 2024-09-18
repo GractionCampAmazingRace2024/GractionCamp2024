@@ -4,7 +4,7 @@ html, body {
     overflow: hidden;  
     width: 100vw;      
     height: 100vh;  
-    background-color: blue;   
+    background-color: #01b0f1;
 }
 
 body {
@@ -48,7 +48,6 @@ body {
     position: absolute;
     font-size: calc(min(8vw, 8vh));
     padding: min(2vh, 2vw);
-    background-color: #01b0f1;
 }
 
 
@@ -72,5 +71,5 @@ body {
     transform-origin: center;
     white-space: nowrap;
     font-size: calc(min(5vw, 5vh));
-    color:#035979;
+    color:#015877;
 }

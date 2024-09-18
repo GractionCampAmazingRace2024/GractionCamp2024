@@ -98,10 +98,10 @@ button {
 .gradient-submit {
     background: linear-gradient(
         to bottom,
-        yellow 33.33%,  /* Top third */
-        black 33.33%,   /* Middle third */
-        black 66.66%,   /* Middle third */
-        yellow 66.66%   /* Bottom third */
+        yellow 20%,  /* Top third */
+        black 20%,   /* Middle third */
+        black 80%,   /* Middle third */
+        yellow 80%   /* Bottom third */
     );
 }
 
