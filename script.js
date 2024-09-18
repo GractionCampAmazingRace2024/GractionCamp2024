@@ -41,7 +41,7 @@ const errorMessages = [
     'Are you even trying?',
     'Missed your shot...No Rizz',
     'You got this one day!',
-    'Atleast you know what not to do',
+    'At least you know what not to do',
     'You miss all the shots you don\'t take... I guess...'
 ];
 
@@ -68,11 +68,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
             sessionStorage.setItem('authenticatedPassword', password);
 
             // Redirect to the page if the password matches
-            window.location.href = userData.page;
-
-            // Manipulate history to prevent back navigation
-            history.pushState(null, null, userData.page);
-            history.replaceState(null, null, userData.page);
+            window.location.replace(userData.page); // Use replace to prevent back navigation
 
         } else {
             document.getElementById('errorMessage').textContent = getRandomErrorMessage();
@@ -83,9 +79,5 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 });
 
 function returnToIndex() {
-    window.location.href = '/GractionCamp2024/index.html';
-
-    // Manipulate history to ensure back navigation is not possible
-    history.pushState(null, null, '/GractionCamp2024/index.html');
-    history.replaceState(null, null, '/GractionCamp2024/index.html');
+    window.location.replace('/GractionCamp2024/index.html'); // Use replace to prevent back navigation
 }
