@@ -55,109 +55,132 @@ const errorMessages = [
     'You hate to see it...',
     '...',
     "That's a no from me",
-
-
-
 ];
 
+
 function getRandomErrorMessage() {
-    const randomIndex = Math.floor(Math.random() * errorMessages.length);
-    return errorMessages[randomIndex];
+  const randomIndex = Math.floor(Math.random() * errorMessages.length);
+  return errorMessages[randomIndex];
 }
 
 // Clear error message on dropdown click
-document.querySelector('.dropdown-button').addEventListener('click', function() {
-    document.querySelector('.dropdown-content').classList.toggle('show');
-    document.getElementById('errorMessage').textContent = ''; 
-});
+document
+  .querySelector(".dropdown-button")
+  .addEventListener("click", function () {
+    document.querySelector(".dropdown-content").classList.toggle("show");
+    document.getElementById("errorMessage").textContent = "";
+  });
 
-document.querySelectorAll('.dropdown-item').forEach(item => {
-    item.addEventListener('click', function() {
-        const value = this.getAttribute('data-value');
-        document.querySelector('#teamSelection').value = value;
-        document.querySelector('.dropdown-button').textContent = this.textContent;
-        
-        // Set the background color of the dropdown button
-        document.querySelector('.dropdown-button').style.backgroundColor = getComputedStyle(this).backgroundColor;
+document.querySelectorAll(".dropdown-item").forEach((item) => {
+  item.addEventListener("click", function () {
+    const value = this.getAttribute("data-value");
+    document.querySelector("#teamSelection").value = value;
+    document.querySelector(".dropdown-button").textContent = this.textContent;
 
-        document.querySelector('.dropdown-content').classList.remove('show');
-        document.getElementById('errorMessage').textContent = ''; 
-    });
+    // Set the background color of the dropdown button
+    document.querySelector(".dropdown-button").style.backgroundColor =
+      getComputedStyle(this).backgroundColor;
+
+    document.querySelector(".dropdown-content").classList.remove("show");
+    document.getElementById("errorMessage").textContent = "";
+  });
 });
 
 // Close dropdown if clicked outside
-window.addEventListener('click', function(event) {
-    if (!event.target.matches('.dropdown-button')) {
-        const dropdowns = document.querySelectorAll('.dropdown-content');
-        dropdowns.forEach(dropdown => {
-            if (dropdown.classList.contains('show')) {
-                dropdown.classList.remove('show');
-            }
-        });
-    }
-    document.getElementById('errorMessage').textContent = ''; 
+window.addEventListener("click", function (event) {
+  if (!event.target.matches(".dropdown-button")) {
+    const dropdowns = document.querySelectorAll(".dropdown-content");
+    dropdowns.forEach((dropdown) => {
+      if (dropdown.classList.contains("show")) {
+        dropdown.classList.remove("show");
+      }
+    });
+  }
+  document.getElementById("errorMessage").textContent = "";
 });
 
 // Only show error message after form submission
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault(); 
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+  e.preventDefault(); // Prevent form from submitting automatically
 
-    const username = document.getElementById('teamSelection').value; 
-    const password = document.getElementById('password').value;
+  const username = document.getElementById("teamSelection").value;
+  const password = document.getElementById("password").value;
 
-    // Clear previous error message
-    document.getElementById('errorMessage').textContent = '';
+  // Clear previous error message
+  document.getElementById("errorMessage").textContent = "";
 
-    // Check if the username exists in the map
-    if (userCredentials[username]) {
-        const credentials = userCredentials[username];
-        
-        const userData = credentials.find(cred => cred.password === password);
+  // Ensure that a team is selected and a password is entered
+  if (!username) {
+    document.getElementById("errorMessage").textContent =
+      "Please select a team.";
+    return;
+  }
 
-        if (userData) {
-            // Set sessionStorage to track login status
-            sessionStorage.setItem('authenticatedUser', username);
-            sessionStorage.setItem('authenticatedPassword', password);
-            window.location.replace(userData.page);
+  if (!password) {
+    document.getElementById("errorMessage").textContent =
+      "Please enter your password.";
+    return;
+  }
 
-        } else {
-            // Show error message only if the password is incorrect
-            document.getElementById('errorMessage').textContent = getRandomErrorMessage();
-        }
+  // Check if the username exists in the map
+  if (userCredentials[username]) {
+    const credentials = userCredentials[username];
+
+    const userData = credentials.find((cred) => cred.password === password);
+
+    if (userData) {
+      // Set sessionStorage to track login status
+      sessionStorage.setItem("authenticatedUser", username);
+      sessionStorage.setItem("authenticatedPassword", password);
+      window.location.replace(userData.page);
     } else {
-        // Show error message if the username is invalid
-        document.getElementById('errorMessage').textContent = getRandomErrorMessage();
+      // Show error message only if the password is incorrect
+      document.getElementById("errorMessage").textContent =
+        getRandomErrorMessage();
     }
+  } else {
+    // Show error message if the username is invalid
+    document.getElementById("errorMessage").textContent =
+      getRandomErrorMessage();
+  }
 });
 
 function returnToIndex() {
-    window.location.replace('/GractionCamp2024/index.html'); // Use replace to prevent back navigation
+  window.location.replace("/GractionCamp2024/index.html"); // Use replace to prevent back navigation
 }
 
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    document.addEventListener('touchstart', function(e) {
-        if (e.touches.length > 1) {
-            e.preventDefault();
-        }
-    }, { passive: false });
-
-    document.addEventListener('gesturestart', function(e) {
+// Disable double tap and gestures for zoom prevention
+document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener(
+    "touchstart",
+    function (e) {
+      if (e.touches.length > 1) {
         e.preventDefault();
-    }, { passive: false });
+      }
+    },
+    { passive: false }
+  );
+
+  document.addEventListener(
+    "gesturestart",
+    function (e) {
+      e.preventDefault();
+    },
+    { passive: false }
+  );
 });
 
-
-
-// DOUBLE TAP FUNCTION REMOVER???
-document.addEventListener('touchstart', function(e) {
+// DOUBLE TAP FUNCTION REMOVER
+document.addEventListener(
+  "touchstart",
+  function (e) {
     if (e.touches.length > 1) {
-        e.preventDefault();
+      e.preventDefault();
     }
-}, { passive: false });
+  },
+  { passive: false }
+);
 
-
-document.addEventListener('gesturestart', function(e) {
-    e.preventDefault();
+document.addEventListener("gesturestart", function (e) {
+  e.preventDefault();
 });
