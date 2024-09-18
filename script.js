@@ -53,10 +53,10 @@ function getRandomErrorMessage() {
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent form submission
 
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-    // Check if the username exists in the map
+    // Check if the username exists in the credentials
     if (userCredentials[username]) {
         const credentials = userCredentials[username];
         
