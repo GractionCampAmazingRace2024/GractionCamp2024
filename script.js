@@ -52,12 +52,72 @@ function getRandomErrorMessage() {
 }
 
 
+// document.getElementById('loginForm').addEventListener('submit', function(e) {
+//     e.preventDefault(); // Prevent form submission
+
+//     const username = document.getElementById('username').value;
+//     const password = document.getElementById('password').value;
+
+
+//     // Check if the username exists in the map
+//     if (userCredentials[username]) {
+//         const credentials = userCredentials[username];
+        
+//         const userData = credentials.find(cred => cred.password === password);
+
+//         if (userData) {
+//             // Set sessionStorage to track login status
+//             sessionStorage.setItem('authenticatedUser', username);
+//             sessionStorage.setItem('authenticatedPassword', password);
+
+//             // Redirect to the page if the password matches
+//             window.location.replace(userData.page);
+            
+
+//         } else {
+//             document.getElementById('errorMessage').textContent = getRandomErrorMessage();
+//         }
+//     } else {
+//         document.getElementById('errorMessage').textContent = getRandomErrorMessage();
+//     }
+// });
+
+
+// function returnToIndex() {
+//     window.location.replace('/GractionCamp2024/index.html'); // Use replace to prevent back navigation
+// }
+
+
+document.querySelector('.dropdown-button').addEventListener('click', function() {
+    document.querySelector('.dropdown-content').classList.toggle('show');
+});
+
+document.querySelectorAll('.dropdown-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const value = this.getAttribute('data-value');
+        document.querySelector('#teamSelection').value = value;
+        document.querySelector('.dropdown-button').textContent = this.textContent;
+        document.querySelector('.dropdown-content').classList.remove('show');
+    });
+});
+
+// Close dropdown if clicked outside
+window.addEventListener('click', function(event) {
+    if (!event.target.matches('.dropdown-button')) {
+        const dropdowns = document.querySelectorAll('.dropdown-content');
+        dropdowns.forEach(dropdown => {
+            if (dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+            }
+        });
+    }
+});
+
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent form submission
 
-    const username = document.getElementById('username').value;
+    const username = document.getElementById('teamSelection').value; // Get the selected team from the custom dropdown
     const password = document.getElementById('password').value;
-
 
     // Check if the username exists in the map
     if (userCredentials[username]) {
@@ -72,7 +132,6 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
             // Redirect to the page if the password matches
             window.location.replace(userData.page);
-            
 
         } else {
             document.getElementById('errorMessage').textContent = getRandomErrorMessage();
@@ -82,9 +141,6 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     }
 });
 
-
 function returnToIndex() {
     window.location.replace('/GractionCamp2024/index.html'); // Use replace to prevent back navigation
 }
-
-

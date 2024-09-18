@@ -47,17 +47,17 @@
     <div class="login-container">
         <h2>Graction Camp Amazing Race 2024</h2>
         <form id="loginForm">
-            <div class="input-container">
-                <label for="username">Select Your Team:</label>
-                <select id="username" name="username" required>
-                    <option value="" disabled selected>Select your team</option>
-                    <option value="green" style="background-color:greenyellow">Green</option>
-                    <option value="purple" style="background-color:rgb(206, 63, 206)">Purple</option>
-                    <option value="blue" style="background-color: rgb(24, 199, 223)">Blue</option>
-                    <option value="orange" style="background-color:rgb(233, 117, 8)">Orange</option>
-                    <option value="yellow" style="background-color:yellow">Yellow</option>
-                    <option value="admin" style="background-color:rgb(226, 0, 0)">Admin</option>
-                </select>
+            <div class="custom-dropdown">
+                <button class="dropdown-button">Select Your Team</button>
+                <div class="dropdown-content">
+                    <div class="dropdown-item" data-value="green" style="background-color:greenyellow;">Green</div>
+                    <div class="dropdown-item" data-value="purple" style="background-color:rgb(206, 63, 206);">Purple</div>
+                    <div class="dropdown-item" data-value="blue" style="background-color:rgb(24, 199, 223);">Blue</div>
+                    <div class="dropdown-item" data-value="orange" style="background-color:rgb(233, 117, 8);">Orange</div>
+                    <div class="dropdown-item" data-value="yellow" style="background-color:yellow;">Yellow</div>
+                    <div class="dropdown-item" data-value="admin" style="background-color:rgb(226, 0, 0);">Admin</div>
+                </div>
+                <input type="hidden" id="teamSelection" name="teamSelection" required>
             </div>
             <div class="input-container">
                 <label for="password">Type Secret Clue Key:</label>
@@ -66,8 +66,8 @@
             <button type="submit">Check Clue</button>
             <p id="errorMessage" class="error-message"></p>
         </form>
-        <h2>Version 1.7</h2>
-        <p>manifest</p>
+        <h2><br>Version 1.8</h2>
+        <p>Custom Drop Down Menu</p>
     </div>
 
 
