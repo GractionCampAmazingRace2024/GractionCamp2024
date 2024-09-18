@@ -85,6 +85,8 @@ self.addEventListener('fetch', event => {
     );
 });
 
+
+
 // Optional: Handle messages for fullscreen requests
 self.addEventListener('message', event => {
     if (event.data && event.data.action === 'requestFullscreen') {

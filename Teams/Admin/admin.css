@@ -7,8 +7,10 @@ html, body {
     width: 100vw;      
     height: 100vh;
     background-color: red;     
+  
     touch-action: none; /* Prevents touch scrolling */
     overscroll-behavior: none; /* Prevents scroll bounce */
+    scroll-snap-type: none;
 
 }
 

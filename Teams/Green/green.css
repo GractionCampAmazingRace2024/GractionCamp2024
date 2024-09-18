@@ -8,6 +8,7 @@ html, body {
     height: 100vh;    
     touch-action: none; /* Prevents touch scrolling */
     overscroll-behavior: none; /* Prevents scroll bounce */
+    scroll-snap-type: none;
 }
 
 body {

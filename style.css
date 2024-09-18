@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-snap-type: none;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
@@ -13,14 +14,15 @@
 html {
     margin: 0;
     padding: 0;
+    background-color: yellow;
+
     overflow: hidden;  
     overflow-y: hidden; 
     overflow-x: hidden;    
-    background-color: yellow;
     touch-action: none; /* Prevents touch scrolling */
     overscroll-behavior: none; /* Prevents scroll bounce */
-    overflow-x: hidden; /* Prevents horizontal scrolling */
-    padding-bottom: env(safe-area-inset-bottom); /* supposedly blocks the apple home bar */
+    scroll-snap-type: none;
+
 }
 
 .mainBody {
