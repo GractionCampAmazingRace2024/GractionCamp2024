@@ -68,6 +68,7 @@ body {
     background-color:transparent;
     outline: none;
     border: none;
+    z-index: 1000;
 
 
 }
