@@ -45,13 +45,14 @@ const errorMessages = [
     'You miss all the shots you dont take... I guess...'
 ];
 
+
 function getRandomErrorMessage() {
     const randomIndex = Math.floor(Math.random() * errorMessages.length);
     return errorMessages[randomIndex];
 }
 
-document.querySelector('.dropdown-button').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent form submission on dropdown button click
+
+document.querySelector('.dropdown-button').addEventListener('click', function() {
     document.querySelector('.dropdown-content').classList.toggle('show');
 });
 
@@ -103,3 +104,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         document.getElementById('errorMessage').textContent = getRandomErrorMessage();
     }
 });
+
+function returnToIndex() {
+    window.location.replace('/GractionCamp2024/index.html'); // Use replace to prevent back navigation
+}

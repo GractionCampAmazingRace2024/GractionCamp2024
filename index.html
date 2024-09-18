@@ -38,13 +38,15 @@
         /* Include your CSS here */
     </style>
 </head>
+
 <body class="mainBody">
+    
     <div class="login-container">
         <h2>Graction Camp Amazing Race 2024</h2>
         <form id="loginForm">
-            <p style="text-align:left;">Select Your Team:</p>
+            <p>Select Your Team:</p>
             <div class="custom-dropdown">
-                <button class="dropdown-button"> 𖨆 𖨆 𖨆 𖨆 𖨆 </button>
+                <button class="dropdown-button">𖨆 𖨆 𖨆 𖨆 𖨆</button>
                 <div class="dropdown-content">
                     <div class="dropdown-item" data-value="green" id="option-green">Green</div>
                     <div class="dropdown-item" data-value="purple" id="option-purple">Purple</div>
@@ -53,38 +55,22 @@
                     <div class="dropdown-item" data-value="yellow" id="option-yellow">Yellow</div>
                     <div class="dropdown-item" data-value="admin" id="option-admin">Admin</div>
                 </div>
-                <input type="hidden" id="teamSelection" name="teamSelection">
+                <input type="hidden" id="teamSelection" name="teamSelection" required>
             </div>
-            <br>
             <div class="input-container">
                 <label for="password">Type Secret Clue Key:</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" required>
             </div>
             <button type="submit">Check Clue</button>
             <p id="errorMessage" class="error-message"></p>
         </form>
-        <h2><br>Version 1.86</h2>
-        <p>Custom DD Menu 0.o </p>
+        <h2><br>Version 1.87</h2>
+        <p>Custom Drop Down Menu</p>
     </div>
+
+
     <script src="script.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const dropdownButton = document.querySelector('.dropdown-button');
-            const dropdownContent = document.querySelector('.dropdown-content');
-
-            dropdownButton.addEventListener('click', function() {
-                dropdownContent.classList.toggle('show');
-            });
-
-            dropdownContent.addEventListener('click', function(event) {
-                const target = event.target;
-                if (target.classList.contains('dropdown-item')) {
-                    dropdownButton.textContent = target.textContent;
-                    dropdownContent.classList.remove('show');
-                }
-            });
-        });
-
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/GractionCamp2024/sw.js')
             .then(registration => {
@@ -95,5 +81,6 @@
             });
         }
     </script>
+    
 </body>
 </html>
