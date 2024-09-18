@@ -13,6 +13,7 @@ html {
     background-color: yellow;
     touch-action: none; /* Prevents touch scrolling */
     overscroll-behavior: none; /* Prevents scroll bounce */
+    padding-bottom: env(safe-area-inset-bottom); /* supposedly blocks the apple home bar */
 }
 
 .mainBody {
