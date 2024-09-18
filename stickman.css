@@ -4,7 +4,7 @@ section.world {
     width: 101vw;
     height: 20vh;
     left: 50%;
-    bottom: -10vh;
+    bottom: -9vh;
     box-shadow: 0 15px 10px -10px #8f6e0a;
     transform: translate(-50%, -50%);
   }
