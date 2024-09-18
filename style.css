@@ -58,12 +58,25 @@ label {
     color: #555;
 }
 
-input, .dropdown-button {
+input {
     width: 100%;
     padding: 1vw;
     border: 1px solid #555;
     border-radius: 0.5vw;
     font-size: 1vw;
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-button {
+    width: 100%;
+    padding: 1vw;
+    border: 1px solid #ccc;
+    border-radius: 0.5vw;
+    background-color: white;
+    color: #333;
+    font-size: calc(min(5vw, 5vh));
+    text-align: left;
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
 }
 
 button {
@@ -75,8 +88,8 @@ button {
     color: rgb(0, 0, 0);
     font-size: 1vw;
     cursor: pointer;
+    margin-top: 1vw; /* Add margin to create space between input and button */
 }
-
 
 .error-message {
     color: red;
@@ -95,18 +108,6 @@ button {
     position: relative;
     display: inline-block;
     width: 100%;
-}
-
-.dropdown-button {
-    width: 100%;
-    padding: 1vw;
-    border: 1px solid #ccc;
-    border-radius: 0.5vw;
-    background-color: white;
-    color: #333;
-    font-size: calc(min(5vw, 5vh));
-    text-align: left;
-    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
 }
 
 .dropdown-content {
