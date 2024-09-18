@@ -41,22 +41,25 @@ const errorMessages = [
     'Are you even trying?',
     'Missed your shot...No Rizz',
     'You got this one day!',
-    'At least you know what not to do',
-    'You miss all the shots you don\'t take... I guess...'
+    'Atleast you know what not to do',
+    'You miss all the shots you dont take... I guess...'
 ];
+
 
 function getRandomErrorMessage() {
     const randomIndex = Math.floor(Math.random() * errorMessages.length);
     return errorMessages[randomIndex];
 }
 
+
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent form submission
 
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value.trim();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-    // Check if the username exists in the credentials
+
+    // Check if the username exists in the map
     if (userCredentials[username]) {
         const credentials = userCredentials[username];
         
@@ -68,7 +71,9 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
             sessionStorage.setItem('authenticatedPassword', password);
 
             // Redirect to the page if the password matches
-            window.location.replace(userData.page); // Use replace to prevent back navigation
+            window.location.href = userData.page;
+            history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry
+            history.pushState(null, null, '/GractionCamp2024/index.html'); // Push another fake entry for forward
 
         } else {
             document.getElementById('errorMessage').textContent = getRandomErrorMessage();
@@ -78,6 +83,11 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     }
 });
 
+
 function returnToIndex() {
-    window.location.replace('/GractionCamp2024/index.html'); // Use replace to prevent back navigation
+    window.location.href = '/GractionCamp2024/index.html';
+    history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry
+    history.pushState(null, null, '/GractionCamp2024/index.html'); // Push another fake entry for forward
 }
+
+
