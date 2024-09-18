@@ -17,7 +17,8 @@ html {
         black 66.66%,   /* Middle third */
         yellow 66.66%   /* Bottom third */
     );
-    position:absolute;
+    touch-action: none; /* Prevents touch scrolling */
+    overscroll-behavior: none; /* Prevents scroll bounce */
 }
 
 .mainBody {

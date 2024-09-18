@@ -7,7 +7,9 @@ html, body {
     width: 100vw;      
     height: 100vh;
     background-color: red;     
-    position:absolute;
+    touch-action: none; /* Prevents touch scrolling */
+    overscroll-behavior: none; /* Prevents scroll bounce */
+
 }
 
 body {
@@ -25,6 +27,7 @@ body {
     height: 100vh;
     display: flex;
     justify-content: center; /* Horizontally centers middleStripe */
+    position:absolute;
 }
 
 .middleStripe{
