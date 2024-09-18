@@ -8,7 +8,6 @@ html, body {
     height: 100vh;    
     touch-action: none; /* Prevents touch scrolling */
     overscroll-behavior: none; /* Prevents scroll bounce */
-
 }
 
 body {
@@ -18,8 +17,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
+
+
 
 .threeStripe{
     width: 100vw;

@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    html, body {
+        touch-action: none;
+    }
+}
+
 html {
     margin: 0;
     padding: 0;
