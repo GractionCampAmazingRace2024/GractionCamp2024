@@ -141,11 +141,14 @@ section.world {
     height: 20px;
     right: -160px;
     background: rgb(216, 215, 215) !important;
+
   }
   
   .cloud.one {
     width: 14vw;
     height: 8vw;
+    max-width: 50px;
+    max-height: 50px;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
@@ -163,6 +166,8 @@ section.world {
   .cloud.two {
     width: 8vw;
     height: 8vw;
+    max-width: 50px;
+    max-height: 50px;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
@@ -180,6 +185,8 @@ section.world {
   .cloud.three {
     width: 10vw;
     height: 6vw;
+    max-width: 50px;
+    max-height: 50px;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
@@ -197,6 +204,8 @@ section.world {
   .cloud.four {
     width: 4vw;
     height: 2.4vw;
+    max-width: 50px;
+    max-height: 50px;
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;

@@ -115,3 +115,16 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 function returnToIndex() {
     window.location.replace('/GractionCamp2024/index.html'); // Use replace to prevent back navigation
 }
+
+
+function goFullscreen() {
+    if (document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen();
+    } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+      document.documentElement.mozRequestFullScreen();
+    } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+      document.documentElement.webkitRequestFullscreen();
+    } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+      document.documentElement.msRequestFullscreen();
+    }
+  }
