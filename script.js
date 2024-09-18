@@ -81,6 +81,7 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
     // Update border color and gradient based on the selected team
     const color = teamColors[value];
     if (color) {
+      document.querySelector(".login-container").style.animation = 'none'; // Stop the animation
       document.querySelector(".login-container").style.borderColor = color;
       document.querySelector(".login-container").style.boxShadow = `0 0 10px ${color}`;
       document.getElementById("gradient-submit").style.background = `linear-gradient(to bottom, ${color} 20%, black 20%, black 80%, ${color} 80%)`;

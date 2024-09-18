@@ -109,7 +109,9 @@ button {
         black 80%,   /* Middle third */
         yellow 80%   /* Bottom third */
     );
-    /* background: #6faf2b; */
+    text-align: center;
+    align-items: center;
+    align-content: center;
 }
 
 button:hover {
