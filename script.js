@@ -89,5 +89,3 @@ function returnToIndex() {
     history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry
     history.pushState(null, null, '/GractionCamp2024/index.html'); // Push another fake entry for forward
 }
-
-

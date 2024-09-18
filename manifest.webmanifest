@@ -3,53 +3,51 @@
   "short_name": "Amazing Race",
   "start_url": "/GractionCamp2024/index.html",
   "display": "fullscreen",
-  "scope": "/",
+  "scope": "/GractionCamp2024/",
   "background_color": "#FFFF00",
   "theme_color": "#FFFF00",
-  "description": "The Amazing Race 2024 Web App",
+  "description": "Graction Camp 2024 Amazing Race Web Application",
   "icons": [
     {
-    "src": "/Images/android-chrome-192x192.png",
-    "type": "image/png",
-    "sizes": "192x192"
+      "src": "/GractionCamp2024/Images/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
     },
     {
-      "src": "Images/android-chrome-512x512.png",
-      "type": "icons/512.png",
+      "src": "/GractionCamp2024/Images/android-chrome-512x512.png",
+      "type": "image/png",
       "sizes": "512x512"
-   },
-   {
-    "src": "Images/android-chrome-512x512.png",
-    "type": "icons/512.png",
-    "sizes": "512x512"
     },
     {
-      "src": "/icons/512-maskable.png",
-      "type": "Images/android-chrome-512x512.png",
+      "src": "/GractionCamp2024/Images/android-chrome-512-maskable.png",
+      "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
-   },
-   {
-    "src": "/GractionCamp2024/Images/android-chrome-192x192.png",
-    "type": "image/png",
-    "sizes": "192x192"
     },
     {
-      "src": "/GractionCamp2024Images/android-chrome-512x512.png",
-      "type": "icons/512.png",
-      "sizes": "512x512"
-   },
-   {
-    "src": "/GractionCamp2024Images/android-chrome-512x512.png",
-    "type": "icons/512.png",
-    "sizes": "512x512"
+      "src": "/GractionCamp2024/Images/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180" 
     },
     {
-      "src": "/GractionCamp2024Images/android-chrome-512x512.png",
-      "type": "/icons/512-maskable.png",
-      "sizes": "512x512",
-      "purpose": "maskable"
-   }
+      "src": "/GractionCamp2024/Images/favicon-16x16.png",
+      "type": "image/png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "/GractionCamp2024/Images/favicon-32x32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/GractionCamp2024/Images/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/GractionCamp2024/Images/amazing-race.png",
+      "type": "image/png",
+      "sizes": "792x510"  
+    }
   ]
 }
-
