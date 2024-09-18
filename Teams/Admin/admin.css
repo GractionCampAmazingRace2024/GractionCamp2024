@@ -22,7 +22,6 @@ body {
 .threeStripe{
     width: 100vw;
     height: 100vh;
-    background-color: red;
     display: flex;
     justify-content: center; /* Horizontally centers middleStripe */
 }
@@ -62,10 +61,10 @@ body {
     left:0vw;
     padding: 0;
     margin: 0;
-    background-color: red;
+    background-color:transparent;
+    outline: none;
     border: none;
-    font-size: calc(min(5vw, 5vh));
-    
+
 
 }
 
@@ -74,4 +73,6 @@ body {
     transform: rotate(-90deg);
     transform-origin: center;
     white-space: nowrap;
+    font-size: calc(min(5vw, 5vh));
+    color: rgb(92, 0, 0);
 }

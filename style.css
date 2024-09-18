@@ -10,6 +10,13 @@ html {
     overflow: hidden;  
     overflow-y: hidden; 
     overflow-x: hidden;    
+    background: linear-gradient(
+        to bottom,
+        yellow 33.33%,  /* Top third */
+        black 33.33%,   /* Middle third */
+        black 66.66%,   /* Middle third */
+        yellow 66.66%   /* Bottom third */
+    );
 }
 
 .mainBody {
@@ -18,13 +25,6 @@ html {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(
-        to bottom,
-        yellow 33.33%,  /* Top third */
-        black 33.33%,   /* Middle third */
-        black 66.66%,   /* Middle third */
-        yellow 66.66%   /* Bottom third */
-    );
 }
 
 .login-container {

@@ -3,7 +3,8 @@ html, body {
     padding: 0;
     overflow: hidden;  
     width: 100vw;      
-    height: 100vh;     
+    height: 100vh;  
+    background-color: blue;   
 }
 
 body {
@@ -19,7 +20,7 @@ body {
 .threeStripe{
     width: 100vw;
     height: 100vh;
-    background-color: blue;
+
     display: flex;
     justify-content: center; /* Horizontally centers middleStripe */
 }
@@ -61,8 +62,7 @@ body {
     margin: 0;
     background-color: blue;
     border: none;
-    font-size: calc(min(5vw, 5vh));
-    
+
 
 }
 
@@ -71,4 +71,6 @@ body {
     transform: rotate(-90deg);
     transform-origin: center;
     white-space: nowrap;
+    font-size: calc(min(5vw, 5vh));
+    color:aqua;
 }
