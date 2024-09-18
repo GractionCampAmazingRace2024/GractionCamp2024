@@ -125,7 +125,7 @@ button {
     padding: 1vw;
     font-size: 1vw;
     text-align: left;
-    
+    z-index: 1000;
 }
 
 .show {
