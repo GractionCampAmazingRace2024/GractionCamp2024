@@ -53,7 +53,7 @@ function getRandomErrorMessage() {
 // Clear error message on dropdown click
 document.querySelector('.dropdown-button').addEventListener('click', function() {
     document.querySelector('.dropdown-content').classList.toggle('show');
-    document.getElementById('errorMessage').textContent = ''; // Clear error message on dropdown click
+    document.getElementById('errorMessage').textContent = ''; 
 });
 
 document.querySelectorAll('.dropdown-item').forEach(item => {
@@ -62,12 +62,13 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
         document.querySelector('#teamSelection').value = value;
         document.querySelector('.dropdown-button').textContent = this.textContent;
         document.querySelector('.dropdown-content').classList.remove('show');
-        document.getElementById('errorMessage').textContent = ''; // Clear error message on team selection
+        document.getElementById('errorMessage').textContent = ''; 
     });
 });
 
 // Close dropdown if clicked outside
 window.addEventListener('click', function(event) {
+    
     if (!event.target.matches('.dropdown-button')) {
         const dropdowns = document.querySelectorAll('.dropdown-content');
         dropdowns.forEach(dropdown => {
@@ -76,6 +77,7 @@ window.addEventListener('click', function(event) {
             }
         });
     }
+    document.getElementById('errorMessage').textContent = ''; 
 });
 
 // Only show error message after form submission

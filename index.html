@@ -28,25 +28,28 @@
 
     <link rel="manifest" href="/GractionCamp2024/manifest.json">
     <link rel="stylesheet" href="/GractionCamp2024/style.css">
+    <link rel="stylesheet" href="/GractionCamp2024/stickman.css">
 
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="stickman.css">
 
     <title>AMAZING RACE 2024</title>
-    <style>
-        /* Include your CSS here */
-    </style>
+
 </head>
 
+
+
+
 <body class="mainBody">
+    
     
     <div class="login-container">
         <h2>Graction Camp Amazing Race 2024</h2>
         <form id="loginForm">
             <p>Select Your Team:</p>
             <div class="custom-dropdown">
-                <button class="dropdown-button">𖨆 𖨆 𖨆 𖨆 𖨆</button>
+                <button class="dropdown-button" type="button">𖨆 𖨆 𖨆 𖨆 𖨆</button>
                 <div class="dropdown-content">
                     <div class="dropdown-item" data-value="green" id="option-green">Green</div>
                     <div class="dropdown-item" data-value="purple" id="option-purple">Purple</div>
@@ -64,11 +67,51 @@
             <button type="submit">Check Clue</button>
             <p id="errorMessage" class="error-message"></p>
         </form>
-        <h2><br>Version 1.872</h2>
-        <p>Custom Drop Down Menu :)</p>
+        <h2><br>Version 1.9</h2>
+        <p>Animations And no bug fixing yet to do later :)</p>
     </div>
 
-
+    <section class="world">
+        <div class="back one"></div>
+        <div class="back two"></div>
+        <div class="back three"></div>
+        <div class="back four"></div>
+        <div class="floor">
+          <div class="rock one"></div>
+          <div class="rock two"></div>
+          <div class="rock three"></div>
+          <div class="grass one"></div>
+          <div class="grass two"></div>
+          <div class="grass three"></div>
+          <div class="grass four"></div>
+          <div class="grass five"></div>
+          <div class="grass six"></div>
+          <div class="grass seven"></div>
+          <div class="grass height"></div>
+          <div class="grass nine"></div>
+          <div class="grass ten"></div>
+        </div>
+        <div class="cloud one"></div>
+        <div class="cloud two"></div>
+        <div class="cloud three"></div>
+        <div class="cloud four"></div>
+        <div class="stick">
+          <div class="head"></div>
+          <div class="arm left">
+            <div class="bottom"></div>
+          </div>
+          <div class="arm right">
+            <div class="bottom"></div>
+          </div>
+          <div class="leg left">
+            <div class="bottom"></div>
+          </div>
+          <div class="leg right">
+            <div class="bottom"></div>
+          </div>
+        </div>
+      </section>
+      
     <script src="script.js"></script>
     <script>
         if ('serviceWorker' in navigator) {

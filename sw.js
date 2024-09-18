@@ -5,6 +5,7 @@ const resourcesToCache = [
     '/GractionCamp2024/',   // Check that this doesnt break anything
     '/GractionCamp2024/index.html',
     '/GractionCamp2024/style.css',
+    '/GractionCamp2024/stickman.css',
     '/GractionCamp2024/script.js',
     '/GractionCamp2024/manifest.json',
 
