@@ -13,6 +13,7 @@ html {
     background-color: yellow;
     touch-action: none; /* Prevents touch scrolling */
     overscroll-behavior: none; /* Prevents scroll bounce */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
     padding-bottom: env(safe-area-inset-bottom); /* supposedly blocks the apple home bar */
 }
 
@@ -30,6 +31,8 @@ html {
         black 66.66%,   /* Middle third */
         yellow 66.66%   /* Bottom third */
     );
+    touch-action: none; /* Disables all touch actions including zooming */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
 .login-container {
@@ -79,6 +82,9 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    background-color: #b9b9b9;
+}
 
 .error-message {
     color: red;
