@@ -48,7 +48,7 @@ body {
     position: absolute;
     font-size: calc(min(8vw, 8vh));
     padding: min(2vh, 2vw);
-    
+    background-color: #01b0f1;
 }
 
 
@@ -60,7 +60,7 @@ body {
     left:0vw;
     padding: 0;
     margin: 0;
-    background-color: blue;
+    background-color: #01b0f1;
     border: none;
 
 
@@ -72,5 +72,5 @@ body {
     transform-origin: center;
     white-space: nowrap;
     font-size: calc(min(5vw, 5vh));
-    color:aqua;
+    color:#035979;
 }
