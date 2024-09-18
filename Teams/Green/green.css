@@ -11,6 +11,14 @@ html, body {
     scroll-snap-type: none;
 }
 
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    html, body {
+        touch-action: none;
+        overscroll-behavior: none; /* Prevents scroll bounce */
+        scroll-snap-type: none;
+    }
+}
+
 body {
     font-family: Arial, sans-serif;
     color: white;
