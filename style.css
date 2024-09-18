@@ -127,11 +127,11 @@ button {
     display: block;
 }
 /* Color Styles for Each Team - Consider using a custom dropdown */
-#option-green { background-color: greenyellow; }
-#option-purple { background-color: rgb(206, 63, 206); }
-#option-blue { background-color: rgb(24, 199, 223); }
-#option-orange { background-color: rgb(233, 117, 8); }
-#option-yellow { background-color: yellow; }
-#option-admin { background-color: rgb(255, 0, 0); }
+#option-green { background-color: #92d14f; }
+#option-purple { background-color: #cd66ff; }
+#option-blue { background-color: #01b0f1; }
+#option-orange { background-color: #ffc000; }
+#option-yellow { background-color: yellow; } 
+#option-admin { background-color: red; }
 
 
