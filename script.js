@@ -74,6 +74,9 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
             window.location.href = userData.page;
             history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry
             history.pushState(null, null, '/GractionCamp2024/index.html'); // Push another fake entry for forward
+            window.history.pushState({ page: 1 }, "", window.location.href);
+
+            
 
         } else {
             document.getElementById('errorMessage').textContent = getRandomErrorMessage();
@@ -91,3 +94,11 @@ function returnToIndex() {
 }
 
 
+
+window.onpopstate = function (event) {
+    // This prevents users from navigating back or forward
+    history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry again
+
+    // Optionally, display a custom message or action
+    alert("Navigation via back or forward swipe is disabled. Please use the 'Return to Index' button.");
+};
