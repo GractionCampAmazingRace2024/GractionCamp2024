@@ -1,24 +1,24 @@
 const userCredentials = {
     'green': [
-        { password: 'green', page: 'Teams/Green/green.html' }
+        { password: 'green', page: '/GractionCamp2024/Teams/Green/green.html' }
     ],
     'purple': [
-        { password: 'purple', page: 'Teams/Purple/purple.html' }
+        { password: 'purple', page: '/GractionCamp2024/Teams/Purple/purple.html' }
     ],
     'blue': [
-        { password: 'blue', page: 'Teams/Blue/blue.html' }
+        { password: 'blue', page: '/GractionCamp2024/Teams/Blue/blue.html' }
     ],
     'orange': [
-        { password: 'orange', page: 'Teams/Orange/orange.html' }
+        { password: 'orange', page: '/GractionCamp2024/Teams/Orange/orange.html' }
     ],
     'yellow': [
-        { password: 'yellow', page: 'Teams/Yellow/yellow.html' },
-        { password: 'jovin', page: 'Teams/Yellow/yellowclue1.html' }
+        { password: 'yellow', page: '/GractionCamp2024/Teams/Yellow/yellow.html' },
+        { password: 'jovin', page: '/GractionCamp2024/Teams/Yellow/yellowclue1.html' }
     ],
     'admin': [
-        { password: 'admin', page: 'Teams/Admin/admin.html' },
-        { password: 'challenge1', page: 'Teams/Admin/admin1.html' },
-        { password: 'challenge2', page: 'Teams/Admin/admin2.html' }
+        { password: 'admin', page: '/GractionCamp2024/Teams/Admin/admin.html' },
+        { password: 'challenge1', page: '/GractionCamp2024/Teams/Admin/admin1.html' },
+        { password: 'challenge2', page: '/GractionCamp2024/Teams/Admin/admin2.html' }
     ],
 };
 
@@ -71,9 +71,8 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
             sessionStorage.setItem('authenticatedPassword', password);
 
             // Redirect to the page if the password matches
-            window.location.href = userData.page;
-            history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry
-            history.pushState(null, null, '/GractionCamp2024/index.html'); // Push another fake entry for forward
+            window.location.replace(userData.page);
+            
 
         } else {
             document.getElementById('errorMessage').textContent = getRandomErrorMessage();
@@ -85,9 +84,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
 
 function returnToIndex() {
-    window.location.href = '/GractionCamp2024/index.html';
-    history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry
-    history.pushState(null, null, '/GractionCamp2024/index.html'); // Push another fake entry for forward
+    window.location.replace('/GractionCamp2024/index.html'); // Use replace to prevent back navigation
 }
 
 
