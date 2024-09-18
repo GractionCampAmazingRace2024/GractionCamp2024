@@ -23,6 +23,8 @@ html {
     overscroll-behavior: none; /* Prevents scroll bounce */
     scroll-snap-type: none;
 
+    padding-bottom: env(safe-area-inset-bottom);
+
 }
 
 .mainBody {
@@ -41,6 +43,7 @@ html {
     );
     touch-action: none; /* Disables all touch actions including zooming */
     overflow-x: hidden; /* Prevents horizontal scrolling */
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 .login-container {
