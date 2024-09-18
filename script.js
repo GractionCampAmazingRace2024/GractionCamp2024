@@ -45,15 +45,15 @@ const errorMessages = [
     'You miss all the shots you dont take... I guess...'
 ];
 
-
 function getRandomErrorMessage() {
     const randomIndex = Math.floor(Math.random() * errorMessages.length);
     return errorMessages[randomIndex];
 }
 
-
+// Clear error message on dropdown click
 document.querySelector('.dropdown-button').addEventListener('click', function() {
     document.querySelector('.dropdown-content').classList.toggle('show');
+    document.getElementById('errorMessage').textContent = ''; // Clear error message on dropdown click
 });
 
 document.querySelectorAll('.dropdown-item').forEach(item => {
@@ -62,6 +62,7 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
         document.querySelector('#teamSelection').value = value;
         document.querySelector('.dropdown-button').textContent = this.textContent;
         document.querySelector('.dropdown-content').classList.remove('show');
+        document.getElementById('errorMessage').textContent = ''; // Clear error message on team selection
     });
 });
 
@@ -77,11 +78,15 @@ window.addEventListener('click', function(event) {
     }
 });
 
+// Only show error message after form submission
 document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent form submission
+    e.preventDefault(); 
 
-    const username = document.getElementById('teamSelection').value; // Get the selected team from the custom dropdown
+    const username = document.getElementById('teamSelection').value; 
     const password = document.getElementById('password').value;
+
+    // Clear previous error message
+    document.getElementById('errorMessage').textContent = '';
 
     // Check if the username exists in the map
     if (userCredentials[username]) {
@@ -93,14 +98,14 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
             // Set sessionStorage to track login status
             sessionStorage.setItem('authenticatedUser', username);
             sessionStorage.setItem('authenticatedPassword', password);
-
-            // Redirect to the page if the password matches
             window.location.replace(userData.page);
 
         } else {
+            // Show error message only if the password is incorrect
             document.getElementById('errorMessage').textContent = getRandomErrorMessage();
         }
     } else {
+        // Show error message if the username is invalid
         document.getElementById('errorMessage').textContent = getRandomErrorMessage();
     }
 });
