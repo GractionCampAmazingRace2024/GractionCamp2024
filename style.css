@@ -58,37 +58,54 @@ label {
     color: #555;
 }
 
-input {
-    width: 100%;
-    padding: 1vw;
-    border: 1px solid #555;
-    border-radius: 0.5vw;
-    font-size: 1vw;
-    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
-}
-
+input,
+button,
 .dropdown-button {
     width: 100%;
     padding: 1vw;
-    border: 1px solid #ccc;
     border-radius: 0.5vw;
-    background-color: white;
-    color: #333;
-    font-size: calc(min(5vw, 5vh));
-    text-align: left;
     box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
+    font-size: 1vw; /* Adjust as needed for consistent sizing */
+}
+
+input {
+    border: 1px solid #555;
 }
 
 button {
-    width: 100%;
-    padding: 1vw;
     background-color: yellow;
     border: none;
-    border-radius: 0.5vw;
     color: rgb(0, 0, 0);
-    font-size: 1vw;
     cursor: pointer;
-    margin-top: 1vw; /* Add margin to create space between input and button */
+    margin-top: 1vw; /* Space between input and button */
+}
+
+.dropdown-button {
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #333;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 0.5vw;
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.dropdown-item {
+    padding: 1vw;
+    font-size: calc(min(5vw, 5vh));
+    text-align: left;
+    cursor: pointer;
+}
+
+.show {
+    display: block;
 }
 
 .error-message {
@@ -103,31 +120,3 @@ button {
 .option-orange { background-color: rgb(233, 117, 8); }
 .option-yellow { background-color: yellow; }
 .option-admin { background-color: rgb(255, 0, 0); }
-
-.custom-dropdown {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    width: 100%;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 0.5vw;
-    z-index: 1;
-    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
-}
-
-.dropdown-item {
-    padding: 1vw;
-    font-size: calc(min(5vw, 5vh));
-    text-align: left;
-    z-index: 1000;
-}
-
-.show {
-    display: block;
-}
