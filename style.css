@@ -87,7 +87,7 @@ input, select {
 button {
     width: 100%;
     padding: 10px;
-    background-color: #646464;
+    background-color: #000000;
     border: none;
     border-radius: 4px;
     color: white;
@@ -143,6 +143,7 @@ button:hover {
     margin: 0;
     font-size: 24px; /* Adjust size as needed */
     line-height: 1; /* Prevent extra spacing between icons */
+    
 }
 
 .dropdown-content {
