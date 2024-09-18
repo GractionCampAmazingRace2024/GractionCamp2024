@@ -130,7 +130,7 @@ button:hover {
     background-color: white;
     color: #333;
     font-size: 16px;
-    text-align: left;
+    text-align: center;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
