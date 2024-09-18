@@ -2,7 +2,7 @@
   "name": "Amazing Race 2024",
   "short_name": "Amazing Race",
   "start_url": "/GractionCamp2024/index.html",
-  "display": "standalone",
+  "display": "fullscreen",
   "scope": "/",
   "background_color": "#FFFF00",
   "theme_color": "#FFFF00",

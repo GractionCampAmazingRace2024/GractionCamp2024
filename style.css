@@ -17,6 +17,7 @@ html {
         black 66.66%,   /* Middle third */
         yellow 66.66%   /* Bottom third */
     );
+    position:absolute;
 }
 
 .mainBody {
