@@ -24,10 +24,10 @@ html {
     width: 100vw;
     background: linear-gradient(
         to bottom,
-        yellow 20%,  /* Top third */
-        black 20%,   /* Middle third */
-        black 80%,   /* Middle third */
-        yellow 80%   /* Bottom third */
+        yellow 33%,  /* Top third */
+        black 33%,   /* Middle third */
+        black 66%,   /* Middle third */
+        yellow 66%   /* Bottom third */
     );
 }
 
