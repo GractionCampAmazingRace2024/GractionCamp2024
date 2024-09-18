@@ -2,14 +2,13 @@ const CACHE_NAME = 'static-cache-v1';
 const resourcesToCache = [
     // ROOT FOLDER
     '/',
-    '/GractionCamp2024/',   // Check that this doesnt break anything
+    '/GractionCamp2024/',
     '/GractionCamp2024/index.html',
     '/GractionCamp2024/style.css',
     '/GractionCamp2024/stickman.css',
     '/GractionCamp2024/script.js',
     '/GractionCamp2024/manifest.json',
 
-    // TO BE CHANGEd ===========================================================
     // IMAGES
     '/GractionCamp2024/Images/amazing-race.png',
     '/GractionCamp2024/Images/android-chrome-192x192.png',
@@ -19,49 +18,24 @@ const resourcesToCache = [
     '/GractionCamp2024/Images/favicon-32x32.png',
     '/GractionCamp2024/Images/favicon.ico',
 
-
-    
-
-
-
-
-    // ADMIN STUFFF FOR JONO ===================================================
+    // ADMIN STUFF
     '/GractionCamp2024/Teams/Admin/admin.css',
     '/GractionCamp2024/Teams/Admin/admin.html',
     '/GractionCamp2024/Teams/Admin/admin1.html',
     '/GractionCamp2024/Teams/Admin/admin2.html',
-    // ADMIN STUFFF FOR JONO ===================================================
-
-
-
-
 
     // TEAMS
-    
     '/GractionCamp2024/Teams/Blue/blue.css',
     '/GractionCamp2024/Teams/Blue/blue.html',
-
-
-
     '/GractionCamp2024/Teams/Green/green.css',
     '/GractionCamp2024/Teams/Green/green.html',
-
-
-
     '/GractionCamp2024/Teams/Orange/orange.css',
     '/GractionCamp2024/Teams/Orange/orange.html',
-
-
     '/GractionCamp2024/Teams/Purple/purple.css',
     '/GractionCamp2024/Teams/Purple/purple.html',
-
-
-
     '/GractionCamp2024/Teams/Yellow/yellow.css',
     '/GractionCamp2024/Teams/Yellow/yellow.html',
     '/GractionCamp2024/Teams/Yellow/yellowclue1.html',
-
-
 ];
 
 self.addEventListener('install', event => {
@@ -109,4 +83,15 @@ self.addEventListener('fetch', event => {
             throw error;
         })
     );
+});
+
+// Optional: Handle messages for fullscreen requests
+self.addEventListener('message', event => {
+    if (event.data && event.data.action === 'requestFullscreen') {
+        self.clients.matchAll().then(clients => {
+            clients.forEach(client => {
+                client.postMessage({ action: 'requestFullscreen' });
+            });
+        });
+    }
 });
