@@ -42,7 +42,22 @@ const errorMessages = [
     'Missed your shot...No Rizz',
     'You got this one day!',
     'Atleast you know what not to do',
-    'You miss all the shots you dont take... I guess...'
+    'You miss all the shots you dont take... I guess...',
+    'This is a whole mood… for the wrong reasons',
+    'Yikes! Not even close',
+    'L + Ratio',
+    'Not the vibes',
+    'Sus password',
+    "It's giving... Fail",
+    'Oopsies...',
+    'Hard Pass',
+    'No bueno...',
+    'You hate to see it...',
+    '...',
+    "That's a no from me",
+
+
+
 ];
 
 function getRandomErrorMessage() {
@@ -61,6 +76,10 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
         const value = this.getAttribute('data-value');
         document.querySelector('#teamSelection').value = value;
         document.querySelector('.dropdown-button').textContent = this.textContent;
+        
+        // Set the background color of the dropdown button
+        document.querySelector('.dropdown-button').style.backgroundColor = getComputedStyle(this).backgroundColor;
+
         document.querySelector('.dropdown-content').classList.remove('show');
         document.getElementById('errorMessage').textContent = ''; 
     });
@@ -68,7 +87,6 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
 
 // Close dropdown if clicked outside
 window.addEventListener('click', function(event) {
-    
     if (!event.target.matches('.dropdown-button')) {
         const dropdowns = document.querySelectorAll('.dropdown-content');
         dropdowns.forEach(dropdown => {
@@ -116,7 +134,6 @@ function returnToIndex() {
     window.location.replace('/GractionCamp2024/index.html'); // Use replace to prevent back navigation
 }
 
-
 function goFullscreen() {
     if (document.documentElement.requestFullscreen) {
       document.documentElement.requestFullscreen();
@@ -127,4 +144,4 @@ function goFullscreen() {
     } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
       document.documentElement.msRequestFullscreen();
     }
-  }
+}

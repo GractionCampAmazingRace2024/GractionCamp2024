@@ -79,9 +79,6 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #218838;
-}
 
 .error-message {
     color: red;
