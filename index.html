@@ -2,26 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> --> <!-- ================================ TO DELETE LATER =========================== -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
     <meta name="mobile-web-app-capable" content="yes">
 
-    <link rel="manifest" href="manifest.webmanifest"> <!-- ================================ TO DELETE LATER =========================== -->
-    <link rel="manifest" href="\GractionCamp2024\manifest.webmanifest">
+    <!-- Manifest File -->
+    <link rel="manifest" href="/GractionCamp2024/manifest.webmanifest">
 
-    <link rel="stylesheet" href="style.css">       <!-- ================================ TO DELETE LATER =========================== -->
-    <link rel="stylesheet" href="\GractionCamp2024\style.css">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/GractionCamp2024/style.css">
 
-
-
-    <!--  IOS SPECIFIC STUFF -->
+    <!-- iOS Specific Meta Tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Amazing Race">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <!-- iOS Specific Icons -->
+
+    <!-- iOS Specific Icons and Splash Screens -->
     <link rel="apple-touch-icon" href="/GractionCamp2024/Images/apple-touch-icon.png">
-    <!-- iOS Splash Screens -->
     <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png">
     <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-192x192.png" media="(device-width: 320px) and (device-height: 568px)">
     <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-512x512.png" media="(device-width: 375px) and (device-height: 667px)">
@@ -29,21 +25,20 @@
     <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-512x512.png" media="(device-width: 414px) and (device-height: 736px)">
     <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png" media="(device-width: 414px) and (device-height: 896px)">
 
+    <!-- Icons -->
+    <link rel="icon" href="/GractionCamp2024/Images/favicon.ico">
+    <link rel="icon" type="image/png" href="/GractionCamp2024/Images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/GractionCamp2024/Images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/GractionCamp2024/Images/android-chrome-192x192.png" sizes="192x192">
 
-    <link rel="icon" href="\GractionCamp2024\Images\favicon.ico">
-    <link rel="icon" type="image/png" href="\GractionCamp2024\Images\favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="\GractionCamp2024\Images\favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="\GractionCamp2024\\Images\android-chrome-192x192.png" sizes="192x192" />
-
-    <script src="\GractionCamp2024\script.js"></script>
+    <!-- JavaScript -->
+    <script src="/GractionCamp2024/script.js"></script>
     
     <title>AMAZING RACE 2024</title>
 
 </head>
 
-
 <body class="mainBody">
-    
     <div class="login-container">
         <h2>Graction Camp Amazing Race 2024</h2>
         <form id="loginForm">
@@ -66,12 +61,11 @@
             <button type="submit">Check Clue</button>
             <p id="errorMessage" class="error-message"></p>
         </form>
-        <h2>Version 1.53</h2>
-        <p>login</p>
+        <h2>Version 1.6</h2>
+        <p>login - forward slashes</p>
     </div>
 
-
-    <script src="script.js"></script>
+    <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/GractionCamp2024/sw.js')
@@ -83,6 +77,5 @@
             });
         }
     </script>
-    
 </body>
 </html>
