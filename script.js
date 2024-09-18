@@ -58,7 +58,8 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-
+    history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry
+    history.pushState(null, null, '/GractionCamp2024/index.html'); // Push another fake entry for forward
     // Check if the username exists in the map
     if (userCredentials[username]) {
         const credentials = userCredentials[username];
@@ -72,8 +73,8 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
             // Redirect to the page if the password matches
             window.location.href = userData.page;
-            history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry
-            history.pushState(null, null, '/GractionCamp2024/index.html'); // Push another fake entry for forward
+            // history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry
+            // history.pushState(null, null, '/GractionCamp2024/index.html'); // Push another fake entry for forward
 
         } else {
             document.getElementById('errorMessage').textContent = getRandomErrorMessage();
@@ -92,10 +93,3 @@ function returnToIndex() {
 
 
 
-window.onpopstate = function (event) {
-    // This prevents users from navigating back or forward
-    history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry again
-
-    // Optionally, display a custom message or action
-    alert("Navigation via back or forward swipe is disabled. Please use the 'Return to Index' button.");
-};
