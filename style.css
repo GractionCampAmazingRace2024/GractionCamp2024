@@ -87,8 +87,8 @@ input, select {
 button {
     width: 100%;
     padding: 10px;
-    background-color: #b9b9b9;
-    background-color: linear-gradient(
+    background-color: #646464;
+    background: linear-gradient(
         to bottom,
         yellow 33.33%,  /* Top third */
         black 33.33%,   /* Middle third */
@@ -103,7 +103,8 @@ button {
 }
 
 button:hover {
-    background-color: #646464;
+    background-color: #b9b9b9;
+    color:#333
 }
 
 .error-message {
