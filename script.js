@@ -52,42 +52,6 @@ function getRandomErrorMessage() {
 }
 
 
-// document.getElementById('loginForm').addEventListener('submit', function(e) {
-//     e.preventDefault(); // Prevent form submission
-
-//     const username = document.getElementById('username').value;
-//     const password = document.getElementById('password').value;
-
-
-//     // Check if the username exists in the map
-//     if (userCredentials[username]) {
-//         const credentials = userCredentials[username];
-        
-//         const userData = credentials.find(cred => cred.password === password);
-
-//         if (userData) {
-//             // Set sessionStorage to track login status
-//             sessionStorage.setItem('authenticatedUser', username);
-//             sessionStorage.setItem('authenticatedPassword', password);
-
-//             // Redirect to the page if the password matches
-//             window.location.replace(userData.page);
-            
-
-//         } else {
-//             document.getElementById('errorMessage').textContent = getRandomErrorMessage();
-//         }
-//     } else {
-//         document.getElementById('errorMessage').textContent = getRandomErrorMessage();
-//     }
-// });
-
-
-// function returnToIndex() {
-//     window.location.replace('/GractionCamp2024/index.html'); // Use replace to prevent back navigation
-// }
-
-
 document.querySelector('.dropdown-button').addEventListener('click', function() {
     document.querySelector('.dropdown-content').classList.toggle('show');
 });
