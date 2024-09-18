@@ -72,8 +72,8 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
             // Redirect to the page if the password matches
             window.location.href = userData.page;
-            history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry
-            history.pushState(null, null, '/GractionCamp2024/index.html'); // Push another fake entry for forward
+            // history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry
+            // history.pushState(null, null, '/GractionCamp2024/index.html'); // Push another fake entry for forward
 
         } else {
             document.getElementById('errorMessage').textContent = getRandomErrorMessage();
@@ -86,8 +86,8 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
 function returnToIndex() {
     window.location.href = '/GractionCamp2024/index.html';
-    history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry
-    history.pushState(null, null, '/GractionCamp2024/index.html'); // Push another fake entry for forward
+    // history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry
+    // history.pushState(null, null, '/GractionCamp2024/index.html'); // Push another fake entry for forward
 }
 
 
