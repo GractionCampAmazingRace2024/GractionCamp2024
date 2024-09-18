@@ -1,4 +1,4 @@
-const CACHE_VERSION = 1;  // Increment this whenever you make significant changes to cache
+const CACHE_VERSION = 2;  // Increment this whenever you make significant changes to cache
 const CACHE_NAME = `static-cache-v${CACHE_VERSION}`; // Dynamic cache name with versioning
 
 const resourcesToCache = [
@@ -27,16 +27,12 @@ const resourcesToCache = [
     // TEAMS
     '/GractionCamp2024/Teams/Blue/blue.css',
     '/GractionCamp2024/Teams/Blue/blue.html',
-
     '/GractionCamp2024/Teams/Green/green.css',
     '/GractionCamp2024/Teams/Green/green.html',
-
     '/GractionCamp2024/Teams/Orange/orange.css',
     '/GractionCamp2024/Teams/Orange/orange.html',
-
     '/GractionCamp2024/Teams/Purple/purple.css',
     '/GractionCamp2024/Teams/Purple/purple.html',
-
     '/GractionCamp2024/Teams/Yellow/yellow.css',
     '/GractionCamp2024/Teams/Yellow/yellow.html',
     '/GractionCamp2024/Teams/Yellow/yellowclue1.html',
@@ -44,11 +40,24 @@ const resourcesToCache = [
 
 self.addEventListener('install', event => {
     event.waitUntil(
-        caches.open(CACHE_NAME).then(cache => {
-            return cache.addAll(resourcesToCache).then(() => {
-                console.log(`All resources cached in ${CACHE_NAME}`);
-            }).catch(error => {
-                console.error('Failed to cache resources:', error);
+        caches.keys().then(cacheNames => {
+            // Delete all caches that don't match the current CACHE_NAME
+            return Promise.all(
+                cacheNames.map(cacheName => {
+                    if (cacheName !== CACHE_NAME) {
+                        console.log(`Deleting old cache: ${cacheName}`);
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        }).then(() => {
+            // Open the new cache and add all resources to it
+            return caches.open(CACHE_NAME).then(cache => {
+                return cache.addAll(resourcesToCache).then(() => {
+                    console.log(`All resources cached in ${CACHE_NAME}`);
+                }).catch(error => {
+                    console.error('Failed to cache resources:', error);
+                });
             });
         }).then(() => {
             return self.skipWaiting();  // Activate the new service worker immediately
@@ -57,37 +66,29 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('activate', event => {
-    const currentCaches = [CACHE_NAME];  // Add the current cache name to the list of active caches
+    // Ensure the clients are controlled immediately by the new service worker
     event.waitUntil(
-        caches.keys().then(cacheNames => {
-            return Promise.all(
-                cacheNames.map(cacheName => {
-                    if (!currentCaches.includes(cacheName)) {
-                        // Delete the caches that are not in the currentCaches array
-                        console.log(`Deleting old cache: ${cacheName}`);
-                        return caches.delete(cacheName);
-                    }
-                })
-            );
-        }).then(() => {
-            return self.clients.claim();  // Take control of all clients (pages) immediately
-        }).catch(error => {
-            console.error('Failed to delete old caches:', error);
-        })
+        self.clients.claim()
     );
 });
 
 self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request).then(response => {
-            return response || fetch(event.request).then(fetchResponse => {
+            if (response) {
+                // Serve from cache if available
+                return response;
+            }
+            // Otherwise fetch from network
+            return fetch(event.request).then(fetchResponse => {
                 return caches.open(CACHE_NAME).then(cache => {
                     cache.put(event.request, fetchResponse.clone());  // Add the fetched resource to cache
                     return fetchResponse;
                 });
+            }).catch(error => {
+                console.error('Fetch failed:', error);
+                throw error;
             });
-        }).catch(error => {
-            console.error('Fetch failed:', error);
         })
     );
 });

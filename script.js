@@ -74,9 +74,6 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
             window.location.href = userData.page;
             history.pushState(null, null, '/GractionCamp2024/index.html'); // Push the fake entry
             history.pushState(null, null, '/GractionCamp2024/index.html'); // Push another fake entry for forward
-            window.history.pushState({ page: 1 }, "", window.location.href);
-
-            
 
         } else {
             document.getElementById('errorMessage').textContent = getRandomErrorMessage();
