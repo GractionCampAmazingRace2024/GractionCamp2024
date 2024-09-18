@@ -24,96 +24,73 @@ html {
     width: 100vw;
     background: linear-gradient(
         to bottom,
-        yellow 33.33%,  /* Top third */
-        black 33.33%,   /* Middle third */
-        black 66.66%,   /* Middle third */
-        yellow 66.66%   /* Bottom third */
+        yellow 20%,  /* Top third */
+        black 20%,   /* Middle third */
+        black 80%,   /* Middle third */
+        yellow 80%   /* Bottom third */
     );
 }
 
 .login-container {
     background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 2vw; /* Responsive padding */
+    border-radius: 0.5vw;
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
     width: 80vw;
     max-width: 400px;
     height: 60vh;
     text-align: center;
-    border: 3px solid black;
+    border: 0.3vw solid black;
 }
 
 h2 {
-    margin-bottom: 20px;
+    margin-bottom: 2vw;
     color: #333;
 }
 
 .input-container {
-    margin-bottom: 15px;
+    margin-bottom: 2vw; /* Responsive spacing */
     text-align: left;
 }
 
 label {
-    margin-bottom: 5px;
+    margin-bottom: 1vw;
     display: block;
     color: #555;
 }
 
-input, select {
+input, .dropdown-button {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+    padding: 1vw;
+    border: 1px solid #555;
+    border-radius: 0.5vw;
+    font-size: 1vw;
 }
 
 button {
     width: 100%;
-    padding: 10px;
-    background-color: #28a745;
+    padding: 1vw;
+    background-color: #ccc;
     border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 16px;
+    border-radius: 0.5vw;
+    color: rgb(0, 0, 0);
+    font-size: 1vw;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #218838;
-}
 
 .error-message {
     color: red;
-    margin-top: 10px;
+    margin-top: 1vw;
 }
 
 /* Color Styles for Each Team - Consider using a custom dropdown */
-option[value="green"] {
-    background-color: greenyellow;
-}
-
-option[value="purple"] {
-    background-color: rgb(206, 63, 206);
-}
-
-option[value="blue"] {
-    background-color: rgb(24, 199, 223);
-}
-
-option[value="orange"] {
-    background-color: rgb(233, 117, 8);
-}
-
-option[value="yellow"] {
-    background-color: yellow;
-}
-
-option[value="admin"] {
-    background-color: rgb(255, 0, 0);
-}
-
-
-
+.option-green { background-color: greenyellow; }
+.option-purple { background-color: rgb(206, 63, 206); }
+.option-blue { background-color: rgb(24, 199, 223); }
+.option-orange { background-color: rgb(233, 117, 8); }
+.option-yellow { background-color: yellow; }
+.option-admin { background-color: rgb(255, 0, 0); }
 
 .custom-dropdown {
     position: relative;
@@ -123,14 +100,14 @@ option[value="admin"] {
 
 .dropdown-button {
     width: 100%;
-    padding: 8px;
+    padding: 1vw;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 0.5vw;
     background-color: white;
     color: #333;
-    font-size: 16px;
+    font-size: 1vw;
     text-align: left;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
 }
 
 .dropdown-content {
@@ -139,15 +116,16 @@ option[value="admin"] {
     width: 100%;
     background-color: white;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 0.5vw;
     z-index: 1;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
 }
 
 .dropdown-item {
-    padding: 8px;
-    font-size: 16px;
+    padding: 1vw;
+    font-size: 1vw;
     text-align: left;
+    
 }
 
 .show {
