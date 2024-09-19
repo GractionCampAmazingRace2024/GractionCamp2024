@@ -78,7 +78,7 @@
             <p id="errorMessage" class="error-message"></p>
         </form>
 
-        <h3>Version 2.0.1.v2</h3>
+        <h3>Version 2.0.1.v3</h3>
         <p id="copyright">© 2024<br>
           All Right Reserved</p>
       
@@ -144,6 +144,33 @@
                 console.log('Service Worker registration failed:', error);
             });
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+          // Disable gesture zoom
+          document.addEventListener(
+              "gesturestart",
+              function (e) {
+                  e.preventDefault();
+              },
+              { passive: false }
+          );
+        });
+        
+        
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = new Date().getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+        
+        
+        
+        document.addEventListener("gesturestart", function (e) {
+          e.preventDefault();
+        });
     </script>
     
 </body>
