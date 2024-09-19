@@ -5,7 +5,7 @@ section.world {
     height: 20vh;
     left: 50%;
     bottom: -9vh;
-    box-shadow: 0 15px 10px -10px #ffffff;
+    box-shadow: 0 15px 10px -10px #7e7d7d;
     transform: translate(-50%, -50%);
   }
   
@@ -82,12 +82,12 @@ section.world {
     /* background: #ffffff; */
     background: linear-gradient(
       to right,
-      #ffffff 0%,
-      #ffffff calc(50vw - 34px),
-      #000000 calc(50vw - 34px),
-      #000000 calc(50vw + 34px),
-      #ffffff calc(50vw + 34px),
-      #ffffff 100%
+      black 0%,
+      black calc(35vw),
+      white calc(35vw),
+      white calc(65vw),
+      black calc(65vw),
+      black 100%
     );
   }
   
@@ -172,7 +172,7 @@ section.world {
   .cloud {
     height: 20px;
     right: -160px;
-    background: rgb(155, 154, 154) !important;
+    background: rgb(204, 204, 204) !important;
 
   }
   
@@ -187,11 +187,11 @@ section.world {
     position: absolute;
     top: 1vh;
     box-shadow:
-      rgb(155, 154, 154) 10vw -1vw 0 -1vw,
-      rgb(155, 154, 154) 6vw -2vw,
-      rgb(155, 154, 154) 8vw 1vw,
-      rgb(155, 154, 154) 14vw 2vw 0 -2vw,
-      rgb(155, 154, 154) 16vw 0vw 0 -2vw;
+      rgb(204, 204, 204) 10vw -1vw 0 -1vw,
+      rgb(204, 204, 204) 6vw -2vw,
+      rgb(204, 204, 204) 8vw 1vw,
+      rgb(204, 204, 204) 14vw 2vw 0 -2vw,
+      rgb(204, 204, 204) 16vw 0vw 0 -2vw;
     animation: cloud 4.4s linear infinite;
   }
   
@@ -206,11 +206,11 @@ section.world {
     position: absolute;
     top: 7vh;
     box-shadow:
-      rgb(155, 154, 154) 7vw -1vw 0 -1vw,
-      rgb(155, 154, 154) 3vw -1vw,
-      rgb(155, 154, 154) 4vw 1vw,
-      rgb(155, 154, 154) 8vw 2vw 0 -2vw,
-      rgb(155, 154, 154) 9vw 0vw 0 -2vw;
+      rgb(204, 204, 204) 7vw -1vw 0 -1vw,
+      rgb(204, 204, 204) 3vw -1vw,
+      rgb(204, 204, 204) 4vw 1vw,
+      rgb(204, 204, 204) 8vw 2vw 0 -2vw,
+      rgb(204, 204, 204) 9vw 0vw 0 -2vw;
     animation: cloud2 3.8s linear infinite 0.5s;
   }
   
@@ -225,11 +225,11 @@ section.world {
     position: absolute;
     top: 7vh;
     box-shadow:
-      rgb(155, 154, 154) 8vw -1vw 0 -1vw,
-      rgb(155, 154, 154) 5vw -1vw,
-      rgb(155, 154, 154) 6vw 1vw,
-      rgb(155, 154, 154) 10vw 2vw 0 -2vw,
-      rgb(155, 154, 154) 13vw 0vw 0 -1vw;
+      rgb(204, 204, 204) 8vw -1vw 0 -1vw,
+      rgb(204, 204, 204) 5vw -1vw,
+      rgb(204, 204, 204) 6vw 1vw,
+      rgb(204, 204, 204) 10vw 2vw 0 -2vw,
+      rgb(204, 204, 204) 13vw 0vw 0 -1vw;
     animation: cloud1 4s linear infinite 1s;
   }
   
@@ -244,11 +244,11 @@ section.world {
     position: absolute;
     top: 7vh;
     box-shadow:
-      rgb(155, 154, 154) 3.2vw -0.4vw 0 -0.4vw,
-      rgb(155, 154, 154) 2vw -0.4vw,
-      rgb(155, 154, 154) 2.4vw 0.6vw,
-      rgb(155, 154, 154) 4vw 0.8vw 0 -0.8vw,
-      rgb(155, 154, 154) 5.2vw 0vw 0 -0.4vw;
+      rgb(204, 204, 204) 3.2vw -0.4vw 0 -0.4vw,
+      rgb(204, 204, 204) 2vw -0.4vw,
+      rgb(204, 204, 204) 2.4vw 0.6vw,
+      rgb(204, 204, 204) 4vw 0.8vw 0 -0.8vw,
+      rgb(204, 204, 204) 5.2vw 0vw 0 -0.4vw;
     animation: cloud4 3.7s linear infinite 1s;
   }
   

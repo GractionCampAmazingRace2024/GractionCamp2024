@@ -109,7 +109,10 @@ button {
 }
 
 #gradient-submit {
-
+    text-align: center;
+    align-items: center;
+    padding: 2px;
+    vertical-align: middle;
     background: linear-gradient(
         to bottom,
         yellow 15%,  /* Top third */
@@ -118,6 +121,7 @@ button {
         yellow 85%   /* Bottom third */
     );
 
+    border: 1px solid white;
 }
 
 button:hover {
@@ -134,32 +138,74 @@ button:hover {
     position: relative;
     display: inline-block;
     width: 100%;
-    padding: 0;
     margin: 0;
 }
 
 .dropdown-button {
     width: 100%;
-    padding: 7px;
+    padding: 12px; /* Increased padding for better appearance */
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: rgb(82, 80, 80);
-    color: #333;
+    background-color: rgb(82, 80, 80); /* Match color */
+    color: white; /* Changed text color to white for contrast */
     text-align: center;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
-    
+    font-size: 16px; /* Adjust font size for consistency */
+    margin-bottom: 0;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Align it exactly below the button */
+    left: 0; /* Ensure it's aligned with the button's left edge */
+    width: 100%; /* Match the width of the button */
+    background-color: rgb(82, 80, 80); /* Match the button's background */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0; /* Reset padding */
+}
+
+.dropdown-item {
+
+    padding: 12px;
+    width: 100%;
+    border-bottom: 1px solid #ccc; /* Light border between items */
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    color: rgb(0, 0, 0); /* Text color matching the button */
+    font-weight: bolder;
+    background-color: rgb(82, 80, 80); /* Match the dropdown background */
+}
+
+.dropdown-item:last-child {
+    border-bottom: none; /* Remove border from last item */
+}
+
+.dropdown-item:hover {
+    background-color: #b9b9b9; /* Slight hover effect to indicate selection */
+}
+
+.show {
+    display: block;
 }
 
 .passwordLabel{
     text-align: center;
-    color:#333;
+    color:#ffffff;
+    margin-top: 10px;
     
 }
+
+
 
 .teamIcon {
     margin: 0;
@@ -167,33 +213,6 @@ button:hover {
     line-height: 1; /* Prevent extra spacing between icons */
     
 }
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 49px;
-    width: 100%;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    z-index: 1;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border: 2px solid black;
-
-}
-
-.dropdown-item {
-    padding: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: left;
-
-}
-
-.show {
-    display: block;
-}
-
 #option-green { background-color: #92d14f; }
 #option-purple { background-color: #cd66ff; }
 #option-blue { background-color: #01b0f1; }
