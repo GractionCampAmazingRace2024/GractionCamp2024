@@ -112,10 +112,10 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault(); // Prevent form from submitting automatically
   
 
-  if (document.activeElement.id !== "gradient-submit") {
-    document.getElementById("errorMessage").textContent = "Please click the 'Submit' button to submit the form.";
-    return;
-  }
+  // if (document.activeElement.id !== "gradient-submit") {
+  //   document.getElementById("errorMessage").textContent = "Please click the 'Submit' button to submit the form.";
+  //   return;
+  // }
 
 
   const username = document.getElementById("teamSelection").value;
