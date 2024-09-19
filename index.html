@@ -77,7 +77,7 @@
             <p id="errorMessage" class="error-message"></p>
         </form>
 
-        <h3>Version 2.0.1.v9</h3>
+        <h3>Version 2.0.2.v1</h3>
         <p id="copyright">© 2024<br>
           All Right Reserved</p>
       
@@ -159,7 +159,7 @@
         let lastTouchEnd = 0;
         document.addEventListener('touchend', function(event) {
             const now = new Date().getTime();
-            if (now - lastTouchEnd <= 300) {
+            if (now - lastTouchEnd <= 500) {
                 event.preventDefault();
             }
             lastTouchEnd = now;

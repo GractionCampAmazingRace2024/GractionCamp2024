@@ -31,7 +31,7 @@
     <!-- <script src="/GractionCamp2024/script.js"></script> -->
     <title>Admin Team</title>
   </head>
-  <div id="overlay"></div>
+
   <body>
     
     <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
@@ -66,7 +66,7 @@
       let lastTouchEnd = 0;
       document.addEventListener('touchend', function(event) {
           const now = new Date().getTime();
-          if (now - lastTouchEnd <= 300) {
+          if (now - lastTouchEnd <= 500) {
               event.preventDefault();
           }
           lastTouchEnd = now;
