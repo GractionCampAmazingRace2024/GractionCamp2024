@@ -115,7 +115,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault(); 
 
 
-  if (document.activeElement.id !== "gradient-submit") {
+  if (document.activeElement.className !== "customButton") {
     e.preventDefault(); 
     return;
   }
