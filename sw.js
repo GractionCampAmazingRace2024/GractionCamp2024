@@ -27,15 +27,35 @@ const resourcesToCache = [
     // TEAMS
     '/GractionCamp2024/Teams/Blue/blue.css',
     '/GractionCamp2024/Teams/Blue/blue.html',
+
     '/GractionCamp2024/Teams/Green/green.css',
     '/GractionCamp2024/Teams/Green/green.html',
+    '/GractionCamp2024/Teams/Green/green1.html',
+    '/GractionCamp2024/Teams/Green/green2.html',
+    '/GractionCamp2024/Teams/Green/green3.html',
+    '/GractionCamp2024/Teams/Green/green4.html',
+
     '/GractionCamp2024/Teams/Orange/orange.css',
     '/GractionCamp2024/Teams/Orange/orange.html',
+    '/GractionCamp2024/Teams/Orange/orange1.html',
+    '/GractionCamp2024/Teams/Orange/orange2.html',
+    '/GractionCamp2024/Teams/Orange/orange3.html',
+    '/GractionCamp2024/Teams/Orange/orange4.html',
+
+
     '/GractionCamp2024/Teams/Purple/purple.css',
     '/GractionCamp2024/Teams/Purple/purple.html',
+    '/GractionCamp2024/Teams/Purple/purple1.html',
+    '/GractionCamp2024/Teams/Purple/purple2.html',
+    '/GractionCamp2024/Teams/Purple/purple3.html',
+    '/GractionCamp2024/Teams/Purple/purple4.html',
+
     '/GractionCamp2024/Teams/Yellow/yellow.css',
     '/GractionCamp2024/Teams/Yellow/yellow.html',
-    '/GractionCamp2024/Teams/Yellow/yellowclue1.html',
+    '/GractionCamp2024/Teams/Yellow/yellow1.html',
+    '/GractionCamp2024/Teams/Yellow/yellow2.html',
+    '/GractionCamp2024/Teams/Yellow/yellow3.html',
+    '/GractionCamp2024/Teams/Yellow/yellow4.html',
 ];
 
 self.addEventListener('install', event => {
