@@ -86,6 +86,7 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
       document.querySelector(".login-container").style.boxShadow = `0 0 30px ${color}`;
       document.getElementById("gradient-submit").style.background = `linear-gradient(to bottom, ${color} 20%, black 20%, black 80%, ${color} 80%)`;
       document.querySelector(".mainBody").style.background = `linear-gradient(to bottom, ${color} 15%, black 15%, black 85%, ${color} 85%)`;
+      document.body.style.backgroundColor = color;
     }
 
     document.querySelector(".dropdown-content").classList.remove("show");
