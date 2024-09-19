@@ -6,7 +6,7 @@ html, body {
     overflow-x: hidden; 
     width: 100vw;      
     height: 100vh;
-    background-color: red;     
+    background-color: cd66ff;     
   
     touch-action: none; /* Prevents touch scrolling */
     overscroll-behavior: none; /* Prevents scroll bounce */
@@ -89,5 +89,5 @@ body {
     transform-origin: center;
     white-space: nowrap;
     font-size: calc(min(5vw, 5vh));
-    color: rgb(92, 0, 0);
+    color: #5a0e80;
 }
