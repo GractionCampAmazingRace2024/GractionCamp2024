@@ -38,6 +38,15 @@ body {
     display: flex;
     justify-content: center; /* Horizontally centers middleStripe */
     position:absolute;
+
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    touch-action: none;
+    overscroll-behavior: none; /* Prevents scroll bounce */
+    scroll-snap-type: none;
 }
 
 .middleStripe{
@@ -98,13 +107,18 @@ body {
     position: absolute;         
     width: 100vw;           
     height: 100vh;          
-    z-index: 99;        
+    z-index: 999;        
     pointer-events: none;    
-    background: transparent; 
+    background: blue; 
     touch-action: none; 
     overscroll-behavior: none; 
     scroll-snap-type: none;
     overflow: hidden;  
     overflow-y: hidden; 
     overflow-x: hidden; 
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
 }
