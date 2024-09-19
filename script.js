@@ -176,37 +176,28 @@ function returnToIndex() {
   window.location.replace("/GractionCamp2024/index.html"); // Use replace to prevent back navigation
 }
 
-// Disable double tap and gestures for zoom prevention
+
 document.addEventListener("DOMContentLoaded", function () {
+  // Disable zooming with multiple touches
   document.addEventListener(
-    "touchstart",
-    function (e) {
-      if (e.touches.length > 1) {
-        e.preventDefault();
-      }
-    },
-    { passive: false }
+      "touchstart",
+      function (e) {
+          if (e.touches.length > 1) {
+              e.preventDefault();
+          }
+      },
+      { passive: false }
   );
 
+  // Disable gesture zoom
   document.addEventListener(
-    "gesturestart",
-    function (e) {
-      e.preventDefault();
-    },
-    { passive: false }
+      "gesturestart",
+      function (e) {
+          e.preventDefault();
+      },
+      { passive: false }
   );
 });
-
-// DOUBLE TAP FUNCTION REMOVER
-document.addEventListener(
-  "touchstart",
-  function (e) {
-    if (e.touches.length > 1) {
-      e.preventDefault();
-    }
-  },
-  { passive: false }
-);
 
 document.addEventListener("gesturestart", function (e) {
   e.preventDefault();
