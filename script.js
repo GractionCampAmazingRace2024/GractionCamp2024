@@ -128,13 +128,13 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
   // Ensure that a team is selected and a password is entered
   if (!username) {
-    document.getElementById("errorMessage").textContent = "Please select a team.";
-    return;
+    document.getElementById("errorMessage").textContent = "Please select a team first.";
+    // return;
   }
 
   if (!password) {
     document.getElementById("errorMessage").textContent = "Please enter your password.";
-    return;
+    // return;
   }
 
   // Check if the username exists in the map
