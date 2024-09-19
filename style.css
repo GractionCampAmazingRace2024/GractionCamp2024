@@ -67,7 +67,7 @@ html {
     border: 1px solid black;
     animation: rgb-border 15s infinite; 
     border-width: 3px; /* Make the border a bit thicker to highlight the effect */
-
+    position: relative;
 }
 
 h2 {
@@ -265,4 +265,26 @@ button:hover {
         border-color: #3ff707; 
         box-shadow: 0 0 20px #3ff707;
     }
+}
+
+
+
+/* For the copyright */
+#copyright {
+    position: absolute;
+    bottom: 10px; /* Adjust this value for spacing from the bottom */
+    left: 10px; /* Adjust this value for spacing from the left */
+    font-size: 10px; /* Small font size */
+    color: #555; /* Optional: color to match the style */
+    text-align: left; /* Align text to the left */
+}
+
+/* For the trademarks (TM) */
+#trademarks {
+    position: absolute;
+    bottom: 10px; /* Adjust this value for spacing from the bottom */
+    right: 10px; /* Adjust this value for spacing from the right */
+    font-size: 10px; /* Small font size */
+    color: #555; /* Optional: color to match the style */
+    text-align: right; /* Align text to the right */
 }
