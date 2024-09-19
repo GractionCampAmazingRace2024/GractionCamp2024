@@ -47,7 +47,7 @@
 
 <body class="mainBody">
     
-    
+  <div id="overlay"></div>
     <div class="login-container">
         <h2>Graction Camp Amazing Race 2024</h2>
         <form id="loginForm">
@@ -79,7 +79,7 @@
             <p id="errorMessage" class="error-message"></p>
         </form>
 
-        <h3>Version 2.0.0.v8</h3>
+        <h3>Version 2.0.0.v9</h3>
         <p id="copyright">© 2024<br>
           All Right Reserved</p>
       
@@ -135,6 +135,7 @@
       </section>
       <div class="bottomline"></div>
     <script src="script.js"></script>
+    <script src="no-zoom.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/GractionCamp2024/sw.js')

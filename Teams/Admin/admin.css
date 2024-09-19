@@ -96,9 +96,9 @@ body {
 
 #overlay {
     position: absolute;         
-    width: 150vw;           
-    height: 150vh;          
-    z-index: 999;        
+    width: 100vw;           
+    height: 100vh;          
+    z-index: 99;        
     pointer-events: none;    
     background: transparent; 
     touch-action: none; 
