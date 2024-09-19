@@ -147,7 +147,7 @@ button:hover {
     border: 1px solid #ccc;
     border-radius: 4px;
     background-color: rgb(82, 80, 80); /* Match color */
-    color: white; /* Changed text color to white for contrast */
+    color: black; /* Changed text color to white for contrast */
     text-align: center;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
