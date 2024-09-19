@@ -141,7 +141,7 @@ button:hover {
     margin: 0;
 }
 
-.dropdown-button {
+.customButton {
     width: 100%;
     padding: 12px; /* Increased padding for better appearance */
     border: 1px solid #ccc;
