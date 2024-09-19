@@ -36,7 +36,7 @@ html {
     align-items: center;
     height: 100vh;
     width: 100vw;
-
+    color: white;
     
     background: linear-gradient(
         to bottom,
@@ -46,7 +46,7 @@ html {
         yellow 85%   
     );
 
-    /* background-color: #2cebeb; */
+
 
 
     touch-action: none; /* Disables all touch actions including zooming */
@@ -56,7 +56,7 @@ html {
 
 .login-container {
     z-index: 5;
-    background-color: white;
+    background-color: rgba(255, 255, 0, 0.103);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -64,14 +64,15 @@ html {
     max-width: 400px;
     height: 60vh;
     text-align: center;
-    border: 3px solid black;
-    animation: rgb-border 10s infinite; 
+    border: 1px solid black;
+    animation: rgb-border 15s infinite; 
     border-width: 3px; /* Make the border a bit thicker to highlight the effect */
+
 }
 
 h2 {
     margin-bottom: 20px;
-    color: #333;
+    color: #ffffff;
 }
 
 .input-container {
@@ -108,16 +109,15 @@ button {
 }
 
 #gradient-submit {
+
     background: linear-gradient(
         to bottom,
-        yellow 20%,  /* Top third */
-        black 20%,   /* Middle third */
-        black 80%,   /* Middle third */
-        yellow 80%   /* Bottom third */
+        yellow 15%,  /* Top third */
+        black 15%,   /* Middle third */
+        black 85%,   /* Middle third */
+        yellow 85%   /* Bottom third */
     );
-    text-align: center;
-    align-items: center;
-    align-content: center;
+
 }
 
 button:hover {
@@ -193,7 +193,7 @@ button:hover {
 .show {
     display: block;
 }
-/* Color Styles for Each Team - Consider using a custom dropdown */
+
 #option-green { background-color: #92d14f; }
 #option-purple { background-color: #cd66ff; }
 #option-blue { background-color: #01b0f1; }
@@ -201,27 +201,49 @@ button:hover {
 #option-yellow { background-color: yellow; } 
 #option-admin { background-color: red; }
 
-
 @keyframes rgb-border {
-    
-    0% {border-color: #3ff707;/* Green */
-        box-shadow: 0 0 10px#3ff707;
-
+    0% { 
+        border-color: #3ff707; 
+        box-shadow: 0 0 20px #3ff707;
     }
-    25% {
-        border-color: #0119f1; /* Blue */
-        box-shadow: 0 0 10px #0119f1;
+    10% {
+        border-color: #0ae88c; 
+        box-shadow: 0 0 20px #0ae88c;
+    }
+    20% {
+        border-color: #0191f1; 
+        box-shadow: 0 0 20px #0191f1;
+    }
+    30% {
+        border-color: #5b2cff; 
+        box-shadow: 0 0 20px #5b2cff;
+    }
+    40% {
+        border-color: #cd66ff; 
+        box-shadow: 0 0 20px #cd66ff;
     }
     50% {
-        border-color: #cd66ff; /* Red */
-        box-shadow: 0 0 10px #cd66ff;
+        border-color: #ff8f66; 
+        box-shadow: 0 0 20px #ff8f66;
     }
-    75% {
-        border-color: rgb(255, 255, 0); /* Yellow */
-        box-shadow: 0 0 10px rgb(255, 255, 0);
+    60% {
+        border-color: #ffa600; 
+        box-shadow: 0 0 20px #ffa600; 
+    }
+    70% {
+        border-color: #ffbf33; 
+        box-shadow: 0 0 20px #ffbf33;
+    }
+    80% {
+        border-color: rgb(255, 255, 0); 
+        box-shadow: 0 0 20px rgb(255, 255, 0);
+    }
+    90% {
+        border-color: #ccff00; 
+        box-shadow: 0 0 20px #ccff00;
     }
     100% {
-        border-color: #ffa600; /* Red */
-        box-shadow: 0 0 10px #ffa600; 
+        border-color: #3ff707; 
+        box-shadow: 0 0 20px #3ff707;
     }
 }

@@ -12,11 +12,24 @@ section.world {
   section.world div {
     position: absolute;
     box-sizing: border-box;
-    background: #5c5c5c;
-
     border-radius: 2px;
   }
+
+  #stickman{
+    background: #000000;
+    z-index: 10;
+  }
   
+
+  .rock{
+    background: rgba(14, 71, 9, 0.678);
+    z-index: -1;
+  }
+  .grass{
+    background: rgba(22, 131, 22, 0.493);
+    z-index: -1;
+  }
+
   section.world div::before, section.world div::after {
     content: "";
     position: absolute;
@@ -26,7 +39,7 @@ section.world {
   .back {
     bottom: 0;
     right: -40%;
-    background: rgba(10, 10, 10, 0.534) !important;
+    background: rgba(13, 14, 13, 0.534) !important;
     
   }
   
@@ -53,88 +66,96 @@ section.world {
     height: 13%;
     animation: elem 2.8s linear infinite 0.2s;
   }
-  
+
   .floor {
-    width: 100%;
+    width: 100vw;
     height: 4px;
     bottom: 0;
   }
   
-  .floor .rock {
+  .bottomline {
+    position: absolute;
+    width: 100vw;
+    height: 4px;
+    bottom: 1vh;
+    z-index: 1001;
+    background: #ffffff;
+  }
+  
+  .rock {
     bottom: 0;
     right: -20px;
   }
   
-  .floor .rock.one {
+  .rock.one {
     width: 16px;
     height: 26px;
     animation: elem 3s linear infinite;
   }
   
-  .floor .rock.two {
+  .rock.two {
     width: 20px;
     height: 18px;
     animation: elem 3s linear infinite 0.4s;
   }
   
-  .floor .rock.three {
+  .rock.three {
     width: 13px;
     height: 26px;
     animation: elem 3s linear infinite 1.3s;
   }
   
-  .floor .grass {
-    width: 2px;
+  .grass {
+    width: 4px;
     bottom: 0;
     right: -2px;
   }
   
-  .floor .grass.one {
+.grass.one {
     height: 15px;
     animation: elem 3s linear infinite;
   }
   
-  .floor .grass.two {
+  .grass.two {
     height: 10px;
     animation: elem 3.3s linear infinite 0.2s;
   }
   
-  .floor .grass.three {
+  .grass.three {
     height: 18px;
     animation: elem 2.5s linear infinite 0.4s;
   }
   
-  .floor .grass.four {
+   .grass.four {
     height: 5px;
     animation: elem 2.9s linear infinite 0.6s;
   }
   
-  .floor .grass.five {
+   .grass.five {
     height: 7px;
     animation: elem 3s linear infinite 0.8s;
   }
   
-  .floor .grass.six {
+  .grass.six {
     height: 10px;
     animation: elem 3.1s linear infinite 1s;
   }
   
-  .floor .grass.seven {
+   .grass.seven {
     height: 4px;
     animation: elem 3s linear infinite 1.2s;
   }
-  
-  .floor .grass.height {
+  .grass.height {
     height: 7px;
     animation: elem 3s linear infinite 1.4s;
   }
   
-  .floor .grass.nine {
+  .grass.nine {
     height: 10px;
     animation: elem 3.1s linear infinite 1.6s;
   }
   
-  .floor .grass.ten {
+   .grass.ten {
     height: 6px;
     animation: elem 3s linear infinite 1.8s;
   }
@@ -227,7 +248,6 @@ section.world {
     height: 30px;
     bottom: 30px;
     left: 50%;
-    background: #ffffff;
     border-radius: 3px;
     animation: stick 2.2s ease-in-out infinite;
   }
@@ -245,7 +265,7 @@ section.world {
   }
   
   .stick{
-    background: white;
+    background: black;
   }
 
   .stick .head {

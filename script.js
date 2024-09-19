@@ -83,8 +83,9 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
     if (color) {
       document.querySelector(".login-container").style.animation = 'none'; // Stop the animation
       document.querySelector(".login-container").style.borderColor = color;
-      document.querySelector(".login-container").style.boxShadow = `0 0 10px ${color}`;
+      document.querySelector(".login-container").style.boxShadow = `0 0 30px ${color}`;
       document.getElementById("gradient-submit").style.background = `linear-gradient(to bottom, ${color} 20%, black 20%, black 80%, ${color} 80%)`;
+      document.querySelector(".mainBody").style.background = `linear-gradient(to bottom, ${color} 15%, black 15%, black 85%, ${color} 85%)`;
     }
 
     document.querySelector(".dropdown-content").classList.remove("show");
