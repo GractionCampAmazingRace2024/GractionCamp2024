@@ -112,50 +112,54 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
 
 // Only show error message after form submission when the correct button is clicked
 document.getElementById("loginForm").addEventListener("submit", function (e) {
-  // Check if the submit button clicked is "gradient-submit"
+  e.preventDefault(); 
+
+
   if (document.activeElement.id !== "gradient-submit") {
-    e.preventDefault(); // Prevent form from submitting automatically
+    e.preventDefault(); 
     return;
   }
+  else{
 
-  e.preventDefault(); // Prevent form from submitting automatically
 
-  const username = document.getElementById("teamSelection").value;
-  const password = document.getElementById("password").value;
-
-  // Clear previous error message
-  document.getElementById("errorMessage").textContent = "";
-
-  // Ensure that a team is selected and a password is entered
-  if (!username) {
-    document.getElementById("errorMessage").textContent = "Please select a team first.";
-    // return;
-  }
-
-  if (!password) {
-    document.getElementById("errorMessage").textContent = "Please enter your password.";
-    // return;
-  }
-
-  // Check if the username exists in the map
-  if (userCredentials[username]) {
-    const credentials = userCredentials[username];
-    const userData = credentials.find((cred) => cred.password === password);
-
-    if (userData) {
-      // Set sessionStorage to track login status
-      sessionStorage.setItem("authenticatedUser", username);
-      sessionStorage.setItem("authenticatedPassword", password);
-      window.location.replace(userData.page);
+    const username = document.getElementById("teamSelection").value;
+    const password = document.getElementById("password").value;
+  
+    // Clear previous error message
+    document.getElementById("errorMessage").textContent = "";
+  
+    // Ensure that a team is selected and a password is entered
+    if (!username) {
+      document.getElementById("errorMessage").textContent = "Please select a team first.";
+      // return;
+    }
+  
+    if (!password) {
+      document.getElementById("errorMessage").textContent = "Please enter your password.";
+      // return;
+    }
+  
+    // Check if the username exists in the map
+    if (userCredentials[username]) {
+      const credentials = userCredentials[username];
+      const userData = credentials.find((cred) => cred.password === password);
+  
+      if (userData) {
+        // Set sessionStorage to track login status
+        sessionStorage.setItem("authenticatedUser", username);
+        sessionStorage.setItem("authenticatedPassword", password);
+        window.location.replace(userData.page);
+      } else {
+        // Show error message only if the password is incorrect
+        document.getElementById("errorMessage").textContent = getRandomErrorMessage();
+      }
     } else {
-      // Show error message only if the password is incorrect
+      // Show error message if the username is invalid
       document.getElementById("errorMessage").textContent = getRandomErrorMessage();
     }
-  } else {
-    // Show error message if the username is invalid
-    document.getElementById("errorMessage").textContent = getRandomErrorMessage();
   }
 });
+
 
 
 
@@ -172,4 +176,5 @@ const teamColors = {
   'orange': '#ffc000',
   'yellow': 'yellow',
   'admin': 'red'
-};
+}
+
