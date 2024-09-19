@@ -5,7 +5,7 @@ section.world {
     height: 20vh;
     left: 50%;
     bottom: -9vh;
-    box-shadow: 0 15px 10px -10px #8f6e0a;
+    box-shadow: 0 15px 10px -10px #ffffff;
     transform: translate(-50%, -50%);
   }
   
@@ -79,7 +79,16 @@ section.world {
     height: 4px;
     bottom: 1vh;
     z-index: 1001;
-    background: #ffffff;
+    /* background: #ffffff; */
+    background: linear-gradient(
+      to right,
+      #ffffff 0%,
+      #ffffff calc(50vw - 34px),
+      #000000 calc(50vw - 34px),
+      #000000 calc(50vw + 34px),
+      #ffffff calc(50vw + 34px),
+      #ffffff 100%
+    );
   }
   
   .rock {
