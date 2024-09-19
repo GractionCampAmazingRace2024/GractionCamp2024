@@ -91,3 +91,20 @@ body {
     font-size: calc(min(5vw, 5vh));
     color: rgb(92, 0, 0);
 }
+
+
+
+#overlay {
+    position: absolute;         
+    width: 150vw;           
+    height: 150vh;          
+    z-index: 999;        
+    pointer-events: none;    
+    background: transparent; 
+    touch-action: none; 
+    overscroll-behavior: none; 
+    scroll-snap-type: none;
+    overflow: hidden;  
+    overflow-y: hidden; 
+    overflow-x: hidden; 
+}
