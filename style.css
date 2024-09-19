@@ -36,20 +36,26 @@ html {
     align-items: center;
     height: 100vh;
     width: 100vw;
-    /* background: linear-gradient(
+
+    
+    background: linear-gradient(
         to bottom,
-        yellow 33.33%,  
-        black 33.33%,  
-        black 66.66%,   
-        yellow 66.66%   
-    ); */
-    background-color: #2cebeb;
+        yellow 15%,  
+        black 15%,  
+        black 85%,   
+        yellow 85%   
+    );
+
+    /* background-color: #2cebeb; */
+
+
     touch-action: none; /* Disables all touch actions including zooming */
     overflow-x: hidden; /* Prevents horizontal scrolling */
     padding-bottom: env(safe-area-inset-bottom);
 }
 
 .login-container {
+    z-index: 5;
     background-color: white;
     padding: 20px;
     border-radius: 5px;
@@ -59,7 +65,7 @@ html {
     height: 60vh;
     text-align: center;
     border: 3px solid black;
-    animation: rgb-border 5s infinite; 
+    animation: rgb-border 10s infinite; 
     border-width: 3px; /* Make the border a bit thicker to highlight the effect */
 }
 
@@ -197,25 +203,25 @@ button:hover {
 
 
 @keyframes rgb-border {
-    0% {
-        border-color: #cd66ff; /* Red */
-        box-shadow: 0 0 10px #cd66ff;
+    
+    0% {border-color: #3ff707;/* Green */
+        box-shadow: 0 0 10px#3ff707;
+
     }
     25% {
-        border-color: #ffa600; /* Red */
-        box-shadow: 0 0 10px #ffa600; 
-    }
-    50% {
         border-color: #0119f1; /* Blue */
         box-shadow: 0 0 10px #0119f1;
+    }
+    50% {
+        border-color: #cd66ff; /* Red */
+        box-shadow: 0 0 10px #cd66ff;
     }
     75% {
         border-color: rgb(255, 255, 0); /* Yellow */
         box-shadow: 0 0 10px rgb(255, 255, 0);
     }
     100% {
-        
-        border-color: #3ff707;/* Green */
-        box-shadow: 0 0 10px#3ff707;
+        border-color: #ffa600; /* Red */
+        box-shadow: 0 0 10px #ffa600; 
     }
 }

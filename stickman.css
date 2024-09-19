@@ -12,7 +12,8 @@ section.world {
   section.world div {
     position: absolute;
     box-sizing: border-box;
-    background: #000000;
+    background: #5c5c5c;
+
     border-radius: 2px;
   }
   
@@ -25,7 +26,8 @@ section.world {
   .back {
     bottom: 0;
     right: -40%;
-    background: #78b11b8c !important;
+    background: rgba(10, 10, 10, 0.534) !important;
+    
   }
   
   .back.one {
@@ -140,7 +142,7 @@ section.world {
   .cloud {
     height: 20px;
     right: -160px;
-    background: rgb(216, 215, 215) !important;
+    background: rgb(155, 154, 154) !important;
 
   }
   
@@ -155,11 +157,11 @@ section.world {
     position: absolute;
     top: 1vh;
     box-shadow:
-      rgb(216, 215, 215) 10vw -1vw 0 -1vw,
-      rgb(216, 215, 215) 6vw -2vw,
-      rgb(216, 215, 215) 8vw 1vw,
-      rgb(216, 215, 215) 14vw 2vw 0 -2vw,
-      rgb(216, 215, 215) 16vw 0vw 0 -2vw;
+      rgb(155, 154, 154) 10vw -1vw 0 -1vw,
+      rgb(155, 154, 154) 6vw -2vw,
+      rgb(155, 154, 154) 8vw 1vw,
+      rgb(155, 154, 154) 14vw 2vw 0 -2vw,
+      rgb(155, 154, 154) 16vw 0vw 0 -2vw;
     animation: cloud 4.4s linear infinite;
   }
   
@@ -174,11 +176,11 @@ section.world {
     position: absolute;
     top: 7vh;
     box-shadow:
-      rgb(216, 215, 215) 7vw -1vw 0 -1vw,
-      rgb(216, 215, 215) 3vw -1vw,
-      rgb(216, 215, 215) 4vw 1vw,
-      rgb(216, 215, 215) 8vw 2vw 0 -2vw,
-      rgb(216, 215, 215) 9vw 0vw 0 -2vw;
+      rgb(155, 154, 154) 7vw -1vw 0 -1vw,
+      rgb(155, 154, 154) 3vw -1vw,
+      rgb(155, 154, 154) 4vw 1vw,
+      rgb(155, 154, 154) 8vw 2vw 0 -2vw,
+      rgb(155, 154, 154) 9vw 0vw 0 -2vw;
     animation: cloud2 3.8s linear infinite 0.5s;
   }
   
@@ -193,11 +195,11 @@ section.world {
     position: absolute;
     top: 7vh;
     box-shadow:
-      rgb(216, 215, 215) 8vw -1vw 0 -1vw,
-      rgb(216, 215, 215) 5vw -1vw,
-      rgb(216, 215, 215) 6vw 1vw,
-      rgb(216, 215, 215) 10vw 2vw 0 -2vw,
-      rgb(216, 215, 215) 13vw 0vw 0 -1vw;
+      rgb(155, 154, 154) 8vw -1vw 0 -1vw,
+      rgb(155, 154, 154) 5vw -1vw,
+      rgb(155, 154, 154) 6vw 1vw,
+      rgb(155, 154, 154) 10vw 2vw 0 -2vw,
+      rgb(155, 154, 154) 13vw 0vw 0 -1vw;
     animation: cloud1 4s linear infinite 1s;
   }
   
@@ -212,11 +214,11 @@ section.world {
     position: absolute;
     top: 7vh;
     box-shadow:
-      rgb(216, 215, 215) 3.2vw -0.4vw 0 -0.4vw,
-      rgb(216, 215, 215) 2vw -0.4vw,
-      rgb(216, 215, 215) 2.4vw 0.6vw,
-      rgb(216, 215, 215) 4vw 0.8vw 0 -0.8vw,
-      rgb(216, 215, 215) 5.2vw 0vw 0 -0.4vw;
+      rgb(155, 154, 154) 3.2vw -0.4vw 0 -0.4vw,
+      rgb(155, 154, 154) 2vw -0.4vw,
+      rgb(155, 154, 154) 2.4vw 0.6vw,
+      rgb(155, 154, 154) 4vw 0.8vw 0 -0.8vw,
+      rgb(155, 154, 154) 5.2vw 0vw 0 -0.4vw;
     animation: cloud4 3.7s linear infinite 1s;
   }
   
@@ -225,7 +227,7 @@ section.world {
     height: 30px;
     bottom: 30px;
     left: 50%;
-    background: #333333;
+    background: #ffffff;
     border-radius: 3px;
     animation: stick 2.2s ease-in-out infinite;
   }
@@ -242,10 +244,13 @@ section.world {
     z-index: 1;
   }
   
+  .stick{
+    background: white;
+  }
+
   .stick .head {
     width: 12px;
     height: 12px;
-    background: #000000;
     border-radius: 50%;
     transform: translate(-3px, -14px);
   }
