@@ -1,19 +1,38 @@
 const userCredentials = {
     'green': [
-        { password: 'green', page: '/GractionCamp2024/Teams/Green/green.html' }
+        { password: 'green', page: '/GractionCamp2024/Teams/Green/green.html' },
+        { password: 'bush', page: '/GractionCamp2024/Teams/Green/green1.html' },
+        { password: 'F0re5t', page: '/GractionCamp2024/Teams/Green/green2.html' },
+        { password: '2468IcanCount', page: '/GractionCamp2024/Teams/Green/green3.html' },
+        { password: 'outOfIdeas@123', page: '/GractionCamp2024/Teams/Green/green4.html' }
     ],
     'purple': [
-        { password: 'purple', page: '/GractionCamp2024/Teams/Purple/purple.html' }
+        { password: 'purple', page: '/GractionCamp2024/Teams/Purple/purple.html' },
+        { password: '1nd1g0', page: '/GractionCamp2024/Teams/Purple/purple1.html' },
+        { password: 'Traction+', page: '/GractionCamp2024/Teams/Purple/purple2.html' },
+        { password: 'HunuaF@lls', page: '/GractionCamp2024/Teams/Purple/purple3.html' },
+        { password: 'password', page: '/GractionCamp2024/Teams/Purple/purple4.html' }
     ],
     'blue': [
-        { password: 'blue', page: '/GractionCamp2024/Teams/Blue/blue.html' }
+        { password: 'blue', page: '/GractionCamp2024/Teams/Blue/blue.html' },
+        { password: 'oceanBlu3', page: '/GractionCamp2024/Teams/Blue/blue1.html' },
+        { password: 'bedobedobedo', page: '/GractionCamp2024/Teams/Blue/blue2.html' },
+        { password: 'badamTisss', page: '/GractionCamp2024/Teams/Blue/blue3.html' },
+        { password: 'bluepers', page: '/GractionCamp2024/Teams/Blue/blue4.html' }
     ],
     'orange': [
-        { password: 'orange', page: '/GractionCamp2024/Teams/Orange/orange.html' }
+        { password: 'orange', page: '/GractionCamp2024/Teams/Orange/orange.html' },
+        { password: 'mandarin', page: '/GractionCamp2024/Teams/Orange/orange1.html' },
+        { password: 'testerPassword', page: '/GractionCamp2024/Teams/Orange/orange2.html' },
+        { password: 'password', page: '/GractionCamp2024/Teams/Orange/orange3.html' },
+        { password: 'willTheCodeBreak', page: '/GractionCamp2024/Teams/Orange/orange4.html' }
     ],
     'yellow': [
         { password: 'yellow', page: '/GractionCamp2024/Teams/Yellow/yellow.html' },
-        { password: 'jovin', page: '/GractionCamp2024/Teams/Yellow/yellowclue1.html' }
+        { password: 'JovinWasHere', page: '/GractionCamp2024/Teams/Yellow/yellowclue1.html'},
+        { password: 'Gino', page: '/GractionCamp2024/Teams/Yellow/yellowclue2.html' },
+        { password: 'pleaseWork!', page: '/GractionCamp2024/Teams/Yellow/yellowclue3.html' },
+        { password: '@isaacIsntHere', page: '/GractionCamp2024/Teams/Yellow/yellowclue4.html' }
     ],
     'admin': [
         { password: 'admin', page: '/GractionCamp2024/Teams/Admin/admin.html' },
