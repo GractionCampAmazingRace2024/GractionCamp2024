@@ -108,57 +108,53 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
   });
 });
 
-
-
-// Only show error message after form submission when the correct button is clicked
 document.getElementById("loginForm").addEventListener("submit", function (e) {
-  e.preventDefault(); 
+  e.preventDefault(); // Prevent form from submitting automatically
+  
 
-
-  if (document.activeElement.className !== "customButton") {
-    e.preventDefault(); 
+  if (document.activeElement.id !== "gradient-submit") {
+    document.getElementById("errorMessage").textContent = "Please click the 'Submit' button to submit the form.";
     return;
   }
-  else{
 
 
-    const username = document.getElementById("teamSelection").value;
-    const password = document.getElementById("password").value;
-  
-    // Clear previous error message
-    document.getElementById("errorMessage").textContent = "";
-  
-    // Ensure that a team is selected and a password is entered
-    if (!username) {
-      document.getElementById("errorMessage").textContent = "Please select a team first.";
-      // return;
-    }
-  
-    if (!password) {
-      document.getElementById("errorMessage").textContent = "Please enter your password.";
-      // return;
-    }
-  
-    // Check if the username exists in the map
-    if (userCredentials[username]) {
-      const credentials = userCredentials[username];
-      const userData = credentials.find((cred) => cred.password === password);
-  
-      if (userData) {
-        // Set sessionStorage to track login status
-        sessionStorage.setItem("authenticatedUser", username);
-        sessionStorage.setItem("authenticatedPassword", password);
-        window.location.replace(userData.page);
-      } else {
-        // Show error message only if the password is incorrect
-        document.getElementById("errorMessage").textContent = getRandomErrorMessage();
-      }
+  const username = document.getElementById("teamSelection").value;
+  const password = document.getElementById("password").value;
+
+  // Clear previous error message
+  document.getElementById("errorMessage").textContent = "";
+
+  // Ensure that a team is selected and a password is entered
+  if (!username) {
+    document.getElementById("errorMessage").textContent = "Please select a team first.";
+    return; // Stop processing if username is missing
+  }
+
+  if (!password) {
+    document.getElementById("errorMessage").textContent = "Please enter your password.";
+    return; // Stop processing if password is missing
+  }
+
+  // Check if the username exists in the map
+  if (userCredentials[username]) {
+    const credentials = userCredentials[username];
+    const userData = credentials.find((cred) => cred.password === password);
+
+    if (userData) {
+      // Set sessionStorage to track login status
+      sessionStorage.setItem("authenticatedUser", username);
+      sessionStorage.setItem("authenticatedPassword", password);
+      window.location.replace(userData.page);
     } else {
-      // Show error message if the username is invalid
+      // Show error message only if the password is incorrect
       document.getElementById("errorMessage").textContent = getRandomErrorMessage();
     }
+  } else {
+    // Show error message if the username is invalid
+    document.getElementById("errorMessage").textContent = getRandomErrorMessage();
   }
 });
+
 
 
 
