@@ -77,7 +77,7 @@
             <p id="errorMessage" class="error-message"></p>
         </form>
 
-        <h3>Version 2.0.2.v3</h3>
+        <h3>Version 2.0.2.v4</h3>
         <p id="copyright">© 2024<br>
           All Right Reserved</p>
       
@@ -159,12 +159,19 @@
         let lastTouchEnd = 0;
         document.addEventListener('touchend', function(event) {
             const now = new Date().getTime();
-            if (now - lastTouchEnd <= 400) {
+            const target = event.target;
+        
+            // Allow default behavior for any element within the form with id 'loginForm'
+            if (target.closest('#loginForm')) {
+                return; // Don't prevent the default behavior for any element inside the form
+            }
+            // Prevent double-tap zoom for other elements
+            else if(now - lastTouchEnd <= 400) {
                 event.preventDefault();
             }
+        
             lastTouchEnd = now;
         }, false);
-        
         
         
         document.addEventListener("gesturestart", function (e) {
