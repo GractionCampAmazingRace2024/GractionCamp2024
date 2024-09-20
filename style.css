@@ -17,6 +17,11 @@
     }
 }
 
+/* .arrows{
+    color: white;
+    font-size: calc(min(2vh, 2vw));
+} */
+
 html {
     margin: 0;
     padding: 0;
