@@ -7,6 +7,7 @@
   "background_color": "#FFFF00",
   "theme_color": "#FFFF00",
   "description": "The Amazing Race 2024 Web App",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "/GractionCamp2024/Images/android-chrome-192x192.png",
