@@ -5,6 +5,14 @@ html, body {
     width: 100vw;      
     height: 100vh;  
     background-color: #01b0f1;
+
+    touch-action: none; /* Prevents touch scrolling */
+    overscroll-behavior: none; /* Prevents scroll bounce */
+    scroll-snap-type: none;
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* Prevent selection in Safari (iOS) */
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 body {

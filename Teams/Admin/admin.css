@@ -11,6 +11,10 @@ html, body {
     touch-action: none; /* Prevents touch scrolling */
     overscroll-behavior: none; /* Prevents scroll bounce */
     scroll-snap-type: none;
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* Prevent selection in Safari (iOS) */
+    -moz-user-select: none;
+    -ms-user-select: none;
 
 }
 

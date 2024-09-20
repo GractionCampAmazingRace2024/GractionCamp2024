@@ -10,13 +10,21 @@ html, body {
     touch-action: none; /* Prevents touch scrolling */
     overscroll-behavior: none; /* Prevents scroll bounce */
     scroll-snap-type: none;
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* Prevent selection in Safari (iOS) */
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     html, body {
-        touch-action: none;
+        touch-action: none; /* Prevents touch scrolling */
         overscroll-behavior: none; /* Prevents scroll bounce */
         scroll-snap-type: none;
+        user-select: none; /* Prevent text selection */
+        -webkit-user-select: none; /* Prevent selection in Safari (iOS) */
+        -moz-user-select: none;
+        -ms-user-select: none;
     }
 }
 

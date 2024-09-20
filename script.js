@@ -29,10 +29,10 @@ const userCredentials = {
   ],
   'yellow': [
     { password: 'yellow', page: '/GractionCamp2024/Teams/Yellow/yellow.html' },
-    { password: 'JovinWasHere', page: '/GractionCamp2024/Teams/Yellow/yellowclue1.html' },
-    { password: 'Gino', page: '/GractionCamp2024/Teams/Yellow/yellowclue2.html' },
-    { password: 'pleaseWork!', page: '/GractionCamp2024/Teams/Yellow/yellowclue3.html' },
-    { password: '@isaacIsntHere', page: '/GractionCamp2024/Teams/Yellow/yellowclue4.html' }
+    { password: 'JovinWasHere', page: '/GractionCamp2024/Teams/Yellow/yellow1.html' },
+    { password: 'Gino', page: '/GractionCamp2024/Teams/Yellow/yellow2.html' },
+    { password: 'pleaseWork!', page: '/GractionCamp2024/Teams/Yellow/yellow3.html' },
+    { password: '@isaacIsntHere', page: '/GractionCamp2024/Teams/Yellow/yellow4.html' }
   ],
   'admin': [
     { password: 'admin', page: '/GractionCamp2024/Teams/Admin/admin.html' },

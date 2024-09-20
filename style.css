@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     scroll-snap-type: none;
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* Prevent selection in Safari (iOS) */
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
@@ -45,9 +49,6 @@ html {
         black 85%,   
         yellow 85%   
     );
-
-
-
 
     touch-action: none; /* Disables all touch actions including zooming */
     overflow-x: hidden; /* Prevents horizontal scrolling */
@@ -141,6 +142,15 @@ button:hover {
     margin: 0;
 }
 
+.custom-dropdown, 
+.custom-dropdown * {
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* Prevent selection in Safari (iOS) */
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+
 .customButton {
     width: 100%;
     padding: 12px; /* Increased padding for better appearance */
@@ -184,6 +194,7 @@ button:hover {
     color: rgb(0, 0, 0); /* Text color matching the button */
     font-weight: bolder;
     background-color: rgb(82, 80, 80); /* Match the dropdown background */
+    user-select: none;
 }
 
 .dropdown-item:last-child {
