@@ -1,62 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <!--  IOS SPECIFIC STUFF -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Amazing Race">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <!-- iOS Specific Icons -->
-    <link rel="apple-touch-icon" href="/GractionCamp2024/Images/apple-touch-icon.png">
-    <!-- iOS Splash Screens -->
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png">
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-192x192.png" media="(device-width: 320px) and (device-height: 568px)">
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-512x512.png" media="(device-width: 375px) and (device-height: 667px)">
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-512x512.png" media="(device-width: 375px) and (device-height: 812px)">
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-512x512.png" media="(device-width: 414px) and (device-height: 736px)">
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png" media="(device-width: 414px) and (device-height: 896px)">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+  <link rel="manifest" href="/GractionCamp2024/manifest.json">
+  <link rel="stylesheet" href="/GractionCamp2024/CSS/stickman.css">
+  <link id="dynamic-css" rel="stylesheet" href="/GractionCamp2024/style.css">
 
 
-    <link rel="icon" href="/GractionCamp2024/Images/favicon.ico">
-    <link rel="icon" type="image/png" href="/GractionCamp2024/Images/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/GractionCamp2024/Images/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="/GractionCamp2024/Images/android-chrome-192x192.png" sizes="192x192" />
+  <!--  IOS SPECIFIC STUFF -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Amazing Race">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- iOS Specific Icons -->
+  <link rel="apple-touch-icon" href="/GractionCamp2024/Images/apple-touch-icon.png">
+
+  <!-- iOS Splash Screens for different iPhones -->
+
+  <!-- iPhone SE (1st generation), 5, 5S, 5C -->
+  <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png"
+    media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+
+  <!-- iPhone 6, 6S, 7, 8, SE (2nd generation) -->
+  <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-192x192.png"
+    media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
+
+  <!-- iPhone 6 Plus, 6S Plus, 7 Plus, 8 Plus -->
+  <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-512x512.png"
+    media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)">
+
+  <!-- iPhone X, XS, 11 Pro, 12 Mini -->
+  <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png"
+    media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
+
+  <!-- iPhone XR, 11 -->
+  <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)">
+
+  <!-- iPhone XS Max, 11 Pro Max -->
+  <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png"
+    media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)">
+
+  <!-- iPhone 12, 12 Pro -->
+  <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png"
+    media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)">
+
+  <!-- iPhone 12 Pro Max -->
+  <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png"
+    media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)">
+
+  <!-- Fallback for other iPhones -->
+  <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png">
+
+  <!-- Favicons -->
+  <link rel="icon" href="/GractionCamp2024/Images/favicon.ico">
+  <link rel="icon" type="image/png" href="/GractionCamp2024/Images/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/GractionCamp2024/Images/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="/GractionCamp2024/Images/android-chrome-192x192.png" sizes="192x192" />
 
 
-    <link rel="manifest" href="/GractionCamp2024/manifest.json">
-    <link rel="stylesheet" href="/GractionCamp2024/index.css" />
-    <script src="/GractionCamp2024/Scripts/redirection.js"></script>
-    <script src="/GractionCamp2024/Scripts/gestures.js"></script>
+  <!-- Local Host Testing -->
 
+  <!-- <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="/CSS/stickman.css">
+  <link id="dynamic-css" rel="stylesheet" href="style.css"> -->
+
+  <!-- Local Host Testing -->
 
   <title>AMAZING RACE 2024</title>
+
 </head>
-<audio id="themeMusic" loop>
-  <source src="/GractionCamp2024/SoundEffects/theme.mp3" type="audio/mpeg">
-</audio>
-<body>
 
 
-  <div id="loadingScreen" class="loading-overlay">
+
+<body class="mainBody">
+
+
+  <div id="loadingPage" class="page" style="display: block;">
     <div class="loading-content">
-      <div class="boxContainer">
-        <div class="box box1"></div>
-        <div class="box box2"></div>
-        <div class="box box3"></div>
-        <div class="box box4"></div>
-        <div class="box box5"></div>
+      <div class="oneBox">
+        <div class="boxContainer">
+          <div class="box box1"></div>
+          <div class="box box2"></div>
+          <div class="box box3"></div>
+          <div class="box box4"></div>
+          <div class="box box5"></div>
+        </div>
+        <p>Remember to turn your game sound on max</p>
+        <button id="startButton" onclick="returnToIndex()">Proceed to Amazing Race 2024</button>
+        <h4>Version 3.0.0.v1</h4>
       </div>
-      <p>Remember to turn your game sound on max</p>
-      <button id="startButton" onclick="returnToIndex()">Proceed to Amazing Race 2024</button>
-      
-      <h4>Version 2.0.4.v3</h4>
     </div>
-
   </div>
 
-  <script>   document.body.style.backgroundColor = 'black';</script>
+
+  <div id="indexPage" class="page" style="display: none;">
+    <div class="login-container">
+      <h2>Graction Camp Amazing Race 2024</h2>
+      <form id="loginForm">
+        <!-- <p>Select Your Team:</p> -->
+        <div class="custom-dropdown">
+          <button type="button" class="customButton">
+
+            <p class="teamIcon" style="color:#39FF14;">𖨆</p>
+            <p class="teamIcon" style="color: #de80f8;">𖨆</p>
+            <p class="teamIcon" style="color: #01c1f1;">𖨆</p>
+            <p class="teamIcon" style="color:#ffa600;">𖨆</p>
+            <p class="teamIcon" style="color:yellow;">𖨆</p>
+
+
+          </button>
+
+          <div class="dropdown-content">
+            <div class="dropdown-item" data-value="green" id="option-green">Kākāriki</div>
+            <div class="dropdown-item" data-value="purple" id="option-purple">Waiporoporo</div>
+            <div class="dropdown-item" data-value="blue" id="option-blue">Kikorangi</div>
+            <div class="dropdown-item" data-value="orange" id="option-orange">Karaka</div>
+            <div class="dropdown-item" data-value="yellow" id="option-yellow">Kōwhai</div>
+            <div class="dropdown-item" data-value="admin" id="option-admin">Admin</div>
+          </div>
+          <input type="hidden" id="teamSelection" name="teamSelection">
+        </div>
+        <div class="input-container">
+          <label for="password" class="passwordLabel">Type Secret Clue Key:</label>
+          <input type="password" id="password" name="password">
+        </div>
+        <button type="submit" id="gradient-submit">Check Clue</button>
+        <p id="errorMessage" class="error-message"></p>
+      </form>
+
+      <p id="copyright">© 2024<br>
+        All Right Reserved</p>
+
+      <p id="trademarks">
+        <br>
+        <br>
+        Jovin™
+        <br>
+        Jono ®
+      </p>
+    </div>
+
+    <section class="world">
+      <div class="back one"></div>
+      <div class="back two"></div>
+      <div class="back three"></div>
+      <div class="back four"></div>
+
+      <div class="floor">
+        <div class="rock one"></div>
+        <div class="rock two"></div>
+        <div class="rock three"></div>
+        <div class="grass one"></div>
+        <div class="grass two"></div>
+        <div class="grass three"></div>
+        <div class="grass four"></div>
+        <div class="grass five"></div>
+        <div class="grass six"></div>
+        <div class="grass seven"></div>
+        <div class="grass height"></div>
+        <div class="grass nine"></div>
+        <div class="grass ten"></div>
+      </div>
+      <div class="cloud one"></div>
+      <div class="cloud two"></div>
+      <div class="cloud three"></div>
+      <div class="cloud four"></div>
+      <div class="stick" id="stickman">
+        <div class="head" id="stickman"></div>
+        <div class="arm left" id="stickman">
+          <div class="bottom" id="stickman"></div>
+        </div>
+        <div class="arm right" id="stickman">
+          <div class="bottom" id="stickman"></div>
+        </div>
+        <div class="leg left" id="stickman">
+          <div class="bottom" id="stickman"></div>
+        </div>
+        <div class="leg right" id="stickman">
+          <div class="bottom" id="stickman"></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  <div id="iphoneline" class="bottomline" style="display:none"></div>
+
+  <div id="adminPage" class="page" style="display: none;">
+    <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
+    <div class="threeStripe">
+      <div class="middleStripe">
+        <div id="content">
+          Admin
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="bluePage" class="page" style="display: none;">
+    <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
+    <div class="threeStripe">
+      <div class="middleStripe">
+        <div id="content">
+          blue
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="greenPage" class="page" style="display: none;">
+    <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
+    <div class="threeStripe">
+      <div class="middleStripe">
+        <div id="content">
+          green
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="orangePage" class="page" style="display: none;">
+    <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
+    <div class="threeStripe">
+      <div class="middleStripe">
+        <div id="content">
+          orange
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="purplePage" class="page" style="display: none;">
+    <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
+    <div class="threeStripe">
+      <div class="middleStripe">
+        <div id="content">
+          purple
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="yellowPage" class="page" style="display: none;">
+    <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
+    <div class="threeStripe">
+      <div class="middleStripe">
+        <div id="content">
+          yellow
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="c1" class="page" style="display: none;">
+    <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
+    <div class="threeStripe">
+      <div class="middleStripe">
+        <div id="content">
+          Challenge 1
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="c2" class="page" style="display: none;">
+    <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
+    <div class="threeStripe">
+      <div class="middleStripe">
+        <div id="content">
+          Challenge 2
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="c3" class="page" style="display: none;">
+    <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
+    <div class="threeStripe">
+      <div class="middleStripe">
+        <div id="content">
+          Challenge 3
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="c4" class="page" style="display: none;">
+    <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
+    <div class="threeStripe">
+      <div class="middleStripe">
+        <div id="content">
+          Challenge 4
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- <div id="rickRollPage" class="page" style="display: none;"></div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/GractionCamp2024/sw.js')
+        .then(registration => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(error => {
+          console.log('Service Worker registration failed:', error);
+        });
+    }
+
+
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function (event) {
+      const now = new Date().getTime();
+      const target = event.target;
+
+      if (target.closest('#loginForm')) {
+        return; 
+      }
+      else if (now - lastTouchEnd <= 400) {
+        event.preventDefault();
+      }
+
+      lastTouchEnd = now;
+    }, false);
+
+
+    document.addEventListener("gesturestart", function (e) {
+      e.preventDefault();
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const dropdown = document.querySelector('.custom-dropdown');
+
+      dropdown.addEventListener('mousedown', function (e) {
+        e.preventDefault(); // Prevent default behavior like selection
+      });
+    });
+
+  </script>
+
 </body>
 
 </html>

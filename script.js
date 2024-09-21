@@ -1,47 +1,82 @@
 const userCredentials = {
-  'green': [
-    { password: 'green', page: '/GractionCamp2024/Teams/Green/green.html' },
-    { password: 'bush', page: '/GractionCamp2024/Teams/Green/green1.html' },
-    { password: 'F0re5t', page: '/GractionCamp2024/Teams/Green/green2.html' },
-    { password: '2468IcanCount', page: '/GractionCamp2024/Teams/Green/green3.html' },
-    { password: 'outOfIdeas@123', page: '/GractionCamp2024/Teams/Green/green4.html' }
+  green: [
+    { password: "green", page: "greenPage", css: "green.css" },
+    { password: "bush", page: "c2", css: "green.css" },
+    { password: "F0re5t", page: "c3", css: "green.css" },
+    { password: "2468IcanCount", page: "c4", css: "green.css" },
+    { password: "outOfIdeas@123", page: "c1", css: "green.css" },
   ],
-  'purple': [
-    { password: 'purple', page: '/GractionCamp2024/Teams/Purple/purple.html' },
-    { password: '1nd1g0', page: '/GractionCamp2024/Teams/Purple/purple1.html' },
-    { password: 'Traction+', page: '/GractionCamp2024/Teams/Purple/purple2.html' },
-    { password: 'HunuaF@lls', page: '/GractionCamp2024/Teams/Purple/purple3.html' },
-    { password: 'password', page: '/GractionCamp2024/Teams/Purple/purple4.html' }
+  purple: [
+    { password: "purple", page: "purplePage", css: "purple.css" },
+    { password: "1nd1g0", page: "c1", css: "purple.css" },
+    { password: "Traction+", page: "c2", css: "purple.css" },
+    { password: "HunuaF@lls", page: "c3", css: "purple.css" },
+    { password: "password", page: "c4", css: "purple.css" },
   ],
-  'blue': [
-    { password: 'blue', page: '/GractionCamp2024/Teams/Blue/blue.html' },
-    { password: 'oceanBlu3', page: '/GractionCamp2024/Teams/Blue/blue1.html' },
-    { password: 'bedobedobedo', page: '/GractionCamp2024/Teams/Blue/blue2.html' },
-    { password: 'badamTisss', page: '/GractionCamp2024/Teams/Blue/blue3.html' },
-    { password: 'bluepers', page: '/GractionCamp2024/Teams/Blue/blue4.html' }
+  blue: [
+    { password: "blue", page: "bluePage", css: "blue.css" },
+    { password: "oceanBlu3", page: "c1", css: "blue.css" },
+    { password: "bedobedobedo", page: "c2", css: "blue.css" },
+    { password: "badamTisss", page: "c4", css: "blue.css" },
+    { password: "bluepers", page: "c3", css: "blue.css" },
   ],
-  'orange': [
-    { password: 'orange', page: '/GractionCamp2024/Teams/Orange/orange.html' },
-    { password: 'mandarin', page: '/GractionCamp2024/Teams/Orange/orange1.html' },
-    { password: 'testerPassword', page: '/GractionCamp2024/Teams/Orange/orange2.html' },
-    { password: 'password', page: '/GractionCamp2024/Teams/Orange/orange3.html' },
-    { password: 'willTheCodeBreak', page: '/GractionCamp2024/Teams/Orange/orange4.html' }
+  orange: [
+    { password: "orange", page: "orangePage", css: "orange.css" },
+    { password: "mandarin", page: "c2", css: "orange.css" },
+    { password: "testerPassword", page: "c3", css: "orange.css" },
+    { password: "password", page: "c1", css: "orange.css" },
+    { password: "willTheCodeBreak", page: "c4", css: "orange.css" },
   ],
-  'yellow': [
-    { password: 'yellow', page: '/GractionCamp2024/Teams/Yellow/yellow.html' },
-    { password: 'JovinWasHere', page: '/GractionCamp2024/Teams/Yellow/yellow1.html' },
-    { password: 'Gino', page: '/GractionCamp2024/Teams/Yellow/yellow2.html' },
-    { password: 'pleaseWork!', page: '/GractionCamp2024/Teams/Yellow/yellow3.html' },
-    { password: '@isaacIsntHere', page: '/GractionCamp2024/Teams/Yellow/yellow4.html' }
+  yellow: [
+    { password: "yellow", page: "yellowPage", css: "yellow.css" },
+    { password: "JovinWasHere", page: "c4", css: "yellow.css" },
+    { password: "Gino", page: "c3", css: "yellow.css" },
+    { password: "pleaseWork!", page: "c2", css: "yellow.css" },
+    { password: "@isaacIsntHere", page: "c1", css: "yellow.css" },
   ],
-  'admin': [
-    { password: 'admin', page: '/GractionCamp2024/Teams/Admin/admin.html' },
-    { password: 'challenge1', page: '/GractionCamp2024/Teams/Admin/admin1.html' },
-    { password: 'challenge2', page: '/GractionCamp2024/Teams/Admin/admin2.html' },
-    { password: 'Jrroll', page: '/GractionCamp2024/Teams/Admin/rickrolling.html' }
+  admin: [
+    { password: "admin", page: "adminPage", css: "admin.css" },
+    { password: "challenge1", page: "c1", css: "admin.css" },
+    { password: "challenge2", page: "c2", css: "admin.css" },
   ],
 };
-
+const errorMessages = [
+  "Womp Womp...",
+  "L Bozo",
+  "Tough",
+  "Skill Issue",
+  "That was not very slay",
+  "ermmmm.... wrong",
+  "Hint: Try Harder",
+  "Amazing....",
+  "Maybe I need to verify if you are a robot or not",
+  "Womp Womp...",
+  "What the sigma",
+  "Chat... is this real?",
+  "What the skibidi toilet",
+  "One job...",
+  "Embarassinggg....",
+  "Are you even trying?",
+  "Missed your shot...No Rizz",
+  "You got this one day!",
+  "Atleast you know what not to do",
+  "You miss all the shots you dont take... I guess...",
+  "This is a whole mood… for the wrong reasons",
+  "Yikes! Not even close",
+  "L + Ratio",
+  "Not the vibes",
+  "Sus password",
+  "It's giving... Fail",
+  "Oopsies...",
+  "Hard Pass",
+  "No bueno...",
+  "You hate to see it...",
+  "...",
+  "That's a no from me",
+  "Yikes...",
+  "Sucks to suck...",
+  "Did you drop the phone?",
+];
 
 // Map team colors to their corresponding gradient backgrounds
 const teamColors = {
@@ -52,45 +87,6 @@ const teamColors = {
   yellow: "yellow",
   admin: "red",
 };
-
-
-const errorMessages = [
-  'Womp Womp...', 
-  'L Bozo', 
-  'Tough', 
-  'Skill Issue', 
-  'That was not very slay', 
-  'ermmmm.... wrong',
-  'Hint: Try Harder', 
-  'Amazing....', 
-  'Maybe I need to verify if you are a robot or not', 
-  'Womp Womp...',
-  'What the sigma', 
-  'Chat... is this real?', 
-  'What the skibidi toilet', 
-  'One job...', 
-  'Embarassinggg....',
-  'Are you even trying?', 
-  'Missed your shot...No Rizz', 
-  'You got this one day!', 
-  'Atleast you know what not to do',
-  'You miss all the shots you dont take... I guess...', 
-  'This is a whole mood… for the wrong reasons', 
-  'Yikes! Not even close',
-  'L + Ratio', 
-  'Not the vibes', 
-  'Sus password', 
-  "It's giving... Fail", 
-  'Oopsies...', 
-  'Hard Pass', 
-  'No bueno...',
-  'You hate to see it...', 
-  '...', 
-  "That's a no from me",
-  'Yikes...',
-  'Sucks to suck...',
-  "Did you drop the phone?",
-];
 
 function getRandomErrorMessage() {
   const randomIndex = Math.floor(Math.random() * errorMessages.length);
@@ -126,6 +122,7 @@ document.addEventListener("click", function (event) {
   }
 });
 
+// Update team selection and button style on dropdown item click
 document.querySelectorAll(".dropdown-item").forEach((item) => {
   item.addEventListener("click", function () {
     const value = this.getAttribute("data-value");
@@ -158,6 +155,7 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
   });
 });
 
+// Handle login form submission
 document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault(); // Prevent form from submitting automatically
 
@@ -189,21 +187,24 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       // Set sessionStorage to track login status
       sessionStorage.setItem("authenticatedUser", username);
       sessionStorage.setItem("authenticatedPassword", password);
-      window.location.replace(userData.page);
+
+      // Hide all pages and show the selected page
+      document
+        .querySelectorAll(".page")
+        .forEach((page) => (page.style.display = "none"));
+      document.getElementById(userData.page).style.display = "block";
+      
+
+
+      document.getElementById("iphoneline").style.display = "none";
+
+      // Change CSS file based on the selected team
+      const linkElement = document.getElementById("dynamic-css");
+      linkElement.href = `/GractionCamp2024/CSS/${username}.css`;
     } else {
       // Show error message only if the password is incorrect
       document.getElementById("errorMessage").textContent =
         getRandomErrorMessage();
-
-        themeMusic.volume = 0.3; // Set this to your desired level (0 to 1)
-          document.getElementById('failSound1').play().catch(error => {
-              console.log('Error playing fail sound:', error);
-          });
-
-          // Restore the theme music volume after a short delay
-          document.getElementById('failSound1').addEventListener('ended', () => {
-              themeMusic.volume = 1; // Restore to original volume
-          });
     }
   } else {
     // Show error message if the username is invalid
@@ -214,7 +215,22 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
 
 
+function returnToIndex() {
+  document.querySelectorAll(".page").forEach((page) => {
+    page.style.display = "none";
+  });
 
+  document.getElementById("indexPage").style.display = "block";
 
+  sessionStorage.removeItem("authenticatedUser");
+  sessionStorage.removeItem("authenticatedPassword");
 
+  // Clear the password input field
+  document.getElementById("password").value = "";
 
+  document.getElementById("dynamic-css").href = "/GractionCamp2024/style.css";
+  document.getElementById("iphoneline").style.display = "block";
+
+  // Remove any lingering error messages
+  document.getElementById("errorMessage").textContent = "";
+}
