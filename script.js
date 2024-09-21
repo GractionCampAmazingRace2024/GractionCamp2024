@@ -40,7 +40,6 @@ const userCredentials = {
     { password: "challenge2", page: "c2", css: "admin.css" },
   ],
 };
-
 const errorMessages = [
   "Womp Womp...",
   "L Bozo",
@@ -51,6 +50,7 @@ const errorMessages = [
   "Hint: Try Harder",
   "Amazing....",
   "Maybe I need to verify if you are a robot or not",
+  "Womp Womp...",
   "What the sigma",
   "Chat... is this real?",
   "What the skibidi toilet",
@@ -94,20 +94,23 @@ function getRandomErrorMessage() {
 }
 
 // Show/hide dropdown on button click
-document.querySelector(".customButton").addEventListener("click", function (event) {
-  event.stopPropagation(); // Prevent event from propagating to the document
-  const dropdown = document.querySelector(".dropdown-content");
-  dropdown.classList.toggle("show");
-  
-  // Close other dropdowns if open
-  document.querySelectorAll(".dropdown-content").forEach((otherDropdown) => {
-    if (otherDropdown !== dropdown && otherDropdown.classList.contains("show")) {
-      otherDropdown.classList.remove("show");
-    }
+document
+  .querySelector(".customButton")
+  .addEventListener("click", function (event) {
+    event.stopPropagation(); // Prevent event from propagating to the document
+    const dropdown = document.querySelector(".dropdown-content");
+    dropdown.classList.toggle("show");
+    // Close other dropdowns if open
+    document.querySelectorAll(".dropdown-content").forEach((otherDropdown) => {
+      if (
+        otherDropdown !== dropdown &&
+        otherDropdown.classList.contains("show")
+      ) {
+        otherDropdown.classList.remove("show");
+      }
+    });
+    document.getElementById("errorMessage").textContent = "";
   });
-  
-  document.getElementById("errorMessage").textContent = "";
-});
 
 // Close dropdown if clicked outside
 document.addEventListener("click", function (event) {
@@ -152,15 +155,6 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
   });
 });
 
-// Function to show pages with transition
-function showPage(pageId) {
-  document.querySelectorAll(".page").forEach((page) => {
-    page.classList.remove("show");
-  });
-  const selectedPage = document.getElementById(pageId);
-  selectedPage.classList.add("show");
-}
-
 // Handle login form submission
 document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault(); // Prevent form from submitting automatically
@@ -194,18 +188,19 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       sessionStorage.setItem("authenticatedUser", username);
       sessionStorage.setItem("authenticatedPassword", password);
 
-      // Show the loading page before redirecting
-      showPage("loadingPage");
+      // Hide all pages and show the selected page
+      document
+        .querySelectorAll(".page")
+        .forEach((page) => (page.style.display = "none"));
+      document.getElementById(userData.page).style.display = "block";
       
-      // Redirect to the selected page after a brief delay
-      setTimeout(() => {
-        showPage(userData.page);
-        document.getElementById("iphoneline").style.display = "none";
 
-        // Change CSS file based on the selected team
-        const linkElement = document.getElementById("dynamic-css");
-        linkElement.href = `/GractionCamp2024/CSS/${username}.css`;
-      }, 1000); // Adjust delay as needed
+
+      document.getElementById("iphoneline").style.display = "none";
+
+      // Change CSS file based on the selected team
+      const linkElement = document.getElementById("dynamic-css");
+      linkElement.href = `/GractionCamp2024/CSS/${username}.css`;
     } else {
       // Show error message only if the password is incorrect
       document.getElementById("errorMessage").textContent =
@@ -218,13 +213,18 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   }
 });
 
-// Function to return to the index page
+
+
 function returnToIndex() {
-  showPage("indexPage");
+  document.querySelectorAll(".page").forEach((page) => {
+    page.style.display = "none";
+  });
+
+  document.getElementById("indexPage").style.display = "block";
+
   sessionStorage.removeItem("authenticatedUser");
   sessionStorage.removeItem("authenticatedPassword");
-  document.getElementById("loadingPage").style.display = "none";
-  document.getElementById("indexPage").style.display = "block";
+
   // Clear the password input field
   document.getElementById("password").value = "";
 

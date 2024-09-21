@@ -15,7 +15,7 @@ section.world {
     border-radius: 2px;
   }
 
-  .stickman{
+  #stickman{
     background: #000000;
     z-index: 10;
   }
