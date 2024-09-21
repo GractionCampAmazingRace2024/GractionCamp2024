@@ -8,6 +8,7 @@
 
   <link rel="manifest" href="/GractionCamp2024/manifest.json">
   <link rel="stylesheet" href="/GractionCamp2024/CSS/stickman.css">
+  <link rel="stylesheet" href="/GractionCamp2024/CSS/visibility.css">
   <link id="dynamic-css" rel="stylesheet" href="/GractionCamp2024/style.css">
 
 
@@ -67,6 +68,7 @@
 
   <!-- <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="/CSS/stickman.css">
+  <link rel="stylesheet" href="/CSS/visibility.css">
   <link id="dynamic-css" rel="stylesheet" href="style.css"> -->
 
   <!-- Local Host Testing -->
@@ -76,11 +78,9 @@
 </head>
 
 
-
 <body class="mainBody">
 
-
-  <div id="loadingPage" class="page" style="display: block;">
+  <div id="loadingPage" class="page show">
     <div class="loading-content">
       <div class="oneBox">
         <div class="boxContainer">
@@ -92,29 +92,23 @@
         </div>
         <p>Remember to turn your game sound on max</p>
         <button id="startButton" onclick="returnToIndex()">Proceed to Amazing Race 2024</button>
-        <h4>Version 3.0.0.v1</h4>
+        <h4>Version 3.0.0.v2</h4>
       </div>
     </div>
   </div>
-
 
   <div id="indexPage" class="page" style="display: none;">
     <div class="login-container">
       <h2>Graction Camp Amazing Race 2024</h2>
       <form id="loginForm">
-        <!-- <p>Select Your Team:</p> -->
         <div class="custom-dropdown">
           <button type="button" class="customButton">
-
             <p class="teamIcon" style="color:#39FF14;">𖨆</p>
             <p class="teamIcon" style="color: #de80f8;">𖨆</p>
             <p class="teamIcon" style="color: #01c1f1;">𖨆</p>
             <p class="teamIcon" style="color:#ffa600;">𖨆</p>
             <p class="teamIcon" style="color:yellow;">𖨆</p>
-
-
           </button>
-
           <div class="dropdown-content">
             <div class="dropdown-item" data-value="green" id="option-green">Kākāriki</div>
             <div class="dropdown-item" data-value="purple" id="option-purple">Waiporoporo</div>
@@ -133,15 +127,9 @@
         <p id="errorMessage" class="error-message"></p>
       </form>
 
-      <p id="copyright">© 2024<br>
-        All Right Reserved</p>
-
+      <p id="copyright">© 2024<br>All Right Reserved</p>
       <p id="trademarks">
-        <br>
-        <br>
-        Jovin™
-        <br>
-        Jono ®
+        <br><br>Jovin™<br>Jono ®
       </p>
     </div>
 
@@ -170,25 +158,25 @@
       <div class="cloud two"></div>
       <div class="cloud three"></div>
       <div class="cloud four"></div>
-      <div class="stick" id="stickman">
-        <div class="head" id="stickman"></div>
-        <div class="arm left" id="stickman">
-          <div class="bottom" id="stickman"></div>
+      <div class="stickman">
+        <div class="head"></div>
+        <div class="arm left">
+          <div class="bottom"></div>
         </div>
-        <div class="arm right" id="stickman">
-          <div class="bottom" id="stickman"></div>
+        <div class="arm right">
+          <div class="bottom"></div>
         </div>
-        <div class="leg left" id="stickman">
-          <div class="bottom" id="stickman"></div>
+        <div class="leg left">
+          <div class="bottom"></div>
         </div>
-        <div class="leg right" id="stickman">
-          <div class="bottom" id="stickman"></div>
+        <div class="leg right">
+          <div class="bottom"></div>
         </div>
       </div>
     </section>
-
   </div>
-  <div id="iphoneline" class="bottomline" style="display:none"></div>
+
+  
 
   <div id="adminPage" class="page" style="display: none;">
     <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
@@ -256,7 +244,6 @@
     </div>
   </div>
 
-
   <div id="c1" class="page" style="display: none;">
     <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
     <div class="threeStripe">
@@ -267,6 +254,7 @@
       </div>
     </div>
   </div>
+
   <div id="c2" class="page" style="display: none;">
     <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
     <div class="threeStripe">
@@ -288,6 +276,7 @@
       </div>
     </div>
   </div>
+
   <div id="c4" class="page" style="display: none;">
     <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
     <div class="threeStripe">
@@ -298,8 +287,6 @@
       </div>
     </div>
   </div>
-
-
 
 
   <!-- <div id="rickRollPage" class="page" style="display: none;"></div> -->
@@ -315,7 +302,7 @@
 
 
 
-
+  <div id="iphoneline" class="bottomline" style="display:none"></div>
   <script src="script.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
