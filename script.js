@@ -182,18 +182,14 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       document.getElementById("errorMessage").textContent =
         getRandomErrorMessage();
 
-        themeMusic.volume = 0.3; // Set this to your desired level (0 to 1)
 
-            // Play a fail sound
-            const failSoundId = Math.random() < 0.5 ? 'failSound1' : 'failSound2';
-            document.getElementById(failSoundId).play().catch(error => {
-                console.log('Error playing fail sound:', error);
-            });
+        themeMusic.volume = 0.3; 
+        document.getElementById("failSound1").play()
+        document.getElementById("failSound1").addEventListener('ended', () => {
+            themeMusic.volume = 1; // Restore to original volume
 
-            // Restore the theme music volume after a short delay
-            document.getElementById(failSoundId).addEventListener('ended', () => {
-                themeMusic.volume = 1; // Restore to original volume
-            });
+
+        });
     }
   } else {
     // Show error message if the username is invalid
@@ -204,7 +200,11 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
 function returnToIndex() {
   window.location.replace("/GractionCamp2024/index.html"); // Use replace to prevent back navigation
-}
+  document.getElementById('themeMusic').play()
+  document.getElementById('loadingScreen').style.display = 'none'; 
+  
+};
+
 
 // Map team colors to their corresponding gradient backgrounds
 const teamColors = {
