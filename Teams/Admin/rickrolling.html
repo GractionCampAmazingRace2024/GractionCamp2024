@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading Rick Roll</title>
     <link rel="stylesheet" href="/GractionCamp2024/Teams/Admin/rickroll.css"> <!-- Updated link -->
 </head>
@@ -19,7 +19,7 @@
     </div>
 
     <!-- Rick Roll Video -->
-    <video id="rickRollVideo" controls preload="auto" style="display: none;">
+    <video id="rickRollVideo" controls style="display: none;">
         <source src="/GractionCamp2024/RickRoll/RickRoll.mp4" type="video/mp4">
     </video>
 
@@ -31,25 +31,25 @@
         const videoElement = document.getElementById('rickRollVideo');
         const loadingMessage = document.getElementById('loadingMessage');
         const startButton = document.getElementById('startButton');
-        
+
         // Retrieve start time from localStorage
         const startTime = localStorage.getItem('rickrollTime');
-        
+
         // Calculate total time spent from first page load
         let timeSpentSec = 0; // Initialize time spent
         if (startTime) {
             const currentTime = new Date().getTime(); // Current time in milliseconds
             const timeSpentMs = currentTime - startTime; // Difference in milliseconds
             timeSpentSec = Math.floor(timeSpentMs / 1000); // Convert to seconds
-        
+
             // Convert seconds to hours, minutes, and seconds
             const hours = Math.floor(timeSpentSec / 3600);
             const minutes = Math.floor((timeSpentSec % 3600) / 60);
             const seconds = timeSpentSec % 60;
-        
+
             timeSpentElement.textContent = `${hours}h ${minutes}m ${seconds}s`; // Display formatted time
         }
-        
+
         // Function to start loading
         function startLoading() {
             startButton.style.display = 'none'; // Hide the button
@@ -57,49 +57,39 @@
             loadingMessage.textContent = "Calculating Final Ranking.."; // Display message
             countdownTimer(); // Start the countdown
         }
-        
+
         // Countdown Timer Function
         function countdownTimer() {
             timerElement.textContent = countdown; // Set initial countdown value
             const countdownInterval = setInterval(() => {
                 countdown--;
                 timerElement.textContent = countdown;
-        
+
                 if (countdown <= 0) {
                     clearInterval(countdownInterval);
-                    showVideo();
+                    showVideo(); // Show the video after countdown
                 }
             }, 1000);
         }
-        
+
         function showVideo() {
             loadingScreen.style.display = 'none';  // Hide the loading screen
-            setTimeout(() => {
-                videoElement.style.display = 'block';  // Show the video
-                videoElement.removeAttribute('controls'); // Remove controls for auto-play
-                videoElement.play();  // Start playing the video
-                
-                // Remove loading screen when video starts playing
-                videoElement.onplaying = function() {
-                    loadingScreen.style.display = 'none'; // Ensure loading screen is removed
-                };
-        
-                // Request fullscreen
-                videoElement.addEventListener('play', function () {
-                    if (videoElement.requestFullscreen) {
-                        videoElement.requestFullscreen();
-                    } else if (videoElement.mozRequestFullScreen) { // Firefox
-                        videoElement.mozRequestFullScreen();
-                    } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
-                        videoElement.webkitRequestFullscreen();
-                    } else if (videoElement.msRequestFullscreen) { // IE/Edge
-                        videoElement.msRequestFullscreen();
-                    }
-                });
-            })
-        }
-        
+            videoElement.style.display = 'block';  // Show the video
+            videoElement.play();  // Start playing the video
 
+            // Request fullscreen
+            videoElement.addEventListener('play', function () {
+                if (videoElement.requestFullscreen) {
+                    videoElement.requestFullscreen();
+                } else if (videoElement.mozRequestFullScreen) { // Firefox
+                    videoElement.mozRequestFullScreen();
+                } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                    videoElement.webkitRequestFullscreen();
+                } else if (videoElement.msRequestFullscreen) { // IE/Edge
+                    videoElement.msRequestFullscreen();
+                }
+            });
+        }
     </script>
 
 </body>

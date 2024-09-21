@@ -8,78 +8,33 @@
     <link rel="stylesheet" href="/GractionCamp2024/style.css">
     <link rel="stylesheet" href="/GractionCamp2024/stickman.css">
 
-
-    <!--  IOS SPECIFIC STUFF -->
+    <!-- iOS Specific Stuff -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Amazing Race">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-    <!-- iOS Specific Icons -->
     <link rel="apple-touch-icon" href="/GractionCamp2024/Images/apple-touch-icon.png">
-
-    <!-- iOS Splash Screens for different iPhones -->
     
-    <!-- iPhone SE (1st generation), 5, 5S, 5C -->
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
-
-    <!-- iPhone 6, 6S, 7, 8, SE (2nd generation) -->
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-192x192.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
-
-    <!-- iPhone 6 Plus, 6S Plus, 7 Plus, 8 Plus -->
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-512x512.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)">
-
-    <!-- iPhone X, XS, 11 Pro, 12 Mini -->
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
-
-    <!-- iPhone XR, 11 -->
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)">
-
-    <!-- iPhone XS Max, 11 Pro Max -->
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)">
-
-    <!-- iPhone 12, 12 Pro -->
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)">
-
-    <!-- iPhone 12 Pro Max -->
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)">
-
-    <!-- Fallback for other iPhones -->
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png">
-
     <!-- Favicons -->
     <link rel="icon" href="/GractionCamp2024/Images/favicon.ico">
     <link rel="icon" type="image/png" href="/GractionCamp2024/Images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="/GractionCamp2024/Images/favicon-16x16.png" sizes="16x16" />
     <link rel="icon" type="image/png" href="/GractionCamp2024/Images/android-chrome-192x192.png" sizes="192x192" />
 
-
-    <!-- Local Host Testing -->
-
-    <!-- <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="stickman.css"> -->
-
-    <!-- Local Host Testing -->
-
-<title>AMAZING RACE 2024</title>
-
+    <title>AMAZING RACE 2024</title>
 </head>
 
 <body class="mainBody">
   <audio id="themeMusic" loop>
     <source src="/GractionCamp2024/SoundEffects/theme.mp3" type="audio/mpeg">
   </audio>
-
   <audio id="failSound1">
     <source src="/GractionCamp2024/SoundEffects/fail.mp3" type="audio/mpeg">
   </audio>
-
   <audio id="failSound2">
     <source src="/GractionCamp2024/SoundEffects/wompwomp.mp3" type="audio/mpeg">
   </audio>
-
+  
   <div id="loadingScreen" class="loading-overlay">
-    
     <div class="loading-content">
       <div class="boxContainer">
         <div class="box box1"></div>
@@ -88,26 +43,21 @@
         <div class="box box4"></div>
         <div class="box box5"></div>
       </div>
-      <p>Remeber to turn your game sound on max</p>
+      <p>Remember to turn your game sound on max</p>
       <button id="startButton">Proceed to Amazing Race 2024</button>
     </div>
   </div>
   
-
   <div class="login-container">
     <h2>Graction Camp Amazing Race 2024</h2>
     <form id="loginForm">
-      <!-- <p>Select Your Team:</p> -->
       <div class="custom-dropdown">
         <button type="button" class="customButton">
-          <!-- <p class="arrows">Select    &rarr;</p> -->
           <p class="teamIcon" style="color:#39FF14;">𖨆</p>
           <p class="teamIcon" style="color: #de80f8;">𖨆</p>
           <p class="teamIcon" style="color: #01c1f1;">𖨆</p>
           <p class="teamIcon" style="color:#ffa600;">𖨆</p>
           <p class="teamIcon" style="color:yellow;">𖨆</p>
-          <!-- <p class="arrows">&#8592; Team</p> -->
-
         </button>
 
         <div class="dropdown-content">
@@ -128,17 +78,9 @@
       <p id="errorMessage" class="error-message"></p>
     </form>
 
-    <h4>Version 2.0.3.v4</h4>
-    <p id="copyright">© 2024<br>
-      All Right Reserved</p>
-
-    <p id="trademarks">
-      <br>
-      <br>
-      Jovin™
-      <br>
-      Jono ®
-    </p>
+    <h4>Version 2.0.3.v5</h4>
+    <p id="copyright">© 2024<br> All Rights Reserved</p>
+    <p id="trademarks">Jovin™<br> Jono ®</p>
   </div>
 
   <section class="world">
@@ -204,8 +146,10 @@
         },
         { passive: false }
       );
-    });
 
+      // Preload the video
+      preloadVideo();
+    });
 
     let lastTouchEnd = 0;
     document.addEventListener('touchend', function (event) {
@@ -224,7 +168,6 @@
       lastTouchEnd = now;
     }, false);
 
-
     document.addEventListener("gesturestart", function (e) {
       e.preventDefault();
     });
@@ -237,9 +180,14 @@
       });
     });
 
+    const preloadVideo = () => {
+      const videoElement = document.createElement('video');
+      videoElement.src = '/GractionCamp2024/RickRoll/RickRoll.mp4';
+      videoElement.preload = 'auto';
 
+      // Start loading the video immediately
+      videoElement.load();
+    };
   </script>
-
 </body>
-
 </html>

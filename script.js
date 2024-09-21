@@ -202,7 +202,7 @@ function returnToIndex() {
   window.location.replace("/GractionCamp2024/index.html"); // Use replace to prevent back navigation
   document.getElementById('themeMusic').play()
   document.getElementById('loadingScreen').style.display = 'none'; 
-  
+
 };
 
 
@@ -228,6 +228,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Start theme music when "Start" button is clicked
   startButton.addEventListener('click', function () {
+    
+    const videoElement = document.createElement('video');
+        videoElement.src = '/GractionCamp2024/RickRoll/RickRoll.mp4';
+        videoElement.preload = 'auto';
+
       themeMusic.play().catch(error => {
           console.log('Error playing theme music:', error);
       });
