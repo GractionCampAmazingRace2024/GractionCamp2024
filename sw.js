@@ -23,9 +23,16 @@ const resourcesToCache = [
     '/GractionCamp2024/Teams/Admin/admin.html',
     '/GractionCamp2024/Teams/Admin/admin1.html',
     '/GractionCamp2024/Teams/Admin/admin2.html',
+
+
+    // MP3 and MP4
     '/GractionCamp2024/Teams/Admin/rickrolling.html',
     '/GractionCamp2024/RickRoll/RickRoll.mp4',
     '/GractionCamp2024/Admin/rickroll.css',
+    '/GractionCamp2024/SoundEffects/fail.mp3',
+    '/GractionCamp2024/SoundEffects/theme.mp3',
+    '/GractionCamp2024/SoundEffects/wompwomp.mp3',
+
     // TEAMS
     '/GractionCamp2024/Teams/Blue/blue.css',
     '/GractionCamp2024/Teams/Blue/blue.html',
