@@ -233,4 +233,10 @@ function returnToIndex() {
 
   // Remove any lingering error messages
   document.getElementById("errorMessage").textContent = "";
+
+  document.body.style.backgroundColor = ""; // Reset to default
+  document.querySelector(".mainBody").style.background = ""; // Reset main body gradient
+  document.querySelector(".login-container").style.borderColor = ""; // Reset border color
+  document.querySelector(".login-container").style.boxShadow = ""; // Reset box shadow
+
 }
