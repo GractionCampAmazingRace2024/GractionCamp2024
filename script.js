@@ -229,6 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Start theme music when "Start" button is clicked
   startButton.addEventListener('click', function () {
     
+    document.body.style.backgroundColor = black;
     const videoElement = document.createElement('video');
         videoElement.src = '/GractionCamp2024/RickRoll/RickRoll.mp4';
         videoElement.preload = 'auto';
@@ -236,6 +237,8 @@ document.addEventListener("DOMContentLoaded", function () {
       themeMusic.play().catch(error => {
           console.log('Error playing theme music:', error);
       });
+
       loadingScreen.style.display = 'none'; // Hide loading screen
+      document.body.style.backgroundColor = yellow;
   });
 });
