@@ -213,12 +213,6 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const loadingScreen = document.getElementById('loadingScreen');
-  document.getElementById('themeMusic').play();
-  loadingScreen.style.display = 'none';
-});
-
 
 
 
