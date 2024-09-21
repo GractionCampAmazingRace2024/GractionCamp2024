@@ -200,6 +200,8 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 });
 
 function returnToIndex() {
+  document.getElementById('themeMusic').play();
+  loadingScreen.style.display = 'none';
   window.location.replace("/GractionCamp2024/index.html"); // Use replace to prevent back navigation
 }
 
