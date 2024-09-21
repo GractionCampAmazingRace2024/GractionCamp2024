@@ -73,18 +73,34 @@
             }, 1000);
         }
         
-        // Function to show the video and hide the loading screen
         function showVideo() {
             loadingScreen.style.display = 'none';  // Hide the loading screen
-            videoElement.style.display = 'block';  // Show the video
-            videoElement.play();                   // Start playing the video
+            setTimeout(() => {
+                videoElement.style.display = 'block';  // Show the video
+                videoElement.removeAttribute('controls'); // Remove controls for auto-play
+                videoElement.play();  // Start playing the video
+                
+                // Remove loading screen when video starts playing
+                videoElement.onplaying = function() {
+                    loadingScreen.style.display = 'none'; // Ensure loading screen is removed
+                };
         
-            // Remove loading screen when video starts playing
-            videoElement.onplaying = function() {
-                loadingScreen.style.display = 'none'; // Ensure loading screen is removed
-            };
+                // Request fullscreen
+                videoElement.addEventListener('play', function () {
+                    if (videoElement.requestFullscreen) {
+                        videoElement.requestFullscreen();
+                    } else if (videoElement.mozRequestFullScreen) { // Firefox
+                        videoElement.mozRequestFullScreen();
+                    } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                        videoElement.webkitRequestFullscreen();
+                    } else if (videoElement.msRequestFullscreen) { // IE/Edge
+                        videoElement.msRequestFullscreen();
+                    }
+                });
+            })
         }
         
+
     </script>
 
 </body>
