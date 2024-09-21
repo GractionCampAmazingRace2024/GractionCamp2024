@@ -7,6 +7,7 @@
     <link rel="manifest" href="/GractionCamp2024/manifest.json">
     <link rel="stylesheet" href="/GractionCamp2024/style.css">
     <link rel="stylesheet" href="/GractionCamp2024/stickman.css">
+    
 
     <!-- iOS Specific Stuff -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -142,6 +143,10 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () {
+      if (first > 0) {
+        document.getElementById('themeMusic').play();
+        loadingScreen.style.display = 'none';
+      }
       // Disable gesture zoom
       document.addEventListener(
         "gesturestart",
@@ -184,14 +189,9 @@
       });
     });
 
-    let preloadedVideo;
 
-    const preloadVideo = () => {
-        preloadedVideo = document.createElement('video');
-        preloadedVideo.src = '/GractionCamp2024/RickRoll/RickRoll.mp4';
-        preloadedVideo.preload = 'auto';
-        preloadedVideo.load();
-    };
+    
+
 
   </script>
 </body>

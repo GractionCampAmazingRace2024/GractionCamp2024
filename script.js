@@ -41,6 +41,9 @@ const userCredentials = {
     { password: 'Jrroll', page: '/GractionCamp2024/Teams/Admin/rickrolling.html' }
   ],
 };
+
+let first = 0;
+
 const errorMessages = [
   'Womp Womp...', 
   'L Bozo', 
@@ -200,8 +203,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 });
 
 function returnToIndex() {
-  // document.getElementById('themeMusic').play();
-  // loadingScreen.style.display = 'none';
+  
   window.location.replace("/GractionCamp2024/index.html"); // Use replace to prevent back navigation
 }
 
@@ -221,6 +223,14 @@ const teamColors = {
 
 
 
+const preloadVideo = () => {
+    preloadedVideo = document.createElement('video');
+    preloadedVideo.src = '/GractionCamp2024/RickRoll/RickRoll.mp4';
+    preloadedVideo.preload = 'auto';
+    preloadedVideo.load();
+};
+
+
 // Preload video and set initial styles
 document.addEventListener("DOMContentLoaded", function () {
   const loadingScreen = document.getElementById('loadingScreen');
@@ -230,18 +240,20 @@ document.addEventListener("DOMContentLoaded", function () {
   document.body.style.backgroundColor = 'black';
   // Show loading screen on page load
   loadingScreen.style.display = 'flex';
-
-
   // Preload the video
   preloadVideo();
 
 
 
-  // Play theme music and change background color when "Start" button is clicked
-  startButton.addEventListener('click', function () {
-    document.getElementById('themeMusic').play();
-    loadingScreen.style.display = 'none';
-    document.body.style.backgroundColor = 'yellow'; // Reset to default or desired color
+
+
+
+// Play theme music and change background color when "Start" button is clicked
+startButton.addEventListener('click', function () {
+  document.getElementById('themeMusic').play();
+  loadingScreen.style.display = 'none';
+  document.body.style.backgroundColor = 'yellow'; // Reset to default or desired color
+  first = 1;
   });
 });
 
