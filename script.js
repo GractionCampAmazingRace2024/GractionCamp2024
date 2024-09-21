@@ -85,18 +85,23 @@ function getRandomErrorMessage() {
 }
 
 // Show/hide dropdown on button click
-document.querySelector(".customButton").addEventListener("click", function (event) {
-  event.stopPropagation(); // Prevent event from propagating to the document
-  const dropdown = document.querySelector(".dropdown-content");
-  dropdown.classList.toggle("show");
-  // Close other dropdowns if open
-  document.querySelectorAll(".dropdown-content").forEach((otherDropdown) => {
-    if (otherDropdown !== dropdown && otherDropdown.classList.contains("show")) {
-      otherDropdown.classList.remove("show");
-    }
+document
+  .querySelector(".customButton")
+  .addEventListener("click", function (event) {
+    event.stopPropagation(); // Prevent event from propagating to the document
+    const dropdown = document.querySelector(".dropdown-content");
+    dropdown.classList.toggle("show");
+    // Close other dropdowns if open
+    document.querySelectorAll(".dropdown-content").forEach((otherDropdown) => {
+      if (
+        otherDropdown !== dropdown &&
+        otherDropdown.classList.contains("show")
+      ) {
+        otherDropdown.classList.remove("show");
+      }
+    });
+    document.getElementById("errorMessage").textContent = "";
   });
-  document.getElementById("errorMessage").textContent = "";
-});
 
 // Close dropdown if clicked outside
 document.addEventListener("click", function (event) {
@@ -122,11 +127,15 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
     const color = teamColors[value];
     if (color) {
       const loginContainer = document.querySelector(".login-container");
-      loginContainer.style.animation = 'none'; // Stop the animation
+      loginContainer.style.animation = "none"; // Stop the animation
       loginContainer.style.borderColor = color;
       loginContainer.style.boxShadow = `0 0 30px ${color}`;
-      document.getElementById("gradient-submit").style.background = `linear-gradient(to bottom, ${color} 20%, black 20%, black 80%, ${color} 80%)`;
-      document.querySelector(".mainBody").style.background = `linear-gradient(to bottom, ${color} 15%, black 15%, black 85%, ${color} 85%)`;
+      document.getElementById(
+        "gradient-submit"
+      ).style.background = `linear-gradient(to bottom, ${color} 20%, black 20%, black 80%, ${color} 80%)`;
+      document.querySelector(
+        ".mainBody"
+      ).style.background = `linear-gradient(to bottom, ${color} 15%, black 15%, black 85%, ${color} 85%)`;
       document.body.style.backgroundColor = color;
     }
 
@@ -138,13 +147,6 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
 
 document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault(); // Prevent form from submitting automatically
-  
-
-  // if (document.activeElement.id !== "gradient-submit") {
-  //   document.getElementById("errorMessage").textContent = "Please click the 'Submit' button to submit the form.";
-  //   return;
-  // }
-
 
   const username = document.getElementById("teamSelection").value;
   const password = document.getElementById("password").value;
@@ -154,12 +156,14 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
   // Ensure that a team is selected and a password is entered
   if (!username) {
-    document.getElementById("errorMessage").textContent = "Please select a team first.";
+    document.getElementById("errorMessage").textContent =
+      "Please select a team first.";
     return; // Stop processing if username is missing
   }
 
   if (!password) {
-    document.getElementById("errorMessage").textContent = "Please enter your password.";
+    document.getElementById("errorMessage").textContent =
+      "Please enter your password.";
     return; // Stop processing if password is missing
   }
 
@@ -175,18 +179,28 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       window.location.replace(userData.page);
     } else {
       // Show error message only if the password is incorrect
-      document.getElementById("errorMessage").textContent = getRandomErrorMessage();
+      document.getElementById("errorMessage").textContent =
+        getRandomErrorMessage();
+
+        themeMusic.volume = 0.3; // Set this to your desired level (0 to 1)
+
+            // Play a fail sound
+            const failSoundId = Math.random() < 0.5 ? 'failSound1' : 'failSound2';
+            document.getElementById(failSoundId).play().catch(error => {
+                console.log('Error playing fail sound:', error);
+            });
+
+            // Restore the theme music volume after a short delay
+            document.getElementById(failSoundId).addEventListener('ended', () => {
+                themeMusic.volume = 1; // Restore to original volume
+            });
     }
   } else {
     // Show error message if the username is invalid
-    document.getElementById("errorMessage").textContent = getRandomErrorMessage();
+    document.getElementById("errorMessage").textContent =
+      getRandomErrorMessage();
   }
 });
-
-
-
-
-
 
 function returnToIndex() {
   window.location.replace("/GractionCamp2024/index.html"); // Use replace to prevent back navigation
@@ -194,11 +208,11 @@ function returnToIndex() {
 
 // Map team colors to their corresponding gradient backgrounds
 const teamColors = {
-  'green': '#92d14f',
-  'purple': '#cd66ff',
-  'blue': '#01b0f1',
-  'orange': '#ffc000',
-  'yellow': 'yellow',
-  'admin': 'red'
-}
+  green: "#92d14f",
+  purple: "#cd66ff",
+  blue: "#01b0f1",
+  orange: "#ffc000",
+  yellow: "yellow",
+  admin: "red",
+};
 
