@@ -216,3 +216,21 @@ const teamColors = {
   admin: "red",
 };
 
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const loadingScreen = document.getElementById('loadingScreen');
+  const startButton = document.getElementById('startButton');
+  const themeMusic = document.getElementById('themeMusic');
+
+  // Show loading screen when the page loads or on a specific event
+  loadingScreen.style.display = 'flex'; // Show loading screen
+
+  // Start theme music when "Start" button is clicked
+  startButton.addEventListener('click', function () {
+      themeMusic.play().catch(error => {
+          console.log('Error playing theme music:', error);
+      });
+      loadingScreen.style.display = 'none'; // Hide loading screen
+  });
+});
