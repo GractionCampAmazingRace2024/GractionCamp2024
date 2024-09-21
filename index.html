@@ -6,10 +6,7 @@
     
     <link rel="manifest" href="/GractionCamp2024/manifest.json">
     <link rel="stylesheet" href="/GractionCamp2024/style.css">
-    <link rel="stylesheet" href="/GractionCamp2024/stickman.css">
 
-    <script src="/GractionCamp2024/Scripts/redirection.js"></script>
-    <script src="/GractionCamp2024/Scripts/gestures.js"></script>
 
     <!-- iOS Specific Stuff -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -27,128 +24,22 @@
 </head>
 
 <body class="mainBody">
-  <audio id="themeMusic" loop>
-    <source src="/GractionCamp2024/SoundEffects/theme.mp3" type="audio/mpeg">
-  </audio>
-  <audio id="failSound1">
-    <source src="/GractionCamp2024/SoundEffects/fail.mp3" type="audio/mpeg">
-  </audio>
-  <audio id="failSound2">
-    <source src="/GractionCamp2024/SoundEffects/wompwomp.mp3" type="audio/mpeg">
-  </audio>
-  
-  <div class="login-container">
-    <h2>Graction Camp Amazing Race 2024</h2>
-    <form id="loginForm">
-      <div class="custom-dropdown">
-        <button type="button" class="customButton">
-          <p class="teamIcon" style="color:#39FF14;">𖨆</p>
-          <p class="teamIcon" style="color: #de80f8;">𖨆</p>
-          <p class="teamIcon" style="color: #01c1f1;">𖨆</p>
-          <p class="teamIcon" style="color:#ffa600;">𖨆</p>
-          <p class="teamIcon" style="color:yellow;">𖨆</p>
-        </button>
 
-        <div class="dropdown-content">
-          <div class="dropdown-item" data-value="green" id="option-green">Kākāriki</div>
-          <div class="dropdown-item" data-value="purple" id="option-purple">Waiporoporo</div>
-          <div class="dropdown-item" data-value="blue" id="option-blue">Kikorangi</div>
-          <div class="dropdown-item" data-value="orange" id="option-orange">Karaka</div>
-          <div class="dropdown-item" data-value="yellow" id="option-yellow">Kōwhai</div>
-          <div class="dropdown-item" data-value="admin" id="option-admin">Admin</div>
-        </div>
-        <input type="hidden" id="teamSelection" name="teamSelection">
-      </div>
-      <div class="input-container">
-        <label for="password" class="passwordLabel">Type Secret Clue Key:</label>
-        <input type="password" id="password" name="password">
-      </div>
-      <button type="submit" id="gradient-submit">Check Clue</button>
-      <p id="errorMessage" class="error-message"></p>
-    </form>
 
-    <h4>Version 2.0.3.v8</h4>
-    <p id="copyright">© 2024<br> All Rights Reserved</p>
-    <p id="trademarks">Jovin™<br> Jono ®</p>
+  <div id="loadingScreen" class="loading-overlay">
+    <div class="loading-content">
+      <div class="boxContainer">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+        <div class="box box5"></div>
+      </div>
+      <p>Remember to turn your game sound on max</p>
+      <button id="startButton" onclick="returnToIndex()">Proceed to Amazing Race 2024</button>
+    </div>
   </div>
 
-  <section class="world">
-    <div class="back one"></div>
-    <div class="back two"></div>
-    <div class="back three"></div>
-    <div class="back four"></div>
-
-    <div class="floor">
-      <div class="rock one"></div>
-      <div class="rock two"></div>
-      <div class="rock three"></div>
-      <div class="grass one"></div>
-      <div class="grass two"></div>
-      <div class="grass three"></div>
-      <div class="grass four"></div>
-      <div class="grass five"></div>
-      <div class="grass six"></div>
-      <div class="grass seven"></div>
-      <div class="grass height"></div>
-      <div class="grass nine"></div>
-      <div class="grass ten"></div>
-    </div>
-    <div class="cloud one"></div>
-    <div class="cloud two"></div>
-    <div class="cloud three"></div>
-    <div class="cloud four"></div>
-    <div class="stick" id="stickman">
-      <div class="head" id="stickman"></div>
-      <div class="arm left" id="stickman">
-        <div class="bottom" id="stickman"></div>
-      </div>
-      <div class="arm right" id="stickman">
-        <div class="bottom" id="stickman"></div>
-      </div>
-      <div class="leg left" id="stickman">
-        <div class="bottom" id="stickman"></div>
-      </div>
-      <div class="leg right" id="stickman">
-        <div class="bottom" id="stickman"></div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <div class="bottomline"></div>
-  
-  <script src="script.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/GractionCamp2024/sw.js')
-        .then(registration => {
-          console.log('Service Worker registered with scope:', registration.scope);
-        })
-        .catch(error => {
-          console.log('Service Worker registration failed:', error);
-        });
-    }
-
-    let lastTouchEnd = 0;
-    document.addEventListener('touchend', function (event) {
-      const now = new Date().getTime();
-      const target = event.target;
-
-      // Allow default behavior for any element within the form with id 'loginForm'
-      if (target.closest('#loginForm')) {
-        return; // Don't prevent the default behavior for any element inside the form
-      }
-      // Prevent double-tap zoom for other elements
-      else if (now - lastTouchEnd <= 400) {
-        event.preventDefault();
-      }
-
-      lastTouchEnd = now;
-    }, false);
-
-
-
-  </script>
+  <script>   document.body.style.backgroundColor = 'black';</script>
 </body>
 </html>
