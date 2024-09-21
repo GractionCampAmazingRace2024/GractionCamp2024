@@ -74,85 +74,76 @@
 
     <link rel="stylesheet" href="/GractionCamp2024/Teams/Admin/admin.css" />
 
-    <!-- Local Host Testing -->
-    <!-- <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="admin.css"> -->
+    <link rel="stylesheet" href="/GractionCamp2024/Teams/Admin/rickroll.css" />
     <title>Admin Team</title>
   </head>
-  <body
-    style="
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
-    "
-  >
-    <!-- Button to Play Video -->
-    <button
-      id="playVideo"
-      onclick="playWithSound()"
-      style="margin-bottom: 20px; padding: 10px 20px; font-size: 1.2rem"
-    >
-      <span>Start Video with Sound</span>
-    </button>
+
+  <body>
+
+    <!-- Big Red Circle Button -->
+    <button id="startButton" onclick="startLoading()">Push Me!</button>
 
     <!-- Loading Screen with Timer -->
     <div id="loadingScreen">
-      <div id="timer">5</div>
-      <div id="totalTime">
-        Total Time Spent: <span id="timeSpent">0</span> seconds
-      </div>
-      <div>Calculating Final Ranking...</div>
+        <div id="timer">5</div>
+        <div id="totalTime">Total Time Spent: <span id="timeSpent">0</span> seconds</div>
+        <div id="loadingMessage"></div>
     </div>
 
     <!-- Rick Roll Video -->
     <video id="rickRollVideo" controls preload="auto">
-      <source src="/GractionCamp2024/RickRoll/RickRoll.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
+        <source src="/GractionCamp2024/RickRoll/RickRoll.mp4" type="video/mp4">
+        Your browser does not support the video tag.
     </video>
 
     <script>
-      let countdown = 5;
-      const timerElement = document.getElementById("timer");
-      const timeSpentElement = document.getElementById("timeSpent");
-      const loadingScreen = document.getElementById("loadingScreen");
-      const videoElement = document.getElementById("rickRollVideo");
+        let countdown = 5;
+        const timerElement = document.getElementById('timer');
+        const timeSpentElement = document.getElementById('timeSpent');
+        const loadingScreen = document.getElementById('loadingScreen');
+        const videoElement = document.getElementById('rickRollVideo');
+        const loadingMessage = document.getElementById('loadingMessage');
 
-      // Retrieve start time from localStorage
-      const startTime = localStorage.getItem("rickrollTime");
-
-      // Calculate total time spent from first page load
-      if (startTime) {
-        const currentTime = new Date().getTime(); // Current time in milliseconds
-        const timeSpentMs = currentTime - startTime; // Difference in milliseconds
-        const timeSpentSec = Math.floor(timeSpentMs / 1000); // Convert to seconds
-        timeSpentElement.textContent = timeSpentSec; // Display time spent in seconds
-      }
-
-      // Countdown Timer
-      const countdownInterval = setInterval(() => {
-        countdown--;
-        timerElement.textContent = countdown;
-
-        if (countdown <= 0) {
-          clearInterval(countdownInterval);
-          showVideo();
+        // Retrieve start time from localStorage
+        const startTime = localStorage.getItem('rickrollTime');
+        
+        // Calculate total time spent from first page load
+        let timeSpentSec = 0; // Initialize time spent
+        if (startTime) {
+            const currentTime = new Date().getTime(); // Current time in milliseconds
+            const timeSpentMs = currentTime - startTime; // Difference in milliseconds
+            timeSpentSec = Math.floor(timeSpentMs / 1000); // Convert to seconds
+            timeSpentElement.textContent = timeSpentSec; // Display time spent in seconds
         }
-      }, 1000);
 
-      // Function to show the video and hide the loading screen
-      function showVideo() {
-        loadingScreen.style.display = "none"; // Hide the loading screen
-        videoElement.style.display = "block"; // Show the video
-        videoElement.play(); // Start playing the video
-      }
+        // Function to start loading
+        function startLoading() {
+            loadingScreen.style.display = 'flex'; // Show loading screen
+            loadingMessage.textContent = "Calculating Final Ranking.."; // Display message
+            countdownTimer(); // Start the countdown
+        }
+
+        // Countdown Timer Function
+        function countdownTimer() {
+            timerElement.textContent = countdown; // Set initial countdown value
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                timerElement.textContent = countdown;
+
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    showVideo();
+                }
+            }, 1000);
+        }
+
+        // Function to show the video and hide the loading screen
+        function showVideo() {
+            loadingScreen.style.display = 'none';  // Hide the loading screen
+            videoElement.style.display = 'block';  // Show the video
+            videoElement.play();                   // Start playing the video
+        }
     </script>
 
-    <script src="/GractionCamp2024/script.js"></script>
-  </body>
+</body>
 </html>
