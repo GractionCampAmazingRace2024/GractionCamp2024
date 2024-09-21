@@ -8,6 +8,12 @@ const resourcesToCache = [
     '/GractionCamp2024/stickman.css',
     '/GractionCamp2024/script.js',
     '/GractionCamp2024/manifest.json',
+    '/GractionCamp2024/loadingPage.html',
+
+    // Additional Scripts
+    '/GractionCamp2024/Scripts/gestures.js',
+    '/GractionCamp2024/Scripts/preLoad.js',
+    '/GractionCamp2024/Scripts/redirection.js',
 
     // IMAGES
     '/GractionCamp2024/Images/amazing-race.png',

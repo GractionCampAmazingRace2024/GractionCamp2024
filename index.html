@@ -7,7 +7,8 @@
     <link rel="manifest" href="/GractionCamp2024/manifest.json">
     <link rel="stylesheet" href="/GractionCamp2024/style.css">
     <link rel="stylesheet" href="/GractionCamp2024/stickman.css">
-    
+    <script src="/GractionCamp2024/Scripts/redirection.js"></script>
+    <script src="/GractionCamp2024/Scripts/gestures.js"></script>
 
     <!-- iOS Specific Stuff -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,20 +35,6 @@
   <audio id="failSound2">
     <source src="/GractionCamp2024/SoundEffects/wompwomp.mp3" type="audio/mpeg">
   </audio>
-  
-  <div id="loadingScreen" class="loading-overlay">
-    <div class="loading-content">
-      <div class="boxContainer">
-        <div class="box box1"></div>
-        <div class="box box2"></div>
-        <div class="box box3"></div>
-        <div class="box box4"></div>
-        <div class="box box5"></div>
-      </div>
-      <p>Remember to turn your game sound on max</p>
-      <button id="startButton">Proceed to Amazing Race 2024</button>
-    </div>
-  </div>
   
   <div class="login-container">
     <h2>Graction Camp Amazing Race 2024</h2>
@@ -79,7 +66,7 @@
       <p id="errorMessage" class="error-message"></p>
     </form>
 
-    <h4>Version 2.0.3.v6</h4>
+    <h4>Version 2.0.3.v7</h4>
     <p id="copyright">© 2024<br> All Rights Reserved</p>
     <p id="trademarks">Jovin™<br> Jono ®</p>
   </div>
@@ -142,24 +129,6 @@
         });
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-      if (first > 0) {
-        document.getElementById('themeMusic').play();
-        loadingScreen.style.display = 'none';
-      }
-      // Disable gesture zoom
-      document.addEventListener(
-        "gesturestart",
-        function (e) {
-          e.preventDefault();
-        },
-        { passive: false }
-      );
-
-      // Preload the video
-      preloadVideo();
-    });
-
     let lastTouchEnd = 0;
     document.addEventListener('touchend', function (event) {
       const now = new Date().getTime();
@@ -177,20 +146,6 @@
       lastTouchEnd = now;
     }, false);
 
-    document.addEventListener("gesturestart", function (e) {
-      e.preventDefault();
-    });
-
-    document.addEventListener('DOMContentLoaded', function () {
-      const dropdown = document.querySelector('.custom-dropdown');
-
-      dropdown.addEventListener('mousedown', function (e) {
-        e.preventDefault(); // Prevent default behavior like selection
-      });
-    });
-
-
-    
 
 
   </script>

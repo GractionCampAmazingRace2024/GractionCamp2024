@@ -27,7 +27,8 @@
 
 
     <link rel="stylesheet" href="/GractionCamp2024/Teams/Admin/admin.css" />
-
+    <script src="/GractionCamp2024/Scripts/redirection.js"></script>
+    <script src="/GractionCamp2024/Scripts/gestures.js"></script>
   
       <script>
         // Function to save the current time to localStorage when visiting admin.html for the first time
@@ -59,20 +60,8 @@
         </div>
 
     </div>
-    <script src="/GractionCamp2024/script.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Disable gesture zoom
-        document.addEventListener(
-            "gesturestart",
-            function (e) {
-                e.preventDefault();
-            },
-            { passive: false }
-        );
-      });
-      
-      
+
       let lastTouchEnd = 0;
       document.addEventListener('touchend', function(event) {
           const now = new Date().getTime();
@@ -82,20 +71,7 @@
           lastTouchEnd = now;
       }, false);
       
-      
-      
-      document.addEventListener("gesturestart", function (e) {
-        e.preventDefault();
-      });
 
-
-      document.addEventListener('DOMContentLoaded', function() {
-        const dropdown = document.querySelector('.custom-dropdown');
-        
-        dropdown.addEventListener('mousedown', function(e) {
-            e.preventDefault(); // Prevent default behavior like selection
-        });
-    });
   </script>
 
   </body>
