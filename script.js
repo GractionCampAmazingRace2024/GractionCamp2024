@@ -250,7 +250,8 @@ function returnToIndex() {
 
   // Remove any lingering error messages
   document.getElementById("errorMessage").textContent = "";
-  document.documentElement.style.backgroundColor = "yellow";
+  
+  // document.documentElement.style.backgroundColor = "yellow";
 
 
 }
@@ -265,6 +266,8 @@ function homePage() {
   document.getElementById("dynamic-css").href = "/GractionCamp2024/style.css";
   document.getElementById("iphoneline").style.display = "block";
   document.getElementById('themeMusic').play();
+  document.body.style.backgroundColor = "yellow";
+document.documentElement.style.backgroundColor = "yellow";
 
 }
 
