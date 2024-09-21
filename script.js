@@ -40,6 +40,7 @@ const userCredentials = {
     { password: "challenge2", page: "c2", css: "admin.css" },
   ],
 };
+
 const errorMessages = [
   "Womp Womp...",
   "L Bozo",
@@ -87,6 +88,8 @@ const teamColors = {
   yellow: "yellow",
   admin: "red",
 };
+
+let currentThemeMusicId = ''; // Variable to store the currently playing theme music
 
 function getRandomErrorMessage() {
   const randomIndex = Math.floor(Math.random() * errorMessages.length);
@@ -193,15 +196,27 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         .querySelectorAll(".page")
         .forEach((page) => (page.style.display = "none"));
       document.getElementById(userData.page).style.display = "block";
-      themeMusic.volume = 0.3; // Set this to your desired level (0 to 1)
+
+      // Stop currently playing music if there is one
+      if (currentThemeMusicId) {
+        const currentMusicElement = document.getElementById(currentThemeMusicId);
+        if (currentMusicElement) {
+          currentMusicElement.pause();
+          currentMusicElement.currentTime = 0;
+        }
+      }
+
+      // Play the unlock sound
       document.getElementById('unlockSound').play().catch(error => {
-          console.log('Error playing unlock sound:', error);
+        console.log('Error playing unlock sound:', error);
       });
 
-      themeMusic.pause(); // Stop the theme music
-      themeMusic.currentTime = 0; // Reset the music to the beginning
-    
-
+      // Play random theme music
+      const themeMusicOptions = ['themeMusic', 'themeMusic1', 'themeMusic2'];
+      currentThemeMusicId = themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
+      const randomThemeMusicElement = document.getElementById(currentThemeMusicId);
+      randomThemeMusicElement.volume = 0.3; // Set this to your desired level (0 to 1)
+      randomThemeMusicElement.play();
 
       document.getElementById("iphoneline").style.display = "none";
 
@@ -212,16 +227,23 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       // Show error message only if the password is incorrect
       document.getElementById("errorMessage").textContent =
         getRandomErrorMessage();
-        
-        themeMusic.volume = 0.3; // Set this to your desired level (0 to 1)
-          document.getElementById('failSound').play().catch(error => {
-              console.log('Error playing fail sound:', error);
-          });
 
-          // Restore the theme music volume after a short delay
-          document.getElementById('failSound').addEventListener('ended', () => {
-              themeMusic.volume = 1; // Restore to original volume
-          });
+      // Play fail sound
+      const failSound = document.getElementById('failSound');
+      failSound.volume = 0.3; // Set this to your desired level (0 to 1)
+      failSound.play().catch(error => {
+        console.log('Error playing fail sound:', error);
+      });
+
+      // Restore the theme music volume after a short delay
+      failSound.addEventListener('ended', () => {
+        if (currentThemeMusicId) {
+          const currentMusicElement = document.getElementById(currentThemeMusicId);
+          if (currentMusicElement) {
+            currentMusicElement.volume = 1; // Restore to original volume
+          }
+        }
+      });
     }
   } else {
     // Show error message if the username is invalid
@@ -229,8 +251,6 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       getRandomErrorMessage();
   }
 });
-
-
 
 function returnToIndex() {
   document.querySelectorAll(".page").forEach((page) => {
@@ -250,14 +270,24 @@ function returnToIndex() {
 
   // Remove any lingering error messages
   document.getElementById("errorMessage").textContent = "";
-  // document.documentElement.style.backgroundColor = "yellow";
+
+    // Stop currently playing music if there is one
+    if (currentThemeMusicId) {
+      const currentMusicElement = document.getElementById(currentThemeMusicId);
+      if (currentMusicElement) {
+        currentMusicElement.pause();
+        currentMusicElement.currentTime = 0;
+      }
+    }
   
-  const themeMusicOptions = ['themeMusic', 'themeMusic1', 'themeMusic2'];
-  const randomMusic = themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
-  document.getElementById(randomMusic).play();
-
+    // Play random theme music
+    const themeMusicOptions = ['themeMusic', 'themeMusic1', 'themeMusic2'];
+    currentThemeMusicId = themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
+    const randomThemeMusicElement = document.getElementById(currentThemeMusicId);
+    randomThemeMusicElement.volume = 1; // Set this to your desired level (0 to 1)
+    randomThemeMusicElement.play();
+  
 }
-
 
 function homePage() {
   document.querySelectorAll(".page").forEach((page) => {
@@ -267,9 +297,8 @@ function homePage() {
   document.getElementById("indexPage").style.display = "block";
   document.getElementById("dynamic-css").href = "/GractionCamp2024/style.css";
   document.getElementById("iphoneline").style.display = "block";
-  document.getElementById('themeMusic').play();
+  document.getElementById("themeMusic").play()
+
   document.body.style.backgroundColor = "yellow";
   document.documentElement.style.backgroundColor = "yellow";
-
 }
-
