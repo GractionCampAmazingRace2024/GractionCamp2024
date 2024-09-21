@@ -2,28 +2,75 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
 
     <!--  IOS SPECIFIC STUFF -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Amazing Race">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
-    <!-- iOS Specific Icons -->
-    <link rel="apple-touch-icon" href="/GractionCamp2024/Images/apple-touch-icon.png">
-    
-    <!-- iOS Splash Screens -->
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png">
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-192x192.png" media="(device-width: 320px) and (device-height: 568px)">
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-512x512.png" media="(device-width: 375px) and (device-height: 667px)">
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-512x512.png" media="(device-width: 375px) and (device-height: 812px)">
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-512x512.png" media="(device-width: 414px) and (device-height: 736px)">
-    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png" media="(device-width: 414px) and (device-height: 896px)">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Amazing Race" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
 
-    <link rel="icon" href="/GractionCamp2024/Images/favicon.ico">
-    <link rel="icon" type="image/png" href="/GractionCamp2024/Images/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/GractionCamp2024/Images/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="/GractionCamp2024/Images/android-chrome-192x192.png" sizes="192x192" />
+    <!-- iOS Specific Icons -->
+    <link
+      rel="apple-touch-icon"
+      href="/GractionCamp2024/Images/apple-touch-icon.png"
+    />
+
+    <!-- iOS Splash Screens -->
+    <link
+      rel="apple-touch-startup-image"
+      href="/GractionCamp2024/Images/amazing-race.png"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="/GractionCamp2024/Images/android-chrome-192x192.png"
+      media="(device-width: 320px) and (device-height: 568px)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="/GractionCamp2024/Images/android-chrome-512x512.png"
+      media="(device-width: 375px) and (device-height: 667px)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="/GractionCamp2024/Images/android-chrome-512x512.png"
+      media="(device-width: 375px) and (device-height: 812px)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="/GractionCamp2024/Images/android-chrome-512x512.png"
+      media="(device-width: 414px) and (device-height: 736px)"
+    />
+    <link
+      rel="apple-touch-startup-image"
+      href="/GractionCamp2024/Images/amazing-race.png"
+      media="(device-width: 414px) and (device-height: 896px)"
+    />
+
+    <link rel="icon" href="/GractionCamp2024/Images/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/GractionCamp2024/Images/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/GractionCamp2024/Images/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/GractionCamp2024/Images/android-chrome-192x192.png"
+      sizes="192x192"
+    />
 
     <link rel="stylesheet" href="/GractionCamp2024/Teams/Admin/admin.css" />
 
@@ -31,45 +78,81 @@
     <!-- <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="admin.css"> -->
     <title>Admin Team</title>
-</head>
-<body style="margin: 0; padding: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; width: 100vw; overflow: hidden;">
-
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    "
+  >
     <!-- Button to Play Video -->
-    <button id="playVideo" onclick="playWithSound()" style="margin-bottom: 20px; padding: 10px 20px; font-size: 1.2rem;">
+    <button
+      id="playVideo"
+      onclick="playWithSound()"
+      style="margin-bottom: 20px; padding: 10px 20px; font-size: 1.2rem"
+    >
       <span>Start Video with Sound</span>
     </button>
 
-    <!-- Video Element -->
-    <video id="myVideo" width="640" height="360" controls preload="auto" style="max-width: 90%; max-height: 45%; margin: 10px 0;" muted>
-      <source src="/GractionCamp2024/RickRoll/RickRoll.mp4" type="video/mp4">
+    <!-- Loading Screen with Timer -->
+    <div id="loadingScreen">
+      <div id="timer">5</div>
+      <div id="totalTime">
+        Total Time Spent: <span id="timeSpent">0</span> seconds
+      </div>
+      <div>Calculating Final Ranking...</div>
+    </div>
+
+    <!-- Rick Roll Video -->
+    <video id="rickRollVideo" controls preload="auto">
+      <source src="/GractionCamp2024/RickRoll/RickRoll.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
     <script>
-      function playWithSound() {
-        const video = document.getElementById('myVideo');
-        
-        // Unmute the video
-        video.muted = false;
+      let countdown = 5;
+      const timerElement = document.getElementById("timer");
+      const timeSpentElement = document.getElementById("timeSpent");
+      const loadingScreen = document.getElementById("loadingScreen");
+      const videoElement = document.getElementById("rickRollVideo");
 
-        // Play video
-        video.play();
+      // Retrieve start time from localStorage
+      const startTime = localStorage.getItem("rickrollTime");
 
-        // Request full-screen when the video starts playing
-        video.addEventListener('play', function () {
-          if (video.requestFullscreen) {
-            video.requestFullscreen();
-          } else if (video.mozRequestFullScreen) { // Firefox
-            video.mozRequestFullScreen();
-          } else if (video.webkitRequestFullscreen) { // Chrome, Safari, and Opera
-            video.webkitRequestFullscreen();
-          } else if (video.msRequestFullscreen) { // IE/Edge
-            video.msRequestFullscreen();
-          }
-        });
+      // Calculate total time spent from first page load
+      if (startTime) {
+        const currentTime = new Date().getTime(); // Current time in milliseconds
+        const timeSpentMs = currentTime - startTime; // Difference in milliseconds
+        const timeSpentSec = Math.floor(timeSpentMs / 1000); // Convert to seconds
+        timeSpentElement.textContent = timeSpentSec; // Display time spent in seconds
+      }
+
+      // Countdown Timer
+      const countdownInterval = setInterval(() => {
+        countdown--;
+        timerElement.textContent = countdown;
+
+        if (countdown <= 0) {
+          clearInterval(countdownInterval);
+          showVideo();
+        }
+      }, 1000);
+
+      // Function to show the video and hide the loading screen
+      function showVideo() {
+        loadingScreen.style.display = "none"; // Hide the loading screen
+        videoElement.style.display = "block"; // Show the video
+        videoElement.play(); // Start playing the video
       }
     </script>
-      
+
     <script src="/GractionCamp2024/script.js"></script>
   </body>
 </html>

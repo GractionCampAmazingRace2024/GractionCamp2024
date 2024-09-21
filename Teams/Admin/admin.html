@@ -29,7 +29,15 @@
     <link rel="stylesheet" href="/GractionCamp2024/Teams/Admin/admin.css" />
 
   
-
+      <script>
+        // Function to save the current time to localStorage when visiting admin.html for the first time
+        window.onload = function() {
+            if (!localStorage.getItem('rickrollTime')) {
+                const startTime = new Date().getTime(); // Get the current time in milliseconds
+                localStorage.setItem('rickrollTime', startTime); // Save it to localStorage
+            }
+        };
+    </script>
 
     <title>Admin Team</title>
   </head>
@@ -88,5 +96,6 @@
         });
     });
   </script>
+
   </body>
 </html>

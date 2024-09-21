@@ -38,7 +38,7 @@ const userCredentials = {
     { password: 'admin', page: '/GractionCamp2024/Teams/Admin/admin.html' },
     { password: 'challenge1', page: '/GractionCamp2024/Teams/Admin/admin1.html' },
     { password: 'challenge2', page: '/GractionCamp2024/Teams/Admin/admin2.html' },
-    { password: 'jovinsrickroll', page: '/GractionCamp2024/Teams/Admin/rickrolling.html' }
+    { password: 'Jrroll', page: '/GractionCamp2024/Teams/Admin/rickrolling.html' }
   ],
 };
 const errorMessages = [
