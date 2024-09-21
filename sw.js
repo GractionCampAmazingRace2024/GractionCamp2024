@@ -4,10 +4,29 @@ const resourcesToCache = [
     '/',
     '/GractionCamp2024/',
     '/GractionCamp2024/index.html',
-    '/GractionCamp2024/style.css',
-    '/GractionCamp2024/stickman.css',
-    '/GractionCamp2024/script.js',
     '/GractionCamp2024/manifest.json',
+    '/GractionCamp2024/script.js',
+    '/GractionCamp2024/style.css',
+    
+
+
+
+    // Audio
+    '/GractionCamp2024/Audio/fail.mp3',
+    '/GractionCamp2024/Audio/theme.mp3',
+    '/GractionCamp2024/Audio/trumpetwomp.mp3',
+    '/GractionCamp2024/Audio/unlock.mp3',
+
+
+    // CSS
+    '/GractionCamp2024/CSS/admin.css',
+    '/GractionCamp2024/CSS/blue.css',
+    '/GractionCamp2024/CSS/green.css',
+    '/GractionCamp2024/CSS/orange.css',
+    '/GractionCamp2024/CSS/purple.css',
+    '/GractionCamp2024/CSS/stickman.css',
+    '/GractionCamp2024/CSS/yellow.css',
+
 
     // IMAGES
     '/GractionCamp2024/Images/amazing-race.png',
@@ -18,44 +37,7 @@ const resourcesToCache = [
     '/GractionCamp2024/Images/favicon-32x32.png',
     '/GractionCamp2024/Images/favicon.ico',
 
-    // ADMIN STUFF
-    '/GractionCamp2024/Teams/Admin/admin.css',
-    '/GractionCamp2024/Teams/Admin/admin.html',
-    '/GractionCamp2024/Teams/Admin/admin1.html',
-    '/GractionCamp2024/Teams/Admin/admin2.html',
-
-    // TEAMS
-    '/GractionCamp2024/Teams/Blue/blue.css',
-    '/GractionCamp2024/Teams/Blue/blue.html',
-
-    '/GractionCamp2024/Teams/Green/green.css',
-    '/GractionCamp2024/Teams/Green/green.html',
-    '/GractionCamp2024/Teams/Green/green1.html',
-    '/GractionCamp2024/Teams/Green/green2.html',
-    '/GractionCamp2024/Teams/Green/green3.html',
-    '/GractionCamp2024/Teams/Green/green4.html',
-
-    '/GractionCamp2024/Teams/Orange/orange.css',
-    '/GractionCamp2024/Teams/Orange/orange.html',
-    '/GractionCamp2024/Teams/Orange/orange1.html',
-    '/GractionCamp2024/Teams/Orange/orange2.html',
-    '/GractionCamp2024/Teams/Orange/orange3.html',
-    '/GractionCamp2024/Teams/Orange/orange4.html',
-
-
-    '/GractionCamp2024/Teams/Purple/purple.css',
-    '/GractionCamp2024/Teams/Purple/purple.html',
-    '/GractionCamp2024/Teams/Purple/purple1.html',
-    '/GractionCamp2024/Teams/Purple/purple2.html',
-    '/GractionCamp2024/Teams/Purple/purple3.html',
-    '/GractionCamp2024/Teams/Purple/purple4.html',
-
-    '/GractionCamp2024/Teams/Yellow/yellow.css',
-    '/GractionCamp2024/Teams/Yellow/yellow.html',
-    '/GractionCamp2024/Teams/Yellow/yellow1.html',
-    '/GractionCamp2024/Teams/Yellow/yellow2.html',
-    '/GractionCamp2024/Teams/Yellow/yellow3.html',
-    '/GractionCamp2024/Teams/Yellow/yellow4.html',
+    
 ];
 
 self.addEventListener('install', event => {
