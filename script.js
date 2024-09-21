@@ -213,12 +213,12 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         getRandomErrorMessage();
         
         themeMusic.volume = 0.3; // Set this to your desired level (0 to 1)
-          document.getElementById('fail').play().catch(error => {
+          document.getElementById('failSound').play().catch(error => {
               console.log('Error playing fail sound:', error);
           });
 
           // Restore the theme music volume after a short delay
-          document.getElementById('fail').addEventListener('ended', () => {
+          document.getElementById('failSound').addEventListener('ended', () => {
               themeMusic.volume = 1; // Restore to original volume
           });
     }
@@ -265,7 +265,6 @@ function homePage() {
   document.getElementById("indexPage").style.display = "block";
   document.getElementById("dynamic-css").href = "/GractionCamp2024/style.css";
   document.getElementById("iphoneline").style.display = "block";
-  document.body.style.backgroundColor = yellow;
   document.getElementById('themeMusic').play();
 
 }

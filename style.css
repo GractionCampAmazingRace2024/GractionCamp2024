@@ -22,8 +22,7 @@
 html {
     margin: 0;
     padding: 0;
-    background-color: black;
-
+    background-color: yellow;
     overflow: hidden;  
     overflow-y: hidden; 
     overflow-x: hidden;    

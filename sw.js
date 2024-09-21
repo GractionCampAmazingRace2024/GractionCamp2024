@@ -22,10 +22,12 @@ const resourcesToCache = [
     '/GractionCamp2024/CSS/admin.css',
     '/GractionCamp2024/CSS/blue.css',
     '/GractionCamp2024/CSS/green.css',
+    '/GractionCamp2024/CSS/loader.css',
     '/GractionCamp2024/CSS/orange.css',
     '/GractionCamp2024/CSS/purple.css',
     '/GractionCamp2024/CSS/stickman.css',
     '/GractionCamp2024/CSS/yellow.css',
+
 
 
     // IMAGES
