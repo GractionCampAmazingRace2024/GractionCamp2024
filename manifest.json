@@ -4,7 +4,7 @@
   "start_url": "/GractionCamp2024/index.html",
   "display": "standalone",
   "scope": "/GractionCamp2024/",
-  "background_color": "#FFFF00",
+  "background_color": "#000000",
   "theme_color": "#FFFF00",
   "description": "The Amazing Race 2024 Web App",
   "orientation": "portrait",
