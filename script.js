@@ -41,38 +41,39 @@ const userCredentials = {
     { password: 'Jrroll', page: '/GractionCamp2024/Teams/Admin/rickrolling.html' }
   ],
 };
+
 const errorMessages = [
-  'Womp Womp...', 
-  'L Bozo', 
-  'Tough', 
-  'Skill Issue', 
-  'That was not very slay', 
-  'ermmmm.... wrong',
-  'Hint: Try Harder', 
-  'Amazing....', 
-  'Maybe I need to verify if you are a robot or not', 
   'Womp Womp...',
-  'What the sigma', 
-  'Chat... is this real?', 
-  'What the skibidi toilet', 
-  'One job...', 
+  'L Bozo',
+  'Tough',
+  'Skill Issue',
+  'That was not very slay',
+  'ermmmm.... wrong',
+  'Hint: Try Harder',
+  'Amazing....',
+  'Maybe I need to verify if you are a robot or not',
+  'Womp Womp...',
+  'What the sigma',
+  'Chat... is this real?',
+  'What the skibidi toilet',
+  'One job...',
   'Embarassinggg....',
-  'Are you even trying?', 
-  'Missed your shot...No Rizz', 
-  'You got this one day!', 
+  'Are you even trying?',
+  'Missed your shot...No Rizz',
+  'You got this one day!',
   'Atleast you know what not to do',
-  'You miss all the shots you dont take... I guess...', 
-  'This is a whole mood… for the wrong reasons', 
+  'You miss all the shots you dont take... I guess...',
+  'This is a whole mood… for the wrong reasons',
   'Yikes! Not even close',
-  'L + Ratio', 
-  'Not the vibes', 
-  'Sus password', 
-  "It's giving... Fail", 
-  'Oopsies...', 
-  'Hard Pass', 
+  'L + Ratio',
+  'Not the vibes',
+  'Sus password',
+  "It's giving... Fail",
+  'Oopsies...',
+  'Hard Pass',
   'No bueno...',
-  'You hate to see it...', 
-  '...', 
+  'You hate to see it...',
+  '...',
   "That's a no from me",
   'Yikes...',
   'Sucks to suck...',
@@ -85,23 +86,18 @@ function getRandomErrorMessage() {
 }
 
 // Show/hide dropdown on button click
-document
-  .querySelector(".customButton")
-  .addEventListener("click", function (event) {
-    event.stopPropagation(); // Prevent event from propagating to the document
-    const dropdown = document.querySelector(".dropdown-content");
-    dropdown.classList.toggle("show");
-    // Close other dropdowns if open
-    document.querySelectorAll(".dropdown-content").forEach((otherDropdown) => {
-      if (
-        otherDropdown !== dropdown &&
-        otherDropdown.classList.contains("show")
-      ) {
-        otherDropdown.classList.remove("show");
-      }
-    });
-    document.getElementById("errorMessage").textContent = "";
+document.querySelector(".customButton").addEventListener("click", function (event) {
+  event.stopPropagation(); // Prevent event from propagating to the document
+  const dropdown = document.querySelector(".dropdown-content");
+  dropdown.classList.toggle("show");
+  // Close other dropdowns if open
+  document.querySelectorAll(".dropdown-content").forEach((otherDropdown) => {
+    if (otherDropdown !== dropdown && otherDropdown.classList.contains("show")) {
+      otherDropdown.classList.remove("show");
+    }
   });
+  document.getElementById("errorMessage").textContent = "";
+});
 
 // Close dropdown if clicked outside
 document.addEventListener("click", function (event) {
@@ -130,12 +126,8 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
       loginContainer.style.animation = "none"; // Stop the animation
       loginContainer.style.borderColor = color;
       loginContainer.style.boxShadow = `0 0 30px ${color}`;
-      document.getElementById(
-        "gradient-submit"
-      ).style.background = `linear-gradient(to bottom, ${color} 20%, black 20%, black 80%, ${color} 80%)`;
-      document.querySelector(
-        ".mainBody"
-      ).style.background = `linear-gradient(to bottom, ${color} 15%, black 15%, black 85%, ${color} 85%)`;
+      document.getElementById("gradient-submit").style.background = `linear-gradient(to bottom, ${color} 20%, black 20%, black 80%, ${color} 80%)`;
+      document.querySelector(".mainBody").style.background = `linear-gradient(to bottom, ${color} 15%, black 15%, black 85%, ${color} 85%)`;
       document.body.style.backgroundColor = color;
     }
 
@@ -156,14 +148,12 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
   // Ensure that a team is selected and a password is entered
   if (!username) {
-    document.getElementById("errorMessage").textContent =
-      "Please select a team first.";
+    document.getElementById("errorMessage").textContent = "Please select a team first.";
     return; // Stop processing if username is missing
   }
 
   if (!password) {
-    document.getElementById("errorMessage").textContent =
-      "Please enter your password.";
+    document.getElementById("errorMessage").textContent = "Please enter your password.";
     return; // Stop processing if password is missing
   }
 
@@ -179,61 +169,72 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       window.location.replace(userData.page);
     } else {
       // Show error message only if the password is incorrect
-      document.getElementById("errorMessage").textContent =
-        getRandomErrorMessage();
+      document.getElementById("errorMessage").textContent = getRandomErrorMessage();
 
-
-        themeMusic.volume = 0.3; 
-        document.getElementById("failSound1").play()
-        document.getElementById("failSound1").addEventListener('ended', () => {
-            themeMusic.volume = 1; // Restore to original volume
-
-
-        });
+      themeMusic.volume = 0.3; 
+      document.getElementById("failSound1").play();
+      document.getElementById("failSound1").addEventListener('ended', () => {
+        themeMusic.volume = 1; // Restore to original volume
+      });
     }
   } else {
     // Show error message if the username is invalid
-    document.getElementById("errorMessage").textContent =
-      getRandomErrorMessage();
+    document.getElementById("errorMessage").textContent = getRandomErrorMessage();
+    document.getElementById("failSound1").play();
   }
 });
 
-function returnToIndex() {
-  document.getElementById('themeMusic').play()
-  document.getElementById('loadingScreen').style.display = 'none'; 
-  window.location.replace("/GractionCamp2024/index.html"); // Use replace to prevent back navigation
-};
-
-
-// Map team colors to their corresponding gradient backgrounds
-const teamColors = {
-  green: "#92d14f",
-  purple: "#cd66ff",
-  blue: "#01b0f1",
-  orange: "#ffc000",
-  yellow: "yellow",
-  admin: "red",
-};
 
 
 
-document.getElementById('startButton').addEventListener('click', () => {
-  document.getElementById('themeMusic').play();
-});
 
 
+
+// Preload video and set initial styles
 document.addEventListener("DOMContentLoaded", function () {
   const loadingScreen = document.getElementById('loadingScreen');
-  const themeMusic = document.getElementById('themeMusic');
+  const startButton = document.getElementById('startButton');
 
-  document.body.style.backgroundColor = black;
-  loadingScreen.style.display = 'flex'; // Show loading screen
+  // Set the initial background color to black
+  document.body.style.backgroundColor = 'black';
+  // Show loading screen on page load
+  loadingScreen.style.display = 'flex';
 
 
-  // Start theme music when "Start" button is clicked
+  // Preload the video
+  preloadVideo();
+
+
+
+  // Play theme music and change background color when "Start" button is clicked
   startButton.addEventListener('click', function () {
-    
-    loadingScreen.style.display = 'none'; // Hide loading screen
-    document.body.style.backgroundColor = yellow;
+    document.getElementById('themeMusic').play();
+    loadingScreen.style.display = 'none';
+    document.body.style.backgroundColor = 'yellow'; // Reset to default or desired color
   });
+
+  // Touch event handling for double-tap zoom prevention
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', function (event) {
+    const now = new Date().getTime();
+    const target = event.target;
+
+    if (target.closest('#loginForm')) {
+      return; // Allow default behavior for the form
+    } else if (now - lastTouchEnd <= 400) {
+      event.preventDefault(); // Prevent double-tap zoom
+    }
+    lastTouchEnd = now;
+  }, false);
 });
+
+
+// Add your team colors here
+const teamColors = {
+  'green': '#39FF14',
+  'purple': '#de80f8',
+  'blue': '#01c1f1',
+  'orange': '#ffa600',
+  'yellow': 'yellow',
+  'admin': '#FF0000' // Example for admin color
+};
