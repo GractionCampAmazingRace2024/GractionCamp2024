@@ -78,7 +78,7 @@
       <p id="errorMessage" class="error-message"></p>
     </form>
 
-    <h4>Version 2.0.3.v5</h4>
+    <h4>Version 2.0.3.v6</h4>
     <p id="copyright">© 2024<br> All Rights Reserved</p>
     <p id="trademarks">Jovin™<br> Jono ®</p>
   </div>
@@ -180,14 +180,15 @@
       });
     });
 
-    const preloadVideo = () => {
-      const videoElement = document.createElement('video');
-      videoElement.src = '/GractionCamp2024/RickRoll/RickRoll.mp4';
-      videoElement.preload = 'auto';
+    let preloadedVideo;
 
-      // Start loading the video immediately
-      videoElement.load();
+    const preloadVideo = () => {
+        preloadedVideo = document.createElement('video');
+        preloadedVideo.src = '/GractionCamp2024/RickRoll/RickRoll.mp4';
+        preloadedVideo.preload = 'auto';
+        preloadedVideo.load();
     };
+
   </script>
 </body>
 </html>

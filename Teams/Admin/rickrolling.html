@@ -8,11 +8,8 @@
 </head>
 <body>
 
-    <!-- Big Red Circle Button -->
-    <button id="startButton" onclick="startLoading()">Push Me!</button>
-
     <!-- Loading Screen with Timer -->
-    <div id="loadingScreen" style="display: none;">
+    <div id="loadingScreen" style="display: flex;">
         <div id="timer">5</div>
         <div id="totalTime">Total Time Spent: <span id="timeSpent">0</span></div>
         <div id="loadingMessage"></div>
@@ -30,36 +27,9 @@
         const loadingScreen = document.getElementById('loadingScreen');
         const videoElement = document.getElementById('rickRollVideo');
         const loadingMessage = document.getElementById('loadingMessage');
-        const startButton = document.getElementById('startButton');
 
-        // Retrieve start time from localStorage
-        const startTime = localStorage.getItem('rickrollTime');
-
-        // Calculate total time spent from first page load
-        let timeSpentSec = 0; // Initialize time spent
-        if (startTime) {
-            const currentTime = new Date().getTime(); // Current time in milliseconds
-            const timeSpentMs = currentTime - startTime; // Difference in milliseconds
-            timeSpentSec = Math.floor(timeSpentMs / 1000); // Convert to seconds
-
-            // Convert seconds to hours, minutes, and seconds
-            const hours = Math.floor(timeSpentSec / 3600);
-            const minutes = Math.floor((timeSpentSec % 3600) / 60);
-            const seconds = timeSpentSec % 60;
-
-            timeSpentElement.textContent = `${hours}h ${minutes}m ${seconds}s`; // Display formatted time
-        }
-
-        // Function to start loading
-        function startLoading() {
-            startButton.style.display = 'none'; // Hide the button
-            loadingScreen.style.display = 'flex'; // Show loading screen
-            loadingMessage.textContent = "Calculating Final Ranking.."; // Display message
-            countdownTimer(); // Start the countdown
-        }
-
-        // Countdown Timer Function
-        function countdownTimer() {
+        // Function to start the countdown timer
+        const countdownTimer = () => {
             timerElement.textContent = countdown; // Set initial countdown value
             const countdownInterval = setInterval(() => {
                 countdown--;
@@ -70,26 +40,21 @@
                     showVideo(); // Show the video after countdown
                 }
             }, 1000);
-        }
+        };
 
-        function showVideo() {
+        const showVideo = () => {
             loadingScreen.style.display = 'none';  // Hide the loading screen
             videoElement.style.display = 'block';  // Show the video
             videoElement.play();  // Start playing the video
 
             // Request fullscreen
-            videoElement.addEventListener('play', function () {
-                if (videoElement.requestFullscreen) {
-                    videoElement.requestFullscreen();
-                } else if (videoElement.mozRequestFullScreen) { // Firefox
-                    videoElement.mozRequestFullScreen();
-                } else if (videoElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
-                    videoElement.webkitRequestFullscreen();
-                } else if (videoElement.msRequestFullscreen) { // IE/Edge
-                    videoElement.msRequestFullscreen();
-                }
+            videoElement.requestFullscreen().catch(err => {
+                console.error("Error attempting to enable full-screen mode:", err.message);
             });
-        }
+        };
+
+        // Start the countdown immediately
+        countdownTimer();
     </script>
 
 </body>

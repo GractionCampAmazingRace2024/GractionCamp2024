@@ -199,10 +199,9 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 });
 
 function returnToIndex() {
-  window.location.replace("/GractionCamp2024/index.html"); // Use replace to prevent back navigation
   document.getElementById('themeMusic').play()
   document.getElementById('loadingScreen').style.display = 'none'; 
-
+  window.location.replace("/GractionCamp2024/index.html"); // Use replace to prevent back navigation
 };
 
 
@@ -218,27 +217,23 @@ const teamColors = {
 
 
 
+document.getElementById('startButton').addEventListener('click', () => {
+  document.getElementById('themeMusic').play();
+});
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const loadingScreen = document.getElementById('loadingScreen');
-  const startButton = document.getElementById('startButton');
   const themeMusic = document.getElementById('themeMusic');
 
-  // Show loading screen when the page loads or on a specific event
+  document.body.style.backgroundColor = black;
   loadingScreen.style.display = 'flex'; // Show loading screen
+
 
   // Start theme music when "Start" button is clicked
   startButton.addEventListener('click', function () {
     
-    document.body.style.backgroundColor = black;
-    const videoElement = document.createElement('video');
-        videoElement.src = '/GractionCamp2024/RickRoll/RickRoll.mp4';
-        videoElement.preload = 'auto';
-
-      themeMusic.play().catch(error => {
-          console.log('Error playing theme music:', error);
-      });
-
-      loadingScreen.style.display = 'none'; // Hide loading screen
-      document.body.style.backgroundColor = yellow;
+    loadingScreen.style.display = 'none'; // Hide loading screen
+    document.body.style.backgroundColor = yellow;
   });
 });
