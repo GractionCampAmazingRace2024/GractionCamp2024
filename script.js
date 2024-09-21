@@ -223,12 +223,12 @@ const teamColors = {
 
 
 
-const preloadVideo = () => {
-    preloadedVideo = document.createElement('video');
-    preloadedVideo.src = '/GractionCamp2024/RickRoll/RickRoll.mp4';
-    preloadedVideo.preload = 'auto';
-    preloadedVideo.load();
-};
+// const preloadVideo = () => {
+//     preloadedVideo = document.createElement('video');
+//     preloadedVideo.src = '/GractionCamp2024/RickRoll/RickRoll.mp4';
+//     preloadedVideo.preload = 'auto';
+//     preloadedVideo.load();
+// };
 
 
 // Preload video and set initial styles
@@ -240,8 +240,9 @@ document.addEventListener("DOMContentLoaded", function () {
   document.body.style.backgroundColor = 'black';
   // Show loading screen on page load
   loadingScreen.style.display = 'flex';
-  // Preload the video
-  preloadVideo();
+
+
+  // preloadVideo();
 
 
 
