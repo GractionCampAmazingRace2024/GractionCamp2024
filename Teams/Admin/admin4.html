@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <!--  IOS SPECIFIC STUFF -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Amazing Race">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- iOS Specific Icons -->
+    <link rel="apple-touch-icon" href="/GractionCamp2024/Images/apple-touch-icon.png">
+    <!-- iOS Splash Screens -->
+    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png">
+    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-192x192.png" media="(device-width: 320px) and (device-height: 568px)">
+    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-512x512.png" media="(device-width: 375px) and (device-height: 667px)">
+    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-512x512.png" media="(device-width: 375px) and (device-height: 812px)">
+    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/android-chrome-512x512.png" media="(device-width: 414px) and (device-height: 736px)">
+    <link rel="apple-touch-startup-image" href="/GractionCamp2024/Images/amazing-race.png" media="(device-width: 414px) and (device-height: 896px)">
+
+
+    <link rel="icon" href="/GractionCamp2024/Images/favicon.ico">
+    <link rel="icon" type="image/png" href="/GractionCamp2024/Images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/GractionCamp2024/Images/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/GractionCamp2024/Images/android-chrome-192x192.png" sizes="192x192" />
+
+
+
+    <link rel="stylesheet" href="/GractionCamp2024/Teams/Admin/admin.css" />
+
+
+
+
+    <!-- Local Host Testing -->
+
+
+    <!-- <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css"> -->
+
+    <!-- Local Host Testing -->
+
+
+
+
+    <title>Admin Team</title>
+  </head>
+
+  <body>
+    
+    <button id="playVideo" onclick="playWithSound()"><span>Start Video with Sound</span></button>
+
+
+    <video id="myVideo" width="640" height="360" controls playsinline>
+        <source src="GractionCamp2024/RickRoll/RickRoll.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+
+    <!-- <video id="myVideo" width="640" height="360" controls playsinline>
+        <source src="RickRoll/RickRoll.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video> -->
+
+
+
+    <script>
+        function playWithSound() {
+            const video = document.getElementById('myVideo');
+            
+            // Play video
+            video.play();
+            
+            // Request full-screen when the video starts playing
+            video.addEventListener('play', function () {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.mozRequestFullScreen) { // Firefox
+                    video.mozRequestFullScreen();
+                } else if (video.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) { // IE/Edge
+                    video.msRequestFullscreen();
+                }
+            });
+        }
+      </script>
+  </body>
+</html>
+

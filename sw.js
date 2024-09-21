@@ -23,6 +23,7 @@ const resourcesToCache = [
     '/GractionCamp2024/Teams/Admin/admin.html',
     '/GractionCamp2024/Teams/Admin/admin1.html',
     '/GractionCamp2024/Teams/Admin/admin2.html',
+    '/GractionCamp2024/Teams/Admin/admin4.html',
 
     // TEAMS
     '/GractionCamp2024/Teams/Blue/blue.css',
