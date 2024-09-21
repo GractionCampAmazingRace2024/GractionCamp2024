@@ -36,15 +36,26 @@
 
   <body>
     
-    <button id="playVideo" onclick="playWithSound()"><span>Start Video with Sound</span></button>
+    <!-- <button id="playVideo" onclick="playWithSound()"><span>Start Video with Sound</span></button> -->
 
-    <video id="myVideo" width="640" height="360" controls playsinline muted>
+    <video id="myVideo" width="640" height="360" controls >
         <source src="GractionCamp2024/RickRoll/RickRoll.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <video id="ones" width="640" height="360" controls >
+        <source src="/RickRoll/RickRoll.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <video id="twos" width="640" height="360" controls >
+        <source src="/RickRoll/RickRoll.mp4" type="video/mp4">
+        Your browser does not support the video tag.
     </video>
 
 
 
-    <script>
+    <!-- <script>
         function playWithSound() {
             const video = document.getElementById('myVideo');
             
@@ -67,6 +78,6 @@
                 }
             });
         }
-      </script>
+      </script> -->
   </body>
 </html>
