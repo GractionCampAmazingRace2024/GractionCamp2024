@@ -235,7 +235,7 @@ function returnToIndex() {
   document.getElementById("errorMessage").textContent = "";
 
 
-  // document.body.style.backgroundColor = ""; 
+  document.body.style.backgroundColor = yellow;
   // document.querySelector(".mainBody").style.background = ""; 
   // document.querySelector(".login-container").style.borderColor = ""; 
   // document.querySelector(".login-container").style.boxShadow = ""; 
