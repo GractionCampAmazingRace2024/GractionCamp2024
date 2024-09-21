@@ -3,12 +3,13 @@ const resourcesToCache = [
     // ROOT FOLDER
     '/',
     '/GractionCamp2024/',
+    '/GractionCamp2024/loadingPage.html',
     '/GractionCamp2024/index.html',
     '/GractionCamp2024/style.css',
     '/GractionCamp2024/stickman.css',
     '/GractionCamp2024/script.js',
     '/GractionCamp2024/manifest.json',
-    '/GractionCamp2024/loadingPage.html',
+
 
     // Additional Scripts
     '/GractionCamp2024/Scripts/gestures.js',

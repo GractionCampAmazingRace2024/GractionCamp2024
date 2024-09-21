@@ -328,6 +328,8 @@ button:hover {
     font-size: 2rem; /* Adjust size as needed */
 }
 
+
+
 @keyframes quiet {
     25%{
       transform: scaleY(.6);
