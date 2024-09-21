@@ -11,10 +11,6 @@ const resourcesToCache = [
     '/GractionCamp2024/manifest.json',
 
 
-    // Additional Scripts
-    '/GractionCamp2024/Scripts/gestures.js',
-    '/GractionCamp2024/Scripts/preLoad.js',
-    '/GractionCamp2024/Scripts/redirection.js',
 
     // IMAGES
     '/GractionCamp2024/Images/amazing-race.png',
@@ -25,21 +21,36 @@ const resourcesToCache = [
     '/GractionCamp2024/Images/favicon-32x32.png',
     '/GractionCamp2024/Images/favicon.ico',
 
+    // Rick ROLL
+    '/GractionCamp2024/RickRoll/RickRoll.mp4',
+
+
+
+    // Sound Effects
+    '/GractionCamp2024/SoundEffects/fail.mp3',
+    '/GractionCamp2024/SoundEffects/theme.mp3',
+    '/GractionCamp2024/SoundEffects/wompwomp.mp3',
+
+
+    // Scripts
+    '/GractionCamp2024/Scripts/gestures.js',
+    '/GractionCamp2024/Scripts/preLoad.js',
+    '/GractionCamp2024/Scripts/redirection.js',
+
+
+
     // ADMIN STUFF
     '/GractionCamp2024/Teams/Admin/admin.css',
     '/GractionCamp2024/Teams/Admin/admin.html',
     '/GractionCamp2024/Teams/Admin/admin1.html',
     '/GractionCamp2024/Teams/Admin/admin2.html',
 
-
-    // MP3 and MP4
-    '/GractionCamp2024/Teams/Admin/rickrolling.html',
-    '/GractionCamp2024/RickRoll/RickRoll.mp4',
     '/GractionCamp2024/Admin/rickroll.css',
-    '/GractionCamp2024/SoundEffects/fail.mp3',
-    '/GractionCamp2024/SoundEffects/theme.mp3',
-    '/GractionCamp2024/SoundEffects/wompwomp.mp3',
+    '/GractionCamp2024/Teams/Admin/rickrolling.html',
 
+
+
+    
     // TEAMS
     '/GractionCamp2024/Teams/Blue/blue.css',
     '/GractionCamp2024/Teams/Blue/blue.html',
