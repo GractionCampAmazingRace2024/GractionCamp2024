@@ -30,64 +30,46 @@
     <!-- Local Host Testing -->
     <!-- <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="admin.css"> -->
-
     <title>Admin Team</title>
-  </head>
+</head>
+<body style="margin: 0; padding: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; width: 100vw; overflow: hidden;">
 
-  <body style="
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
-    ">
-    <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
-    
-    <button id="playVideo" onclick="playWithSound()" style="
-        margin-bottom: 20px;
-        padding: 10px 20px;
-        font-size: 1.2rem;
-      ">
+    <!-- Button to Play Video -->
+    <button id="playVideo" onclick="playWithSound()" style="margin-bottom: 20px; padding: 10px 20px; font-size: 1.2rem;">
       <span>Start Video with Sound</span>
     </button>
 
-    <video id="myVideo" width="640" height="360" controls style="
-        max-width: 90%;
-        max-height: 45%;
-        margin: 10px 0;
-      ">
+    <!-- Video Element -->
+    <video id="myVideo" width="640" height="360" controls preload="auto" style="max-width: 90%; max-height: 45%; margin: 10px 0;" muted>
       <source src="/GractionCamp2024/RickRoll/RickRoll.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
 
-
     <script>
-        function playWithSound() {
-            const video = document.getElementById('myVideo');
-            
-            // Unmute the video
-            video.muted = false;
-            
-            // Play video
-            video.play();
-            
-            // Request full-screen when the video starts playing
-            video.addEventListener('play', function () {
-                if (video.requestFullscreen) {
-                    video.requestFullscreen();
-                } else if (video.mozRequestFullScreen) { // Firefox
-                    video.mozRequestFullScreen();
-                } else if (video.webkitRequestFullscreen) { // Chrome, Safari and Opera
-                    video.webkitRequestFullscreen();
-                } else if (video.msRequestFullscreen) { // IE/Edge
-                    video.msRequestFullscreen();
-                }
-            });
-        }
-      </script>
+      function playWithSound() {
+        const video = document.getElementById('myVideo');
+        
+        // Unmute the video
+        video.muted = false;
+
+        // Play video
+        video.play();
+
+        // Request full-screen when the video starts playing
+        video.addEventListener('play', function () {
+          if (video.requestFullscreen) {
+            video.requestFullscreen();
+          } else if (video.mozRequestFullScreen) { // Firefox
+            video.mozRequestFullScreen();
+          } else if (video.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+            video.webkitRequestFullscreen();
+          } else if (video.msRequestFullscreen) { // IE/Edge
+            video.msRequestFullscreen();
+          }
+        });
+      }
+    </script>
+      
+    <script src="/GractionCamp2024/script.js"></script>
   </body>
 </html>
