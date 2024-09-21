@@ -24,6 +24,7 @@ const resourcesToCache = [
     '/GractionCamp2024/Teams/Admin/admin1.html',
     '/GractionCamp2024/Teams/Admin/admin2.html',
     '/GractionCamp2024/Teams/Admin/rickrolling.html',
+    '/GractionCamp2024/RickRoll/RickRoll.mp4',
 
     // TEAMS
     '/GractionCamp2024/Teams/Blue/blue.css',
