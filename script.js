@@ -193,9 +193,15 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         .querySelectorAll(".page")
         .forEach((page) => (page.style.display = "none"));
       document.getElementById(userData.page).style.display = "block";
-      
+      themeMusic.volume = 0.3; // Set this to your desired level (0 to 1)
+      document.getElementById('unlockSound').play().catch(error => {
+          console.log('Error playing unlock sound:', error);
+      });
 
-
+      // Restore the theme music volume after a short delay
+      document.getElementById('unlockSound').addEventListener('ended', () => {
+          themeMusic.volume = 1; // Restore to original volume
+      });
       document.getElementById("iphoneline").style.display = "none";
 
       // Change CSS file based on the selected team
@@ -205,6 +211,16 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       // Show error message only if the password is incorrect
       document.getElementById("errorMessage").textContent =
         getRandomErrorMessage();
+        
+        themeMusic.volume = 0.3; // Set this to your desired level (0 to 1)
+          document.getElementById('fail').play().catch(error => {
+              console.log('Error playing fail sound:', error);
+          });
+
+          // Restore the theme music volume after a short delay
+          document.getElementById('fail').addEventListener('ended', () => {
+              themeMusic.volume = 1; // Restore to original volume
+          });
     }
   } else {
     // Show error message if the username is invalid
@@ -233,11 +249,24 @@ function returnToIndex() {
 
   // Remove any lingering error messages
   document.getElementById("errorMessage").textContent = "";
-
-
-  document.body.style.backgroundColor = yellow;
+  // document.body.style.backgroundColor = yellow;
   // document.querySelector(".mainBody").style.background = ""; 
   // document.querySelector(".login-container").style.borderColor = ""; 
   // document.querySelector(".login-container").style.boxShadow = ""; 
 
 }
+
+
+function homePage() {
+  document.querySelectorAll(".page").forEach((page) => {
+    page.style.display = "none";
+  });
+
+  document.getElementById("indexPage").style.display = "block";
+  document.getElementById("dynamic-css").href = "/GractionCamp2024/style.css";
+  document.getElementById("iphoneline").style.display = "block";
+  document.body.style.backgroundColor = yellow;
+  document.getElementById('themeMusic').play();
+
+}
+
