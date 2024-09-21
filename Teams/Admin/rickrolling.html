@@ -1,109 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
-    />
-
-    <!--  IOS SPECIFIC STUFF -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="Amazing Race" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
-
-    <!-- iOS Specific Icons -->
-    <link
-      rel="apple-touch-icon"
-      href="/GractionCamp2024/Images/apple-touch-icon.png"
-    />
-
-    <!-- iOS Splash Screens -->
-    <link
-      rel="apple-touch-startup-image"
-      href="/GractionCamp2024/Images/amazing-race.png"
-    />
-    <link
-      rel="apple-touch-startup-image"
-      href="/GractionCamp2024/Images/android-chrome-192x192.png"
-      media="(device-width: 320px) and (device-height: 568px)"
-    />
-    <link
-      rel="apple-touch-startup-image"
-      href="/GractionCamp2024/Images/android-chrome-512x512.png"
-      media="(device-width: 375px) and (device-height: 667px)"
-    />
-    <link
-      rel="apple-touch-startup-image"
-      href="/GractionCamp2024/Images/android-chrome-512x512.png"
-      media="(device-width: 375px) and (device-height: 812px)"
-    />
-    <link
-      rel="apple-touch-startup-image"
-      href="/GractionCamp2024/Images/android-chrome-512x512.png"
-      media="(device-width: 414px) and (device-height: 736px)"
-    />
-    <link
-      rel="apple-touch-startup-image"
-      href="/GractionCamp2024/Images/amazing-race.png"
-      media="(device-width: 414px) and (device-height: 896px)"
-    />
-
-    <link rel="icon" href="/GractionCamp2024/Images/favicon.ico" />
-    <link
-      rel="icon"
-      type="image/png"
-      href="/GractionCamp2024/Images/favicon-32x32.png"
-      sizes="32x32"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="/GractionCamp2024/Images/favicon-16x16.png"
-      sizes="16x16"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href="/GractionCamp2024/Images/android-chrome-192x192.png"
-      sizes="192x192"
-    />
-
-    <link rel="stylesheet" href="/GractionCamp2024/Teams/Admin/admin.css" />
-
-    <link rel="stylesheet" href="/GractionCamp2024/Teams/Admin/rickroll.css" />
-    <title>Admin Team</title>
-  </head>
-
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Loading Rick Roll</title>
+    <link rel="stylesheet" href="/GractionCamp2024/Teams/Admin/rickroll.css"> <!-- Updated link -->
+</head>
+<body>
 
     <!-- Big Red Circle Button -->
     <button id="startButton" onclick="startLoading()">Push Me!</button>
 
     <!-- Loading Screen with Timer -->
-    <div id="loadingScreen">
+    <div id="loadingScreen" style="display: none;">
         <div id="timer">5</div>
-        <div id="totalTime">Total Time Spent: <span id="timeSpent">0</span> seconds</div>
+        <div id="totalTime">Total Time Spent: <span id="timeSpent">0</span></div>
         <div id="loadingMessage"></div>
     </div>
 
     <!-- Rick Roll Video -->
-    <video id="rickRollVideo" controls preload="auto">
+    <video id="rickRollVideo" controls preload="auto" style="display: none;">
         <source src="/GractionCamp2024/RickRoll/RickRoll.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
     <script>
-        let countdown = 5;
+        let countdown = 5; // Set initial countdown value
         const timerElement = document.getElementById('timer');
         const timeSpentElement = document.getElementById('timeSpent');
         const loadingScreen = document.getElementById('loadingScreen');
         const videoElement = document.getElementById('rickRollVideo');
         const loadingMessage = document.getElementById('loadingMessage');
-
+        const startButton = document.getElementById('startButton');
+        
         // Retrieve start time from localStorage
         const startTime = localStorage.getItem('rickrollTime');
         
@@ -113,36 +42,49 @@
             const currentTime = new Date().getTime(); // Current time in milliseconds
             const timeSpentMs = currentTime - startTime; // Difference in milliseconds
             timeSpentSec = Math.floor(timeSpentMs / 1000); // Convert to seconds
-            timeSpentElement.textContent = timeSpentSec; // Display time spent in seconds
+        
+            // Convert seconds to hours, minutes, and seconds
+            const hours = Math.floor(timeSpentSec / 3600);
+            const minutes = Math.floor((timeSpentSec % 3600) / 60);
+            const seconds = timeSpentSec % 60;
+        
+            timeSpentElement.textContent = `${hours}h ${minutes}m ${seconds}s`; // Display formatted time
         }
-
+        
         // Function to start loading
         function startLoading() {
+            startButton.style.display = 'none'; // Hide the button
             loadingScreen.style.display = 'flex'; // Show loading screen
             loadingMessage.textContent = "Calculating Final Ranking.."; // Display message
             countdownTimer(); // Start the countdown
         }
-
+        
         // Countdown Timer Function
         function countdownTimer() {
             timerElement.textContent = countdown; // Set initial countdown value
             const countdownInterval = setInterval(() => {
                 countdown--;
                 timerElement.textContent = countdown;
-
+        
                 if (countdown <= 0) {
                     clearInterval(countdownInterval);
                     showVideo();
                 }
             }, 1000);
         }
-
+        
         // Function to show the video and hide the loading screen
         function showVideo() {
             loadingScreen.style.display = 'none';  // Hide the loading screen
             videoElement.style.display = 'block';  // Show the video
             videoElement.play();                   // Start playing the video
+        
+            // Remove loading screen when video starts playing
+            videoElement.onplaying = function() {
+                loadingScreen.style.display = 'none'; // Ensure loading screen is removed
+            };
         }
+        
     </script>
 
 </body>
