@@ -14,6 +14,8 @@ const resourcesToCache = [
     // Audio
     '/GractionCamp2024/Audio/fail.mp3',
     '/GractionCamp2024/Audio/theme.mp3',
+    '/GractionCamp2024/Audio/theme1.mp3',
+    '/GractionCamp2024/Audio/theme2.mp3',
     '/GractionCamp2024/Audio/trumpetwomp.mp3',
     '/GractionCamp2024/Audio/unlock.mp3',
 

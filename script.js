@@ -250,9 +250,11 @@ function returnToIndex() {
 
   // Remove any lingering error messages
   document.getElementById("errorMessage").textContent = "";
-  
   // document.documentElement.style.backgroundColor = "yellow";
-
+  
+  const themeMusicOptions = ['themeMusic', 'themeMusic1', 'themeMusic2'];
+  const randomMusic = themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
+  document.getElementById(randomMusic).play();
 
 }
 
@@ -267,7 +269,7 @@ function homePage() {
   document.getElementById("iphoneline").style.display = "block";
   document.getElementById('themeMusic').play();
   document.body.style.backgroundColor = "yellow";
-document.documentElement.style.backgroundColor = "yellow";
+  document.documentElement.style.backgroundColor = "yellow";
 
 }
 
