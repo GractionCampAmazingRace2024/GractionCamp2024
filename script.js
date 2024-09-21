@@ -198,10 +198,11 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
           console.log('Error playing unlock sound:', error);
       });
 
-      // Restore the theme music volume after a short delay
-      document.getElementById('unlockSound').addEventListener('ended', () => {
-          themeMusic.volume = 1; // Restore to original volume
-      });
+      themeMusic.pause(); // Stop the theme music
+      themeMusic.currentTime = 0; // Reset the music to the beginning
+    
+
+
       document.getElementById("iphoneline").style.display = "none";
 
       // Change CSS file based on the selected team
@@ -250,9 +251,7 @@ function returnToIndex() {
   // Remove any lingering error messages
   document.getElementById("errorMessage").textContent = "";
   document.documentElement.style.backgroundColor = "yellow";
-  // document.querySelector(".mainBody").style.background = ""; 
-  // document.querySelector(".login-container").style.borderColor = ""; 
-  // document.querySelector(".login-container").style.boxShadow = ""; 
+
 
 }
 
