@@ -207,6 +207,16 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         }
       }
 
+      // Stop currently playing music if there is one
+      if (currentThemeMusicId) {
+        const currentMusicElement =
+          document.getElementById(currentThemeMusicId);
+        if (currentMusicElement) {
+          currentMusicElement.pause();
+          currentMusicElement.currentTime = 0; // Reset the music to the start
+        }
+      }
+
       // Play the unlock sound
       document
         .getElementById("unlockSound")
@@ -214,12 +224,6 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         .catch((error) => {
           console.log("Error playing unlock sound:", error);
         });
-
-      const currentMusicElement = document.getElementById(currentThemeMusicId);
-      if (currentMusicElement) {
-        currentMusicElement.pause();
-        currentMusicElement.currentTime = 0;
-      }
 
       document.getElementById("iphoneline").style.display = "none";
 
