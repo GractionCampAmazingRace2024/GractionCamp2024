@@ -89,16 +89,7 @@ const teamColors = {
   admin: "red",
 };
 
-
-
-
-
-
-
 let currentThemeMusicId = ""; // Variable to store the currently playing theme music
-
-
-
 
 function getRandomErrorMessage() {
   const randomIndex = Math.floor(Math.random() * errorMessages.length);
@@ -123,7 +114,6 @@ document
     });
     document.getElementById("errorMessage").textContent = "";
   });
-
 
 // Close dropdown if clicked outside
 document.addEventListener("click", function (event) {
@@ -161,9 +151,8 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
       ).style.background = `linear-gradient(to bottom, ${color} 15%, black 15%, black 85%, ${color} 85%)`;
       document.body.style.backgroundColor = color;
 
-      const colorTheme = `${color}Theme`
-      playThemeMusic(colorTheme)
-
+      const colorTheme = `${color}Theme`;
+      playThemeMusic(colorTheme);
     }
 
     // Close the dropdown after selection
@@ -211,8 +200,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         .forEach((page) => (page.style.display = "none"));
       document.getElementById(userData.page).style.display = "block";
 
-      
-        playThemeMusic('unlockSound');
+      playThemeMusic("unlockSound");
 
       document.getElementById("iphoneline").style.display = "none";
 
@@ -269,13 +257,11 @@ function returnToIndex() {
   // Remove any lingering error messages
   document.getElementById("errorMessage").textContent = "";
 
-
   // Play random theme music
   const themeMusicOptions = ["themeMusic", "themeMusic1", "themeMusic2"];
-  const randomThemeMusicElement= themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
+  const randomThemeMusicElement =
+    themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
   playThemeMusic(randomThemeMusicElement);
-
-
 }
 
 // Shows the indexPage and closes off the loading page and starting the theme musc
@@ -292,9 +278,6 @@ function homePage() {
   document.body.style.backgroundColor = "yellow";
   document.documentElement.style.backgroundColor = "yellow";
 }
-
-
-
 
 // Team music player // Play team music
 function playThemeMusic(audioFile) {
