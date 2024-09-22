@@ -211,13 +211,14 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         console.log('Error playing unlock sound:', error);
       });
 
-      // Play random theme music
-      const themeMusicOptions = ['themeMusic', 'themeMusic1', 'themeMusic2'];
-      currentThemeMusicId = themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
-      const randomThemeMusicElement = document.getElementById(currentThemeMusicId);
-      randomThemeMusicElement.volume = 0.3; // Set this to your desired level (0 to 1)
-      randomThemeMusicElement.play();
-
+        // Stop currently playing music if there is one
+      if (currentThemeMusicId) {
+        const currentMusicElement = document.getElementById(currentThemeMusicId);
+      if (currentMusicElement) {
+        currentMusicElement.pause();
+        currentMusicElement.currentTime = 0;
+      }
+    }
       document.getElementById("iphoneline").style.display = "none";
 
       // Change CSS file based on the selected team
