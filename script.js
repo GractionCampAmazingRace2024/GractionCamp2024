@@ -89,7 +89,24 @@ const teamColors = {
   admin: "red",
 };
 
+
+
+// Map team colors to audio files
+const teamAudioMap = {
+  purple: "/GractionCamp2024/Audio/purple.mp3",
+  blue: "/GractionCamp2024/Audio/blueDaBaDee.mp3",
+  yellow: "/GractionCamp2024/Audio/yellowMellow.mp3",
+  orange: "/GractionCamp2024/Audio/orangeSky.mp3",
+  green: "/GractionCamp2024/Audio/greenEggs.mp3",
+};
+
+
+
+
 let currentThemeMusicId = ""; // Variable to store the currently playing theme music
+
+
+
 
 function getRandomErrorMessage() {
   const randomIndex = Math.floor(Math.random() * errorMessages.length);
@@ -114,6 +131,13 @@ document
     });
     document.getElementById("errorMessage").textContent = "";
   });
+  const selectedTeam = document.querySelector(".dropdown-content").value; 
+  if (teamAudioMap[selectedTeam]) {
+    const audio = new Audio(teamAudioMap[selectedTeam]);
+    audio.play();
+  }
+  document.getElementById("errorMessage").textContent = "";
+  
 
 // Close dropdown if clicked outside
 document.addEventListener("click", function (event) {
@@ -197,7 +221,6 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         .forEach((page) => (page.style.display = "none"));
       document.getElementById(userData.page).style.display = "block";
 
-
       // Stop currently playing music if there is one
       if (currentThemeMusicId) {
         const currentMusicElement =
@@ -251,6 +274,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   }
 });
 
+// Returns each teams page to the index and starts a theme music
 function returnToIndex() {
   document.querySelectorAll(".page").forEach((page) => {
     page.style.display = "none";
@@ -288,6 +312,7 @@ function returnToIndex() {
   randomThemeMusicElement.play();
 }
 
+// Shows the indexPage and closes off the loading page and starting the theme musc
 function homePage() {
   document.querySelectorAll(".page").forEach((page) => {
     page.style.display = "none";
