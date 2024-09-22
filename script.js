@@ -197,15 +197,6 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         .forEach((page) => (page.style.display = "none"));
       document.getElementById(userData.page).style.display = "block";
 
-      // Stop currently playing music if there is one
-      if (currentThemeMusicId) {
-        const currentMusicElement =
-          document.getElementById(currentThemeMusicId);
-        if (currentMusicElement) {
-          currentMusicElement.pause();
-          currentMusicElement.currentTime = 0;
-        }
-      }
 
       // Stop currently playing music if there is one
       if (currentThemeMusicId) {
