@@ -89,7 +89,7 @@ const teamColors = {
   admin: "red",
 };
 
-let currentThemeMusicId = ''; // Variable to store the currently playing theme music
+let currentThemeMusicId = ""; // Variable to store the currently playing theme music
 
 function getRandomErrorMessage() {
   const randomIndex = Math.floor(Math.random() * errorMessages.length);
@@ -199,7 +199,8 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
       // Stop currently playing music if there is one
       if (currentThemeMusicId) {
-        const currentMusicElement = document.getElementById(currentThemeMusicId);
+        const currentMusicElement =
+          document.getElementById(currentThemeMusicId);
         if (currentMusicElement) {
           currentMusicElement.pause();
           currentMusicElement.currentTime = 0;
@@ -207,18 +208,19 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       }
 
       // Play the unlock sound
-      document.getElementById('unlockSound').play().catch(error => {
-        console.log('Error playing unlock sound:', error);
-      });
+      document
+        .getElementById("unlockSound")
+        .play()
+        .catch((error) => {
+          console.log("Error playing unlock sound:", error);
+        });
 
-        // Stop currently playing music if there is one
-      if (currentThemeMusicId) {
-        const currentMusicElement = document.getElementById(currentThemeMusicId);
+      const currentMusicElement = document.getElementById(currentThemeMusicId);
       if (currentMusicElement) {
         currentMusicElement.pause();
         currentMusicElement.currentTime = 0;
       }
-    }
+
       document.getElementById("iphoneline").style.display = "none";
 
       // Change CSS file based on the selected team
@@ -230,16 +232,17 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         getRandomErrorMessage();
 
       // Play fail sound
-      const failSound = document.getElementById('failSound');
+      const failSound = document.getElementById("failSound");
       failSound.volume = 0.3; // Set this to your desired level (0 to 1)
-      failSound.play().catch(error => {
-        console.log('Error playing fail sound:', error);
+      failSound.play().catch((error) => {
+        console.log("Error playing fail sound:", error);
       });
 
       // Restore the theme music volume after a short delay
-      failSound.addEventListener('ended', () => {
+      failSound.addEventListener("ended", () => {
         if (currentThemeMusicId) {
-          const currentMusicElement = document.getElementById(currentThemeMusicId);
+          const currentMusicElement =
+            document.getElementById(currentThemeMusicId);
           if (currentMusicElement) {
             currentMusicElement.volume = 1; // Restore to original volume
           }
@@ -272,22 +275,22 @@ function returnToIndex() {
   // Remove any lingering error messages
   document.getElementById("errorMessage").textContent = "";
 
-    // Stop currently playing music if there is one
-    if (currentThemeMusicId) {
-      const currentMusicElement = document.getElementById(currentThemeMusicId);
-      if (currentMusicElement) {
-        currentMusicElement.pause();
-        currentMusicElement.currentTime = 0;
-      }
+  // Stop currently playing music if there is one
+  if (currentThemeMusicId) {
+    const currentMusicElement = document.getElementById(currentThemeMusicId);
+    if (currentMusicElement) {
+      currentMusicElement.pause();
+      currentMusicElement.currentTime = 0;
     }
-  
-    // Play random theme music
-    const themeMusicOptions = ['themeMusic', 'themeMusic1', 'themeMusic2'];
-    currentThemeMusicId = themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
-    const randomThemeMusicElement = document.getElementById(currentThemeMusicId);
-    randomThemeMusicElement.volume = 1; // Set this to your desired level (0 to 1)
-    randomThemeMusicElement.play();
-  
+  }
+
+  // Play random theme music
+  const themeMusicOptions = ["themeMusic", "themeMusic1", "themeMusic2"];
+  currentThemeMusicId =
+    themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
+  const randomThemeMusicElement = document.getElementById(currentThemeMusicId);
+  randomThemeMusicElement.volume = 1; // Set this to your desired level (0 to 1)
+  randomThemeMusicElement.play();
 }
 
 function homePage() {
@@ -298,7 +301,7 @@ function homePage() {
   document.getElementById("indexPage").style.display = "block";
   document.getElementById("dynamic-css").href = "/GractionCamp2024/style.css";
   document.getElementById("iphoneline").style.display = "block";
-  document.getElementById("themeMusic").play()
+  document.getElementById("themeMusic").play();
 
   document.body.style.backgroundColor = "yellow";
   document.documentElement.style.backgroundColor = "yellow";
