@@ -314,14 +314,14 @@ function homePage() {
 
 // Team music player // Play team music
 function playThemeMusic(audioFile) {
-  if (currentThemeSongId) {
-    const currentMusicElement = document.getElementById(currentThemeSongId);
+  if (currentThemeMusicId) {
+    const currentMusicElement = document.getElementById(currentThemeMusicId);
     if (currentMusicElement) {
       currentMusicElement.pause();
       currentMusicElement.currentTime = 0; // Reset the music to the start
     }
   }
   const audioID = document.getElementById(audioFile);
-  currentThemeSongId = audioID; // Set the current theme song ID
-  audio.play();
+  currentThemeMusicId = audioID; // Set the current theme song ID
+  audioID.play();
 }
