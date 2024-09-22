@@ -211,22 +211,6 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         .forEach((page) => (page.style.display = "none"));
       document.getElementById(userData.page).style.display = "block";
 
-      // // Stop currently playing music if there is one
-      // if (currentThemeMusicId) {
-      //   const currentMusicElement =
-      //     document.getElementById(currentThemeMusicId);
-      //   if (currentMusicElement) {
-      //     currentMusicElement.pause();
-      //     currentMusicElement.currentTime = 0; // Reset the music to the start
-      //   }
-      // }
-      // // Play the unlock sound
-      // document
-      //   .getElementById("unlockSound")
-      //   .play()
-      //   .catch((error) => {
-      //     console.log("Error playing unlock sound:", error);
-      //   });
       
         playThemeMusic('unlockSound');
 

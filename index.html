@@ -95,13 +95,25 @@
     <source src="/GractionCamp2024/Audio/theme2.mp3" type="audio/mpeg">
   </audio>
 
-  <audio id="blueTheme"><source src="/GractionCamp2024/Audio/blueDaBaDee.mp3" type="audio/mpeg"></audio>
-  <audio id="greenTheme"><source src="/GractionCamp2024/Audio/greenEggs.mp3" type="audio/mpeg"></audio>
-  <audio id="orangeTheme"><source src="/GractionCamp2024/Audio/orangeSky.mp3" type="audio/mpeg"></audio>
-  <audio id="yellowTheme"><source src="/GractionCamp2024/Audio/yellowMellow.mp3" type="audio/mpeg"></audio>
-  <audio id="purpleTheme"><source src="/GractionCamp2024/Audio/purple.mp3" type="audio/mpeg"></audio>
+  <audio id="blueTheme">
+    <source src="/GractionCamp2024/Audio/blueDaBaDee.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="greenTheme">
+    <source src="/GractionCamp2024/Audio/greenEggs.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="orangeTheme">
+    <source src="/GractionCamp2024/Audio/orangeSky.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="yellowTheme">
+    <source src="/GractionCamp2024/Audio/yellowMellow.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="purpleTheme">
+    <source src="/GractionCamp2024/Audio/purple.mp3" type="audio/mpeg">
+  </audio>
 
-  <audio id="byebyebye"><source src="/GractionCamp2024/Audio/byebyebye.mp3" type="audio/mpeg"></audio>
+  <audio id="byebyebye">
+    <source src="/GractionCamp2024/Audio/byebyebye.mp3" type="audio/mpeg">
+  </audio>
 
   <audio id="failSound">
     <source src="/GractionCamp2024/Audio/fail.mp3" type="audio/mpeg">
@@ -112,7 +124,7 @@
   <audio id="unlockSound">
     <source src="/GractionCamp2024/Audio/unlock.mp3" type="audio/mpeg">
   </audio>
-  
+
 
 
 
@@ -129,7 +141,7 @@
         </div>
         <p>Remember to turn your game sound on max</p>
         <button id="startButton" onclick="homePage()">Proceed to Amazing Race 2024</button>
-        <h4>Version 3.0.1.v5</h4>
+        <h4>Version 3.0.1.v6</h4>
       </div>
     </div>
   </div>
@@ -225,7 +237,7 @@
     </section>
 
   </div>
-  <div id="iphoneline" class="bottomline" style="display:none"></div>
+
 
   <div id="adminPage" class="page" style="display: none;">
     <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
@@ -294,6 +306,8 @@
   </div>
 
 
+  <!-- 
+
   <div id="c1" class="page" style="display: none;">
     <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
     <div class="threeStripe">
@@ -335,11 +349,24 @@
       </div>
     </div>
   </div>
+ -->
+
+
+
+  <!-- <div id="rickRollPage" class="page" style="display: none;">
+    <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
+    <div class="threeStripe">
+      <div class="middleStripe">
+        <div id="content">
+          rickrolled
+        </div>
+      </div>
+    </div>
+  </div> -->
 
 
 
 
-  <!-- <div id="rickRollPage" class="page" style="display: none;"></div> -->
 
 
 
@@ -348,11 +375,7 @@
 
 
 
-
-
-
-
-
+  <div id="iphoneline" class="bottomline" style="display:none"></div>
   <script src="script.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
@@ -372,7 +395,7 @@
       const target = event.target;
 
       if (target.closest('#loginForm')) {
-        return; 
+        return;
       }
       else if (now - lastTouchEnd <= 400) {
         event.preventDefault();
