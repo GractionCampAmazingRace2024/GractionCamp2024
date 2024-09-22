@@ -91,14 +91,6 @@ const teamColors = {
 
 
 
-// Map team colors to audio files
-const teamAudioMap = {
-  purple: "/GractionCamp2024/Audio/purple.mp3",
-  blue: "/GractionCamp2024/Audio/blueDaBaDee.mp3",
-  yellow: "/GractionCamp2024/Audio/yellowMellow.mp3",
-  orange: "/GractionCamp2024/Audio/orangeSky.mp3",
-  green: "/GractionCamp2024/Audio/greenEggs.mp3",
-};
 
 
 
@@ -131,13 +123,7 @@ document
     });
     document.getElementById("errorMessage").textContent = "";
   });
-  const selectedTeam = document.querySelector(".dropdown-content").value; 
-  if (teamAudioMap[selectedTeam]) {
-    const audio = new Audio(teamAudioMap[selectedTeam]);
-    audio.play();
-  }
-  document.getElementById("errorMessage").textContent = "";
-  
+
 
 // Close dropdown if clicked outside
 document.addEventListener("click", function (event) {
@@ -174,6 +160,10 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
         ".mainBody"
       ).style.background = `linear-gradient(to bottom, ${color} 15%, black 15%, black 85%, ${color} 85%)`;
       document.body.style.backgroundColor = color;
+
+      const colorTheme = `${color}Theme`
+      playThemeMusic(colorTheme)
+
     }
 
     // Close the dropdown after selection
@@ -221,23 +211,24 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         .forEach((page) => (page.style.display = "none"));
       document.getElementById(userData.page).style.display = "block";
 
-      // Stop currently playing music if there is one
-      if (currentThemeMusicId) {
-        const currentMusicElement =
-          document.getElementById(currentThemeMusicId);
-        if (currentMusicElement) {
-          currentMusicElement.pause();
-          currentMusicElement.currentTime = 0; // Reset the music to the start
-        }
-      }
-
-      // Play the unlock sound
-      document
-        .getElementById("unlockSound")
-        .play()
-        .catch((error) => {
-          console.log("Error playing unlock sound:", error);
-        });
+      // // Stop currently playing music if there is one
+      // if (currentThemeMusicId) {
+      //   const currentMusicElement =
+      //     document.getElementById(currentThemeMusicId);
+      //   if (currentMusicElement) {
+      //     currentMusicElement.pause();
+      //     currentMusicElement.currentTime = 0; // Reset the music to the start
+      //   }
+      // }
+      // // Play the unlock sound
+      // document
+      //   .getElementById("unlockSound")
+      //   .play()
+      //   .catch((error) => {
+      //     console.log("Error playing unlock sound:", error);
+      //   });
+      
+        playThemeMusic('unlockSound');
 
       document.getElementById("iphoneline").style.display = "none";
 
@@ -294,22 +285,13 @@ function returnToIndex() {
   // Remove any lingering error messages
   document.getElementById("errorMessage").textContent = "";
 
-  // Stop currently playing music if there is one
-  if (currentThemeMusicId) {
-    const currentMusicElement = document.getElementById(currentThemeMusicId);
-    if (currentMusicElement) {
-      currentMusicElement.pause();
-      currentMusicElement.currentTime = 0;
-    }
-  }
 
   // Play random theme music
   const themeMusicOptions = ["themeMusic", "themeMusic1", "themeMusic2"];
-  currentThemeMusicId =
-    themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
-  const randomThemeMusicElement = document.getElementById(currentThemeMusicId);
-  randomThemeMusicElement.volume = 1; // Set this to your desired level (0 to 1)
-  randomThemeMusicElement.play();
+  const randomThemeMusicElement= themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
+  playThemeMusic(randomThemeMusicElement);
+
+
 }
 
 // Shows the indexPage and closes off the loading page and starting the theme musc
@@ -325,4 +307,21 @@ function homePage() {
 
   document.body.style.backgroundColor = "yellow";
   document.documentElement.style.backgroundColor = "yellow";
+}
+
+
+
+
+// Team music player // Play team music
+function playThemeMusic(audioFile) {
+  if (currentThemeSongId) {
+    const currentMusicElement = document.getElementById(currentThemeSongId);
+    if (currentMusicElement) {
+      currentMusicElement.pause();
+      currentMusicElement.currentTime = 0; // Reset the music to the start
+    }
+  }
+  const audioID = document.getElementById(audioFile);
+  currentThemeSongId = audioID; // Set the current theme song ID
+  audio.play();
 }
