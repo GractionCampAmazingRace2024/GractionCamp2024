@@ -272,6 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const checkBuffering = setInterval(() => {
       const buffered = video.buffered;
       const duration = video.duration;
+      const button = document.getElementById("startButton");
       countdown = buffered;
       if (buffered.length > 0) {
         const loaded = buffered.end(0); // Get how much of the video is buffered
