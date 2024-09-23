@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   }
   loadingScreen()
-  // preloadRickRoll()
+  preloadRickRoll()
 });
 
 // Shows the indexPage and closes off the loading page and starting the theme musc
@@ -297,7 +297,7 @@ function homePage() {
   document.body.style.backgroundColor = "yellow";
   document.documentElement.style.backgroundColor = "yellow";
   playThemeMusic("themeMusic");
-  preloadRickRoll()
+
 
 }
 
@@ -334,12 +334,21 @@ let isPreloaded = false;
 //     document.getElementById("playButton").style.display = "inline";
 //   });
 // }
+
+
+
 function preloadRickRoll() {
   const video = document.getElementById("rickRollVideo");
   const startTime = performance.now();
-  video.preload = "auto"; // Set the preload attribute to 'auto'
-  video.load();
   
+  video.preload = "auto";
+  video.muted = true; // Mute the video to avoid sound before user interaction
+  video.play(); // Start playing the video to force buffering
+
+  // Immediately pause the video after it starts
+  video.pause();
+  video.muted = false; // Restore the muted state
+
   // Monitor the buffering progress
   const checkBuffering = setInterval(() => {
     const buffered = video.buffered;
@@ -359,6 +368,7 @@ function preloadRickRoll() {
     }
   }, 500); // Check every 500 milliseconds
 }
+
 
 
 function playRickRoll() {
