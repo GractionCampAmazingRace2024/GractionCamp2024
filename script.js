@@ -62,7 +62,7 @@ const userCredentials = {
 
   admin: [
     { password: "settings", page: "adminPage", css: "CSS/admin.css" },
-    { password: "rrtime", page: "rickRollPage", css: "CSS/admin.csss" },
+    { password: "rrtime", page: "rickRollPage", css: "RickRolled/rickRoll.css" },
   ],
 };
 
