@@ -272,13 +272,16 @@ document.addEventListener("DOMContentLoaded", function () {
       const duration = video.duration;
 
       const button = document.getElementById("startButton");
-      let countdown = 0;
-      button.disabled = true;
 
+      button.disabled = true;
+      button.innerHTML = `${((loaded / duration) * 100).toFixed(2)}% Loaded`
       if (buffered.length > 0) {
         const loaded = buffered.end(0); // Get how much of the video is buffered
         console.log(`Buffered: ${((loaded / duration) * 100).toFixed(2)}%`);
-        button.innerHTML = `${countdown}% Loaded...`;
+
+        button.innerHTML = `${((loaded / duration) * 100).toFixed(2)}% Loaded`
+
+
 
         if (loaded >= duration) {
           video.pause(); // Pause the video after it's fully buffered
@@ -292,7 +295,8 @@ document.addEventListener("DOMContentLoaded", function () {
           );
 
           button.disabled = false;
-          button.innerHTML = "Click Me";
+          button.innerHTML = 'Press To Start<span>&#127884;</span>';
+
 
           // document.getElementById("playButton").style.display = "inline"; // Show the play button
           clearInterval(checkBuffering); // Stop checking when the video is fully buffered
