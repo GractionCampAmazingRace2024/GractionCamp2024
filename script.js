@@ -257,82 +257,6 @@ function returnToIndex() {
   playThemeMusic(randomThemeMusicElement);
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  function preloadRickRoll() {
-    const video = document.getElementById("rickRollVideo");
-    const startTime = performance.now();
-
-    video.preload = "auto";
-    video.muted = true; // Mute the video to avoid sound before user interaction
-    video.play(); // Start playing the video to force buffering
-
-    // Monitor the buffering progress
-    const checkBuffering = setInterval(() => {
-      const buffered = video.buffered;
-      const duration = video.duration;
-
-      const button = document.getElementById("startButton");
-
-      button.disabled = true;
-      if (buffered.length > 0) {
-        const loaded = buffered.end(0); // Get how much of the video is buffered
-        console.log(`Buffered: ${((loaded / duration) * 100).toFixed(2)}%`);
-
-        button.innerHTML = `${((loaded / duration) * 100).toFixed(2)}% Loaded`
-
-
-
-        if (loaded >= duration) {
-          video.pause(); // Pause the video after it's fully buffered
-          video.currentTime = 0; // Reset the playback position to the start
-          video.muted = false; // Restore the audio state
-
-          const endTime = performance.now();
-          const loadTime = (endTime - startTime) / 1000;
-          console.log(
-            `Rick Roll video fully preloaded in ${loadTime.toFixed(2)} seconds`
-          );
-
-          button.disabled = false;
-          button.innerHTML = 'Press To Start<span>&#127884;</span>';
-
-
-          // document.getElementById("playButton").style.display = "inline"; // Show the play button
-          clearInterval(checkBuffering); // Stop checking when the video is fully buffered
-        }
-      }
-    }, 100); // Check every 500 milliseconds
-  }
-  // function loadingScreen() {
-  //   const button = document.getElementById("startButton");
-  //   let countdown = 0;
-  //   button.disabled = true;
-  //   const interval = setInterval(() => {
-  //     if (countdown < 100) {
-  //       console.log(countdown);
-  //       const randomIncrement = Math.floor(Math.random() * 5) + 1;
-  //       countdown = Math.min(countdown + randomIncrement, 100);
-  //       console.log(countdown);
-  //       button.innerHTML = `${countdown}% Loaded...`;
-  //     }
-  //     else if(countdown > 100){
-  //       countdown = 100
-  //       console.log(countdown);
-  //     }
-  //     else if(countdown === 100){
-
-  //       setTimeout(() => {
-  //         clearInterval(interval);
-  //         button.innerHTML = "Click Me";
-  //         button.disabled = false;
-  //       }, 2000); // 1-second delay (1000 milliseconds)
-  //     }
-  //   }, 300);
-  // }
-  // loadingScreen()
-  preloadRickRoll();
-});
-
 // Shows the indexPage and closes off the loading page and starting the theme musc
 function homePage() {
   document.querySelectorAll(".page").forEach((page) => {
@@ -366,52 +290,54 @@ function playThemeMusic(audioFile, startTime = 0) {
 }
 
 // Rick Roll Video
-let isPreloaded = false;
+function preloadRickRoll() {
+  const video = document.getElementById("rickRollVideo");
+  const startTime = performance.now();
 
-// function preloadRickRoll() {
-//   const video = document.getElementById("rickRollVideo");
-//   const startTime = performance.now();
-//   video.load();
-//   video.addEventListener("loadeddata", function () {
-//     const endTime = performance.now();
-//     const loadTime = (endTime - startTime) / 1000;
-//     console.log(`Rick Roll video preloaded in ${loadTime.toFixed(2)} seconds`);
-//     document.getElementById("playButton").style.display = "inline";
-//   });
-// }
+  video.preload = "auto";
+  video.muted = true; // Mute the video to avoid sound before user interaction
+  video.play(); // Start playing the video to force buffering
 
-// function preloadRickRoll() {
-//   const video = document.getElementById("rickRollVideo");
-//   const startTime = performance.now();
+  // Monitor the buffering progress
+  const checkBuffering = setInterval(() => {
+    const buffered = video.buffered;
+    const duration = video.duration;
 
-//   video.preload = "auto";
-//   video.muted = true; // Mute the video to avoid sound before user interaction
-//   video.play(); // Start playing the video to force buffering
+    const button = document.getElementById("startButton");
 
-//   // Monitor the buffering progress
-//   const checkBuffering = setInterval(() => {
-//     const buffered = video.buffered;
-//     const duration = video.duration;
+    button.disabled = true;
+    if (buffered.length > 0) {
+      const loaded = buffered.end(0); // Get how much of the video is buffered
+      console.log(`Buffered: ${((loaded / duration) * 100).toFixed(2)}%`);
 
-//     if (buffered.length > 0) {
-//       const loaded = buffered.end(0); // Get how much of the video is buffered
-//       console.log(`Buffered: ${(loaded / duration * 100).toFixed(2)}%`);
+      button.innerHTML = `${((loaded / duration) * 100).toFixed(2)}% Loaded`
 
-//       if (loaded >= duration) {
-//         video.pause(); // Pause the video after it's fully buffered
-//         video.currentTime = 0; // Reset the playback position to the start
-//         video.muted = false; // Restore the audio state
 
-//         const endTime = performance.now();
-//         const loadTime = (endTime - startTime) / 1000;
-//         console.log(`Rick Roll video fully preloaded in ${loadTime.toFixed(2)} seconds`);
 
-//         document.getElementById("playButton").style.display = "inline"; // Show the play button
-//         clearInterval(checkBuffering); // Stop checking when the video is fully buffered
-//       }
-//     }
-//   }, 100); // Check every 500 milliseconds
-// }
+      if (loaded >= duration) {
+        video.pause(); // Pause the video after it's fully buffered
+        video.currentTime = 0; // Reset the playback position to the start
+        video.muted = false; // Restore the audio state
+
+        const endTime = performance.now();
+        const loadTime = (endTime - startTime) / 1000;
+        console.log(
+          `Rick Roll video fully preloaded in ${loadTime.toFixed(2)} seconds`
+        );
+        
+        button.onclick = homePage;
+        button.disabled = false;
+        button.innerHTML = 'Press To Start<span>&#127884;</span>';
+        
+
+        // document.getElementById("playButton").style.display = "inline"; // Show the play button
+        clearInterval(checkBuffering); // Stop checking when the video is fully buffered
+
+      
+      }
+    }
+  }, 100); // Check every 500 milliseconds
+}
 
 function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
