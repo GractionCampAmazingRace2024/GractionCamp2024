@@ -299,7 +299,8 @@ function playRickRoll() {
 
   video.addEventListener("ended", function () {
     video.style.display = "none";
-    results.style.display = "block";
+  });
+  results.style.display = "block";
     document.getElementById("returnToIndex").innerHTML = "Back"; 
 
     document.getElementById("returnToIndex").onclick = function () {
@@ -308,7 +309,6 @@ function playRickRoll() {
     
     document.getElementById("rickRollPage").style.backgroundColor = "red !important";
     results.innerHTML = "placeholder result text";
-});
 }
 
 // Show/hide dropdown on button click
