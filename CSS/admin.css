@@ -106,3 +106,7 @@ body {
     color: rgb(92, 0, 0);
 }
 
+#rickRollVideo {
+    width: 100%; /* Make the video take the full width of the container */
+    height: auto; /* Maintain the aspect ratio */
+}

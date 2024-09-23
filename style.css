@@ -374,3 +374,9 @@ button:hover {
     50% { transform: scaleY(.4); }
     75% { transform: scaleY(1.2); }
 }
+
+
+#rickRollVideo {
+    width: 100%; /* Make the video take the full width of the container */
+    height: auto; /* Maintain the aspect ratio */
+}

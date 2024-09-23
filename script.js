@@ -35,7 +35,7 @@ const userCredentials = {
     { password: "@isaacIsntHere", page: "c1", css: "yellow.css" },
   ],
   admin: [
-    { password: "admin", page: "adminPage", css: "admin.css" },
+    { password: "admin", page: "adminPage", css: "yellow.css" },
     { password: "challenge1", page: "c1", css: "admin.css" },
     { password: "challenge2", page: "c2", css: "admin.css" },
     { password: "rrtime", page: "rickRollPage", css: "admin.css" },
@@ -90,21 +90,30 @@ const teamColors = {
   admin: "red",
 };
 
-const teamThemeMusic ={
+const teamThemeMusic = {
   green: 10,
   purple: 60,
   blue: 30,
   orange: 8,
   yellow: 97,
   admin: 0,
-}
+};
 
 let currentThemeMusicId = ""; // Variable to store the currently playing theme music
+
+
+
+
+
 
 function getRandomErrorMessage() {
   const randomIndex = Math.floor(Math.random() * errorMessages.length);
   return errorMessages[randomIndex];
 }
+
+
+
+
 
 // Show/hide dropdown on button click
 document
@@ -125,6 +134,10 @@ document
     document.getElementById("errorMessage").textContent = "";
   });
 
+
+
+
+
 // Close dropdown if clicked outside
 document.addEventListener("click", function (event) {
   if (!event.target.matches(".customButton")) {
@@ -135,18 +148,19 @@ document.addEventListener("click", function (event) {
   }
 });
 
+
+
+
+
+
 // Update team selection and button style on dropdown item click
 document.querySelectorAll(".dropdown-item").forEach((item) => {
   item.addEventListener("click", function () {
     const value = this.getAttribute("data-value");
     document.querySelector("#teamSelection").value = value;
     document.querySelector(".customButton").textContent = this.textContent;
-
-    // Set the background color of the dropdown button
     const bgColor = getComputedStyle(this).backgroundColor;
     document.querySelector(".customButton").style.backgroundColor = bgColor;
-
-    // Update border color and gradient based on the selected team
     const color = teamColors[value];
     if (color) {
       const loginContainer = document.querySelector(".login-container");
@@ -163,78 +177,62 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
 
       const colorTheme = `${[value]}Theme`;
       console.log("Color Theme is:", colorTheme);
-      playThemeMusic(colorTheme,  `${teamThemeMusic[value]}`);
+      playThemeMusic(colorTheme, `${teamThemeMusic[value]}`);
       console.log("Color Time Should be:", `${teamThemeMusic[value]}`);
-
-
-
     }
-
-    // Close the dropdown after selection
     document.querySelector(".dropdown-content").classList.remove("show");
     document.getElementById("errorMessage").textContent = "";
   });
 });
 
+
+
+
+
 // Handle login form submission
 document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault(); // Prevent form from submitting automatically
-
   const username = document.getElementById("teamSelection").value;
   const password = document.getElementById("password").value;
-
-  // Clear previous error message
   document.getElementById("errorMessage").textContent = "";
-
-  // Ensure that a team is selected and a password is entered
   if (!username) {
     document.getElementById("errorMessage").textContent =
       "Please select a team first.";
-    return; // Stop processing if username is missing
+    return; 
   }
-
   if (!password) {
     document.getElementById("errorMessage").textContent =
       "Please enter your password.";
-    return; // Stop processing if password is missing
+    return;
   }
-
-  // Check if the username exists in the map
   if (userCredentials[username]) {
     const credentials = userCredentials[username];
     const userData = credentials.find((cred) => cred.password === password);
 
     if (userData) {
-      // Set sessionStorage to track login status
       sessionStorage.setItem("authenticatedUser", username);
       sessionStorage.setItem("authenticatedPassword", password);
 
-      // Hide all pages and show the selected page
       document
         .querySelectorAll(".page")
         .forEach((page) => (page.style.display = "none"));
       document.getElementById(userData.page).style.display = "block";
-
       playThemeMusic("unlockSound");
 
       document.getElementById("iphoneline").style.display = "none";
-
-      // Change CSS file based on the selected team
       const linkElement = document.getElementById("dynamic-css");
       linkElement.href = `/GractionCamp2024/CSS/${username}.css`;
     } else {
-      // Show error message only if the password is incorrect
       document.getElementById("errorMessage").textContent =
         getRandomErrorMessage();
 
       // Play fail sound
       const failSound = document.getElementById("failSound");
-      failSound.volume = 0.3; // Set this to your desired level (0 to 1)
+      failSound.volume = 0.3;
       failSound.play().catch((error) => {
         console.log("Error playing fail sound:", error);
       });
 
-      // Restore the theme music volume after a short delay
       failSound.addEventListener("ended", () => {
         if (currentThemeMusicId) {
           const currentMusicElement =
@@ -251,6 +249,10 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       getRandomErrorMessage();
   }
 });
+
+
+
+
 
 // Returns each teams page to the index and starts a theme music
 function returnToIndex() {
@@ -279,26 +281,42 @@ function returnToIndex() {
   playThemeMusic(randomThemeMusicElement);
 }
 
+
+
+
+
+
 // Shows the indexPage and closes off the loading page and starting the theme musc
 function homePage() {
+  const button = document.getElementById("customButton");
+  let countdown = 5;
+  button.disabled = true;
+  const interval = setInterval(() => {
+    if (countdown > 0) {
+      button.textContent = `Please wait ${countdown} seconds...`;
+      countdown--;
+    } else {
+      clearInterval(interval);
+      button.textContent = "Click Me";
+      button.disabled = false;
+    }
+  }, 1000);
   document.querySelectorAll(".page").forEach((page) => {
     page.style.display = "none";
   });
-
   document.getElementById("indexPage").style.display = "block";
   document.getElementById("dynamic-css").href = "/GractionCamp2024/style.css";
   document.getElementById("iphoneline").style.display = "block";
-
   document.body.style.backgroundColor = "yellow";
   document.documentElement.style.backgroundColor = "yellow";
-
-  playThemeMusic('themeMusic')
+  playThemeMusic("themeMusic");
 }
+
+
 
 
 // Team music player // Play team music
 function playThemeMusic(audioFile, startTime = 0) {
-  // If there's currently playing music, pause it and reset it
   if (currentThemeMusicId) {
     const currentMusicElement = document.getElementById(currentThemeMusicId);
     if (currentMusicElement) {
@@ -306,11 +324,7 @@ function playThemeMusic(audioFile, startTime = 0) {
       currentMusicElement.currentTime = 0; // Reset the music to the start
     }
   }
-
-
-  // Play the new team music
   const audioElement = document.getElementById(audioFile);
-  // console.log("Audio Element:", audioElement);
   if (audioElement) {
     audioElement.currentTime = startTime;
     audioElement.play(); // Play the selected audio
@@ -323,29 +337,23 @@ function playThemeMusic(audioFile, startTime = 0) {
 
 
 
-
 // Rick Roll Video
-let isPreloaded = false; 
+let isPreloaded = false;
 
 function preloadRickRoll() {
-  if (isPreloaded) {
-    console.log("Rick Roll video has already been preloaded.");
-    return;
-  }
-  const video = document.getElementById('rickRollVideo');
+  const video = document.getElementById("rickRollVideo");
   const startTime = performance.now();
   video.load();
-  video.addEventListener('loadeddata', function() {
+  video.addEventListener("loadeddata", function () {
     const endTime = performance.now();
-    const loadTime = (endTime - startTime) / 1000; 
+    const loadTime = (endTime - startTime) / 1000;
     console.log(`Rick Roll video preloaded in ${loadTime.toFixed(2)} seconds`);
-    document.getElementById('playButton').style.display = 'inline';
-    isPreloaded = true; 
-  }, { once: true });
+    document.getElementById("playButton").style.display = "inline";
+  });
 }
 
 function playRickRoll() {
-  const video = document.getElementById('rickRollVideo');
-  video.style.display = 'block'; // Optionally make it visible
+  const video = document.getElementById("rickRollVideo");
+  video.style.display = "block"; // Optionally make it visible
   video.play(); // Play the video
 }
