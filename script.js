@@ -288,11 +288,12 @@ function returnToIndex() {
 
 // Shows the indexPage and closes off the loading page and starting the theme musc
 function homePage() {
-  const button = document.getElementById("customButton");
+  const button = document.getElementById("startButton");
   let countdown = 5;
   button.disabled = true;
   const interval = setInterval(() => {
     if (countdown > 0) {
+      console.log(countdown);
       button.textContent = `Please wait ${countdown} seconds...`;
       countdown--;
     } else {
