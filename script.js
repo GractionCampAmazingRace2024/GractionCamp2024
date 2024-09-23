@@ -163,7 +163,8 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
 
       const colorTheme = `${[value]}Theme`;
       console.log("Color Theme:", colorTheme);
-      playThemeMusic(colorTheme,  `${teamThemeMusic[value]}Theme`);
+      playThemeMusic(colorTheme,  `${teamThemeMusic[value]}`);
+      console.log("Color Time:", `${teamThemeMusic[value]}`);
 
 
 
