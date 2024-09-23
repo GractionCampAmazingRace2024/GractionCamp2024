@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   }
   loadingScreen()
-  preloadRickRoll()
+  // preloadRickRoll()
 });
 
 // Shows the indexPage and closes off the loading page and starting the theme musc
@@ -297,7 +297,7 @@ function homePage() {
   document.body.style.backgroundColor = "yellow";
   document.documentElement.style.backgroundColor = "yellow";
   playThemeMusic("themeMusic");
-  
+  preloadRickRoll()
 
 }
 
