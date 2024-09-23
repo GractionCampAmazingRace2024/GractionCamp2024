@@ -274,18 +274,21 @@ function preloadRickRoll() {
 
 function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
-  document.getElementById("playButton").style.display = "none";
+  const playButton = document.getElementById("playButton");
+  const results = document.getElementById("resultsContent");
+  playButton.style.display = "none";
   video.style.display = "block";
-  document.body.style.backgroundColor = "black";
+  document.querySelector(".page").style.backgroundColor = "black";
   video.play();
   video.addEventListener("ended", function () {
     document.getElementById("returnToIndex").onclick = function () {
       returnToIndex();
     };
     document.getElementById("returnToIndex").innerHTML ="Back";
-    document.body.style.backgroundColor = "red";
+    document.getElementById("returnToIndex").querySelector("span").innerHTML = "Return"; 
+    document.querySelector(".page").style.backgroundColor = "red";
     video.style.display = "none";
-    document.getElementById("resultsContent").innerHTML = "placeholder result text"; //`Total Time Taken: ${placeholder}`;
+    results.innerHTML = "placeholder result text"; //`Total Time Taken: ${placeholder}`;
   });
 }
 
