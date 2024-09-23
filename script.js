@@ -264,17 +264,18 @@ document.addEventListener("DOMContentLoaded", function () {
       if (countdown < 100) {
         console.log(countdown);
         button.innerHTML = `${countdown}% Loaded...`;
-        countdown--;
+        countdown++;
       } else {
         clearInterval(interval);
         button.innerHTML = "Click Me";
         button.disabled = false;
       }
     }, 100);
+    homePage()
   }
-
   loadingScreen()
-  homePage()
+
+
 });
 
 // Shows the indexPage and closes off the loading page and starting the theme musc
