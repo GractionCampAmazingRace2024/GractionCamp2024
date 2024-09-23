@@ -274,7 +274,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const button = document.getElementById("startButton");
 
       button.disabled = true;
-      button.innerHTML = `${((loaded / duration) * 100).toFixed(2)}% Loaded`
       if (buffered.length > 0) {
         const loaded = buffered.end(0); // Get how much of the video is buffered
         console.log(`Buffered: ${((loaded / duration) * 100).toFixed(2)}%`);
