@@ -203,9 +203,8 @@ function areAllAudioLoaded() {
   const audioIds = [
     "themeMusic", "themeMusic1", "themeMusic2",
     "blueTheme", "greenTheme", "orangeTheme",
-    "yellowTheme", "purpleTheme",
-    "byebyebye", "miiTheme", "miiShop",
-    "failSound", "trumpetwomp", "unlockSound"
+    "yellowTheme", "purpleTheme", "miiTheme", "miiShop",
+    "failSound", "unlockSound"
   ];
 
   return audioIds.every(id => {
@@ -235,7 +234,7 @@ function preloadRickRoll() {
     const skipButton = document.getElementById("skipButton");
     setTimeout(() => {
       skipButton.style.display = "inline"; // Show the skip button
-    }, 15000); // 15 seconds
+    }, 30); // 15 seconds
 
     let videoLoadedPercentage = 0;
     if (buffered.length > 0) {
@@ -280,7 +279,7 @@ function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
   const playButton = document.getElementById("playButton");
   const results = document.getElementById("resultsContent");
-  
+  document.getElementById("rickRollPage").style.display = "block"; // Ensure the page is displayed
   playButton.style.display = "none";
   video.style.display = "block";
   document.querySelector(".page").style.backgroundColor = "black";
@@ -293,7 +292,7 @@ function playRickRoll() {
     };
     document.getElementById("returnToIndex").innerHTML ="Back";
     document.getElementById("returnToIndex").querySelector("span").innerHTML = "Return"; 
-    document.querySelector(".page").style.backgroundColor = "red";
+    // document.querySelector(".page").style.backgroundColor = "red";
     video.style.display = "none";
     results.style.display = "block"
     results.innerHTML = "placeholder result text"; //`Total Time Taken: ${placeholder}`;
