@@ -17,6 +17,7 @@ const resourcesToCache = [
     '/GractionCamp2024/Audio/byebyebye.mp3',
     '/GractionCamp2024/Audio/fail.mp3',
     '/GractionCamp2024/Audio/greenEggs.mp3',
+    '/GractionCamp2024/Audio/mii.mp3',
     '/GractionCamp2024/Audio/orangeSky.mp3',
     '/GractionCamp2024/Audio/purple.mp3',
     '/GractionCamp2024/Audio/theme.mp3',
