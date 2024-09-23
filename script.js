@@ -325,20 +325,24 @@ function playThemeMusic(audioFile, startTime = 0) {
 
 
 // Rick Roll Video
+let isPreloaded = false; 
+
 function preloadRickRoll() {
+  if (isPreloaded) {
+    console.log("Rick Roll video has already been preloaded.");
+    return;
+  }
   const video = document.getElementById('rickRollVideo');
-
   const startTime = performance.now();
-  video.load(); 
-
+  video.load();
   video.addEventListener('loadeddata', function() {
     const endTime = performance.now();
-    const loadTime = (endTime - startTime) / 1000; // Convert to seconds
+    const loadTime = (endTime - startTime) / 1000; 
     console.log(`Rick Roll video preloaded in ${loadTime.toFixed(2)} seconds`);
-    document.getElementById('playButton').style.display = 'inline'; // Show the play button
-  }, { once: true }); // The listener will be removed after it runs once
+    document.getElementById('playButton').style.display = 'inline';
+    isPreloaded = true; 
+  }, { once: true });
 }
-
 
 function playRickRoll() {
   const video = document.getElementById('rickRollVideo');
