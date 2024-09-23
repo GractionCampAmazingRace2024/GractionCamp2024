@@ -199,7 +199,22 @@ function playThemeMusic(audioFile, startTime = 0) {
   }
 }
 
-// Rick Roll Video
+function areAllAudioLoaded() {
+  const audioIds = [
+    "themeMusic", "themeMusic1", "themeMusic2",
+    "blueTheme", "greenTheme", "orangeTheme",
+    "yellowTheme", "purpleTheme",
+    "byebyebye", "miiTheme", "miiShop",
+    "failSound", "trumpetwomp", "unlockSound"
+  ];
+
+  return audioIds.every(id => {
+    const audio = document.getElementById(id);
+    return audio && audio.readyState >= 2; // 2 means metadata is loaded
+  });
+}
+
+// Preload
 function preloadRickRoll() {
   playThemeMusic("miiTheme");
   const video = document.getElementById("rickRollVideo");
@@ -217,14 +232,26 @@ function preloadRickRoll() {
 
     const button = document.getElementById("startButton");
 
-    button.disabled = true;
+    const skipButton = document.getElementById("skipButton");
+    setTimeout(() => {
+      skipButton.style.display = "inline"; // Show the skip button
+    }, 15000); // 15 seconds
+
+    let videoLoadedPercentage = 0;
     if (buffered.length > 0) {
       const loaded = buffered.end(0); // Get how much of the video is buffered
-      console.log(`Buffered: ${((loaded / duration) * 100).toFixed(2)}%`);
+      videoLoadedPercentage = (loaded / duration) * 100; // Calculate video loading percentage
+      console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
+    }
 
-      button.innerHTML = `${((loaded / duration) * 100).toFixed(2)}% Loaded`;
+    // Check if all audio files are loaded
+    const allAudioLoaded = areAllAudioLoaded();
+    const audioLoadedPercentage = allAudioLoaded ? 100 : 0; // Set audio percentage
+    const totalLoadedPercentage = Math.min(videoLoadedPercentage + audioLoadedPercentage, 100);
+    button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
 
-      if (loaded >= duration) {
+    if (totalLoadedPercentage >= 99) {
+      if (videoLoadedPercentage >= duration && allAudioLoaded) {
         video.pause(); // Pause the video after it's fully buffered
         video.currentTime = 0; // Reset the playback position to the start
         video.muted = false; // Restore the audio state
@@ -237,28 +264,28 @@ function preloadRickRoll() {
         button.disabled = false;
         button.innerHTML = "Press To Start<span>&#127884;</span>";
 
-        // document.getElementById("playButton").style.display = "inline"; // Show the play button
         clearInterval(checkBuffering); // Stop checking when the video is fully buffered
       }
     }
-  }, 100); // Check every 500 milliseconds
+  }, 100); // Check every 100 milliseconds
 }
+
+
 
 function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
   document.getElementById("playButton").style.display = "none";
   video.style.display = "block";
-  document.body.style.backgroundColor = 'black';
+  document.body.style.backgroundColor = "black";
   video.play();
   video.addEventListener("ended", function () {
     document.getElementById("returnToIndex").onclick = function () {
       returnToIndex();
     };
-    document.getElementById("returnToIndex").innerHTML - "Back"
-    document.body.style.backgroundColor = 'red';
+    document.getElementById("returnToIndex").innerHTML ="Back";
+    document.body.style.backgroundColor = "red";
     video.style.display = "none";
-    document.getElementById("resultsContent").innerHTML =
-      "placeholder result text"; //`Total Time Taken: ${placeholder}`;
+    document.getElementById("resultsContent").innerHTML = "placeholder result text"; //`Total Time Taken: ${placeholder}`;
   });
 }
 

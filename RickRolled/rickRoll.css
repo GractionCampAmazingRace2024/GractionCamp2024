@@ -126,3 +126,7 @@ button {
     font-weight: bolder;
 }
 
+#resultsContent{
+    color: white;
+    z-index: 9999;
+}
