@@ -326,9 +326,22 @@ function playThemeMusic(audioFile, startTime = 0) {
 
 // Rick Roll Video
 function preloadRickRoll() {
-  console.log("Pre loading rick roll now");
   const video = document.getElementById('rickRollVideo');
-  video.load(); // Preload the video
-  video.style.display = 'block'; // Optionally make it visible if you want
-  console.log('Rick Roll video preloaded');
+
+  const startTime = performance.now();
+  video.load(); 
+
+  video.addEventListener('loadeddata', function() {
+    const endTime = performance.now();
+    const loadTime = (endTime - startTime) / 1000; // Convert to seconds
+    console.log(`Rick Roll video preloaded in ${loadTime.toFixed(2)} seconds`);
+    document.getElementById('playButton').style.display = 'inline'; // Show the play button
+  }, { once: true }); // The listener will be removed after it runs once
+}
+
+
+function playRickRoll() {
+  const video = document.getElementById('rickRollVideo');
+  video.style.display = 'block'; // Optionally make it visible
+  video.play(); // Play the video
 }
