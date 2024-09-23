@@ -151,8 +151,13 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
       ).style.background = `linear-gradient(to bottom, ${color} 15%, black 15%, black 85%, ${color} 85%)`;
       document.body.style.backgroundColor = color;
 
-      const colorTheme = `${teamColors}Theme`;
+      const colorTheme = `${value}Theme`;
+      console.log(value);
+
       playThemeMusic(colorTheme);
+
+
+
     }
 
     // Close the dropdown after selection
@@ -276,7 +281,7 @@ function homePage() {
 
   document.body.style.backgroundColor = "yellow";
   document.documentElement.style.backgroundColor = "yellow";
-  
+
   playThemeMusic('themeMusic')
 }
 
@@ -292,9 +297,11 @@ function playThemeMusic(audioFile) {
     }
   }
 
+  console.log(audioFile);
   // Play the new team music
   const audioElement = document.getElementById(audioFile);
   if (audioElement) {
+    console.log(audioElement);
     audioElement.play(); // Play the selected audio
     currentThemeMusicId = audioFile; // Store the new audio's ID
   } else {
