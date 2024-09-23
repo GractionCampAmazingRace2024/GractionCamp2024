@@ -293,6 +293,7 @@ function playThemeMusic(audioFile, startTime = 0) {
 function preloadRickRoll() {
   const video = document.getElementById("rickRollVideo");
   const startTime = performance.now();
+  video.style.display = "none"; // Hide the video from the view
 
   video.preload = "auto";
   video.muted = true; // Mute the video to avoid sound before user interaction
@@ -324,7 +325,7 @@ function preloadRickRoll() {
         console.log(
           `Rick Roll video fully preloaded in ${loadTime.toFixed(2)} seconds`
         );
-        
+
         button.onclick = homePage;
         button.disabled = false;
         button.innerHTML = 'Press To Start<span>&#127884;</span>';
