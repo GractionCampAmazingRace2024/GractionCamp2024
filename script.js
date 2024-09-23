@@ -311,6 +311,7 @@ function homePage() {
   document.body.style.backgroundColor = "yellow";
   document.documentElement.style.backgroundColor = "yellow";
   playThemeMusic("themeMusic");
+  preloadRickRoll()
 }
 
 
