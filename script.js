@@ -318,3 +318,16 @@ function playThemeMusic(audioFile, startTime = 0) {
     console.error(`Audio file with ID ${audioFile} not found`);
   }
 }
+
+
+
+
+
+// Rick Roll Video
+function preloadRickRoll() {
+  console.log("Pre loading rick roll now");
+  const video = document.getElementById('rickRollVideo');
+  video.load(); // Preload the video
+  video.style.display = 'block'; // Optionally make it visible if you want
+  console.log('Rick Roll video preloaded');
+}

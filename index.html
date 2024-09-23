@@ -85,7 +85,7 @@
 
 
 
-  <audio id="themeMusic">
+  <audio id="themeMusic" preload="auto">
     <source src="/GractionCamp2024/Audio/theme.mp3" type="audio/mpeg">
   </audio>
   <audio id="themeMusic1">
@@ -94,6 +94,8 @@
   <audio id="themeMusic2">
     <source src="/GractionCamp2024/Audio/theme2.mp3" type="audio/mpeg">
   </audio>
+
+
 
   <audio id="blueTheme">
     <source src="/GractionCamp2024/Audio/blueDaBaDee.mp3" type="audio/mpeg">
@@ -111,9 +113,13 @@
     <source src="/GractionCamp2024/Audio/purple.mp3" type="audio/mpeg">
   </audio>
 
+
+
   <audio id="byebyebye">
     <source src="/GractionCamp2024/Audio/byebyebye.mp3" type="audio/mpeg">
   </audio>
+
+
 
   <audio id="failSound">
     <source src="/GractionCamp2024/Audio/fail.mp3" type="audio/mpeg">
@@ -124,6 +130,9 @@
   <audio id="unlockSound">
     <source src="/GractionCamp2024/Audio/unlock.mp3" type="audio/mpeg">
   </audio>
+
+
+
 
 
 
@@ -141,7 +150,7 @@
         </div>
         <p>Remember to turn your game sound on max</p>
         <button id="startButton" onclick="homePage()">Proceed to Amazing Race 2024</button>
-        <h4>Version 3.0.1.v6</h4>
+        <h4>Version 3.0.1.v7</h4>
       </div>
     </div>
   </div>
@@ -153,7 +162,7 @@
       <form id="loginForm">
         <!-- <p>Select Your Team:</p> -->
         <div class="custom-dropdown">
-          <button type="button" class="customButton">
+          <button type="button" class="customButton" onclick="preloadRickRoll()">
 
             <p class="teamIcon" style="color:#39FF14;">𖨆</p>
             <p class="teamIcon" style="color: #de80f8;">𖨆</p>
@@ -353,16 +362,19 @@
 
 
 
-  <!-- <div id="rickRollPage" class="page" style="display: none;">
+  <div id="rickRollPage" class="page" style="display: none;">
     <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
     <div class="threeStripe">
       <div class="middleStripe">
         <div id="content">
-          rickrolled
+          <video id="rickRollVideo" style="display: none;" controls>
+            <source src="/GractionCamp2024/Audio/rickRoll.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
 
 
