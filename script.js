@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
           button.disabled = false;
         }, 2000); // 1-second delay (1000 milliseconds)
       }
-    }, 100);
+    }, 300);
   }
   loadingScreen()
 });
