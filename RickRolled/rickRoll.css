@@ -1,0 +1,112 @@
+.page {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;  
+    overflow-y: hidden; 
+    overflow-x: hidden; 
+    width: 100vw;      
+    height: 100vh;
+    background-color: red;     
+    touch-action: none; /* Prevents touch scrolling */
+    overscroll-behavior: none; /* Prevents scroll bounce */
+    scroll-snap-type: none;
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* Prevent selection in Safari (iOS) */
+    -moz-user-select: none;
+    -ms-user-select: none;
+
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    html, body {
+        touch-action: none;
+        overscroll-behavior: none; /* Prevents scroll bounce */
+        scroll-snap-type: none;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.threeStripe{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Horizontally centers middleStripe */
+    position:absolute;
+
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    touch-action: none;
+    overscroll-behavior: none; /* Prevents scroll bounce */
+    scroll-snap-type: none;
+}
+
+.middleStripe{
+    width: 60vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#content{
+    color: white;
+    width: 100vh; 
+    height: 60vw;
+    transform: rotate(-90deg); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
+    position: absolute;
+    font-size: calc(min(8vw, 8vh));
+    padding: min(2vh, 2vw);
+    
+}
+
+
+#returnToIndex {
+    position: fixed;
+    width: 20vw;
+    height: 10vh;
+    top: 0;
+    left:0vw;
+    padding: 0;
+    margin: 0;
+    background-color:transparent;
+    outline: none;
+    border: none;
+    z-index: 1000;
+
+
+}
+
+#returnToIndex span {
+    display: inline-block;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    white-space: nowrap;
+    font-size: calc(min(5vw, 5vh));
+    color: rgb(92, 0, 0);
+}
+
+#rickRollVideo {
+    width: 100%; /* Make the video take the full width of the container */
+    height: auto; /* Maintain the aspect ratio */
+}

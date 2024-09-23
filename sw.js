@@ -9,7 +9,8 @@ const resourcesToCache = [
     '/GractionCamp2024/style.css',
     
 
-    '/GractionCamp2024/Audio/rickRoll.mp4',
+    '/GractionCamp2024/RickRolled/rickRoll.mp4',
+    '/GractionCamp2024/RickRolled/rickRoll.css',
 
     // Audio
     '/GractionCamp2024/Audio/blueDaBaDee.mp3',
@@ -23,8 +24,9 @@ const resourcesToCache = [
     '/GractionCamp2024/Audio/theme2.mp3',
     '/GractionCamp2024/Audio/trumpetwomp.mp3',
     '/GractionCamp2024/Audio/unlock.mp3',
-    '/GractionCamp2024/Audio/yellowBow.mp3',
-    '/GractionCamp2024/Audio/yellowMellow.mp3',
+    // '/GractionCamp2024/Audio/yellowBow.mp3',
+    // '/GractionCamp2024/Audio/yellowMellow.mp3',
+    '/GractionCamp2024/Audio/yellowSub.mp3',
 
 
     // CSS
@@ -34,6 +36,7 @@ const resourcesToCache = [
     '/GractionCamp2024/CSS/loader.css',
     '/GractionCamp2024/CSS/orange.css',
     '/GractionCamp2024/CSS/purple.css',
+
     '/GractionCamp2024/CSS/stickman.css',
     '/GractionCamp2024/CSS/yellow.css',
 
