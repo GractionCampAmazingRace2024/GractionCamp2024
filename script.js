@@ -35,7 +35,7 @@ const userCredentials = {
     { password: "@isaacIsntHere", page: "c1", css: "yellow.css" },
   ],
   admin: [
-    { password: "admin", page: "adminPage", css: "rickRoll.css" },
+    { password: "admin", page: "adminPage", css: "admin.css" },
     { password: "challenge1", page: "c1", css: "admin.css" },
     { password: "challenge2", page: "c2", css: "admin.css" },
     { password: "rrtime", page: "rickRollPage", css: "admin.css" },
@@ -95,7 +95,7 @@ const teamThemeMusic = {
   purple: 60,
   blue: 30,
   orange: 8,
-  yellow: 97,
+  yellow: 70,
   admin: 0,
 };
 
@@ -321,17 +321,43 @@ function playThemeMusic(audioFile, startTime = 0) {
 // Rick Roll Video
 let isPreloaded = false;
 
+// function preloadRickRoll() {
+//   const video = document.getElementById("rickRollVideo");
+//   const startTime = performance.now();
+//   video.load();
+//   video.addEventListener("loadeddata", function () {
+//     const endTime = performance.now();
+//     const loadTime = (endTime - startTime) / 1000;
+//     console.log(`Rick Roll video preloaded in ${loadTime.toFixed(2)} seconds`);
+//     document.getElementById("playButton").style.display = "inline";
+//   });
+// }
 function preloadRickRoll() {
   const video = document.getElementById("rickRollVideo");
   const startTime = performance.now();
+  video.preload = "auto"; // Set the preload attribute to 'auto'
   video.load();
-  video.addEventListener("loadeddata", function () {
-    const endTime = performance.now();
-    const loadTime = (endTime - startTime) / 1000;
-    console.log(`Rick Roll video preloaded in ${loadTime.toFixed(2)} seconds`);
-    document.getElementById("playButton").style.display = "inline";
-  });
+  
+  // Monitor the buffering progress
+  const checkBuffering = setInterval(() => {
+    const buffered = video.buffered;
+    const duration = video.duration;
+    
+    if (buffered.length > 0) {
+      const loaded = buffered.end(0); // Get how much of the video is buffered
+      console.log(`Buffered: ${(loaded / duration * 100).toFixed(2)}%`);
+      
+      if (loaded >= duration) {
+        const endTime = performance.now();
+        const loadTime = (endTime - startTime) / 1000;
+        console.log(`Rick Roll video fully preloaded in ${loadTime.toFixed(2)} seconds`);
+        document.getElementById("playButton").style.display = "inline";
+        clearInterval(checkBuffering); // Stop checking when the video is fully loaded
+      }
+    }
+  }, 500); // Check every 500 milliseconds
 }
+
 
 function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
