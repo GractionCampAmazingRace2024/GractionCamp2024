@@ -89,6 +89,15 @@ const teamColors = {
   admin: "red",
 };
 
+const teamThemeMusic ={
+  green: 10,
+  purple: 60,
+  blue: 30,
+  orange: 8,
+  yellow: 97,
+  admin: 0,
+}
+
 let currentThemeMusicId = ""; // Variable to store the currently playing theme music
 
 function getRandomErrorMessage() {
@@ -152,9 +161,9 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
       ).style.background = `linear-gradient(to bottom, ${color} 15%, black 15%, black 85%, ${color} 85%)`;
       document.body.style.backgroundColor = color;
 
-      const colorTheme = `${value}Theme`;
+      const colorTheme = `${[value]}Theme`;
       console.log("Color Theme:", colorTheme);
-      playThemeMusic(colorTheme);
+      playThemeMusic(colorTheme,  `${teamThemeMusic[value]}Theme`);
 
 
 
@@ -287,7 +296,7 @@ function homePage() {
 
 
 // Team music player // Play team music
-function playThemeMusic(audioFile) {
+function playThemeMusic(audioFile, startTime = 0) {
   // If there's currently playing music, pause it and reset it
   if (currentThemeMusicId) {
     const currentMusicElement = document.getElementById(currentThemeMusicId);
@@ -302,6 +311,7 @@ function playThemeMusic(audioFile) {
   const audioElement = document.getElementById(audioFile);
   console.log("Audio Element:", audioElement);
   if (audioElement) {
+    audioElement.currentTime = startTime;
     audioElement.play(); // Play the selected audio
     currentThemeMusicId = audioFile; // Store the new audio's ID
   } else {
