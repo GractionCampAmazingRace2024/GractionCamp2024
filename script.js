@@ -263,8 +263,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const interval = setInterval(() => {
       if (countdown < 100) {
         console.log(countdown);
+        const randomIncrement = Math.floor(Math.random() * 6);
+        countdown = Math.min(countdown + randomIncrement, 100);
+        console.log(countdown);
         button.innerHTML = `${countdown}% Loaded...`;
-        countdown++;
       } else {
         clearInterval(interval);
         button.innerHTML = "Click Me";
