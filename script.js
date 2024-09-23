@@ -248,9 +248,13 @@ function preloadRickRoll() {
     const allAudioLoaded = areAllAudioLoaded();
     const audioLoadedPercentage = allAudioLoaded ? 100 : 0; // Set audio percentage
     const totalLoadedPercentage = Math.min(videoLoadedPercentage + audioLoadedPercentage, 100);
-    button.innerHTML = `${totalLoadedPercentage.toFixed(2) - 1}% Loaded`;
+    
+    if(totalLoadedPercentage >= 1){
+      button.innerHTML = `${totalLoadedPercentage.toFixed(2) - 1}% Loaded`;
+    }
+    button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
 
-    if (totalLoadedPercentage >= 99) {
+    if (totalLoadedPercentage >= 100) {
       if (videoLoadedPercentage >= duration && allAudioLoaded) {
         video.pause(); // Pause the video after it's fully buffered
         video.currentTime = 0; // Reset the playback position to the start
@@ -276,10 +280,13 @@ function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
   const playButton = document.getElementById("playButton");
   const results = document.getElementById("resultsContent");
+  
   playButton.style.display = "none";
   video.style.display = "block";
   document.querySelector(".page").style.backgroundColor = "black";
+  video.muted = false; 
   video.play();
+
   video.addEventListener("ended", function () {
     document.getElementById("returnToIndex").onclick = function () {
       returnToIndex();
