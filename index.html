@@ -156,8 +156,8 @@
           <div class="box box5"></div>
         </div>
         <p>Remember to turn your game sound on max</p>
-        <button id="startButton" onload="homePage()">Proceed to Amazing Race 2024</button>
-        <h4>Version 3.0.2.v1</h4>
+        <button id="startButton">Proceed to Amazing Race 2024</button>
+        <h4>Version 3.0.2.v2</h4>
       </div>
     </div>
   </div>
@@ -427,7 +427,7 @@
 
     document.addEventListener('DOMContentLoaded', function () {
       const dropdown = document.querySelector('.custom-dropdown');
-
+      homepage()
       dropdown.addEventListener('mousedown', function (e) {
         e.preventDefault(); // Prevent default behavior like selection
       });
