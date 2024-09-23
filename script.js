@@ -261,22 +261,25 @@ document.addEventListener("DOMContentLoaded", function () {
     let countdown = 0;
     button.disabled = true;
     const interval = setInterval(() => {
-      if (countdown < 100) {
+      if (countdown <= 100) {
         console.log(countdown);
         const randomIncrement = Math.floor(Math.random() * 6);
         countdown = Math.min(countdown + randomIncrement, 100);
         console.log(countdown);
         button.innerHTML = `${countdown}% Loaded...`;
-      } else {
+      } 
+      else if(countdown > 100){
+        countdown = 100
+        console.log(countdown);
+      }
+      else {
         clearInterval(interval);
         button.innerHTML = "Click Me";
         button.disabled = false;
       }
     }, 100);
-    homePage()
   }
   loadingScreen()
-
 
 });
 
