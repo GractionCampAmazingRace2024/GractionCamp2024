@@ -279,8 +279,10 @@ function homePage() {
   document.documentElement.style.backgroundColor = "yellow";
 }
 
+
 // Team music player // Play team music
 function playThemeMusic(audioFile) {
+  // If there's currently playing music, pause it and reset it
   if (currentThemeMusicId) {
     const currentMusicElement = document.getElementById(currentThemeMusicId);
     if (currentMusicElement) {
@@ -288,7 +290,13 @@ function playThemeMusic(audioFile) {
       currentMusicElement.currentTime = 0; // Reset the music to the start
     }
   }
-  const audioID = document.getElementById(audioFile);
-  currentThemeMusicId = audioID; // Set the current theme song ID
-  audioID.play();
+
+  // Play the new team music
+  const audioElement = document.getElementById(audioFile);
+  if (audioElement) {
+    audioElement.play(); // Play the selected audio
+    currentThemeMusicId = audioFile; // Store the new audio's ID
+  } else {
+    console.error(`Audio file with ID ${audioFile} not found`);
+  }
 }
