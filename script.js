@@ -101,19 +101,10 @@ const teamThemeMusic = {
 
 let currentThemeMusicId = ""; // Variable to store the currently playing theme music
 
-
-
-
-
-
 function getRandomErrorMessage() {
   const randomIndex = Math.floor(Math.random() * errorMessages.length);
   return errorMessages[randomIndex];
 }
-
-
-
-
 
 // Show/hide dropdown on button click
 document
@@ -134,10 +125,6 @@ document
     document.getElementById("errorMessage").textContent = "";
   });
 
-
-
-
-
 // Close dropdown if clicked outside
 document.addEventListener("click", function (event) {
   if (!event.target.matches(".customButton")) {
@@ -147,11 +134,6 @@ document.addEventListener("click", function (event) {
     document.getElementById("errorMessage").textContent = "";
   }
 });
-
-
-
-
-
 
 // Update team selection and button style on dropdown item click
 document.querySelectorAll(".dropdown-item").forEach((item) => {
@@ -185,10 +167,6 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
   });
 });
 
-
-
-
-
 // Handle login form submission
 document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault(); // Prevent form from submitting automatically
@@ -198,7 +176,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   if (!username) {
     document.getElementById("errorMessage").textContent =
       "Please select a team first.";
-    return; 
+    return;
   }
   if (!password) {
     document.getElementById("errorMessage").textContent =
@@ -250,10 +228,6 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   }
 });
 
-
-
-
-
 // Returns each teams page to the index and starts a theme music
 function returnToIndex() {
   document.querySelectorAll(".page").forEach((page) => {
@@ -281,27 +255,30 @@ function returnToIndex() {
   playThemeMusic(randomThemeMusicElement);
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  function loadingScreen() {
+    const button = document.getElementById("startButton");
+    let countdown = 0;
+    button.disabled = true;
+    const interval = setInterval(() => {
+      if (countdown < 100) {
+        console.log(countdown);
+        button.innerHTML = `${countdown}% Loaded...`;
+        countdown--;
+      } else {
+        clearInterval(interval);
+        button.innerHTML = "Click Me";
+        button.disabled = false;
+      }
+    }, 100);
+  }
 
-
-
-
+  loadingScreen()
+  homePage()
+});
 
 // Shows the indexPage and closes off the loading page and starting the theme musc
 function homePage() {
-  const button = document.getElementById("startButton");
-  let countdown = 5;
-  button.disabled = true;
-  const interval = setInterval(() => {
-    if (countdown > 0) {
-      console.log(countdown);
-      button.textContent = `Please wait ${countdown} seconds...`;
-      countdown--;
-    } else {
-      clearInterval(interval);
-      button.textContent = "Click Me";
-      button.disabled = false;
-    }
-  }, 1000);
   document.querySelectorAll(".page").forEach((page) => {
     page.style.display = "none";
   });
@@ -311,11 +288,8 @@ function homePage() {
   document.body.style.backgroundColor = "yellow";
   document.documentElement.style.backgroundColor = "yellow";
   playThemeMusic("themeMusic");
-  preloadRickRoll()
+  preloadRickRoll();
 }
-
-
-
 
 // Team music player // Play team music
 function playThemeMusic(audioFile, startTime = 0) {
@@ -335,9 +309,6 @@ function playThemeMusic(audioFile, startTime = 0) {
     console.error(`Audio file with ID ${audioFile} not found`);
   }
 }
-
-
-
 
 // Rick Roll Video
 let isPreloaded = false;
