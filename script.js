@@ -201,13 +201,21 @@ function playThemeMusic(audioFile, startTime = 0) {
 
 function areAllAudioLoaded() {
   const audioIds = [
-    "themeMusic", "themeMusic1", "themeMusic2",
-    "blueTheme", "greenTheme", "orangeTheme",
-    "yellowTheme", "purpleTheme", "miiTheme", "miiShop",
-    "failSound", "unlockSound"
+    "themeMusic",
+    "themeMusic1",
+    "themeMusic2",
+    "blueTheme",
+    "greenTheme",
+    "orangeTheme",
+    "yellowTheme",
+    "purpleTheme",
+    "miiTheme",
+    "miiShop",
+    "failSound",
+    "unlockSound",
   ];
 
-  return audioIds.every(id => {
+  return audioIds.every((id) => {
     const audio = document.getElementById(id);
     return audio && audio.readyState >= 2; // 2 means metadata is loaded
   });
@@ -239,16 +247,19 @@ function preloadRickRoll() {
     let videoLoadedPercentage = 0;
     if (buffered.length > 0) {
       const loaded = buffered.end(0); // Get how much of the video is buffered
-      videoLoadedPercentage = ((loaded / duration) * 100); // Calculate video loading percentage
+      videoLoadedPercentage = (loaded / duration) * 100; // Calculate video loading percentage
       console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
     }
 
     // Check if all audio files are loaded
     const allAudioLoaded = areAllAudioLoaded();
     const audioLoadedPercentage = allAudioLoaded ? 100 : 0; // Set audio percentage
-    const totalLoadedPercentage = Math.min(videoLoadedPercentage + audioLoadedPercentage, 100);
-    
-    if(totalLoadedPercentage >= 1){
+    const totalLoadedPercentage = Math.min(
+      videoLoadedPercentage + audioLoadedPercentage,
+      100
+    );
+
+    if (totalLoadedPercentage >= 1) {
       button.innerHTML = `${totalLoadedPercentage.toFixed(2) - 1}% Loaded`;
     }
     button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
@@ -273,34 +284,33 @@ function preloadRickRoll() {
   }, 100); // Check every 100 milliseconds
 }
 
-
-
 function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
   const playButton = document.getElementById("playButton");
   const results = document.getElementById("resultsContent");
+
   document.getElementById("rickRollPage").style.display = "block"; // Ensure the page is displayed
+
   playButton.style.display = "none";
   video.style.display = "block";
-  document.querySelector(".page").style.backgroundColor = "black";
-  video.muted = false; 
+  document.querySelector(".page").style.backgroundColor = "black !important";
+  video.muted = false;
   video.play();
 
   video.addEventListener("ended", function () {
     document.getElementById("returnToIndex").onclick = function () {
       returnToIndex();
     };
-    document.getElementById("returnToIndex").innerHTML ="Back";
-    document.getElementById("returnToIndex").querySelector("span").innerHTML = "Return"; 
-    // document.querySelector(".page").style.backgroundColor = "red";
+    document.getElementById("returnToIndex").innerHTML = "Back";
+    document.getElementById("returnToIndex").querySelector("span").innerHTML =
+      "Return";
+
     video.style.display = "none";
-    results.style.display = "block"
-    results.innerHTML = "placeholder result text"; //`Total Time Taken: ${placeholder}`;
+    results.style.display = "block";
   });
+  // document.querySelector(".page").style.backgroundColor = "red !important";
+  results.innerHTML = "placeholder result text"; //`Total Time Taken: ${placeholder}`;
 }
-
-
-
 
 // Show/hide dropdown on button click
 document
