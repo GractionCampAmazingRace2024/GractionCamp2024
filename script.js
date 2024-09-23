@@ -290,10 +290,10 @@ function playRickRoll() {
   const results = document.getElementById("resultsContent");
 
   document.getElementById("rickRollPage").style.display = "block"; // Ensure the page is displayed
-
+  document.getElementById("rickRollPage").style.backgroundColor = "black !important";
   playButton.style.display = "none";
   video.style.display = "block";
-  document.querySelector(".page").style.backgroundColor = "black !important";
+
   video.muted = false;
   video.play();
 
@@ -306,7 +306,7 @@ function playRickRoll() {
         returnToIndex();
     };
     
-    document.querySelector(".page").style.backgroundColor = "red !important"; // Inline style takes precedence
+    document.getElementById("rickRollPage").style.backgroundColor = "red !important";
     results.innerHTML = "placeholder result text";
 });
 }
