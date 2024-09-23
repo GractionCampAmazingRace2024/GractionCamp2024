@@ -62,7 +62,11 @@ const userCredentials = {
 
   admin: [
     { password: "settings", page: "adminPage", css: "CSS/admin.css" },
-    { password: "rrtime", page: "rickRollPage", css: "RickRolled/rickRoll.css" },
+    {
+      password: "rrtime",
+      page: "rickRollPage",
+      css: "RickRolled/rickRoll.css",
+    },
   ],
 };
 
@@ -125,14 +129,10 @@ const teamThemeMusic = {
 
 let currentThemeMusicId = ""; // Variable to store the currently playing theme music
 
-
-
-
 function getRandomErrorMessage() {
   const randomIndex = Math.floor(Math.random() * errorMessages.length);
   return errorMessages[randomIndex];
 }
-
 
 // Returns each teams page to the index and starts a theme music
 function returnToIndex() {
@@ -248,134 +248,143 @@ function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
   document.getElementById("playButton").style.display = "none";
   video.style.display = "block";
+  document.body.style.backgroundColor = 'black';
   video.play();
   video.addEventListener("ended", function () {
-  document.getElementById("returnToIndex").onclick = 'returnToIndex()';
-  video.style.display = "none";
-  document.getElementById("resultsContent").innerHTML = 'placeholder result text'//`Total Time Taken: ${placeholder}`;
-
+    document.getElementById("returnToIndex").onclick = function () {
+      returnToIndex();
+    };
+    document.getElementById("returnToIndex").innerHTML - "Back"
+    document.body.style.backgroundColor = 'red';
+    video.style.display = "none";
+    document.getElementById("resultsContent").innerHTML =
+      "placeholder result text"; //`Total Time Taken: ${placeholder}`;
   });
 }
+
+
 
 
 // Show/hide dropdown on button click
-document.querySelector(".customButton").addEventListener("click", function (event) {
-  event.stopPropagation(); // Prevent event from propagating to the document
-  const dropdown = document.querySelector(".dropdown-content");
-  dropdown.classList.toggle("show");
-  // Close other dropdowns if open
-  document.querySelectorAll(".dropdown-content").forEach((otherDropdown) => {
-    if (
-      otherDropdown !== dropdown &&
-      otherDropdown.classList.contains("show")
-    ) {
-      otherDropdown.classList.remove("show");
-    }
+document
+  .querySelector(".customButton")
+  .addEventListener("click", function (event) {
+    event.stopPropagation(); // Prevent event from propagating to the document
+    const dropdown = document.querySelector(".dropdown-content");
+    dropdown.classList.toggle("show");
+    // Close other dropdowns if open
+    document.querySelectorAll(".dropdown-content").forEach((otherDropdown) => {
+      if (
+        otherDropdown !== dropdown &&
+        otherDropdown.classList.contains("show")
+      ) {
+        otherDropdown.classList.remove("show");
+      }
+    });
+    document.getElementById("errorMessage").textContent = "";
   });
-  document.getElementById("errorMessage").textContent = "";
-});
 
 // Close dropdown if clicked outside
 document.addEventListener("click", function (event) {
-if (!event.target.matches(".customButton")) {
-  document.querySelectorAll(".dropdown-content.show").forEach((dropdown) => {
-    dropdown.classList.remove("show");
-  });
-  document.getElementById("errorMessage").textContent = "";
-}
+  if (!event.target.matches(".customButton")) {
+    document.querySelectorAll(".dropdown-content.show").forEach((dropdown) => {
+      dropdown.classList.remove("show");
+    });
+    document.getElementById("errorMessage").textContent = "";
+  }
 });
 
 // Update team selection and button style on dropdown item click
 document.querySelectorAll(".dropdown-item").forEach((item) => {
-item.addEventListener("click", function () {
-  const value = this.getAttribute("data-value");
-  document.querySelector("#teamSelection").value = value;
-  document.querySelector(".customButton").textContent = this.textContent;
-  const bgColor = getComputedStyle(this).backgroundColor;
-  document.querySelector(".customButton").style.backgroundColor = bgColor;
-  const color = teamColors[value];
-  if (color) {
-    const loginContainer = document.querySelector(".login-container");
-    loginContainer.style.animation = "none"; // Stop the animation
-    loginContainer.style.borderColor = color;
-    loginContainer.style.boxShadow = `0 0 30px ${color}`;
-    document.getElementById(
-      "gradient-submit"
-    ).style.background = `linear-gradient(to bottom, ${color} 20%, black 20%, black 80%, ${color} 80%)`;
-    document.querySelector(
-      ".mainBody"
-    ).style.background = `linear-gradient(to bottom, ${color} 15%, black 15%, black 85%, ${color} 85%)`;
-    document.body.style.backgroundColor = color;
+  item.addEventListener("click", function () {
+    const value = this.getAttribute("data-value");
+    document.querySelector("#teamSelection").value = value;
+    document.querySelector(".customButton").textContent = this.textContent;
+    const bgColor = getComputedStyle(this).backgroundColor;
+    document.querySelector(".customButton").style.backgroundColor = bgColor;
+    const color = teamColors[value];
+    if (color) {
+      const loginContainer = document.querySelector(".login-container");
+      loginContainer.style.animation = "none"; // Stop the animation
+      loginContainer.style.borderColor = color;
+      loginContainer.style.boxShadow = `0 0 30px ${color}`;
+      document.getElementById(
+        "gradient-submit"
+      ).style.background = `linear-gradient(to bottom, ${color} 20%, black 20%, black 80%, ${color} 80%)`;
+      document.querySelector(
+        ".mainBody"
+      ).style.background = `linear-gradient(to bottom, ${color} 15%, black 15%, black 85%, ${color} 85%)`;
+      document.body.style.backgroundColor = color;
 
-    const colorTheme = `${[value]}Theme`;
-    console.log("Color Theme is:", colorTheme);
-    playThemeMusic(colorTheme, `${teamThemeMusic[value]}`);
-    console.log("Color Time Should be:", `${teamThemeMusic[value]}`);
-  }
-  document.querySelector(".dropdown-content").classList.remove("show");
-  document.getElementById("errorMessage").textContent = "";
-});
+      const colorTheme = `${[value]}Theme`;
+      console.log("Color Theme is:", colorTheme);
+      playThemeMusic(colorTheme, `${teamThemeMusic[value]}`);
+      console.log("Color Time Should be:", `${teamThemeMusic[value]}`);
+    }
+    document.querySelector(".dropdown-content").classList.remove("show");
+    document.getElementById("errorMessage").textContent = "";
+  });
 });
 
 // Handle login form submission
 document.getElementById("loginForm").addEventListener("submit", function (e) {
-e.preventDefault(); // Prevent form from submitting automatically
-const username = document.getElementById("teamSelection").value;
-const password = document.getElementById("password").value;
-document.getElementById("errorMessage").textContent = "";
-if (!username) {
-  document.getElementById("errorMessage").textContent =
-    "Please select a team first.";
-  return;
-}
-if (!password) {
-  document.getElementById("errorMessage").textContent =
-    "Please enter your password.";
-  return;
-}
-if (userCredentials[username]) {
-  const credentials = userCredentials[username];
-  const userData = credentials.find((cred) => cred.password === password);
+  e.preventDefault(); // Prevent form from submitting automatically
+  const username = document.getElementById("teamSelection").value;
+  const password = document.getElementById("password").value;
+  document.getElementById("errorMessage").textContent = "";
+  if (!username) {
+    document.getElementById("errorMessage").textContent =
+      "Please select a team first.";
+    return;
+  }
+  if (!password) {
+    document.getElementById("errorMessage").textContent =
+      "Please enter your password.";
+    return;
+  }
+  if (userCredentials[username]) {
+    const credentials = userCredentials[username];
+    const userData = credentials.find((cred) => cred.password === password);
 
-  if (userData) {
-    sessionStorage.setItem("authenticatedUser", username);
-    sessionStorage.setItem("authenticatedPassword", password);
+    if (userData) {
+      sessionStorage.setItem("authenticatedUser", username);
+      sessionStorage.setItem("authenticatedPassword", password);
 
-    document
-      .querySelectorAll(".page")
-      .forEach((page) => (page.style.display = "none"));
-    document.getElementById(userData.page).style.display = "block";
-    playThemeMusic("unlockSound");
+      document
+        .querySelectorAll(".page")
+        .forEach((page) => (page.style.display = "none"));
+      document.getElementById(userData.page).style.display = "block";
+      playThemeMusic("unlockSound");
 
-    document.getElementById("iphoneline").style.display = "none";
-    const linkElement = document.getElementById("dynamic-css");
-    linkElement.href = `/GractionCamp2024/${userData.css}`; // Corrected here
-    console.log("User Data / CSS is: ", userData.css); // Access the css property from userData
-    console.log(`/GractionCamp2024/CSS/${userData.css}`);
+      document.getElementById("iphoneline").style.display = "none";
+      const linkElement = document.getElementById("dynamic-css");
+      linkElement.href = `/GractionCamp2024/${userData.css}`; // Corrected here
+      console.log("User Data / CSS is: ", userData.css); // Access the css property from userData
+      console.log(`/GractionCamp2024/CSS/${userData.css}`);
+    } else {
+      document.getElementById("errorMessage").textContent =
+        getRandomErrorMessage();
+
+      // Play fail sound
+      const failSound = document.getElementById("failSound");
+      failSound.volume = 0.3;
+      failSound.play().catch((error) => {
+        console.log("Error playing fail sound:", error);
+      });
+
+      failSound.addEventListener("ended", () => {
+        if (currentThemeMusicId) {
+          const currentMusicElement =
+            document.getElementById(currentThemeMusicId);
+          if (currentMusicElement) {
+            currentMusicElement.volume = 1; // Restore to original volume
+          }
+        }
+      });
+    }
   } else {
+    // Show error message if the username is invalid
     document.getElementById("errorMessage").textContent =
       getRandomErrorMessage();
-
-    // Play fail sound
-    const failSound = document.getElementById("failSound");
-    failSound.volume = 0.3;
-    failSound.play().catch((error) => {
-      console.log("Error playing fail sound:", error);
-    });
-
-    failSound.addEventListener("ended", () => {
-      if (currentThemeMusicId) {
-        const currentMusicElement =
-          document.getElementById(currentThemeMusicId);
-        if (currentMusicElement) {
-          currentMusicElement.volume = 1; // Restore to original volume
-        }
-      }
-    });
   }
-} else {
-  // Show error message if the username is invalid
-  document.getElementById("errorMessage").textContent =
-    getRandomErrorMessage();
-}
 });
