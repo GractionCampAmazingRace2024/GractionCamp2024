@@ -250,7 +250,7 @@ function playRickRoll() {
   video.style.display = "block";
   video.play();
   video.addEventListener("ended", function () {
-  document.getElementById("returnToIndex").onclick = returnToIndex();
+  document.getElementById("returnToIndex").onclick = 'returnToIndex()';
   video.style.display = "none";
   document.getElementById("resultsContent").innerHTML = 'placeholder result text'//`Total Time Taken: ${placeholder}`;
 
