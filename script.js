@@ -199,9 +199,9 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
       document.getElementById("iphoneline").style.display = "none";
       const linkElement = document.getElementById("dynamic-css");
-      linkElement.href = `/GractionCamp2024/CSS/${userCredentials[username].css}`;
-      console.log(user.css);
-      console.log(`/GractionCamp2024/CSS/${userCredentials[username].css}`);
+      linkElement.href = `/GractionCamp2024/CSS/${userData.css}`; // Corrected here
+      console.log("User Data / CSS is: ", userData.css); // Access the css property from userData
+      console.log(`/GractionCamp2024/CSS/${userData.css}`);
     } else {
       document.getElementById("errorMessage").textContent =
         getRandomErrorMessage();
