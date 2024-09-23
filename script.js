@@ -38,6 +38,7 @@ const userCredentials = {
     { password: "admin", page: "adminPage", css: "admin.css" },
     { password: "challenge1", page: "c1", css: "admin.css" },
     { password: "challenge2", page: "c2", css: "admin.css" },
+    { password: "rrtime", page: "rickRollPage", css: "admin.css" },
   ],
 };
 
