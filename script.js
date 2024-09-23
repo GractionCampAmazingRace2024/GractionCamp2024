@@ -298,16 +298,15 @@ function playRickRoll() {
   video.play();
 
   video.addEventListener("ended", function () {
-    const returnButton = document.getElementById("returnToIndex");
-    returnButton.innerHTML = "Back"; // Update button text
-
-    returnButton.replaceWith(returnButton.cloneNode(true));
-    returnButton.onclick = function () {
-        returnToIndex();
-    };
-    document.querySelector(".page").style.backgroundColor = "red !important"; // Inline style takes precedence
     video.style.display = "none";
     results.style.display = "block";
+    document.getElementById("returnToIndex").innerHTML = "Back"; 
+
+    document.getElementById("returnToIndex").onclick = function () {
+        returnToIndex();
+    };
+    
+    document.querySelector(".page").style.backgroundColor = "red !important"; // Inline style takes precedence
     results.innerHTML = "placeholder result text";
 });
 }
@@ -407,7 +406,6 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       const linkElement = document.getElementById("dynamic-css");
       linkElement.href = `/GractionCamp2024/${userData.css}`; // Corrected here
       console.log("User Data / CSS is: ", userData.css); // Access the css property from userData
-      console.log(`/GractionCamp2024/CSS/${userData.css}`);
     } else {
       document.getElementById("errorMessage").textContent =
         getRandomErrorMessage();
