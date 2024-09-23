@@ -1,68 +1,68 @@
 const userCredentials = {
   green: [
-    { password: "Gr33nF0l!@ge", page: "c9", css: "green.css" },
-    { password: "Fr0gst0mp!ng", page: "c5", css: "green.css" },
-    { password: "Gr@ssBl@de", page: "c2", css: "green.css" },
-    { password: "F!eld0fDr3@mz", page: "c7", css: "green.css" },
-    { password: "M!ntyM0rning", page: "c4", css: "green.css" },
-    { password: "F0r3stC@n0py", page: "c3", css: "green.css" },
-    { password: "Gr33nG!ant", page: "c6", css: "green.css" },
-    { password: "LushV3rd@nt", page: "c1", css: "green.css" },
-    { password: "Spr!ngL3@ps", page: "c8", css: "green.css" },
-    { password: "JONO", page: "c10", css: "green.css" },  // Added
+    { password: "Gr33nF0l!@ge", page: "c9", css: "CSS/green.css" },
+    { password: "Fr0gst0mp!ng", page: "c5", css: "CSS/green.css" },
+    { password: "Gr@ssBl@de", page: "c2", css: "CSS/green.css" },
+    { password: "F!eld0fDr3@mz", page: "c7", css: "CSS/green.css" },
+    { password: "M!ntyM0rning", page: "c4", css: "CSS/green.css" },
+    { password: "F0r3stC@n0py", page: "c3", css: "CSS/green.css" },
+    { password: "Gr33nG!ant", page: "c6", css: "CSS/green.css" },
+    { password: "LushV3rd@nt", page: "c1", css: "CSS/green.css" },
+    { password: "Spr!ngL3@ps", page: "c8", css: "CSS/green.css" },
+    { password: "JONO", page: "c10", css: "CSS/green.css" },  // Added
   ],
   purple: [
-    { password: "Purpl3V!0l3t", page: "c5", css: "purple.css" },
-    { password: "L@v3nd3rDr3@m", page: "c3", css: "purple.css" },
-    { password: "R0yalR@!n", page: "c7", css: "purple.css" },
-    { password: "Gr@p3Spl@sh", page: "c2", css: "purple.css" },
-    { password: "Am3thystGl0w", page: "c4", css: "purple.css" },
-    { password: "Tw!l!ghtDr!ft", page: "c8", css: "purple.css" },
-    { password: "V!0l3tM!st", page: "c1", css: "purple.css" },
-    { password: "Purpl3P@th", page: "c10", css: "purple.css" },
-    { password: "Plum3cst@sy", page: "c6", css: "purple.css" },
-    { password: "PRIYA", page: "c9", css: "purple.css" },  // Added
+    { password: "Purpl3V!0l3t", page: "c5", css: "CSS/purple.css" },
+    { password: "L@v3nd3rDr3@m", page: "c3", css: "CSS/purple.css" },
+    { password: "R0yalR@!n", page: "c7", css: "CSS/purple.css" },
+    { password: "Gr@p3Spl@sh", page: "c2", css: "CSS/purple.css" },
+    { password: "Am3thystGl0w", page: "c4", css: "CSS/purple.css" },
+    { password: "Tw!l!ghtDr!ft", page: "c8", css: "CSS/purple.css" },
+    { password: "V!0l3tM!st", page: "c1", css: "CSS/purple.css" },
+    { password: "Purpl3P@th", page: "c10", css: "CSS/purple.css" },
+    { password: "Plum3cst@sy", page: "c6", css: "CSS/purple.css" },
+    { password: "PRIYA", page: "c9", css: "CSS/purple.css" },  // Added
   ],
   blue: [
-    { password: "Blu3T!d3", page: "c7", css: "blue.css" },
-    { password: "W@v3r!d3r", page: "c9", css: "blue.css" },
-    { password: "S@pph!r3Spl@sh", page: "c3", css: "blue.css" },
-    { password: "0c3@nD3pth", page: "c6", css: "blue.css" },
-    { password: "Blu3Lag00n", page: "c4", css: "blue.css" },
-    { password: "Aqu@t!cDr34m", page: "c10", css: "blue.css" },
-    { password: "BluM00n", page: "c5", css: "blue.css" },
-    { password: "Blu3Sk!es", page: "c2", css: "blue.css" },
-    { password: "D33pS3@V3ntur3", page: "c8", css: "blue.css" },
-    { password: "ASHLYN", page: "c1", css: "blue.css" },  // Added
+    { password: "Blu3T!d3", page: "c7", css: "CSS/blue.css" },
+    { password: "W@v3r!d3r", page: "c9", css: "CSS/blue.css" },
+    { password: "S@pph!r3Spl@sh", page: "c3", css: "CSS/blue.css" },
+    { password: "0c3@nD3pth", page: "c6", css: "CSS/blue.css" },
+    { password: "Blu3Lag00n", page: "c4", css: "CSS/blue.css" },
+    { password: "Aqu@t!cDr34m", page: "c10", css: "CSS/blue.css" },
+    { password: "BluM00n", page: "c5", css: "CSS/blue.css" },
+    { password: "Blu3Sk!es", page: "c2", css: "CSS/blue.css" },
+    { password: "D33pS3@V3ntur3", page: "c8", css: "CSS/blue.css" },
+    { password: "ASHLYN", page: "c1", css: "CSS/blue.css" },  // Added
   ],
   orange: [
-    { password: "0r@ng3Sunr!s3", page: "c3", css: "orange.css" },
-    { password: "T!gerStr!p3s", page: "c9", css: "orange.css" },
-    { password: "CitrusFl@re", page: "c7", css: "orange.css" },
-    { password: "FieryBl@z3", page: "c6", css: "orange.css" },
-    { password: "T@ng3rin3Sp!c3", page: "c1", css: "orange.css" },
-    { password: "Autumn@ir", page: "c2", css: "orange.css" },
-    { password: "M@ndr!nG!ng3r", page: "c5", css: "orange.css" },
-    { password: "Bl@z!ngStr!d3", page: "c10", css: "orange.css" },
-    { password: "0r@ng3R@d!@nc3", page: "c4", css: "orange.css" },
-    { password: "JAMES", page: "c8", css: "orange.css" },  // Added
+    { password: "0r@ng3Sunr!s3", page: "c3", css: "CSS/orange.css" },
+    { password: "T!gerStr!p3s", page: "c9", css: "CSS/orange.css" },
+    { password: "CitrusFl@re", page: "c7", css: "CSS/orange.css" },
+    { password: "FieryBl@z3", page: "c6", css: "CSS/orange.css" },
+    { password: "T@ng3rin3Sp!c3", page: "c1", css: "CSS/orange.css" },
+    { password: "Autumn@ir", page: "c2", css: "CSS/orange.css" },
+    { password: "M@ndr!nG!ng3r", page: "c5", css: "CSS/orange.css" },
+    { password: "Bl@z!ngStr!d3", page: "c10", css: "CSS/orange.css" },
+    { password: "0r@ng3R@d!@nc3", page: "c4", css: "CSS/orange.css" },
+    { password: "JAMES", page: "c8", css: "CSS/orange.css" },  // Added
   ],
   yellow: [
-    { password: "Y3ll0wL!ght", page: "c4", css: "yellow.css" },
-    { password: "G0ld3nB3@ms", page: "c1", css: "yellow.css" },
-    { password: "L3m0nSpr!tz", page: "c9", css: "yellow.css" },
-    { password: "Sunn!D@ze", page: "c6", css: "yellow.css" },
-    { password: "H0n3yGl0w", page: "c5", css: "yellow.css" },
-    { password: "B!tt3rSw33t", page: "c2", css: "yellow.css" },
-    { password: "Saffr0nFl@r3", page: "c8", css: "yellow.css" },
-    { password: "M@r!g0ldSpr!nkl3s", page: "c7", css: "yellow.css" },
-    { password: "M!dD@ySh!n3", page: "c3", css: "yellow.css" },
-    { password: "CIARA", page: "c10", css: "yellow.css" },  // Added
+    { password: "Y3ll0wL!ght", page: "c4", css: "CSS/yellow.css" },
+    { password: "G0ld3nB3@ms", page: "c1", css: "CSS/yellow.css" },
+    { password: "L3m0nSpr!tz", page: "c9", css: "CSS/yellow.css" },
+    { password: "Sunn!D@ze", page: "c6", css: "CSS/yellow.css" },
+    { password: "H0n3yGl0w", page: "c5", css: "CSS/yellow.css" },
+    { password: "B!tt3rSw33t", page: "c2", css: "CSS/yellow.css" },
+    { password: "Saffr0nFl@r3", page: "c8", css: "CSS/yellow.css" },
+    { password: "M@r!g0ldSpr!nkl3s", page: "c7", css: "CSS/yellow.css" },
+    { password: "M!dD@ySh!n3", page: "c3", css: "CSS/yellow.css" },
+    { password: "CIARA", page: "c10", css: "CSS/yellow.css" },  // Added
   ],
 
   admin: [
-    { password: "admin", page: "adminPage", css: "admin.css" },
-    { password: "rrtime", page: "rickRollPage", css: "admin.css" },
+    { password: "admin", page: "adminPage", css: "CSS/admin.css" },
+    { password: "rrtime", page: "rickRollPage", css: "RickRolled/rickRoll.css" },
   ],
 };
 
@@ -223,7 +223,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
       document.getElementById("iphoneline").style.display = "none";
       const linkElement = document.getElementById("dynamic-css");
-      linkElement.href = `/GractionCamp2024/CSS/${userData.css}`; // Corrected here
+      linkElement.href = `/GractionCamp2024/${userData.css}`; // Corrected here
       console.log("User Data / CSS is: ", userData.css); // Access the css property from userData
       console.log(`/GractionCamp2024/CSS/${userData.css}`);
     } else {
@@ -348,7 +348,7 @@ function preloadRickRoll() {
         const endTime = performance.now();
         const loadTime = (endTime - startTime) / 1000;
         console.log(
-          `Rick Roll video fully preloaded in ${loadTime.toFixed(2)} seconds`
+          `Preloading completed in ${loadTime.toFixed(2)} seconds`
         );
 
         button.onclick = homePage;
