@@ -240,7 +240,7 @@ function preloadRickRoll() {
     let videoLoadedPercentage = 0;
     if (buffered.length > 0) {
       const loaded = buffered.end(0); // Get how much of the video is buffered
-      videoLoadedPercentage = (loaded / duration) * 100; // Calculate video loading percentage
+      videoLoadedPercentage = ((loaded / duration) * 100); // Calculate video loading percentage
       console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
     }
 
@@ -248,14 +248,14 @@ function preloadRickRoll() {
     const allAudioLoaded = areAllAudioLoaded();
     const audioLoadedPercentage = allAudioLoaded ? 100 : 0; // Set audio percentage
     const totalLoadedPercentage = Math.min(videoLoadedPercentage + audioLoadedPercentage, 100);
-    button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
+    button.innerHTML = `${totalLoadedPercentage.toFixed(2) - 1}% Loaded`;
 
     if (totalLoadedPercentage >= 99) {
       if (videoLoadedPercentage >= duration && allAudioLoaded) {
         video.pause(); // Pause the video after it's fully buffered
         video.currentTime = 0; // Reset the playback position to the start
         video.muted = false; // Restore the audio state
-
+        button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
         const endTime = performance.now();
         const loadTime = (endTime - startTime) / 1000;
         console.log(`Preloading completed in ${loadTime.toFixed(2)} seconds`);
