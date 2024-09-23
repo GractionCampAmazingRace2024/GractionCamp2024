@@ -234,7 +234,7 @@ function preloadRickRoll() {
     const skipButton = document.getElementById("skipButton");
     setTimeout(() => {
       skipButton.style.display = "inline"; // Show the skip button
-    }, 30); // 15 seconds
+    }, 30000); // 30 seconds
 
     let videoLoadedPercentage = 0;
     if (buffered.length > 0) {
