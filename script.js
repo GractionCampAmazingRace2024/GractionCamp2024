@@ -261,9 +261,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let countdown = 0;
     button.disabled = true;
     const interval = setInterval(() => {
-      if (countdown <= 100) {
+      if (countdown < 100) {
         console.log(countdown);
-        const randomIncrement = Math.floor(Math.random() * 6);
+        const randomIncrement = Math.floor(Math.random() * 5) + 1;
         countdown = Math.min(countdown + randomIncrement, 100);
         console.log(countdown);
         button.innerHTML = `${countdown}% Loaded...`;
@@ -272,15 +272,17 @@ document.addEventListener("DOMContentLoaded", function () {
         countdown = 100
         console.log(countdown);
       }
-      else {
-        clearInterval(interval);
-        button.innerHTML = "Click Me";
-        button.disabled = false;
+      else if(countdown === 100){
+
+        setTimeout(() => {
+          clearInterval(interval);
+          button.innerHTML = "Click Me";
+          button.disabled = false;
+        }, 2000); // 1-second delay (1000 milliseconds)
       }
     }, 100);
   }
   loadingScreen()
-
 });
 
 // Shows the indexPage and closes off the loading page and starting the theme musc
