@@ -35,7 +35,7 @@ const userCredentials = {
     { password: "@isaacIsntHere", page: "c1", css: "yellow.css" },
   ],
   admin: [
-    { password: "admin", page: "adminPage", css: "admin.css" },
+    { password: "admin", page: "adminPage", css: "rickRoll.css" },
     { password: "challenge1", page: "c1", css: "admin.css" },
     { password: "challenge2", page: "c2", css: "admin.css" },
     { password: "rrtime", page: "rickRollPage", css: "admin.css" },
@@ -221,7 +221,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
       document.getElementById("iphoneline").style.display = "none";
       const linkElement = document.getElementById("dynamic-css");
-      linkElement.href = `/GractionCamp2024/CSS/${username}.css`;
+      linkElement.href = `/GractionCamp2024/CSS/${user.css}`;
     } else {
       document.getElementById("errorMessage").textContent =
         getRandomErrorMessage();
