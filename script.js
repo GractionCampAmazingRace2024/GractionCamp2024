@@ -298,18 +298,18 @@ function playRickRoll() {
   video.play();
 
   video.addEventListener("ended", function () {
-    document.getElementById("returnToIndex").onclick = function () {
-      returnToIndex();
-    };
-    document.getElementById("returnToIndex").innerHTML = "Back";
-    document.getElementById("returnToIndex").querySelector("span").innerHTML =
-      "Return";
+    const returnButton = document.getElementById("returnToIndex");
+    returnButton.innerHTML = "Back"; // Update button text
 
+    returnButton.replaceWith(returnButton.cloneNode(true));
+    returnButton.onclick = function () {
+        returnToIndex();
+    };
+    document.querySelector(".page").style.backgroundColor = "red !important"; // Inline style takes precedence
     video.style.display = "none";
     results.style.display = "block";
-  });
-  // document.querySelector(".page").style.backgroundColor = "red !important";
-  results.innerHTML = "placeholder result text"; //`Total Time Taken: ${placeholder}`;
+    results.innerHTML = "placeholder result text";
+});
 }
 
 // Show/hide dropdown on button click
