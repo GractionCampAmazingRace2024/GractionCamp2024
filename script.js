@@ -273,11 +273,11 @@ function homePage() {
   document.getElementById("indexPage").style.display = "block";
   document.getElementById("dynamic-css").href = "/GractionCamp2024/style.css";
   document.getElementById("iphoneline").style.display = "block";
-  document.getElementById("themeMusic").play();
-  currentThemeMusicId = 'themeMusic'
 
   document.body.style.backgroundColor = "yellow";
   document.documentElement.style.backgroundColor = "yellow";
+  
+  playThemeMusic('themeMusic')
 }
 
 
