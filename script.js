@@ -291,7 +291,7 @@ function playThemeMusic(audioFile, startTime = 0) {
 
 // Rick Roll Video
 function preloadRickRoll() {
-  playThemeMusic('mii')
+  playThemeMusic('miiTheme');
   const video = document.getElementById("rickRollVideo");
   const startTime = performance.now();
   video.style.display = "none"; // Hide the video from the view
