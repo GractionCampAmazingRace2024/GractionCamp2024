@@ -251,7 +251,7 @@ function returnToIndex() {
   document.getElementById("errorMessage").textContent = "";
 
   // Play random theme music
-  const themeMusicOptions = ["themeMusic", "themeMusic1", "themeMusic2"];
+  const themeMusicOptions = ["themeMusic", "themeMusic1", "themeMusic2", 'miiTheme', 'miiShop'];
   const randomThemeMusicElement =
     themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
   playThemeMusic(randomThemeMusicElement);
@@ -267,7 +267,7 @@ function homePage() {
   document.getElementById("iphoneline").style.display = "block";
   document.body.style.backgroundColor = "yellow";
   document.documentElement.style.backgroundColor = "yellow";
-  playThemeMusic("themeMusic");
+  // playThemeMusic("themeMusic");
 }
 
 // Team music player // Play team music
