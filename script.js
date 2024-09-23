@@ -288,6 +288,7 @@ function playRickRoll() {
     document.getElementById("returnToIndex").querySelector("span").innerHTML = "Return"; 
     document.querySelector(".page").style.backgroundColor = "red";
     video.style.display = "none";
+    results.style.display = "block"
     results.innerHTML = "placeholder result text"; //`Total Time Taken: ${placeholder}`;
   });
 }
