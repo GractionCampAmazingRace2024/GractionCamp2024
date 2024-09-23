@@ -139,7 +139,6 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
   item.addEventListener("click", function () {
     const value = this.getAttribute("data-value");
     document.querySelector("#teamSelection").value = value;
-    console.log("Selected team:", value);
     document.querySelector(".customButton").textContent = this.textContent;
 
     // Set the background color of the dropdown button
@@ -162,9 +161,9 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
       document.body.style.backgroundColor = color;
 
       const colorTheme = `${[value]}Theme`;
-      console.log("Color Theme:", colorTheme);
+      console.log("Color Theme is:", colorTheme);
       playThemeMusic(colorTheme,  `${teamThemeMusic[value]}`);
-      console.log("Color Time:", `${teamThemeMusic[value]}`);
+      console.log("Color Time Should be:", `${teamThemeMusic[value]}`);
 
 
 
@@ -307,10 +306,10 @@ function playThemeMusic(audioFile, startTime = 0) {
     }
   }
 
-  console.log(audioFile);
+
   // Play the new team music
   const audioElement = document.getElementById(audioFile);
-  console.log("Audio Element:", audioElement);
+  // console.log("Audio Element:", audioElement);
   if (audioElement) {
     audioElement.currentTime = startTime;
     audioElement.play(); // Play the selected audio
