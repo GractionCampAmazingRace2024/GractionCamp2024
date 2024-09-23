@@ -151,7 +151,7 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
       ).style.background = `linear-gradient(to bottom, ${color} 15%, black 15%, black 85%, ${color} 85%)`;
       document.body.style.backgroundColor = color;
 
-      const colorTheme = `${color}Theme`;
+      const colorTheme = `${teamColors}Theme`;
       playThemeMusic(colorTheme);
     }
 
