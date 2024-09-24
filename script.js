@@ -228,13 +228,13 @@ function preloadRickRoll() {
     }, 60000); //
 
     let videoLoadedPercentage = 0;
-    if (buffered.length > 0 && buffered.length < 100) {
+    if (buffered.length > 0) {
       const loaded = buffered.end(0); // Get how much of the video is buffered
       videoLoadedPercentage = (loaded / duration) * 100; // Calculate video loading percentage
       console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
     }
-
-    else if (videoLoadedPercentage >= 100 && audioLoaded()) {
+    console.log(audioLoaded());
+    if (videoLoadedPercentage >= 100 && audioLoaded()) {
       if (videoLoadedPercentage >= duration) {
         video.pause(); // Pause the video after it's fully buffered
         video.currentTime = 0; // Reset the playback position to the start
@@ -253,7 +253,6 @@ function preloadRickRoll() {
       }
     } else {
       button.innerHTML = `Audio Files Loading...`;
-      checkAudioLoadStatus()
     }
   }, 100); // Check every 100 milliseconds
 }
