@@ -270,7 +270,7 @@ function playRickRoll() {
   const results = document.getElementById("resultsContent");
 
   document.getElementById("rickRollPage").style.display = "block"; // Ensure the page is displayed
-  document.getElementById("middleStripe").style.width = "100vw";
+  document.querySelector(".middleStripe").style.width = "100vw";
   playButton.style.display = "none";
   video.style.display = "block";
 
@@ -288,7 +288,7 @@ function playRickRoll() {
   document.getElementById("rickrollButton").innerHTML = "Back";
 
 
-  document.getElementById("middleStripe").style.width = "60vw";
+  document.querySelector(".middleStripe").style.width = "60vw";
   results.innerHTML = "placeholder result text";
 }
 

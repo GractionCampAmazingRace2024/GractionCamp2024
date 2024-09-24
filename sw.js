@@ -13,23 +13,23 @@ const resourcesToCache = [
     '/GractionCamp2024/RickRolled/rickRoll.css',
 
     // Audio
-    // '/GractionCamp2024/Audio/blueDaBaDee.mp3',
+
     '/GractionCamp2024/Audio/blueDaBaDeeTrimmed.mp3',
-    // '/GractionCamp2024/Audio/byebyebye.mp3',
+
     '/GractionCamp2024/Audio/byebyebyeTrimmed.mp3',
     '/GractionCamp2024/Audio/fail.mp3',
-    // '/GractionCamp2024/Audio/greenEggs.mp3',
+
     '/GractionCamp2024/Audio/greenEggsTrimmed.mp3',
     '/GractionCamp2024/Audio/miiShop.mp3',
     '/GractionCamp2024/Audio/miiTheme.mp3',
-    // '/GractionCamp2024/Audio/orangeSky.mp3',
+
     '/GractionCamp2024/Audio/orangeSkyTrimmed.mp3',
-    // '/GractionCamp2024/Audio/purple.mp3',
+
     '/GractionCamp2024/Audio/purpleTrimmed.mp3',
     '/GractionCamp2024/Audio/theme.mp3',
     '/GractionCamp2024/Audio/theme1.mp3',
     '/GractionCamp2024/Audio/theme2.mp3',
-    // '/GractionCamp2024/Audio/trumpetwomp.mp3',
+
     '/GractionCamp2024/Audio/unlock.mp3',
     // '/GractionCamp2024/Audio/yellowBow.mp3',
     // '/GractionCamp2024/Audio/yellowMellow.mp3',
