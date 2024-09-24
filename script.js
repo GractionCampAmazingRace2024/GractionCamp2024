@@ -119,12 +119,18 @@ const teamColors = {
 };
 
 const teamThemeMusic = {
-  green: 10,
-  purple: 60,
-  blue: 30,
-  orange: 8,
-  yellow: 70,
-  admin: 23,
+  // green: 10,
+  // purple: 60,
+  // blue: 30,
+  // orange: 8,
+  // yellow: 70,
+  // admin: 23,
+  green: 0,
+  purple: 0,
+  blue: 0,
+  orange: 0,
+  yellow: 0,
+  admin: 0,
 };
 
 let currentThemeMusicId = ""; // Variable to store the currently playing theme music
@@ -418,7 +424,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 const audioIds = [
   "themeMusic", "themeMusic1", "themeMusic2",
   "blueTheme", "greenTheme", "orangeTheme",
-  "yellowTheme", "purpleTheme", "byebyebye",
+  "yellowTheme", "purpleTheme", "adminTheme",
   "miiTheme", "miiShop", "failSound", "unlockSound"
 ];
 
