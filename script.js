@@ -234,7 +234,7 @@ function preloadRickRoll() {
       console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
     }
     console.log(audioLoaded());
-    if (videoLoadedPercentage >= 100 && audioLoaded()) {
+    if (videoLoadedPercentage >= 100 && audioLoaded()===true) {
       if (videoLoadedPercentage >= duration) {
         video.pause(); // Pause the video after it's fully buffered
         video.currentTime = 0; // Reset the playback position to the start
@@ -455,5 +455,5 @@ function checkAudioLoadStatus() {
   }, 500); // Check every 500 milliseconds
 }
 
-// Start checking for audio preload
-checkAudioLoadStatus();
+// // Start checking for audio preload
+// checkAudioLoadStatus();
