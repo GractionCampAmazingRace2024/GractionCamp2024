@@ -207,6 +207,7 @@ function preloadRickRoll() {
   playThemeMusic("miiTheme");
   const button = document.getElementById("startButton");
   button.innerHTML = '0% Loaded;'
+  button.disabled = true;
 
   const video = document.getElementById("rickRollVideo");
   const startTime = performance.now();
