@@ -242,20 +242,88 @@ function playThemeMusic(audioFile, startTime = 0) {
 
 
 
-function areAllAudioLoaded() {
-  // Fetch each audio element by its ID
-  const themeMusic = document.getElementById("themeMusic");
-  const themeMusic1 = document.getElementById("themeMusic1");
-  const themeMusic2 = document.getElementById("themeMusic2");
-  const blueTheme = document.getElementById("blueTheme");
-  const greenTheme = document.getElementById("greenTheme");
-  const orangeTheme = document.getElementById("orangeTheme");
-  const yellowTheme = document.getElementById("yellowTheme");
-  const purpleTheme = document.getElementById("purpleTheme");
-  const miiTheme = document.getElementById("miiTheme");
-  const miiShop = document.getElementById("miiShop");
-  const failSound = document.getElementById("failSound");
-  const unlockSound = document.getElementById("unlockSound");
+
+
+
+// Preload
+// function preloadRickRoll() {
+//   playThemeMusic("miiTheme");
+//   const button = document.getElementById("startButton");
+//   button.innerHTML = '0% Loaded';
+//   const video = document.getElementById("rickRollVideo");
+//   const startTime = performance.now();
+//   video.style.display = "none"; // Hide the video from the view
+
+//   video.preload = "auto";
+//   video.muted = true; // Mute the video to avoid sound before user interaction
+//   video.play(); // Start playing the video to force buffering
+
+//   // Monitor the buffering progress
+//   const checkBuffering = setInterval(() => {
+//     const buffered = video.buffered;
+//     const duration = video.duration;
+
+    
+
+//     const skipButton = document.getElementById("skipButton");
+//     setTimeout(() => {
+//       skipButton.style.display = "inline"; // Show the skip button
+//     }, 60000); //
+
+//     let videoLoadedPercentage = 0;
+//     if (buffered.length > 0) {
+//       const loaded = buffered.end(0); // Get how much of the video is buffered
+//       videoLoadedPercentage = (loaded / duration) * 100; // Calculate video loading percentage
+//       console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
+//     }
+
+//     // Check if all audio files are loaded
+//     const allAudioLoaded = areAllAudioLoaded();
+//     const audioLoadedPercentage = allAudioLoaded ? 100 : 0; // Set audio percentage
+//     const totalLoadedPercentage = Math.min(
+//       videoLoadedPercentage + audioLoadedPercentage,
+//       100
+//     );
+
+//     if (totalLoadedPercentage >= 1) {
+//       button.innerHTML = `${totalLoadedPercentage.toFixed(2) - 1}% Loaded`;
+//     }
+//     button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
+
+//     if (totalLoadedPercentage >= 100) {
+//       if (videoLoadedPercentage >= duration && allAudioLoaded) {
+//         video.pause(); // Pause the video after it's fully buffered
+//         video.currentTime = 0; // Reset the playback position to the start
+//         video.muted = false; // Restore the audio state
+        
+//         const endTime = performance.now();
+//         const loadTime = (endTime - startTime) / 1000;
+//         console.log(`Preloading completed in ${loadTime.toFixed(2)} seconds`);
+
+//         button.onclick = homePage;
+//         button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
+//         button.disabled = false;
+//         button.innerHTML = "Press To Start<span>&#127884;</span>";
+
+//         clearInterval(checkBuffering); // Stop checking when the video is fully buffered
+//       }
+//     }
+//   }, 100); // Check every 100 milliseconds
+// }
+
+
+
+function preloadRickRoll() {
+  playThemeMusic("miiTheme");
+  const button = document.getElementById("startButton");
+  button.innerHTML = '0% Loaded';
+  const video = document.getElementById("rickRollVideo");
+  const startTime = performance.now();
+  video.style.display = "none"; // Hide the video from the view
+
+  video.preload = "auto";
+  video.muted = true; // Mute the video to avoid sound before user interaction
+  video.play(); // Start playing the video to force buffering
 
   // Function to preload and play audio elements on mute
   function playAudioOnMute(audio) {
@@ -278,44 +346,32 @@ function areAllAudioLoaded() {
     }
   }
 
-  // Manually play each audio element
-  const allLoaded = 
-    playAudioOnMute(themeMusic) &&
-    playAudioOnMute(themeMusic1) &&
-    playAudioOnMute(themeMusic2) &&
-    playAudioOnMute(blueTheme) &&
-    playAudioOnMute(greenTheme) &&
-    playAudioOnMute(orangeTheme) &&
-    playAudioOnMute(yellowTheme) &&
-    playAudioOnMute(purpleTheme) &&
-    playAudioOnMute(miiTheme) &&
-    playAudioOnMute(miiShop) &&
-    playAudioOnMute(failSound) &&
-    playAudioOnMute(unlockSound);
+  // Function to check if all audio is loaded
+  function areAllAudioLoaded() {
+    const audioElements = [
+      document.getElementById("themeMusic"),
+      document.getElementById("themeMusic1"),
+      document.getElementById("themeMusic2"),
+      document.getElementById("blueTheme"),
+      document.getElementById("greenTheme"),
+      document.getElementById("orangeTheme"),
+      document.getElementById("yellowTheme"),
+      document.getElementById("purpleTheme"),
+      document.getElementById("miiTheme"),
+      document.getElementById("miiShop"),
+      document.getElementById("failSound"),
+      document.getElementById("unlockSound")
+    ];
 
-  return allLoaded;
-}
-
-
-// Preload
-function preloadRickRoll() {
-  playThemeMusic("miiTheme");
-  const button = document.getElementById("startButton");
-  button.innerHTML = '0% Loaded';
-  const video = document.getElementById("rickRollVideo");
-  const startTime = performance.now();
-  video.style.display = "none"; // Hide the video from the view
-
-  video.preload = "auto";
-  video.muted = true; // Mute the video to avoid sound before user interaction
-  video.play(); // Start playing the video to force buffering
+    // Manually play each audio element
+    const allLoaded = audioElements.every(playAudioOnMute);
+    return allLoaded;
+  }
 
   // Monitor the buffering progress
   const checkBuffering = setInterval(() => {
     const buffered = video.buffered;
     const duration = video.duration;
-
-    
 
     const skipButton = document.getElementById("skipButton");
     setTimeout(() => {
@@ -362,6 +418,8 @@ function preloadRickRoll() {
     }
   }, 100); // Check every 100 milliseconds
 }
+
+
 
 function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
