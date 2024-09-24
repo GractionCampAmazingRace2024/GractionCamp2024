@@ -269,8 +269,8 @@ function playRickRoll() {
   const playButton = document.getElementById("playButton");
   const results = document.getElementById("resultsContent");
 
-  document.getElementById("rickRollPage").style.display = "block"; // Ensure the page is displayed
-  document.getElementById("rickRollPage").style.backgroundColor = "black !important";
+  document.getElementById("rrBackgroundColor").style.display = "block"; // Ensure the page is displayed
+  document.getElementById("rrBackgroundColor").style.backgroundColor = "black !important";
   playButton.style.display = "none";
   video.style.display = "block";
 
@@ -288,8 +288,7 @@ function playRickRoll() {
   document.getElementById("rickrollButton").innerHTML = "Back";
 
 
-  document.getElementById("rickRollPage").style.backgroundColor =
-    "red !important";
+  document.getElementById("rrBackgroundColor").style.backgroundColor = "red !important";
   results.innerHTML = "placeholder result text";
 }
 
