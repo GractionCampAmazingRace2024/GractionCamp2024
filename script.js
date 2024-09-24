@@ -192,7 +192,7 @@ function playThemeMusic(audioFile, startTime = 0) {
   const audioElement = document.getElementById(audioFile);
   if (audioElement) {
     audioElement.currentTime = startTime;
-    audioElement.muted = false
+    audioElement.muted = false;
     audioElement.play(); // Play the selected audio
     currentThemeMusicId = audioFile; // Store the new audio's ID
   } else {
