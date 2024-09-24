@@ -315,12 +315,13 @@ function playRickRoll() {
   document.querySelector(".middleStripe").style.width = "100vw";
   playButton.style.display = "none";
   video.style.display = "block";
-
+  videoContainer.style.display = 'flex';
   video.muted = false;
   video.play();
 
   video.addEventListener("ended", function () {
     video.style.display = "none";
+    videoContainer.style.display = 'none';
   });
   results.style.display = "block";
 

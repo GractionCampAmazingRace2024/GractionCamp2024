@@ -129,3 +129,23 @@ button {
     color: white;
     z-index: 9999;
 }
+
+
+#videoContainer {
+    position: fixed; /* Fix it in place over other elements */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* High z-index to ensure it's on top of other elements */
+    background-color: rgba(0, 0, 0, 0.8); /* Optional: add a semi-transparent background */
+  }
+  
+  #rickRollVideo {
+    width: 100vh; /* Rotated to fit landscape mode */
+    transform: rotate(90deg); /* Rotate video 90 degrees */
+    transform-origin: center center; /* Rotate from center */
+  }
