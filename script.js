@@ -282,6 +282,11 @@ function preloadRickRoll() {
       console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
     }
 
+
+    // TESTING PURPOSES ONLY
+    document.getElementById("adminTest").innerHTML = audioLoaded();
+
+
     console.log((videoLoadedPercentage , audioLoaded()));
     // When both video and audio are fully loaded
     if (videoLoadedPercentage >= 100 && audioLoaded()) {
