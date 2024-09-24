@@ -6,6 +6,7 @@
     overflow-x: hidden; 
     width: 100vw;      
     height: 100vh;
+    background-color: red;
     touch-action: none; /* Prevents touch scrolling */
     overscroll-behavior: none; /* Prevents scroll bounce */
     scroll-snap-type: none;
@@ -76,7 +77,6 @@ body {
     position: absolute;
     font-size: calc(min(8vw, 8vh));
     padding: min(2vh, 2vw);
-    
 }
 
 
