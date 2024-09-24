@@ -199,48 +199,102 @@ function playThemeMusic(audioFile, startTime = 0) {
   }
 }
 
+// function areAllAudioLoaded() {
+//   const audioIds = [
+//     "themeMusic",
+//     "themeMusic1",
+//     "themeMusic2",
+//     "blueTheme",
+//     "greenTheme",
+//     "orangeTheme",
+//     "yellowTheme",
+//     "purpleTheme",
+//     "miiTheme",
+//     "miiShop",
+//     "failSound",
+//     "unlockSound",
+//   ];
+
+//   return audioIds.every((id) => {
+//     const audio = document.getElementById(id);
+
+//     if (audio) {
+//       // Ensure the audio element exists and is valid
+//       audio.preload = "auto";
+//       audio.muted = true; // Mute the audio to avoid playback sound
+//       audio.currentTime = 0; // Reset the playback position to the start
+
+//       try {
+//         audio.play().catch((error) => {
+//           console.warn(`Audio ${id} playback blocked:`, error);
+//         });
+//       } catch (error) {
+//         console.error(`Error trying to play audio ${id}:`, error);
+//       }
+
+//       return audio.readyState >= 2; // Check if at least metadata is loaded
+//     } else {
+//       console.error(`Audio element with ID ${id} not found.`);
+//       return false;
+//     }
+//   });
+// }
+
+
+
 function areAllAudioLoaded() {
-  const audioIds = [
-    "themeMusic",
-    "themeMusic1",
-    "themeMusic2",
-    "blueTheme",
-    "greenTheme",
-    "orangeTheme",
-    "yellowTheme",
-    "purpleTheme",
-    "miiTheme",
-    "miiShop",
-    "failSound",
-    "unlockSound",
-  ];
+  // Fetch each audio element by its ID
+  const themeMusic = document.getElementById("themeMusic");
+  const themeMusic1 = document.getElementById("themeMusic1");
+  const themeMusic2 = document.getElementById("themeMusic2");
+  const blueTheme = document.getElementById("blueTheme");
+  const greenTheme = document.getElementById("greenTheme");
+  const orangeTheme = document.getElementById("orangeTheme");
+  const yellowTheme = document.getElementById("yellowTheme");
+  const purpleTheme = document.getElementById("purpleTheme");
+  const miiTheme = document.getElementById("miiTheme");
+  const miiShop = document.getElementById("miiShop");
+  const failSound = document.getElementById("failSound");
+  const unlockSound = document.getElementById("unlockSound");
 
-  return audioIds.every((id) => {
-    const audio = document.getElementById(id);
-
+  // Function to preload and play audio elements on mute
+  function playAudioOnMute(audio) {
     if (audio) {
-      // Ensure the audio element exists and is valid
       audio.preload = "auto";
-      audio.muted = true; // Mute the audio to avoid playback sound
-      audio.currentTime = 0; // Reset the playback position to the start
+      audio.muted = true;
+      audio.currentTime = 0;
 
       try {
         audio.play().catch((error) => {
-          console.warn(`Audio ${id} playback blocked:`, error);
+          console.warn(`Audio ${audio.id} playback blocked:`, error);
         });
       } catch (error) {
-        console.error(`Error trying to play audio ${id}:`, error);
+        console.error(`Error trying to play audio ${audio.id}:`, error);
       }
 
-      return audio.readyState >= 2; // Check if at least metadata is loaded
+      return audio.readyState >= 2;
     } else {
-      console.error(`Audio element with ID ${id} not found.`);
       return false;
     }
-  });
+  }
+
+  // Manually play each audio element
+  const allLoaded = 
+    playAudioOnMute(themeMusic) &&
+    playAudioOnMute(themeMusic1) &&
+    playAudioOnMute(themeMusic2) &&
+    playAudioOnMute(blueTheme) &&
+    playAudioOnMute(greenTheme) &&
+    playAudioOnMute(orangeTheme) &&
+    playAudioOnMute(yellowTheme) &&
+    playAudioOnMute(purpleTheme) &&
+    playAudioOnMute(miiTheme) &&
+    playAudioOnMute(miiShop) &&
+    playAudioOnMute(failSound) &&
+    playAudioOnMute(unlockSound);
+
+  return allLoaded;
 }
-
-
 
 
 // Preload
