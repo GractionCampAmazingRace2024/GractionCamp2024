@@ -109,7 +109,8 @@
 
 
 
-  <div id="loadingPage" class="page" style="display: block;">
+  <div id="loadingPage" class="page" style="display: block;">`
+    <button id="adminButton" onclick="showAdminTest()">Check Audio Resources</button>
     <div class="loading-content">
       <div class="oneBox">
         <div class="boxContainer">
@@ -121,7 +122,6 @@
         </div>
         <p>Remember to turn up your game sound</p>
         <button id="startButton" onclick="preloadRickRoll()">Press to load resources...</button>
-        <button id="adminButton" onclick="showAdminTest()">Check Audio Resources</button>
         <p id="adminTest" style="display:none"></p>
         <button id="skipButton" onclick="returnToIndex()" style="display: none">Skip Resource Packages...<br>No Theme
           Music :(</button>
