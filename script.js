@@ -489,42 +489,59 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 //     }
 //   });
 
+const loadedAudioStatus = {}; // Object to track loading status of each audio
+
 function audioLoaded() {
   let allLoaded = true;
-  let totalAudioPercentage = 0; // Track total percentage of audio loaded
-  let totalAudios = audioIds.length; // Number of audio files
-  let bufferedInfo = ""; // Variable to store buffered info for all audios
+  let totalAudioPercentage = 0; 
+  let totalAudios = audioIds.length; 
+  let bufferedInfo = ""; 
 
   audioIds.forEach((id) => {
     const audioElement = document.getElementById(id);
     if (audioElement) {
       const state = audioElement.readyState;
-      if (state < 4) {
-        console.log(`${id} - Ready State: ${state}`);
-        allLoaded = false; // Mark as not all loaded if any audio is not ready.
-        bufferedInfo += `<div>Audio: ${id} | Buffered: 100%</div>`; // Indicate it is not fully loaded
-      }
+      
+      // Only proceed if the audio has not been marked as loaded
+      if (!loadedAudioStatus[id]) {
+        if (state < 4) {
+          console.log(`${id} - Ready State: ${state}`);
+          allLoaded = false; 
+          bufferedInfo += `<div>Audio: ${id} | Buffered: 100%</div>`; 
+        }
 
-      // Calculate percentage of audio loaded
-      if (audioElement.buffered.length > 0) {
-        const bufferedAmount = audioElement.buffered.end(0);
-        const totalDuration = audioElement.duration;
-        const loadedPercentage = (bufferedAmount / totalDuration) * 100;
-        bufferedInfo += `<div>Audio: ${id} | Buffered: ${loadedPercentage.toFixed(
-          2
-        )}%</div>`;
-        console.log(`${id} - Loaded: ${loadedPercentage.toFixed(2)}%`);
+        // Calculate percentage of audio loaded
+        if (audioElement.buffered.length > 0) {
+          const bufferedAmount = audioElement.buffered.end(0);
+          const totalDuration = audioElement.duration;
+          const loadedPercentage = (bufferedAmount / totalDuration) * 100;
+          bufferedInfo += `<div>Audio: ${id} | Buffered: ${loadedPercentage.toFixed(2)}%</div>`;
+          console.log(`${id} - Loaded: ${loadedPercentage.toFixed(2)}%`);
 
-        totalAudioPercentage += loadedPercentage; // Sum up all audio loaded percentages
+          // Mark audio as loaded if fully buffered
+          if (loadedPercentage >= 100) {
+            loadedAudioStatus[id] = true; // Mark as loaded
+          }
+
+          totalAudioPercentage += loadedPercentage; 
+        }
+      } else {
+        // If already loaded, consider it fully buffered
+        console.log(`${id} - Already Loaded`);
+        bufferedInfo += `<div>Audio: ${id} | Buffered: 100%</div>`; // Indicate it is fully loaded
       }
     } else {
       console.log(`${id} not found.`);
     }
   });
+  
   document.getElementById("adminTest").innerHTML = bufferedInfo;
 
-  const averageAudioPercentage = totalAudioPercentage / totalAudios; // Corrected calculation
+  const averageAudioPercentage = totalAudioPercentage / totalAudios; 
   console.log(`Average Audio Loaded: ${averageAudioPercentage.toFixed(2)}%`);
+
+  // Update allLoaded based on loadedAudioStatus
+  allLoaded = Object.values(loadedAudioStatus).length === totalAudios;
 
   return { allLoaded, averageAudioPercentage };
 }
