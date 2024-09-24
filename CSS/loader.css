@@ -182,3 +182,23 @@ button {
     50% { transform: scaleY(.4); }
     75% { transform: scaleY(1.2); }
 }
+
+
+
+#adminButton {
+    position: fixed; /* Fix the button's position */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    padding: 5px 10px; /* Small padding for a compact button */
+    font-size: 8px; /* Small font size */
+    background-color: #333; /* Button background color */
+    color: #12E2DC; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+    z-index: 1000; /* Ensure it's on top of other elements */
+  }
+  
+  #adminButton:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }

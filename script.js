@@ -511,11 +511,11 @@ function audioLoaded() {
         }
 
         // Calculate percentage of audio loaded
-        if (audioElement.buffered.length > 0) {
+        else if (audioElement.buffered.length > 0) {
           const bufferedAmount = audioElement.buffered.end(0);
           const totalDuration = audioElement.duration;
           const loadedPercentage = (bufferedAmount / totalDuration) * 100;
-          bufferedInfo += `<div>Audio: ${id} | Buffered: ${loadedPercentage.toFixed(2)}%</div>`;
+          bufferedInfo += `<div>Audio: ${id} | Buffered: ${Math.round(loadedPercentage.toFixed(2))}%</div>`;
           console.log(`${id} - Loaded: ${loadedPercentage.toFixed(2)}%`);
 
           // Mark audio as loaded if fully buffered
@@ -535,7 +535,7 @@ function audioLoaded() {
     }
   });
   
-  document.getElementById("adminTest").innerHTML = Math.round(bufferedInfo);
+  document.getElementById("adminTest").innerHTML = bufferedInfo;
 
   const averageAudioPercentage = totalAudioPercentage / totalAudios; 
   console.log(`Average Audio Loaded: ${averageAudioPercentage.toFixed(2)}%`);
@@ -607,4 +607,15 @@ function preloadRickRoll() {
       clearInterval(checkBuffering); // Stop checking when the video is fully buffered
     }
   }, 500); // Check every 500 milliseconds
+}
+
+
+function showAdminTest() {
+  const adminTestElement = document.getElementById("adminTest");
+  
+  if (adminTestElement.style.display === "none" || adminTestElement.style.display === "") {
+    adminTestElement.style.display = "block"; // Show the element
+  } else {
+    adminTestElement.style.display = "none"; // Hide the element
+  }
 }
