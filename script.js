@@ -269,7 +269,7 @@ function playRickRoll() {
   const playButton = document.getElementById("playButton");
   const results = document.getElementById("resultsContent");
 
-  document.getElementById("rrBackgroundColor").style.display = "block"; // Ensure the page is displayed
+  document.getElementById("rickRollPage").style.display = "block"; // Ensure the page is displayed
   document.getElementById("middleStripe").style.width = "100vw";
   playButton.style.display = "none";
   video.style.display = "block";
