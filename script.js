@@ -282,7 +282,7 @@ function playRickRoll() {
   });
   results.style.display = "block";
 
-  document.getElementById("returnToIndex").onclick = function () {
+  document.getElementById("rickrollButton").onclick = function () {
     returnToIndex();
   };
   document.getElementById("rickrollButton").innerHTML = "Back";
