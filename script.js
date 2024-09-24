@@ -202,11 +202,6 @@ function playThemeMusic(audioFile, startTime = 0) {
 
 
 
-
-
-
-
-
 // Preload
 function preloadRickRoll() {
   playThemeMusic("miiTheme");
@@ -238,7 +233,7 @@ function preloadRickRoll() {
       console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
     }
 
-    if (videoLoadedPercentage >= 100) {
+    if (videoLoadedPercentage >= 100 && allLoaded()) {
       if (videoLoadedPercentage >= duration) {
         video.pause(); // Pause the video after it's fully buffered
         video.currentTime = 0; // Reset the playback position to the start
@@ -257,6 +252,7 @@ function preloadRickRoll() {
       }
     } else {
       button.innerHTML = `${videoLoadedPercentage.toFixed(2)}% Loaded`;
+      checkAudioLoadStatus()
     }
   }, 100); // Check every 100 milliseconds
 }
@@ -413,3 +409,51 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       getRandomErrorMessage();
   }
 });
+
+
+
+
+
+
+const audioIds = [
+  "themeMusic", "themeMusic1", "themeMusic2",
+  "blueTheme", "greenTheme", "orangeTheme",
+  "yellowTheme", "purpleTheme", "byebyebye",
+  "miiTheme", "miiShop", "failSound", "unlockSound"
+];
+
+function audioLoaded() {
+  let allLoaded = true;
+
+  audioIds.forEach(id => {
+    const audioElement = document.getElementById(id);
+    if (audioElement) {
+      const state = audioElement.readyState;
+      console.log(`${id} - Ready State: ${state}`);
+
+      if (state < 4) {
+        allLoaded = false; // Mark as not all loaded if any audio is not ready.
+      }
+    } else {
+      console.log(`${id} not found.`);
+    }
+  });
+
+  return allLoaded; // Return true if all audio files are loaded, otherwise false.
+}
+
+function checkAudioLoadStatus() {
+  const interval = setInterval(() => {
+    const isLoaded = audioLoaded();
+    if (isLoaded) {
+      console.log("All audio files are fully preloaded!");
+      clearInterval(interval); // Stop checking once loaded
+      // You can start your audio playback or any other actions here.
+    } else {
+      console.log("Not all audio files are preloaded yet. Checking again...");
+    }
+  }, 500); // Check every 500 milliseconds
+}
+
+// Start checking for audio preload
+checkAudioLoadStatus();
