@@ -233,7 +233,7 @@ function preloadRickRoll() {
       console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
     }
 
-    if (videoLoadedPercentage >= 100 && audioLoaded()) {
+    else if (videoLoadedPercentage >= 100 && audioLoaded()) {
       if (videoLoadedPercentage >= duration) {
         video.pause(); // Pause the video after it's fully buffered
         video.currentTime = 0; // Reset the playback position to the start
@@ -251,7 +251,7 @@ function preloadRickRoll() {
         clearInterval(checkBuffering); // Stop checking when the video is fully buffered
       }
     } else {
-      button.innerHTML = `${videoLoadedPercentage.toFixed(2)}% Loaded`;
+      button.innerHTML = `Audio Files Loading...`;
       checkAudioLoadStatus()
     }
   }, 100); // Check every 100 milliseconds
