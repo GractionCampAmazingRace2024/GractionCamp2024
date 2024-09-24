@@ -141,6 +141,6 @@ button {
   
   #rickRollVideo {
     width: 100vh; /* Rotated to fit landscape mode */
-    transform: rotate(90deg); /* Rotate video 90 degrees */
+    transform: rotate(-90deg); /* Rotate video 90 degrees */
     transform-origin: center center; /* Rotate from center */
   }
