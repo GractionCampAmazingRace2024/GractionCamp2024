@@ -422,10 +422,9 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
 
 const audioIds = [
-  "themeMusic", "themeMusic1", "themeMusic2",
-  "blueTheme", "greenTheme", "orangeTheme",
+  "themeMusic", "blueTheme", "greenTheme", "orangeTheme",
   "yellowTheme", "purpleTheme", "adminTheme",
-  "miiTheme", "miiShop", "failSound", "unlockSound"
+  "miiShop", "failSound", "unlockSound"
 ];
 
 function audioLoaded() {
