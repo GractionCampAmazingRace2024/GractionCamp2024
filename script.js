@@ -108,6 +108,18 @@ const errorMessages = [
   "Did you drop the phone?",
 ];
 
+const audioIds = [
+  "themeMusic",
+  "blueTheme",
+  "greenTheme",
+  "orangeTheme",
+  "yellowTheme",
+  "purpleTheme",
+  "adminTheme",
+  "failSound",
+  "unlockSound",
+];
+
 // Map team colors to their corresponding gradient backgrounds
 const teamColors = {
   green: "#92d14f",
@@ -206,13 +218,43 @@ function playThemeMusic(audioFile, startTime = 0) {
   }
 }
 
+function audioLoaded() {
+  let allLoaded = true;
 
+  audioIds.forEach((id) => {
+    const audioElement = document.getElementById(id);
+    if (audioElement) {
+      const state = audioElement.readyState;
+      if (state < 4) {
+        console.log(`${id} - Ready State: ${state}`);
+        allLoaded = false; // Mark as not all loaded if any audio is not ready.
+      }
+    } else {
+      console.log(`${id} not found.`);
+    }
+  });
+
+  return allLoaded; 
+}
+
+function checkAudioLoadStatus() {
+  const interval = setInterval(() => {
+    const isLoaded = audioLoaded();
+    if (isLoaded) {
+      console.log("All audio files are fully preloaded!");
+      clearInterval(interval); // Stop checking once loaded
+      // You can start your audio playback or any other actions here.
+    } else {
+      console.log("Not all audio files are preloaded yet. Checking again...");
+    }
+  }, 1000); // Check every 500 milliseconds
+}
 
 // Preload
 function preloadRickRoll() {
   playThemeMusic("miiTheme");
   const button = document.getElementById("startButton");
-  button.innerHTML = '0% Loaded;'
+  button.innerHTML = "0% Loaded;";
   button.disabled = true;
 
   const video = document.getElementById("rickRollVideo");
@@ -239,13 +281,13 @@ function preloadRickRoll() {
       videoLoadedPercentage = (loaded / duration) * 100; // Calculate video loading percentage
       console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
     }
-    console.log(audioLoaded());
-    if (videoLoadedPercentage >= 100 && audioLoaded()===true) {
+
+    if (videoLoadedPercentage >= 100 && audioLoaded() === true) {
       if (videoLoadedPercentage >= duration) {
         video.pause(); // Pause the video after it's fully buffered
         video.currentTime = 0; // Reset the playback position to the start
         video.muted = false; // Restore the audio state
-        
+
         const endTime = performance.now();
         const loadTime = (endTime - startTime) / 1000;
         console.log(`Preloading completed in ${loadTime.toFixed(2)} seconds`);
@@ -263,13 +305,12 @@ function preloadRickRoll() {
   }, 100); // Check every 100 milliseconds
 }
 
-
 function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
   const playButton = document.getElementById("playButton");
   const results = document.getElementById("resultsContent");
 
-  document.getElementById("rickRollPage").style.display = "block"; // Ensure the page is displayed
+  document.getElementById("rickRollPage").style.display = "block"; 
   document.querySelector(".middleStripe").style.width = "100vw";
   playButton.style.display = "none";
   video.style.display = "block";
@@ -286,7 +327,6 @@ function playRickRoll() {
     returnToIndex();
   };
   document.getElementById("rickrollButton").innerHTML = "Back";
-
 
   document.querySelector(".middleStripe").style.width = "60vw";
   results.innerHTML = "placeholder result text";
@@ -414,50 +454,3 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       getRandomErrorMessage();
   }
 });
-
-
-
-
-
-
-const audioIds = [
-  "themeMusic", "blueTheme", "greenTheme", "orangeTheme",
-  "yellowTheme", "purpleTheme", "adminTheme",
-  "miiShop", "failSound", "unlockSound"
-];
-
-function audioLoaded() {
-  let allLoaded = true;
-
-  audioIds.forEach(id => {
-    const audioElement = document.getElementById(id);
-    if (audioElement) {
-      const state = audioElement.readyState;
-      console.log(`${id} - Ready State: ${state}`);
-
-      if (state < 4) {
-        allLoaded = false; // Mark as not all loaded if any audio is not ready.
-      }
-    } else {
-      console.log(`${id} not found.`);
-    }
-  });
-
-  return allLoaded; // Return true if all audio files are loaded, otherwise false.
-}
-
-function checkAudioLoadStatus() {
-  const interval = setInterval(() => {
-    const isLoaded = audioLoaded();
-    if (isLoaded) {
-      console.log("All audio files are fully preloaded!");
-      clearInterval(interval); // Stop checking once loaded
-      // You can start your audio playback or any other actions here.
-    } else {
-      console.log("Not all audio files are preloaded yet. Checking again...");
-    }
-  }, 500); // Check every 500 milliseconds
-}
-
-// // Start checking for audio preload
-// checkAudioLoadStatus();
