@@ -495,7 +495,7 @@ function audioLoaded() {
         const bufferedAmount = audioElement.buffered.end(0);
         const totalDuration = audioElement.duration;
         const loadedPercentage = (bufferedAmount / totalDuration) * 100;
-        document.getElementById("adminTest").innerHTML = `<div>Audio: ${audioElement} | Buffered: ${loadedPercentage.toFixed(2)}%</div><br>Total: ${totalAudioPercentage += loadedPercentage}%`;
+        document.getElementById("adminTest").innerHTML = `<div>Audio: ${id} | Buffered: ${loadedPercentage.toFixed(2)}%</div><br>Total: ${totalAudioPercentage += loadedPercentage}%`;
         console.log(`${id} - Loaded: ${loadedPercentage.toFixed(2)}%`);
         
         totalAudioPercentage += loadedPercentage; // Sum up all audio loaded percentages
