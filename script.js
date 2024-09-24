@@ -218,98 +218,103 @@ function playThemeMusic(audioFile, startTime = 0) {
   }
 }
 
-function audioLoaded() {
-  let allLoaded = true;
-
-  audioIds.forEach((id) => {
-    const audioElement = document.getElementById(id);
-    if (audioElement) {
-      const state = audioElement.readyState;
-      if (state < 4) {
-        console.log(`${id} - Ready State: ${state}`);
-        allLoaded = false; // Mark as not all loaded if any audio is not ready.
-      }
-    } else {
-      console.log(`${id} not found.`);
-    }
-  });
-
-  return allLoaded; 
-}
-
-function checkAudioLoadStatus() {
-  const interval = setInterval(() => {
-    const isLoaded = audioLoaded();
-    if (isLoaded) {
-      console.log("All audio files are fully preloaded!");
-      clearInterval(interval); // Stop checking once loaded
-      // You can start your audio playback or any other actions here.
-    } else {
-      console.log("Not all audio files are preloaded yet. Checking again...");
-    }
-  }, 1000); // Check every 500 milliseconds
-}
-
-// Preload
-function preloadRickRoll() {
-  playThemeMusic("miiTheme");
-  const button = document.getElementById("startButton");
-  button.innerHTML = "0% Loaded;";
-  button.disabled = true;
-
-  const video = document.getElementById("rickRollVideo");
-  const startTime = performance.now();
-  video.style.display = "none"; // Hide the video from the view
-
-  video.preload = "auto";
-  video.muted = true; // Mute the video to avoid sound before user interaction
-  video.play(); // Start playing the video to force buffering
-
-  // Monitor the buffering progress
-  const checkBuffering = setInterval(() => {
-    const buffered = video.buffered;
-    const duration = video.duration;
-
-    const skipButton = document.getElementById("skipButton");
-    setTimeout(() => {
-      skipButton.style.display = "inline"; // Show the skip button after 60 seconds
-    }, 60000);
-
-    let videoLoadedPercentage = 0;
-    if (buffered.length > 0) {
-      const loaded = buffered.end(0); // Get how much of the video is buffered
-      videoLoadedPercentage = (loaded / duration) * 100; // Calculate video loading percentage
-      console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
-    }
 
 
-    // TESTING PURPOSES ONLY
-    document.getElementById("adminTest").innerHTML = audioLoaded();
+
+// function audioLoaded() {
+//   let allLoaded = true;
+
+//   audioIds.forEach((id) => {
+//     const audioElement = document.getElementById(id);
+//     if (audioElement) {
+//       const state = audioElement.readyState;
+//       if (state < 4) {
+//         console.log(`${id} - Ready State: ${state}`);
+//         allLoaded = false; // Mark as not all loaded if any audio is not ready.
+//       }
+//     } else {
+//       console.log(`${id} not found.`);
+//     }
+//   });
+
+//   return allLoaded; 
+// }
+
+// function checkAudioLoadStatus() {
+//   const interval = setInterval(() => {
+//     const isLoaded = audioLoaded();
+//     if (isLoaded) {
+//       console.log("All audio files are fully preloaded!");
+//       clearInterval(interval); // Stop checking once loaded
+//       // You can start your audio playback or any other actions here.
+//     } else {
+//       console.log("Not all audio files are preloaded yet. Checking again...");
+//     }
+//   }, 1000); // Check every 500 milliseconds
+// }
 
 
-    console.log((videoLoadedPercentage , audioLoaded()));
-    // When both video and audio are fully loaded
-    if (videoLoadedPercentage >= 100 && audioLoaded()) {
-      video.pause(); // Pause the video after it's fully buffered
-      video.currentTime = 0; // Reset the playback position to the start
-      video.muted = false; // Restore the audio state
+// function preloadRickRoll() {
+//   playThemeMusic("miiTheme");
+//   const button = document.getElementById("startButton");
+//   button.innerHTML = "0% Loaded;";
+//   button.disabled = true;
 
-      const endTime = performance.now();
-      const loadTime = (endTime - startTime) / 1000;
-      console.log(`Preloading completed in ${loadTime.toFixed(2)} seconds`);
+//   const video = document.getElementById("rickRollVideo");
+//   const startTime = performance.now();
+//   video.style.display = "none"; // Hide the video from the view
 
-      // Update the button to allow starting the main content
-      button.onclick = homePage;
-      button.innerHTML = `100% Loaded`;
-      button.disabled = false;
-      button.innerHTML = "Press To Start <span>&#127884;</span>";
+//   video.preload = "auto";
+//   video.muted = true; // Mute the video to avoid sound before user interaction
+//   video.play(); // Start playing the video to force buffering
 
-      clearInterval(checkBuffering); // Stop checking when the video is fully buffered
-    } else {
-      button.innerHTML = `${videoLoadedPercentage.toFixed(2)}% Loaded`; // Update button percentage
-    }
-  }, 500); // Check every 500 milliseconds
-}
+//   // Monitor the buffering progress
+//   const checkBuffering = setInterval(() => {
+//     const buffered = video.buffered;
+//     const duration = video.duration;
+
+//     const skipButton = document.getElementById("skipButton");
+//     setTimeout(() => {
+//       skipButton.style.display = "inline"; // Show the skip button after 60 seconds
+//     }, 60000);
+
+//     let videoLoadedPercentage = 0;
+//     if (buffered.length > 0) {
+//       const loaded = buffered.end(0); // Get how much of the video is buffered
+//       videoLoadedPercentage = (loaded / duration) * 100; // Calculate video loading percentage
+//       console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
+//     }
+
+
+//     // TESTING PURPOSES ONLY
+//     document.getElementById("adminTest").innerHTML = audioLoaded();
+
+
+//     // When both video and audio are fully loaded
+//     if (videoLoadedPercentage >= 100 && audioLoaded()) {
+//       video.pause(); // Pause the video after it's fully buffered
+//       video.currentTime = 0; // Reset the playback position to the start
+//       video.muted = false; // Restore the audio state
+
+//       const endTime = performance.now();
+//       const loadTime = (endTime - startTime) / 1000;
+//       console.log(`Preloading completed in ${loadTime.toFixed(2)} seconds`);
+
+//       // Update the button to allow starting the main content
+//       button.onclick = homePage;
+//       button.innerHTML = `100% Loaded`;
+//       button.disabled = false;
+//       button.innerHTML = "Press To Start <span>&#127884;</span>";
+
+//       clearInterval(checkBuffering); // Stop checking when the video is fully buffered
+//     } else {
+//       button.innerHTML = `${videoLoadedPercentage.toFixed(2)}% Loaded`; // Update button percentage
+//     }
+//   }, 500); // Check every 500 milliseconds
+// }
+
+
+
 
 
 function playRickRoll() {
@@ -463,3 +468,105 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       getRandomErrorMessage();
   }
 });
+
+
+
+
+
+
+
+
+function audioLoaded() {
+  let allLoaded = true;
+  let totalAudioPercentage = 0; // Track total percentage of audio loaded
+  let totalAudios = audioIds.length; // Number of audio files
+
+  audioIds.forEach((id) => {
+    const audioElement = document.getElementById(id);
+    if (audioElement) {
+      const state = audioElement.readyState;
+      if (state < 4) {
+        console.log(`${id} - Ready State: ${state}`);
+        allLoaded = false; // Mark as not all loaded if any audio is not ready.
+      }
+      
+      // Calculate percentage of audio loaded
+      if (audioElement.buffered.length > 0) {
+        const bufferedAmount = audioElement.buffered.end(0);
+        const totalDuration = audioElement.duration;
+        const loadedPercentage = (bufferedAmount / totalDuration) * 100;
+        console.log(`${id} - Loaded: ${loadedPercentage.toFixed(2)}%`);
+        totalAudioPercentage += loadedPercentage; // Sum up all audio loaded percentages
+      }
+    } else {
+      console.log(`${id} not found.`);
+    }
+  });
+
+  const averageAudioPercentage = totalAudioPercentage / totalAudios;
+  console.log(`Average Audio Loaded: ${averageAudioPercentage.toFixed(2)}%`);
+
+  return { allLoaded, averageAudioPercentage }; 
+}
+
+function preloadRickRoll() {
+  playThemeMusic("miiTheme");
+  const button = document.getElementById("startButton");
+  button.innerHTML = "0% Loaded;";
+  button.disabled = true;
+
+  const video = document.getElementById("rickRollVideo");
+  const startTime = performance.now();
+  video.style.display = "none"; // Hide the video from view
+
+  video.preload = "auto";
+  video.muted = true; // Mute the video to avoid sound before user interaction
+  video.play(); // Start playing the video to force buffering
+
+  // Monitor the buffering progress
+  const checkBuffering = setInterval(() => {
+    const buffered = video.buffered;
+    const duration = video.duration;
+
+    const skipButton = document.getElementById("skipButton");
+    setTimeout(() => {
+      skipButton.style.display = "inline"; // Show the skip button after 60 seconds
+    }, 60000);
+
+    let videoLoadedPercentage = 0;
+    if (buffered.length > 0) {
+      const loaded = buffered.end(0); // Get how much of the video is buffered
+      videoLoadedPercentage = (loaded / duration) * 100; // Calculate video loading percentage
+      console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
+    }
+
+    // Get audio loading status
+    const { allLoaded, averageAudioPercentage } = audioLoaded();
+    let totalLoadedPercentage = (videoLoadedPercentage + averageAudioPercentage) / 2; // Combine percentages
+
+    // Update button percentage
+    button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
+
+    // TESTING PURPOSES ONLY
+    document.getElementById("adminTest").innerHTML = allLoaded;
+
+    // When both video and audio are fully loaded
+    if (videoLoadedPercentage >= 100 && allLoaded) {
+      video.pause(); // Pause the video after it's fully buffered
+      video.currentTime = 0; // Reset the playback position to the start
+      video.muted = false; // Restore the audio state
+
+      const endTime = performance.now();
+      const loadTime = (endTime - startTime) / 1000;
+      console.log(`Preloading completed in ${loadTime.toFixed(2)} seconds`);
+
+      // Update the button to allow starting the main content
+      button.onclick = homePage;
+      button.innerHTML = `100% Loaded`;
+      button.disabled = false;
+      button.innerHTML = "Press To Start <span>&#127884;</span>";
+
+      clearInterval(checkBuffering); // Stop checking when the video is fully buffered
+    }
+  }, 500); // Check every 500 milliseconds
+}
