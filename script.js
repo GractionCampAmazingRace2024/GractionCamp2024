@@ -548,7 +548,7 @@ function preloadRickRoll() {
     button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
 
     // TESTING PURPOSES ONLY
-    document.getElementById("adminTest").innerHTML = allLoaded;
+    document.getElementById("adminTest").innerHTML = `Audio Loaded: ${averageAudioPercentage}%`;
 
     // When both video and audio are fully loaded
     if (videoLoadedPercentage >= 100 && allLoaded) {
