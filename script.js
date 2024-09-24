@@ -218,9 +218,6 @@ function playThemeMusic(audioFile, startTime = 0) {
   }
 }
 
-
-
-
 // function audioLoaded() {
 //   let allLoaded = true;
 
@@ -237,7 +234,7 @@ function playThemeMusic(audioFile, startTime = 0) {
 //     }
 //   });
 
-//   return allLoaded; 
+//   return allLoaded;
 // }
 
 // function checkAudioLoadStatus() {
@@ -252,7 +249,6 @@ function playThemeMusic(audioFile, startTime = 0) {
 //     }
 //   }, 1000); // Check every 500 milliseconds
 // }
-
 
 // function preloadRickRoll() {
 //   playThemeMusic("miiTheme");
@@ -285,10 +281,8 @@ function playThemeMusic(audioFile, startTime = 0) {
 //       console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
 //     }
 
-
 //     // TESTING PURPOSES ONLY
 //     document.getElementById("adminTest").innerHTML = audioLoaded();
-
 
 //     // When both video and audio are fully loaded
 //     if (videoLoadedPercentage >= 100 && audioLoaded()) {
@@ -313,35 +307,31 @@ function playThemeMusic(audioFile, startTime = 0) {
 //   }, 500); // Check every 500 milliseconds
 // }
 
-
-
-
-
 function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
   const playButton = document.getElementById("playButton");
   const results = document.getElementById("resultsContent");
 
-  document.getElementById("rickRollPage").style.display = "block"; 
-  document.getElementById("rickRollPage").style.backgroundColor = "black"; 
+  document.getElementById("rickRollPage").style.display = "block";
+  document.getElementById("rickRollPage").style.backgroundColor = "black";
   document.querySelector(".middleStripe").style.width = "100vw";
   playButton.style.display = "none";
   video.style.display = "block";
-  videoContainer.style.display = 'flex';
+  videoContainer.style.display = "flex";
   video.muted = false;
   video.play();
 
   video.addEventListener("ended", function () {
     video.style.display = "none";
-    videoContainer.style.display = 'none';
+    videoContainer.style.display = "none";
   });
   results.style.display = "block";
-  
+
   document.getElementById("rickrollButton").onclick = function () {
     returnToIndex();
   };
   document.getElementById("rickrollButton").innerHTML = "Back";
-  document.getElementById("rickRollPage").style.backgroundColor = "red"; 
+  document.getElementById("rickRollPage").style.backgroundColor = "red";
   document.querySelector(".middleStripe").style.width = "60vw";
   results.innerHTML = "placeholder result text";
 }
@@ -469,17 +459,41 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   }
 });
 
+// function audioLoaded() {
+//   let allLoaded = true;
+//   let totalAudioPercentage = 0; // Track total percentage of audio loaded
+//   let totalAudios = audioIds.length; // Number of audio files
 
+//   audioIds.forEach((id) => {
+//     const audioElement = document.getElementById(id);
+//     if (audioElement) {
+//       const state = audioElement.readyState;
+//       if (state < 4) {
+//         console.log(`${id} - Ready State: ${state}`);
+//         allLoaded = false; // Mark as not all loaded if any audio is not ready.
+//         document.getElementById("adminTest").innerHTML = `<div>Audio: ${id} | Buffered:100%</div>`;
+//       }
 
+//       // Calculate percentage of audio loaded
+//       if (audioElement.buffered.length > 0) {
+//         const bufferedAmount = audioElement.buffered.end(0);
+//         const totalDuration = audioElement.duration;
+//         const loadedPercentage = (bufferedAmount / totalDuration) * 100;
+//         document.getElementById("adminTest").innerHTML = `<div>Audio: ${id} | Buffered: ${loadedPercentage.toFixed(2)}%</div>`;
+//         console.log(`${id} - Loaded: ${loadedPercentage.toFixed(2)}%`);
 
-
-
-
+//         totalAudioPercentage += loadedPercentage; // Sum up all audio loaded percentages
+//       }
+//     } else {
+//       console.log(`${id} not found.`);
+//     }
+//   });
 
 function audioLoaded() {
   let allLoaded = true;
   let totalAudioPercentage = 0; // Track total percentage of audio loaded
   let totalAudios = audioIds.length; // Number of audio files
+  let bufferedInfo = ""; // Variable to store buffered info for all audios
 
   audioIds.forEach((id) => {
     const audioElement = document.getElementById(id);
@@ -488,28 +502,31 @@ function audioLoaded() {
       if (state < 4) {
         console.log(`${id} - Ready State: ${state}`);
         allLoaded = false; // Mark as not all loaded if any audio is not ready.
-        document.getElementById("adminTest").innerHTML = `<div>Audio: ${id} | Buffered:100%</div>`;
+        bufferedInfo += `<div>Audio: ${id} | Buffered: 100%</div>`; // Indicate it is not fully loaded
       }
-      
+
       // Calculate percentage of audio loaded
       if (audioElement.buffered.length > 0) {
         const bufferedAmount = audioElement.buffered.end(0);
         const totalDuration = audioElement.duration;
         const loadedPercentage = (bufferedAmount / totalDuration) * 100;
-        document.getElementById("adminTest").innerHTML = `<div>Audio: ${id} | Buffered: ${loadedPercentage.toFixed(2)}%</div>`;
+        bufferedInfo += `<div>Audio: ${id} | Buffered: ${loadedPercentage.toFixed(
+          2
+        )}%</div>`;
         console.log(`${id} - Loaded: ${loadedPercentage.toFixed(2)}%`);
-        
+
         totalAudioPercentage += loadedPercentage; // Sum up all audio loaded percentages
       }
     } else {
       console.log(`${id} not found.`);
     }
   });
+  document.getElementById("adminTest").innerHTML = bufferedInfo;
 
-  const averageAudioPercentage = totalAudioPercentage / totalAudios;
+  const averageAudioPercentage = totalAudios / totalAudioPercentage *100 ;
   console.log(`Average Audio Loaded: ${averageAudioPercentage.toFixed(2)}%`);
 
-  return { allLoaded, averageAudioPercentage }; 
+  return { allLoaded, averageAudioPercentage };
 }
 
 function preloadRickRoll() {
@@ -545,7 +562,8 @@ function preloadRickRoll() {
 
     // Get audio loading status
     const { allLoaded, averageAudioPercentage } = audioLoaded();
-    let totalLoadedPercentage = (videoLoadedPercentage + averageAudioPercentage) / 2; // Combine percentages
+    let totalLoadedPercentage =
+      (videoLoadedPercentage + averageAudioPercentage) / 2; // Combine percentages
 
     // Update button percentage
     button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
