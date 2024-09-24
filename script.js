@@ -291,8 +291,9 @@ function preloadAudio() {
 
   audioIds.forEach((id) => {
     const audio = document.getElementById(id);
+    console.log(audio);
 
-    if (audio && audio.readyState >= 2) {
+    if (audio && audio.readyState >= 2 && audio.tagName === "AUDIO") {
       // Play the audio in the background muted and then pause after preloading
       audio.muted = true;
       audio
