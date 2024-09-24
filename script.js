@@ -192,6 +192,7 @@ function playThemeMusic(audioFile, startTime = 0) {
   const audioElement = document.getElementById(audioFile);
   if (audioElement) {
     audioElement.currentTime = startTime;
+    audioElement.muted = false
     audioElement.play(); // Play the selected audio
     currentThemeMusicId = audioFile; // Store the new audio's ID
   } else {
@@ -212,7 +213,6 @@ function areAllAudioLoaded() {
     document.getElementById("orangeTheme"),
     document.getElementById("yellowTheme"),
     document.getElementById("purpleTheme"),
-    document.getElementById("miiTheme"),
     document.getElementById("miiShop"),
     document.getElementById("failSound"),
     document.getElementById("unlockSound"),
@@ -224,22 +224,15 @@ function areAllAudioLoaded() {
         resolve(false);
         return;
       }
-
       audioElement.preload = "auto";
-
-      // Event listener for when the audio is ready to play through
       audioElement.addEventListener('canplaythrough', () => {
         audioElement.play();
-        audioElement.muted = true; // Set muted property to true
-        resolve(true); // Successfully buffered and played
+        audioElement.muted = true; 
+        resolve(true); 
       });
-
-      // Retry if the audio is not ready within a certain timeout
       const timeout = setTimeout(() => {
-        resolve(false); // Timeout occurred, not fully buffered
-      }, 5000); // Adjust timeout duration as needed
-
-      // Clear the timeout if the audio plays successfully
+        resolve(false); 
+      }, 5000); 
       audioElement.addEventListener('playing', () => {
         clearTimeout(timeout);
       });
@@ -258,7 +251,7 @@ function areAllAudioLoaded() {
     } else {
       console.log("Not all audio elements are fully buffered.");
     }
-    return allBuffered; // Return true or false based on buffering status
+    return allBuffered;
   });
 }
 
