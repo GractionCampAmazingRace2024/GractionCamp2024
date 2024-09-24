@@ -199,7 +199,82 @@ function playThemeMusic(audioFile, startTime = 0) {
   }
 }
 
-function areAllAudioLoaded() {
+// function areAllAudioLoaded() {
+//   const audioIds = [
+//     "themeMusic",
+//     "themeMusic1",
+//     "themeMusic2",
+//     "blueTheme",
+//     "greenTheme",
+//     "orangeTheme",
+//     "yellowTheme",
+//     "purpleTheme",
+//     "miiTheme",
+//     "miiShop",
+//     "failSound",
+//     "unlockSound",
+//   ];
+
+//   return audioIds.every((id) => {
+//     const audio = document.getElementById(id);
+//     return audio && audio.readyState >= 2; // 2 means metadata is loaded
+//   });
+// }
+
+
+
+
+
+function preloadRickRoll() {
+  playThemeMusic("miiTheme");
+  const video = document.getElementById("rickRollVideo");
+  const startTime = performance.now();
+  video.style.display = "none"; // Hide the video from the view
+
+  video.preload = "auto";
+  video.muted = true; // Mute the video to avoid sound before user interaction
+  video.play(); // Start playing the video to force buffering
+  const skipButton = document.getElementById("skipButton");
+  setTimeout(() => {
+    skipButton.style.display = "inline"; // Show the skip button
+  }, 60000);
+  //Preload audio files
+  const audioLoadedPercentage = preloadAudio();
+
+  // Monitor the buffering progress
+  const checkBuffering = setInterval(() => {
+    const buffered = video.buffered;
+    const duration = video.duration;
+
+    let videoLoadedPercentage = 0;
+    if (buffered.length > 0) {
+      const loaded = buffered.end(0); // Get how much of the video is buffered
+      videoLoadedPercentage = (loaded / duration) * 100; // Calculate video loading percentage
+      console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
+    }
+
+    preloadTotal(videoLoadedPercentage, audioLoadedPercentage); // Calculate and update total percentage
+
+    if (videoLoadedPercentage >= duration && areAllAudioBuffered()) {
+      video.pause(); // Pause the video after it's fully buffered
+      video.currentTime = 0; // Reset the playback position to the start
+      video.muted = false; // Restore the audio state
+
+      const endTime = performance.now();
+      const loadTime = (endTime - startTime) / 1000;
+      console.log(`Preloading completed in ${loadTime.toFixed(2)} seconds`);
+
+      const button = document.getElementById("startButton");
+      button.onclick = homePage;
+      button.disabled = false;
+      button.innerHTML = "Press To Start<span>&#127884;</span>";
+
+      clearInterval(checkBuffering); // Stop checking when the video is fully buffered
+    }
+  }, 100); // Check every 100 milliseconds
+}
+
+function preloadAudio() {
   const audioIds = [
     "themeMusic",
     "themeMusic1",
@@ -215,74 +290,123 @@ function areAllAudioLoaded() {
     "unlockSound",
   ];
 
-  return audioIds.every((id) => {
-    const audio = document.getElementById(id);
-    return audio && audio.readyState >= 2; // 2 means metadata is loaded
+  let audioLoadedPercentage = 0;
+
+  audioIds.forEach((audio) => {
+    audio.preload = "auto"; // Preload the audio
+    audio.muted = true; // Mute the audio to prevent playback sound
+    audio.play(); // Start playing to force buffering
+
+    const checkAudioBuffering = setInterval(() => {
+      const buffered = audio.buffered;
+      const duration = audio.duration;
+
+      if (buffered.length > 0) {
+        const loaded = buffered.end(0); // Get how much of the audio is buffered
+        const percentage = (loaded / duration) * 100; // Calculate the buffering percentage
+        console.log(`Audio buffered: ${percentage.toFixed(2)}%`);
+        audioLoadedPercentage += percentage / audioIds.length; // Average buffering for all audio files
+      }
+
+      if (audioLoadedPercentage >= 100 || loaded >= duration) {
+        clearInterval(checkAudioBuffering); // Stop checking when fully buffered
+        audio.pause(); // Pause the audio when buffering is complete
+        audio.currentTime = 0; // Reset audio playback
+      }
+    }, 100); // Check every 100 milliseconds
+  });
+
+  return audioLoadedPercentage;
+}
+
+function preloadTotal(videoLoadedPercentage, audioLoadedPercentage) {
+  const totalLoadedPercentage = Math.min(
+    videoLoadedPercentage + audioLoadedPercentage,
+    100
+  );
+
+  const button = document.getElementById("startButton");
+  button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
+
+  return totalLoadedPercentage;
+}
+
+function areAllAudioBuffered() {
+  const audioFiles = document.querySelectorAll("audio");
+  return Array.from(audioFiles).every((audio) => {
+    const buffered = audio.buffered;
+    const duration = audio.duration;
+    return buffered.length > 0 && buffered.end(0) >= duration;
   });
 }
 
+
+
+
+
+
 // Preload
-function preloadRickRoll() {
-  playThemeMusic("miiTheme");
-  const video = document.getElementById("rickRollVideo");
-  const startTime = performance.now();
-  video.style.display = "none"; // Hide the video from the view
+// function preloadRickRoll() {
+//   playThemeMusic("miiTheme");
+//   const video = document.getElementById("rickRollVideo");
+//   const startTime = performance.now();
+//   video.style.display = "none"; // Hide the video from the view
 
-  video.preload = "auto";
-  video.muted = true; // Mute the video to avoid sound before user interaction
-  video.play(); // Start playing the video to force buffering
+//   video.preload = "auto";
+//   video.muted = true; // Mute the video to avoid sound before user interaction
+//   video.play(); // Start playing the video to force buffering
 
-  // Monitor the buffering progress
-  const checkBuffering = setInterval(() => {
-    const buffered = video.buffered;
-    const duration = video.duration;
+//   // Monitor the buffering progress
+//   const checkBuffering = setInterval(() => {
+//     const buffered = video.buffered;
+//     const duration = video.duration;
 
-    const button = document.getElementById("startButton");
+//     const button = document.getElementById("startButton");
 
-    const skipButton = document.getElementById("skipButton");
-    setTimeout(() => {
-      skipButton.style.display = "inline"; // Show the skip button
-    }, 30000); // 30 seconds
+//     const skipButton = document.getElementById("skipButton");
+//     setTimeout(() => {
+//       skipButton.style.display = "inline"; // Show the skip button
+//     }, 60000); //
 
-    let videoLoadedPercentage = 0;
-    if (buffered.length > 0) {
-      const loaded = buffered.end(0); // Get how much of the video is buffered
-      videoLoadedPercentage = (loaded / duration) * 100; // Calculate video loading percentage
-      console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
-    }
+//     let videoLoadedPercentage = 0;
+//     if (buffered.length > 0) {
+//       const loaded = buffered.end(0); // Get how much of the video is buffered
+//       videoLoadedPercentage = (loaded / duration) * 100; // Calculate video loading percentage
+//       console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
+//     }
 
-    // Check if all audio files are loaded
-    const allAudioLoaded = areAllAudioLoaded();
-    const audioLoadedPercentage = allAudioLoaded ? 100 : 0; // Set audio percentage
-    const totalLoadedPercentage = Math.min(
-      videoLoadedPercentage + audioLoadedPercentage,
-      100
-    );
+//     // Check if all audio files are loaded
+//     const allAudioLoaded = areAllAudioLoaded();
+//     const audioLoadedPercentage = allAudioLoaded ? 100 : 0; // Set audio percentage
+//     const totalLoadedPercentage = Math.min(
+//       videoLoadedPercentage + audioLoadedPercentage,
+//       100
+//     );
 
-    if (totalLoadedPercentage >= 1) {
-      button.innerHTML = `${totalLoadedPercentage.toFixed(2) - 1}% Loaded`;
-    }
-    button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
+//     if (totalLoadedPercentage >= 1) {
+//       button.innerHTML = `${totalLoadedPercentage.toFixed(2) - 1}% Loaded`;
+//     }
+//     button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
 
-    if (totalLoadedPercentage >= 100) {
-      if (videoLoadedPercentage >= duration && allAudioLoaded) {
-        video.pause(); // Pause the video after it's fully buffered
-        video.currentTime = 0; // Reset the playback position to the start
-        video.muted = false; // Restore the audio state
-        button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
-        const endTime = performance.now();
-        const loadTime = (endTime - startTime) / 1000;
-        console.log(`Preloading completed in ${loadTime.toFixed(2)} seconds`);
+//     if (totalLoadedPercentage >= 100) {
+//       if (videoLoadedPercentage >= duration && allAudioLoaded) {
+//         video.pause(); // Pause the video after it's fully buffered
+//         video.currentTime = 0; // Reset the playback position to the start
+//         video.muted = false; // Restore the audio state
+//         button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
+//         const endTime = performance.now();
+//         const loadTime = (endTime - startTime) / 1000;
+//         console.log(`Preloading completed in ${loadTime.toFixed(2)} seconds`);
 
-        button.onclick = homePage;
-        button.disabled = false;
-        button.innerHTML = "Press To Start<span>&#127884;</span>";
+//         button.onclick = homePage;
+//         button.disabled = false;
+//         button.innerHTML = "Press To Start<span>&#127884;</span>";
 
-        clearInterval(checkBuffering); // Stop checking when the video is fully buffered
-      }
-    }
-  }, 100); // Check every 100 milliseconds
-}
+//         clearInterval(checkBuffering); // Stop checking when the video is fully buffered
+//       }
+//     }
+//   }, 100); // Check every 100 milliseconds
+// }
 
 function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
@@ -290,7 +414,8 @@ function playRickRoll() {
   const results = document.getElementById("resultsContent");
 
   document.getElementById("rickRollPage").style.display = "block"; // Ensure the page is displayed
-  document.getElementById("rickRollPage").style.backgroundColor = "black !important";
+  document.getElementById("rickRollPage").style.backgroundColor =
+    "black !important";
   playButton.style.display = "none";
   video.style.display = "block";
 
@@ -301,14 +426,15 @@ function playRickRoll() {
     video.style.display = "none";
   });
   results.style.display = "block";
-    document.getElementById("returnToIndex").innerHTML = "Back"; 
+  document.getElementById("returnToIndex").innerHTML = "Back";
 
-    document.getElementById("returnToIndex").onclick = function () {
-        returnToIndex();
-    };
-    
-    document.getElementById("rickRollPage").style.backgroundColor = "red !important";
-    results.innerHTML = "placeholder result text";
+  document.getElementById("returnToIndex").onclick = function () {
+    returnToIndex();
+  };
+
+  document.getElementById("rickRollPage").style.backgroundColor =
+    "red !important";
+  results.innerHTML = "placeholder result text";
 }
 
 // Show/hide dropdown on button click
