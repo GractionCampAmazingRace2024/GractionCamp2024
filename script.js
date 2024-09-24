@@ -270,8 +270,7 @@ function playRickRoll() {
   const results = document.getElementById("resultsContent");
 
   document.getElementById("rickRollPage").style.display = "block"; // Ensure the page is displayed
-  document.getElementById("rickRollPage").style.backgroundColor =
-    "black !important";
+  document.getElementById("rickRollPage").style.backgroundColor = "black !important";
   playButton.style.display = "none";
   video.style.display = "block";
 
@@ -282,11 +281,12 @@ function playRickRoll() {
     video.style.display = "none";
   });
   results.style.display = "block";
-  document.getElementById("returnToIndex").innerHTML = "Back";
 
   document.getElementById("returnToIndex").onclick = function () {
     returnToIndex();
   };
+  document.getElementById("rickrollButton").innerHTML = "Back";
+
 
   document.getElementById("rickRollPage").style.backgroundColor =
     "red !important";

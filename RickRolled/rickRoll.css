@@ -108,12 +108,12 @@ body {
 
 #rickRollVideo {
     width: 100vh; /* Make the video take the full width of the container */
-    height: auto; /* Maintain the aspect ratio */
+    height: 100vw; /* Maintain the aspect ratio */
 }
 
 
 button {
-    width: 100%;
+    width: 100px;
     height: 36px;
     padding: 11px;
     margin-top: 15px;
