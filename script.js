@@ -199,127 +199,82 @@ function playThemeMusic(audioFile, startTime = 0) {
   }
 }
 
-// function areAllAudioLoaded() {
-//   const audioIds = [
-//     "themeMusic",
-//     "themeMusic1",
-//     "themeMusic2",
-//     "blueTheme",
-//     "greenTheme",
-//     "orangeTheme",
-//     "yellowTheme",
-//     "purpleTheme",
-//     "miiTheme",
-//     "miiShop",
-//     "failSound",
-//     "unlockSound",
-//   ];
-
-//   return audioIds.every((id) => {
-//     const audio = document.getElementById(id);
-
-//     if (audio) {
-//       // Ensure the audio element exists and is valid
-//       audio.preload = "auto";
-//       audio.muted = true; // Mute the audio to avoid playback sound
-//       audio.currentTime = 0; // Reset the playback position to the start
-
-//       try {
-//         audio.play().catch((error) => {
-//           console.warn(`Audio ${id} playback blocked:`, error);
-//         });
-//       } catch (error) {
-//         console.error(`Error trying to play audio ${id}:`, error);
-//       }
-
-//       return audio.readyState >= 2; // Check if at least metadata is loaded
-//     } else {
-//       console.error(`Audio element with ID ${id} not found.`);
-//       return false;
-//     }
-//   });
-// }
-
 
 
 function areAllAudioLoaded() {
   // Fetch each audio element by its ID
-  const themeMusic = document.getElementById("themeMusic");
-  const themeMusic1 = document.getElementById("themeMusic1");
-  const themeMusic2 = document.getElementById("themeMusic2");
-  const blueTheme = document.getElementById("blueTheme");
-  const greenTheme = document.getElementById("greenTheme");
-  const orangeTheme = document.getElementById("orangeTheme");
-  const yellowTheme = document.getElementById("yellowTheme");
-  const purpleTheme = document.getElementById("purpleTheme");
-  const miiTheme = document.getElementById("miiTheme");
-  const miiShop = document.getElementById("miiShop");
-  const failSound = document.getElementById("failSound");
-  const unlockSound = document.getElementById("unlockSound");
+  const audioElements = [
+    document.getElementById("themeMusic"),
+    document.getElementById("themeMusic1"),
+    document.getElementById("themeMusic2"),
+    document.getElementById("blueTheme"),
+    document.getElementById("greenTheme"),
+    document.getElementById("orangeTheme"),
+    document.getElementById("yellowTheme"),
+    document.getElementById("purpleTheme"),
+    document.getElementById("miiTheme"),
+    document.getElementById("miiShop"),
+    document.getElementById("failSound"),
+    document.getElementById("unlockSound"),
+  ];
 
+  function setupAudio(audioElement) {
+    return new Promise((resolve) => {
+      if (!audioElement) {
+        resolve(false);
+        return;
+      }
 
-  if (themeMusic) {
-    themeMusic.preload = "auto"
-    themeMusic.play();
-    themeMusic.mute();
+      audioElement.preload = "auto";
+
+      // Event listener for when the audio is ready to play through
+      audioElement.addEventListener('canplaythrough', () => {
+        audioElement.play();
+        audioElement.muted = true; // Set muted property to true
+        resolve(true); // Successfully buffered and played
+      });
+
+      // Retry if the audio is not ready within a certain timeout
+      const timeout = setTimeout(() => {
+        resolve(false); // Timeout occurred, not fully buffered
+      }, 5000); // Adjust timeout duration as needed
+
+      // Clear the timeout if the audio plays successfully
+      audioElement.addEventListener('playing', () => {
+        clearTimeout(timeout);
+      });
+    });
   }
-  if(themeMusic1){
-    themeMusic1.preload = "auto"
-    themeMusic1.play();
-    themeMusic1.mute();
+
+  async function setupAllAudios() {
+    const results = await Promise.all(audioElements.map(setupAudio));
+    return results.every(result => result === true);
   }
-  if (themeMusic2) {
-    themeMusic2.preload = "auto"
-    themeMusic2.play();
-    themeMusic2.mute();
-  }
-  if(blueTheme){
-    blueTheme.preload = "auto"
-    blueTheme.play();
-    blueTheme.mute();
-  }
-  if (greenTheme) {
-    greenTheme.preload = "auto"
-    greenTheme.play();
-    greenTheme.mute();
-  }
-  if(orangeTheme){
-    orangeTheme.preload = "auto"
-    orangeTheme.play();
-    orangeTheme.mute();
-  }
-  if (yellowTheme) {
-    yellowTheme.preload = "auto"
-    yellowTheme.play();
-    yellowTheme.mute();
-  }
-  if(purpleTheme){
-    purpleTheme.preload = "auto"
-    purpleTheme.play();
-    purpleTheme.mute();
-  }
-  if(miiTheme){
-    miiTheme.preload = "auto"
-    miiTheme.play();
-    miiTheme.mute();
-  }
-  if (miiShop) {
-    miiShop.preload = "auto"
-    miiShop.play();
-    miiShop.mute();
-  }
-  if(failSound){
-    failSound.preload = "auto"
-    failSound.play();
-    failSound.mute();
-  }
-  if (unlockSound) {
-    unlockSound.preload = "auto"
-    unlockSound.play();
-    unlockSound.mute();
-  }
-  return true;
+
+  // Call the setup function and return the result
+  return setupAllAudios().then(allBuffered => {
+    if (allBuffered) {
+      console.log("All audio elements are fully buffered.");
+    } else {
+      console.log("Not all audio elements are fully buffered.");
+    }
+    return allBuffered; // Return true or false based on buffering status
+  });
 }
+
+// Usage example
+areAllAudioLoaded().then(allLoaded => {
+  if (allLoaded) {
+    console.log("Ready to proceed with audio playback!");
+  } else {
+    console.log("Some audio elements failed to load.");
+  }
+});
+
+
+
+
+
 
 
 // Preload
