@@ -224,7 +224,6 @@ function playThemeMusic(audioFile, startTime = 0) {
 
 
 
-
 function preloadRickRoll() {
   playThemeMusic("miiTheme");
   const video = document.getElementById("rickRollVideo");
@@ -274,25 +273,12 @@ function preloadRickRoll() {
   }, 100); // Check every 100 milliseconds
 }
 
-function preloadAudio() {
-  const audioIds = [
-    "themeMusic",
-    "themeMusic1",
-    "themeMusic2",
-    "blueTheme",
-    "greenTheme",
-    "orangeTheme",
-    "yellowTheme",
-    "purpleTheme",
-    "miiTheme",
-    "miiShop",
-    "failSound",
-    "unlockSound",
-  ];
 
+function preloadAudio() {
+  const audioFiles = document.querySelectorAll("audio");
   let audioLoadedPercentage = 0;
 
-  audioIds.forEach((audio) => {
+  audioFiles.forEach((audio) => {
     audio.preload = "auto"; // Preload the audio
     audio.muted = true; // Mute the audio to prevent playback sound
     audio.play(); // Start playing to force buffering
@@ -305,7 +291,7 @@ function preloadAudio() {
         const loaded = buffered.end(0); // Get how much of the audio is buffered
         const percentage = (loaded / duration) * 100; // Calculate the buffering percentage
         console.log(`Audio buffered: ${percentage.toFixed(2)}%`);
-        audioLoadedPercentage += percentage / audioIds.length; // Average buffering for all audio files
+        audioLoadedPercentage += percentage / audioFiles.length; // Average buffering for all audio files
       }
 
       if (audioLoadedPercentage >= 100 || loaded >= duration) {
@@ -339,8 +325,6 @@ function areAllAudioBuffered() {
     return buffered.length > 0 && buffered.end(0) >= duration;
   });
 }
-
-
 
 
 
