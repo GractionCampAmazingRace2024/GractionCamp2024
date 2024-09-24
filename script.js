@@ -282,6 +282,7 @@ function preloadRickRoll() {
       console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
     }
 
+    console.log((videoLoadedPercentage , audioLoaded()));
     // When both video and audio are fully loaded
     if (videoLoadedPercentage >= 100 && audioLoaded()) {
       video.pause(); // Pause the video after it's fully buffered
