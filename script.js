@@ -291,12 +291,13 @@ function preloadRickRoll() {
         video.pause(); // Pause the video after it's fully buffered
         video.currentTime = 0; // Reset the playback position to the start
         video.muted = false; // Restore the audio state
-        button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
+        
         const endTime = performance.now();
         const loadTime = (endTime - startTime) / 1000;
         console.log(`Preloading completed in ${loadTime.toFixed(2)} seconds`);
 
         button.onclick = homePage;
+        button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
         button.disabled = false;
         button.innerHTML = "Press To Start<span>&#127884;</span>";
 
