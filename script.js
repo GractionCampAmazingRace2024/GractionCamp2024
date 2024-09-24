@@ -300,6 +300,8 @@ function areAllAudioLoaded() {
 // Preload
 function preloadRickRoll() {
   playThemeMusic("miiTheme");
+  const button = document.getElementById("startButton");
+  button.innerHTML = '0% Loaded';
   const video = document.getElementById("rickRollVideo");
   const startTime = performance.now();
   video.style.display = "none"; // Hide the video from the view
@@ -313,7 +315,7 @@ function preloadRickRoll() {
     const buffered = video.buffered;
     const duration = video.duration;
 
-    const button = document.getElementById("startButton");
+    
 
     const skipButton = document.getElementById("skipButton");
     setTimeout(() => {
