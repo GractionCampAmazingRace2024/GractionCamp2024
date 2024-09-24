@@ -202,69 +202,6 @@ function playThemeMusic(audioFile, startTime = 0) {
 
 
 
-function areAllAudioLoaded() {
-  // Fetch each audio element by its ID
-  const audioElements = [
-    document.getElementById("themeMusic"),
-    document.getElementById("themeMusic1"),
-    document.getElementById("themeMusic2"),
-    document.getElementById("blueTheme"),
-    document.getElementById("greenTheme"),
-    document.getElementById("orangeTheme"),
-    document.getElementById("yellowTheme"),
-    document.getElementById("purpleTheme"),
-    document.getElementById("miiShop"),
-    document.getElementById("failSound"),
-    document.getElementById("unlockSound"),
-  ];
-
-  function setupAudio(audioElement) {
-    return new Promise((resolve) => {
-      if (!audioElement) {
-        resolve(false);
-        return;
-      }
-      audioElement.preload = "auto";
-      audioElement.addEventListener('canplaythrough', () => {
-        audioElement.play();
-        audioElement.muted = true; 
-        resolve(true); 
-      });
-      const timeout = setTimeout(() => {
-        resolve(false); 
-      }, 5000); 
-      audioElement.addEventListener('playing', () => {
-        clearTimeout(timeout);
-      });
-    });
-  }
-
-  async function setupAllAudios() {
-    const results = await Promise.all(audioElements.map(setupAudio));
-    return results.every(result => result === true);
-  }
-
-  // Call the setup function and return the result
-  return setupAllAudios().then(allBuffered => {
-    if (allBuffered) {
-      console.log("All audio elements are fully buffered.");
-    } else {
-      console.log("Not all audio elements are fully buffered.");
-    }
-    return allBuffered;
-  });
-}
-
-// Usage example
-areAllAudioLoaded().then(allLoaded => {
-  if (allLoaded) {
-    console.log("Ready to proceed with audio playback!");
-  } else {
-    console.log("Some audio elements failed to load.");
-  }
-});
-
-
 
 
 
@@ -289,8 +226,6 @@ function preloadRickRoll() {
     const buffered = video.buffered;
     const duration = video.duration;
 
-
-
     const skipButton = document.getElementById("skipButton");
     setTimeout(() => {
       skipButton.style.display = "inline"; // Show the skip button
@@ -303,21 +238,8 @@ function preloadRickRoll() {
       console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
     }
 
-    // Check if all audio files are loaded
-    const allAudioLoaded = areAllAudioLoaded();
-    const audioLoadedPercentage = allAudioLoaded ? 100 : 0; // Set audio percentage
-    const totalLoadedPercentage = Math.min(
-      videoLoadedPercentage + audioLoadedPercentage,
-      100
-    );
-
-    if (totalLoadedPercentage >= 1) {
-      button.innerHTML = `${totalLoadedPercentage.toFixed(2) - 1}% Loaded`;
-    }
-    button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
-
-    if (totalLoadedPercentage >= 100) {
-      if (videoLoadedPercentage >= duration && allAudioLoaded) {
+    if (videoLoadedPercentage >= 100) {
+      if (videoLoadedPercentage >= duration) {
         video.pause(); // Pause the video after it's fully buffered
         video.currentTime = 0; // Reset the playback position to the start
         video.muted = false; // Restore the audio state
@@ -327,15 +249,18 @@ function preloadRickRoll() {
         console.log(`Preloading completed in ${loadTime.toFixed(2)} seconds`);
 
         button.onclick = homePage;
-        button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
+        button.innerHTML = `${videoLoadedPercentage.toFixed(2)}% Loaded`;
         button.disabled = false;
         button.innerHTML = "Press To Start<span>&#127884;</span>";
 
         clearInterval(checkBuffering); // Stop checking when the video is fully buffered
       }
+    } else {
+      button.innerHTML = `${videoLoadedPercentage.toFixed(2)}% Loaded`;
     }
   }, 100); // Check every 100 milliseconds
 }
+
 
 function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
