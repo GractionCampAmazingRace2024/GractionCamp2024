@@ -612,12 +612,12 @@ function preloadRickRoll() {
 
 function showAdminTest() {
   const adminTestElement = document.getElementById("adminTest");
-  
+  const adminButton = document.getElementById("adminButton");
   if (adminTestElement.style.display === "none" || adminTestElement.style.display === "") {
     adminTestElement.style.display = "block"; // Show the element
-    adminTestElement.style.color = "#12E2DC"
+    adminButton.style.color = "#12E2DC"
   } else {
     adminTestElement.style.display = "none"; // Hide the element
-    adminTestElement.style.color = "#333"
+    adminButton.style.color = "#333"
   }
 }
