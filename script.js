@@ -488,6 +488,7 @@ function audioLoaded() {
       if (state < 4) {
         console.log(`${id} - Ready State: ${state}`);
         allLoaded = false; // Mark as not all loaded if any audio is not ready.
+        document.getElementById("adminTest").innerHTML = `<div>Audio: ${id} | Buffered:100%</div>`;
       }
       
       // Calculate percentage of audio loaded
@@ -495,7 +496,7 @@ function audioLoaded() {
         const bufferedAmount = audioElement.buffered.end(0);
         const totalDuration = audioElement.duration;
         const loadedPercentage = (bufferedAmount / totalDuration) * 100;
-        document.getElementById("adminTest").innerHTML = `<div>Audio: ${id} | Buffered: ${loadedPercentage.toFixed(2)}%</div><br>Total: ${totalAudioPercentage += loadedPercentage}%`;
+        document.getElementById("adminTest").innerHTML = `<div>Audio: ${id} | Buffered: ${loadedPercentage.toFixed(2)}%</div>`;
         console.log(`${id} - Loaded: ${loadedPercentage.toFixed(2)}%`);
         
         totalAudioPercentage += loadedPercentage; // Sum up all audio loaded percentages
