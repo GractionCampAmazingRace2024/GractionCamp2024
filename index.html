@@ -490,6 +490,20 @@
       });
     });
 
+    function preloadAllAudios() {
+      audioIds.forEach((id) => {
+        const audioElement = document.getElementById(id);
+        if (audioElement) {
+          audioElement.preload = "auto";
+          audioElement.load(); // Trigger loading
+        }
+      });
+    }
+    
+    window.onload = () => {
+      preloadAllAudios();
+    };
+
   </script>
 
 </body>
