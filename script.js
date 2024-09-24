@@ -124,7 +124,7 @@ const teamThemeMusic = {
   blue: 30,
   orange: 8,
   yellow: 70,
-  admin: 0,
+  admin: 23,
 };
 
 let currentThemeMusicId = ""; // Variable to store the currently playing theme music
