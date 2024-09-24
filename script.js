@@ -300,7 +300,8 @@ function preloadRickRoll() {
         clearInterval(checkBuffering); // Stop checking when the video is fully buffered
       }
     } else {
-      button.innerHTML = `Audio Files Loading...`;
+      // button.innerHTML = `Audio Files Loading...`;
+      button.innerHTML = `${videoLoadedPercentage.toFixed(2)}% Loaded`;
     }
   }, 100); // Check every 100 milliseconds
 }
