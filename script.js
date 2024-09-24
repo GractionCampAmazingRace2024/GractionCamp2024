@@ -523,7 +523,7 @@ function audioLoaded() {
   });
   document.getElementById("adminTest").innerHTML = bufferedInfo;
 
-  const averageAudioPercentage = totalAudios / totalAudioPercentage *100 ;
+  const averageAudioPercentage = totalAudioPercentage / totalAudios; // Corrected calculation
   console.log(`Average Audio Loaded: ${averageAudioPercentage.toFixed(2)}%`);
 
   return { allLoaded, averageAudioPercentage };
