@@ -227,13 +227,13 @@ function preloadRickRoll() {
     }, 60000); //
 
     let videoLoadedPercentage = 0;
-    if (buffered.length > 0) {
+    if (buffered.length > 0 && buffered.length < 100) {
       const loaded = buffered.end(0); // Get how much of the video is buffered
       videoLoadedPercentage = (loaded / duration) * 100; // Calculate video loading percentage
       console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
     }
 
-    if (videoLoadedPercentage >= 100 && allLoaded()) {
+    if (videoLoadedPercentage >= 100 && audioLoaded()) {
       if (videoLoadedPercentage >= duration) {
         video.pause(); // Pause the video after it's fully buffered
         video.currentTime = 0; // Reset the playback position to the start
