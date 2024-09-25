@@ -85,24 +85,50 @@
 
 
 
-  <audio id="themeMusic"><source src="/GractionCamp2024/Audio/theme.mp3" preload="auto" type="audio/mpeg"></audio>
-  <audio id="themeMusic1"><source src="/GractionCamp2024/Audio/theme1.mp3" preload="auto" type="audio/mpeg"></audio>
-  <audio id="themeMusic2"><source src="/GractionCamp2024/Audio/theme2.mp3" preload="auto" type="audio/mpeg"></audio>
+  <audio id="themeMusic">
+    <source src="/GractionCamp2024/Audio/theme.mp3" preload="auto" type="audio/mpeg">
+  </audio>
+  <audio id="themeMusic1">
+    <source src="/GractionCamp2024/Audio/theme1.mp3" preload="auto" type="audio/mpeg">
+  </audio>
+  <audio id="themeMusic2">
+    <source src="/GractionCamp2024/Audio/theme2.mp3" preload="auto" type="audio/mpeg">
+  </audio>
 
 
 
-  <audio id="blueTheme" preload="auto" loop><source src="/GractionCamp2024/Audio/blueDaBaDeeTrimmed.mp3" type="audio/mpeg"></audio>
-  <audio id="greenTheme" preload="auto" loop><source src="/GractionCamp2024/Audio/greenEggsTrimmed.mp3" type="audio/mpeg"></audio>
-  <audio id="orangeTheme" preload="auto" loop><source src="/GractionCamp2024/Audio/orangeSkyTrimmed.mp3" type="audio/mpeg"></audio>
-  <audio id="yellowTheme" preload="auto" loop><source src="/GractionCamp2024/Audio/yellowSubTrimmed.mp3" type="audio/mpeg"></audio>
-  <audio id="purpleTheme" preload="auto" loop><source src="/GractionCamp2024/Audio/purpleTrimmed.mp3" type="audio/mpeg"></audio>
-  <audio id="adminTheme" preload="auto" loop><source src="/GractionCamp2024/Audio/byebyebyeTrimmed.mp3" type="audio/mpeg"></audio>
-  <audio id="miiTheme" preload="auto" loop><source src="/GractionCamp2024/Audio/miiTheme.mp3" type="audio/mpeg"></audio>
-  <audio id="miiShop" preload="auto" loop><source src="/GractionCamp2024/Audio/miiShop.mp3" type="audio/mpeg"></audio>
+  <audio id="blueTheme" preload="auto" loop>
+    <source src="/GractionCamp2024/Audio/blueDaBaDeeTrimmed.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="greenTheme" preload="auto" loop>
+    <source src="/GractionCamp2024/Audio/greenEggsTrimmed.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="orangeTheme" preload="auto" loop>
+    <source src="/GractionCamp2024/Audio/orangeSkyTrimmed.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="yellowTheme" preload="auto" loop>
+    <source src="/GractionCamp2024/Audio/yellowSubTrimmed.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="purpleTheme" preload="auto" loop>
+    <source src="/GractionCamp2024/Audio/purpleTrimmed.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="adminTheme" preload="auto" loop>
+    <source src="/GractionCamp2024/Audio/byebyebyeTrimmed.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="miiTheme" preload="auto" loop>
+    <source src="/GractionCamp2024/Audio/miiTheme.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="miiShop" preload="auto" loop>
+    <source src="/GractionCamp2024/Audio/miiShop.mp3" type="audio/mpeg">
+  </audio>
 
 
-  <audio id="failSound" preload="auto"><source src="/GractionCamp2024/Audio/fail.mp3" type="audio/mpeg"></audio>
-  <audio id="unlockSound" preload="auto"><source src="/GractionCamp2024/Audio/unlock.mp3" type="audio/mpeg"></audio>
+  <audio id="failSound" preload="auto">
+    <source src="/GractionCamp2024/Audio/fail.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="unlockSound" preload="auto">
+    <source src="/GractionCamp2024/Audio/unlock.mp3" type="audio/mpeg">
+  </audio>
 
 
 
@@ -222,7 +248,7 @@
 
   </div>
 
-  
+
 
 
   <div id="adminPage" class="page" style="display: none;">
@@ -244,7 +270,8 @@
       <div class="middleStripe">
         <div id="content">
           <p id="resultsContent" style="display: none;"></p>
-          <button id="playButton" onclick="playRickRoll(); endTimer()" style="display: inline;">See Final Results</button>
+          <button id="playButton" onclick="playRickRoll(); endTimer()" style="display: inline;">See Final
+            Results</button>
         </div>
       </div>
     </div>
@@ -446,7 +473,18 @@
 
 
 
-
+  <div id="timer" style="
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  transform: rotate(-90deg);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  border-radius: 5px;
+">00h 00m 00s</div>
 
   <div id="iphoneline" class="bottomline" style="display:none"></div>
   <script src="script.js"></script>
@@ -498,7 +536,7 @@
         }
       });
     }
-    
+
     window.onload = () => {
       preloadAllAudios();
     };
