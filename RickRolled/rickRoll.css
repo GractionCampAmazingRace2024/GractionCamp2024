@@ -180,7 +180,7 @@ button {
     font-size: calc(min(9vw, 9vh)); /* Font size based on viewport */
 }
 
-.challenges {
+.challenge {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
     padding: 0;

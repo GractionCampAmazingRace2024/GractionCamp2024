@@ -444,7 +444,7 @@ function playRickRoll() {
   document.getElementById("rickrollButton").innerHTML = "Back";
   document.querySelector(".mainBody").style.backgroundColor = "red";
 
-  let headerLine = `<div class="resultHeaders">You've completed The Amazing Race 2024!</div> <div class="resultHeaders">Congratulations!!! Make sure to screenshot your results!</div> <div class="resultHeaders">Below are your challenge times!</div><div class="challenge">`;
+  let headerLine = `<div class="resultHeaders">AMAZING RACE 2024 Results!</div> <div class="resultHeaders">Make sure to screenshot your results!</div> <div class="resultHeaders">Below are your challenge times!</div><div class="challenge">`;
 
   let resultsContent = ``;
 
@@ -633,15 +633,12 @@ function updateChallengeTimer() {
   const fixedTimer = document.getElementById("fixedTimer");
   const indexPage = document.getElementById("indexPage");
   const loadingPage = document.getElementById("loadingPage");
-  const rickRollPage = document.getElementById("rickRollPage");
 
-  const indexPageVisible = getComputedStyle(indexPage).display === "none";
-  const loadingPageVisible = getComputedStyle(loadingPage).display === "none";
-  const rickRollPageVisible = getComputedStyle(rickRollPage).display === "none";
+  const indexPageVisible = getComputedStyle(indexPage).display === "block";
+  const loadingPageVisible = getComputedStyle(loadingPage).display === "block";
 
-
-  if (indexPageVisible && loadingPageVisible && rickRollPageVisible) {
-    fixedTimer.style.display = "inline-block"; // Show the timer
+  if (!indexPageVisible && !loadingPageVisible) {
+    fixedTimer.style.display = "block"; // Show the timer
     const now = Date.now();
     const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
     const hours = Math.floor(elapsed / 3600);
