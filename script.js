@@ -311,7 +311,7 @@ function updateChallengeTier() {
 
   // If neither indexPage nor loadingPage is visible, update the timer
   if (!indexPageVisible && !loadingPageVisible) {
-    document.getElementById('timer').style.display="block"
+    document.getElementById('timer').style.display="inline-block"
     const now = new Date();
     const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
     const hours = Math.floor(elapsed / 3600);
@@ -322,7 +322,7 @@ function updateChallengeTier() {
     document.getElementById('timer').innerText = formattedTime;
   }
   else{
-    document.getElementById('timer').style.display="block"
+    document.getElementById('timer').style.display="none"
   }
   
   setTimeout(updateChallengeTier, 1000); // Continue the loop
