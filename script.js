@@ -294,7 +294,7 @@ function runningTime(){
   return formattedTime;
   };
 
-function challengeStart() {
+function challengeStartTimer() {
   challengeStart = Date.now();
   console.log("Challenge started at: " + new Date(challengeStart));
   const now = new Date();
@@ -308,7 +308,7 @@ function challengeStart() {
 };
 
 
-function challengeEnd() {
+function challengeEndTimer() {
   challengeEnd = Date.now();
   console.log("Challenge ended at: " + new Date(challengeEnd));
 };
