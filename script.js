@@ -1,67 +1,71 @@
 const userCredentials = {
   green: [
-    { password: "Gr33nF0l!@ge", page: "c9", css: "CSS/green.css" },
-    { password: "Fr0gst0mp!ng", page: "c5", css: "CSS/green.css" },
-    { password: "Gr@ssBl@de", page: "c2", css: "CSS/green.css" },
-    { password: "F!eld0fDr3@mz", page: "c7", css: "CSS/green.css" },
-    { password: "M!ntyM0rning", page: "c4", css: "CSS/green.css" },
-    { password: "F0r3stC@n0py", page: "c3", css: "CSS/green.css" },
-    { password: "Gr33nG!ant", page: "c6", css: "CSS/green.css" },
-    { password: "LushV3rd@nt", page: "c1", css: "CSS/green.css" },
-    { password: "Spr!ngL3@ps", page: "c8", css: "CSS/green.css" },
-    { password: "JONO", page: "c10", css: "CSS/green.css" }, // Added
+    { password: "Gr33nF0l!@ge", page: "Challenge9", css: "CSS/green.css" },
+    { password: "Fr0gst0mp!ng", page: "Challenge5", css: "CSS/green.css" },
+    { password: "Gr@ssBl@de", page: "Challenge2", css: "CSS/green.css" },
+    { password: "F!eld0fDr3@mz", page: "Challenge7", css: "CSS/green.css" },
+    { password: "M!ntyM0rning", page: "Challenge4", css: "CSS/green.css" },
+    { password: "F0r3stC@n0py", page: "Challenge3", css: "CSS/green.css" },
+    { password: "Gr33nG!ant", page: "Challenge6", css: "CSS/green.css" },
+    { password: "LushV3rd@nt", page: "Challenge1", css: "CSS/green.css" },
+    { password: "Spr!ngL3@ps", page: "Challenge8", css: "CSS/green.css" },
+    { password: "JONO", page: "Challenge10", css: "CSS/green.css" }, // Added
   ],
   purple: [
-    { password: "Purpl3V!0l3t", page: "c5", css: "CSS/purple.css" },
-    { password: "L@v3nd3rDr3@m", page: "c3", css: "CSS/purple.css" },
-    { password: "R0yalR@!n", page: "c7", css: "CSS/purple.css" },
-    { password: "Gr@p3Spl@sh", page: "c2", css: "CSS/purple.css" },
-    { password: "Am3thystGl0w", page: "c4", css: "CSS/purple.css" },
-    { password: "Tw!l!ghtDr!ft", page: "c8", css: "CSS/purple.css" },
-    { password: "V!0l3tM!st", page: "c1", css: "CSS/purple.css" },
-    { password: "Purpl3P@th", page: "c10", css: "CSS/purple.css" },
-    { password: "Plum3cst@sy", page: "c6", css: "CSS/purple.css" },
-    { password: "PRIYA", page: "c9", css: "CSS/purple.css" }, // Added
+    { password: "Purpl3V!0l3t", page: "Challenge5", css: "CSS/purple.css" },
+    { password: "L@v3nd3rDr3@m", page: "Challenge3", css: "CSS/purple.css" },
+    { password: "R0yalR@!n", page: "Challenge7", css: "CSS/purple.css" },
+    { password: "Gr@p3Spl@sh", page: "Challenge2", css: "CSS/purple.css" },
+    { password: "Am3thystGl0w", page: "Challenge4", css: "CSS/purple.css" },
+    { password: "Tw!l!ghtDr!ft", page: "Challenge8", css: "CSS/purple.css" },
+    { password: "V!0l3tM!st", page: "Challenge1", css: "CSS/purple.css" },
+    { password: "Purpl3P@th", page: "Challenge10", css: "CSS/purple.css" },
+    { password: "Plum3cst@sy", page: "Challenge6", css: "CSS/purple.css" },
+    { password: "PRIYA", page: "Challenge9", css: "CSS/purple.css" }, // Added
   ],
   blue: [
-    { password: "Blu3T!d3", page: "c7", css: "CSS/blue.css" },
-    { password: "W@v3r!d3r", page: "c9", css: "CSS/blue.css" },
-    { password: "S@pph!r3Spl@sh", page: "c3", css: "CSS/blue.css" },
-    { password: "0c3@nD3pth", page: "c6", css: "CSS/blue.css" },
-    { password: "Blu3Lag00n", page: "c4", css: "CSS/blue.css" },
-    { password: "Aqu@t!cDr34m", page: "c10", css: "CSS/blue.css" },
-    { password: "BluM00n", page: "c5", css: "CSS/blue.css" },
-    { password: "Blu3Sk!es", page: "c2", css: "CSS/blue.css" },
-    { password: "D33pS3@V3ntur3", page: "c8", css: "CSS/blue.css" },
-    { password: "ASHLYN", page: "c1", css: "CSS/blue.css" }, // Added
+    { password: "Blu3T!d3", page: "Challenge7", css: "CSS/blue.css" },
+    { password: "W@v3r!d3r", page: "Challenge9", css: "CSS/blue.css" },
+    { password: "S@pph!r3Spl@sh", page: "Challenge3", css: "CSS/blue.css" },
+    { password: "0c3@nD3pth", page: "Challenge6", css: "CSS/blue.css" },
+    { password: "Blu3Lag00n", page: "Challenge4", css: "CSS/blue.css" },
+    { password: "Aqu@t!cDr34m", page: "Challenge10", css: "CSS/blue.css" },
+    { password: "BluM00n", page: "Challenge5", css: "CSS/blue.css" },
+    { password: "Blu3Sk!es", page: "Challenge2", css: "CSS/blue.css" },
+    { password: "D33pS3@V3ntur3", page: "Challenge8", css: "CSS/blue.css" },
+    { password: "ASHLYN", page: "Challenge1", css: "CSS/blue.css" }, // Added
   ],
   orange: [
-    { password: "0r@ng3Sunr!s3", page: "c3", css: "CSS/orange.css" },
-    { password: "T!gerStr!p3s", page: "c9", css: "CSS/orange.css" },
-    { password: "CitrusFl@re", page: "c7", css: "CSS/orange.css" },
-    { password: "FieryBl@z3", page: "c6", css: "CSS/orange.css" },
-    { password: "T@ng3rin3Sp!c3", page: "c1", css: "CSS/orange.css" },
-    { password: "Autumn@ir", page: "c2", css: "CSS/orange.css" },
-    { password: "M@ndr!nG!ng3r", page: "c5", css: "CSS/orange.css" },
-    { password: "Bl@z!ngStr!d3", page: "c10", css: "CSS/orange.css" },
-    { password: "0r@ng3R@d!@nc3", page: "c4", css: "CSS/orange.css" },
-    { password: "JAMES", page: "c8", css: "CSS/orange.css" }, // Added
+    { password: "0r@ng3Sunr!s3", page: "Challenge3", css: "CSS/orange.css" },
+    { password: "T!gerStr!p3s", page: "Challenge9", css: "CSS/orange.css" },
+    { password: "CitrusFl@re", page: "Challenge7", css: "CSS/orange.css" },
+    { password: "FieryBl@z3", page: "Challenge6", css: "CSS/orange.css" },
+    { password: "T@ng3rin3Sp!c3", page: "Challenge1", css: "CSS/orange.css" },
+    { password: "Autumn@ir", page: "Challenge2", css: "CSS/orange.css" },
+    { password: "M@ndr!nG!ng3r", page: "Challenge5", css: "CSS/orange.css" },
+    { password: "Bl@z!ngStr!d3", page: "Challenge10", css: "CSS/orange.css" },
+    { password: "0r@ng3R@d!@nc3", page: "Challenge4", css: "CSS/orange.css" },
+    { password: "JAMES", page: "Challenge8", css: "CSS/orange.css" }, // Added
   ],
   yellow: [
-    { password: "Y3ll0wL!ght", page: "c4", css: "CSS/yellow.css" },
-    { password: "G0ld3nB3@ms", page: "c1", css: "CSS/yellow.css" },
-    { password: "L3m0nSpr!tz", page: "c9", css: "CSS/yellow.css" },
-    { password: "Sunn!D@ze", page: "c6", css: "CSS/yellow.css" },
-    { password: "H0n3yGl0w", page: "c5", css: "CSS/yellow.css" },
-    { password: "B!tt3rSw33t", page: "c2", css: "CSS/yellow.css" },
-    { password: "Saffr0nFl@r3", page: "c8", css: "CSS/yellow.css" },
-    { password: "M@r!g0ldSpr!nkl3s", page: "c7", css: "CSS/yellow.css" },
-    { password: "M!dD@ySh!n3", page: "c3", css: "CSS/yellow.css" },
-    { password: "CIARA", page: "c10", css: "CSS/yellow.css" }, // Added
+    { password: "Y3ll0wL!ght", page: "Challenge4", css: "CSS/yellow.css" },
+    { password: "G0ld3nB3@ms", page: "Challenge1", css: "CSS/yellow.css" },
+    { password: "L3m0nSpr!tz", page: "Challenge9", css: "CSS/yellow.css" },
+    { password: "Sunn!D@ze", page: "Challenge6", css: "CSS/yellow.css" },
+    { password: "H0n3yGl0w", page: "Challenge5", css: "CSS/yellow.css" },
+    { password: "B!tt3rSw33t", page: "Challenge2", css: "CSS/yellow.css" },
+    { password: "Saffr0nFl@r3", page: "Challenge8", css: "CSS/yellow.css" },
+    {
+      password: "M@r!g0ldSpr!nkl3s",
+      page: "Challenge7",
+      css: "CSS/yellow.css",
+    },
+    { password: "M!dD@ySh!n3", page: "Challenge3", css: "CSS/yellow.css" },
+    { password: "CIARA", page: "Challenge10", css: "CSS/yellow.css" }, // Added
   ],
 
   admin: [
-    { password: "admin", page: "c1", css: "CSS/admin.css" },
+    { password: "admin", page: "Challenge1", css: "CSS/admin.css" },
     { password: "settings", page: "adminPage", css: "CSS/admin.css" },
     {
       password: "rrtime",
@@ -70,7 +74,6 @@ const userCredentials = {
     },
   ],
 };
-
 
 let currentThemeMusicId = ""; // Variable to store the currently playing theme music
 // let challengeStart, challengeEnd;
@@ -157,25 +160,23 @@ const teamThemeMusic = {
   admin: 0,
 };
 
-
-
 function audioLoaded() {
   let allLoaded = true;
-  let totalAudioPercentage = 0; 
-  let totalAudios = audioIds.length; 
-  let bufferedInfo = ""; 
+  let totalAudioPercentage = 0;
+  let totalAudios = audioIds.length;
+  let bufferedInfo = "";
 
   audioIds.forEach((id) => {
     const audioElement = document.getElementById(id);
     if (audioElement) {
       const state = audioElement.readyState;
-      
+
       // Only proceed if the audio has not been marked as loaded
       if (!loadedAudioStatus[id]) {
         if (state < 4) {
           console.log(`${id} - Ready State: ${state}`);
-          allLoaded = false; 
-          bufferedInfo += `<div id='fullybuffered' >${id} | 100% Loaded</div>`; 
+          allLoaded = false;
+          bufferedInfo += `<div id='fullybuffered' >${id} | 100% Loaded</div>`;
         }
 
         // Calculate percentage of audio loaded
@@ -183,7 +184,9 @@ function audioLoaded() {
           const bufferedAmount = audioElement.buffered.end(0);
           const totalDuration = audioElement.duration;
           const loadedPercentage = (bufferedAmount / totalDuration) * 100;
-          bufferedInfo += `<div id='buffering' >${id} | Loading: ${Math.round(loadedPercentage.toFixed(2))}%</div>`;
+          bufferedInfo += `<div id='buffering' >${id} | Loading: ${Math.round(
+            loadedPercentage.toFixed(2)
+          )}%</div>`;
           console.log(`${id} - Loaded: ${loadedPercentage.toFixed(2)}%`);
 
           // Mark audio as loaded if fully buffered
@@ -191,7 +194,7 @@ function audioLoaded() {
             loadedAudioStatus[id] = true; // Mark as loaded
           }
 
-          totalAudioPercentage += loadedPercentage; 
+          totalAudioPercentage += loadedPercentage;
         }
       } else {
         // If already loaded, consider it fully buffered
@@ -202,17 +205,17 @@ function audioLoaded() {
       console.log(`${id} not found.`);
     }
   });
-  
+
   document.getElementById("adminTest").innerHTML = bufferedInfo;
 
-  const averageAudioPercentage = totalAudioPercentage / totalAudios; 
+  const averageAudioPercentage = totalAudioPercentage / totalAudios;
   console.log(`Average Audio Loaded: ${averageAudioPercentage.toFixed(2)}%`);
 
   // Update allLoaded based on loadedAudioStatus
   allLoaded = Object.values(loadedAudioStatus).length === totalAudios;
 
   return { allLoaded, averageAudioPercentage };
-};
+}
 
 function preloader() {
   playThemeMusic("miiTheme");
@@ -272,13 +275,9 @@ function preloader() {
       clearInterval(checkBuffering); // Stop checking when the video is fully buffered
     }
   }, 500); // Check every 500 milliseconds
-};
+}
 
-
-
-
-
-function runningTime(){
+function runningTime() {
   const totalTime = (challengeEnd - challengeStart) / 1000; // Convert milliseconds to seconds
 
   const hours = Math.floor(totalTime / 3600);
@@ -286,18 +285,19 @@ function runningTime(){
   const seconds = Math.floor(totalTime % 60);
 
   // Format the output to always show two digits for minutes and seconds
-  const formattedTime = `${hours}hours ${String(minutes).padStart(2, '0')}minutes ${String(seconds).padStart(2, '0')}seconds`;
-  
+  const formattedTime = `${hours}hours ${String(minutes).padStart(
+    2,
+    "0"
+  )}minutes ${String(seconds).padStart(2, "0")}seconds`;
+
   console.log("Total running time:", formattedTime);
   return formattedTime;
-  };
+}
 
 function challengeStartTimer() {
   challengeStart = Date.now();
   console.log("Challenge started at: " + new Date(challengeStart));
-
-};
-
+}
 
 function challengeEndTimer() {
   challengeEnd = Date.now();
@@ -308,35 +308,36 @@ function challengeEndTimer() {
 }
 
 function updateChallengeTimer() {
-  const indexPage = document.getElementById('indexPage');
-  const loadingPage = document.getElementById('loadingPage');
+  const indexPage = document.getElementById("indexPage");
+  const loadingPage = document.getElementById("loadingPage");
 
-  const indexPageVisible = getComputedStyle(indexPage).display === 'block';
-  const loadingPageVisible = getComputedStyle(loadingPage).display === 'block';
-
+  const indexPageVisible = getComputedStyle(indexPage).display === "block";
+  const loadingPageVisible = getComputedStyle(loadingPage).display === "block";
 
   if (!indexPageVisible && !loadingPageVisible && timerRunning) {
-    document.getElementById('timer').style.display="inline-block";
+    document.getElementById("timer").style.display = "inline-block";
     const now = new Date();
     const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
     const hours = Math.floor(elapsed / 3600);
     const minutes = Math.floor((elapsed % 3600) / 60);
     const seconds = elapsed % 60;
-    const formattedTime = `${hours}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
-    
-    document.getElementById('timer').innerText = formattedTime;
+    const formattedTime = `${hours}h ${String(minutes).padStart(
+      2,
+      "0"
+    )}m ${String(seconds).padStart(2, "0")}s`;
+
+    document.getElementById("timer").innerText = formattedTime;
   } else {
-    document.getElementById('timer').style.display="none";
+    document.getElementById("timer").style.display = "none";
   }
-  
+
   setTimeout(updateChallengeTimer, 1000); // Continue the loop
 }
-
 
 function getRandomErrorMessage() {
   const randomIndex = Math.floor(Math.random() * errorMessages.length);
   return errorMessages[randomIndex];
-};
+}
 
 // Returns each teams page to the index and starts a theme music
 function returnToIndex() {
@@ -369,7 +370,7 @@ function returnToIndex() {
   const randomThemeMusicElement =
     themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
   playThemeMusic(randomThemeMusicElement);
-};
+}
 
 // Shows the indexPage and closes off the loading page and starting the theme musc
 function homePage() {
@@ -381,7 +382,7 @@ function homePage() {
   document.getElementById("iphoneline").style.display = "block";
   document.body.style.backgroundColor = "yellow";
   document.documentElement.style.backgroundColor = "yellow";
-};
+}
 
 // Team music player // Play team music
 function playThemeMusic(audioFile, startTime = 0) {
@@ -401,22 +402,22 @@ function playThemeMusic(audioFile, startTime = 0) {
   } else {
     console.error(`Audio file with ID ${audioFile} not found`);
   }
-};
-
-
-
+}
 
 function showAdminTest() {
   const adminTestElement = document.getElementById("adminTest");
   const adminButton = document.getElementById("adminButton");
-  if (adminTestElement.style.display === "none" || adminTestElement.style.display === "") {
+  if (
+    adminTestElement.style.display === "none" ||
+    adminTestElement.style.display === ""
+  ) {
     adminTestElement.style.display = "block"; // Show the element
-    adminButton.style.color = "#12E2DC"
+    adminButton.style.color = "#12E2DC";
   } else {
     adminTestElement.style.display = "none"; // Hide the element
-    adminButton.style.color = "#333"
+    adminButton.style.color = "#333";
   }
-};
+}
 
 function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
@@ -443,15 +444,15 @@ function playRickRoll() {
   document.getElementById("rickrollButton").innerHTML = "Back";
   document.querySelector(".mainBody").style.backgroundColor = "red";
 
-  let headerLine = `<p>You've completed The Amazing Race 2024!</p>Congratulations!!! Make sure to screenshot your results!<p></p><p>Below are your challenge times!</p>`; 
-  let resultsContent = ``
+  let headerLine = `<p>You've completed The Amazing Race 2024!</p>Congratulations!!! Make sure to screenshot your results!<p></p><p>Below are your challenge times!</p>`;
+  let resultsContent = ``;
 
-  
   roundTimers.forEach((time, index) => {
-    resultsContent += resultsContent += `<p class="challenge">${visitedPages[index]}: ${time}</p>`;
+    resultsContent +=
+      resultsContent += `<p class="challenge">${visitedPages[index]}: ${time}</p>`;
   });
-  results.innerHTML = (headerLine += resultsContent);
-};
+  results.innerHTML = headerLine += resultsContent;
+}
 
 // Show/hide dropdown on button click
 document
@@ -514,11 +515,6 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
   });
 });
 
-
-
-
-
-
 document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault(); // Prevent form from submitting automatically
   const username = document.getElementById("teamSelection").value;
@@ -526,11 +522,13 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   document.getElementById("errorMessage").textContent = "";
 
   if (!username) {
-    document.getElementById("errorMessage").textContent = "Please select a team first.";
+    document.getElementById("errorMessage").textContent =
+      "Please select a team first.";
     return;
   }
   if (!password) {
-    document.getElementById("errorMessage").textContent = "Please enter your password.";
+    document.getElementById("errorMessage").textContent =
+      "Please enter your password.";
     return;
   }
 
@@ -542,28 +540,37 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       sessionStorage.setItem("authenticatedUser", username);
       sessionStorage.setItem("authenticatedPassword", password);
 
-      document.querySelectorAll(".page").forEach((page) => (page.style.display = "none"));
+      document
+        .querySelectorAll(".page")
+        .forEach((page) => (page.style.display = "none"));
       const nextPage = document.getElementById(userData.page);
       nextPage.style.display = "block";
 
       playThemeMusic("unlockSound");
 
-      // If this is the first visit to the page, start a new timer
-      if (!visitedPages.includes(userData.page) && userData.page != 'indexPage') {
+      // When handling the login form submission or navigation to a new page
+      if (
+        !visitedChallenges.includes(userData.page) &&
+        userData.page !== "indexPage"
+      ) {
         if (timerRunning) {
-          challengeEndTimer(); // End previous timer
+          challengeEndTimer(); // End previous timer if there is one
         }
-        visitedPages.push(userData.page); // Mark page as visited
-        challengeStartTimer(); // Start new timer
+
+        // Check if the current page is a challenge page
+        if (isChallengePage(userData.page)) {
+          visitedChallenges.push(userData.page); // Mark challenge as visited
+          challengeStartTimer(); // Start new timer for this challenge
+        }
       }
 
       document.getElementById("iphoneline").style.display = "none";
       const linkElement = document.getElementById("dynamic-css");
       linkElement.href = `/GractionCamp2024/${userData.css}`;
       console.log("User Data / CSS is: ", userData.css);
-
     } else {
-      document.getElementById("errorMessage").textContent = getRandomErrorMessage();
+      document.getElementById("errorMessage").textContent =
+        getRandomErrorMessage();
 
       // Play fail sound
       const failSound = document.getElementById("failSound");
@@ -574,7 +581,8 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
       failSound.addEventListener("ended", () => {
         if (currentThemeMusicId) {
-          const currentMusicElement = document.getElementById(currentThemeMusicId);
+          const currentMusicElement =
+            document.getElementById(currentThemeMusicId);
           if (currentMusicElement) {
             currentMusicElement.volume = 1; // Restore to original volume
           }
@@ -582,33 +590,31 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       });
     }
   } else {
-    document.getElementById("errorMessage").textContent = getRandomErrorMessage();
+    document.getElementById("errorMessage").textContent =
+      getRandomErrorMessage();
   }
 });
 
-
-
-
-
-
-
-
 let challengeStart = null; // Start time for the current challenge
-let challengeEnd = null;   // End time for the current challenge
-let timerRunning = false;  // Flag to indicate if a timer is running
-let roundTimers = [];      // Store total times between challenges
-let visitedPages = [];     // Track pages that have already been visited
+let challengeEnd = null; // End time for the current challenge
+let timerRunning = false; // Flag to indicate if a timer is running
+let roundTimers = []; // Store total times between challenges
+let visitedPages = []; // Track pages that have already been visited
 
-console.log("Visited Pages: ",visitedPages);
+console.log(visitedPages);
+console.log("Visited Pages: ", visitedPages);
 
 function runningTime() {
   const totalTime = (challengeEnd - challengeStart) / 1000; // Convert to seconds
   const hours = Math.floor(totalTime / 3600);
   const minutes = Math.floor((totalTime % 3600) / 60);
   const seconds = Math.floor(totalTime % 60);
-  
+
   // Format the output to always show two digits for minutes and seconds
-  const formattedTime = `${hours}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
+  const formattedTime = `${hours}h ${String(minutes).padStart(
+    2,
+    "0"
+  )}m ${String(seconds).padStart(2, "0")}s`;
   return formattedTime;
 }
 
@@ -627,24 +633,32 @@ function challengeEndTimer() {
 }
 
 function updateChallengeTimer() {
-  const indexPage = document.getElementById('indexPage');
-  const loadingPage = document.getElementById('loadingPage');
+  const indexPage = document.getElementById("indexPage");
+  const loadingPage = document.getElementById("loadingPage");
 
-  const indexPageVisible = getComputedStyle(indexPage).display === 'block';
-  const loadingPageVisible = getComputedStyle(loadingPage).display === 'block';
+  const indexPageVisible = getComputedStyle(indexPage).display === "block";
+  const loadingPageVisible = getComputedStyle(loadingPage).display === "block";
 
   if (!indexPageVisible && !loadingPageVisible && timerRunning) {
-    document.getElementById('fixedTimer').style.display = "inline-block";
+    document.getElementById("fixedTimer").style.display = "inline-block";
     const now = new Date();
     const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
     const hours = Math.floor(elapsed / 3600);
     const minutes = Math.floor((elapsed % 3600) / 60);
     const seconds = elapsed % 60;
-    const formattedTime = `${hours}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
-    document.getElementById('timer').innerText = formattedTime;
+    const formattedTime = `${hours}h ${String(minutes).padStart(
+      2,
+      "0"
+    )}m ${String(seconds).padStart(2, "0")}s`;
+    document.getElementById("timer").innerText = formattedTime;
   } else {
-    document.getElementById('fixedTimer').style.display = "none";
+    document.getElementById("fixedTimer").style.display = "none";
   }
 
   setTimeout(updateChallengeTimer, 1000); // Continue the loop
+}
+
+// Function to check if the page is a challenge page
+function isChallengePage(page) {
+  return page.startsWith("Challenge"); // Adjust this condition based on your actual challenge page naming convention
 }

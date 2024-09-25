@@ -164,26 +164,23 @@ button {
 
 
 
-#challengeResults {
+/* #challengeResults {
     font-size: calc(min(10vw, 10vh));
-}
+} */
 
 
 #resultsContent {
     display: grid;
-    grid-template-columns: 1fr; /* Start with a single column */
-    grid-auto-rows: auto; /* Automatically size rows based on content */
-    grid-gap: calc(min(30vw, 30vh)); /* Apply the gap to both columns and rows */
+    grid-template-columns: 1fr; /* One column for the first three lines of text */
     font-size: calc(min(10vw, 10vh)); /* Font size based on viewport */
 }
 
-#resultsContent > .challenge:nth-child(4) ~ .challenge {
-    grid-template-columns: repeat(2, 1fr); /* Start two columns from the 4th challenge onward */
-}
-
 .challenge {
+    display: grid; /* Use grid for challenge times */
+    grid-template-columns: repeat(2, 1fr); /* Two columns for the challenge times */
     padding: 0;
     text-align: center;
     margin: 0;
-    font-size: calc(min(8vh, 8vw)); /* Slightly smaller font than the parent grid */
+    font-size: calc(min(8vh, 8vw)); 
+    grid-column-gap: calc(min30vh, 30vw);
 }
