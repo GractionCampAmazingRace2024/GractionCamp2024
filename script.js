@@ -295,7 +295,7 @@ function runningTime(){
 
 function challengeStartTimer() {
   challengeStart = Date.now();
-  updateChallengeTier();
+  updateChallengeTimer();
   console.log("Challenge started at: " + new Date(challengeStart));
 
 };
