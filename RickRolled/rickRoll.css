@@ -167,23 +167,22 @@ button {
 
 #resultsContent {
     display: grid;
-    grid-template-rows: auto 1fr; /* First three lines take up space, then challenges */
+    grid-template-rows: auto 1fr; 
     font-size: calc(min(10vw, 10vh)); /* Font size based on viewport */
-    margin-bottom: 20px; /* Add some spacing between the header and challenges */
 }
 
 .challenge {
-    display: grid; /* Use grid for challenge times */
-    grid-template-columns: repeat(2, 1fr); /* Two columns for the challenge times */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
     padding: 0;
     text-align: center;
     margin: 0;
-    font-size: calc(min(8vh, 8vw)); 
     grid-column-gap: calc(min(30vh, 30vw));
 }
 
-
-.challenge p {
-    margin: 0; 
-    padding: 10px; 
+.resultHeaders{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: calc(min(7vw, 7vh)); /* Font size based on viewport */
 }

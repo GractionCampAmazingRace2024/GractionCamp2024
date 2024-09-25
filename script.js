@@ -444,11 +444,12 @@ function playRickRoll() {
   document.getElementById("rickrollButton").innerHTML = "Back";
   document.querySelector(".mainBody").style.backgroundColor = "red";
 
-  let headerLine = `<p>You've completed The Amazing Race 2024!</p> <p>Congratulations!!! Make sure to screenshot your results!</p> <p>Below are your challenge times!</p>`;
+  let headerLine = `<div class="resultHeaders">You've completed The Amazing Race 2024!</div> <div class="resultHeaders">Congratulations!!! Make sure to screenshot your results!</div> <div class="resultHeaders">Below are your challenge times!</div><div class="challenge"></div>`;
+
   let resultsContent = ``;
 
   roundTimers.forEach((time, index) => {
-      resultsContent += `<p class="challenge">${visitedChallenges[index]}: ${time}</p>`;
+      resultsContent += `<p class="challenges">${visitedChallenges[index]}: ${time}</p>`;
   });
   results.innerHTML = headerLine += resultsContent;
 }
@@ -629,30 +630,31 @@ function challengeEndTimer() {
 }
 
 function updateChallengeTimer() {
+  const fixedTimer = document.getElementById("fixedTimer");
   const indexPage = document.getElementById("indexPage");
   const loadingPage = document.getElementById("loadingPage");
 
-  const indexPageVisible = getComputedStyle(indexPage).display === "block";
-  const loadingPageVisible = getComputedStyle(loadingPage).display === "block";
+  const indexPageVisible = getComputedStyle(indexPage).display === "none";
+  const loadingPageVisible = getComputedStyle(loadingPage).display === "none";
+  const rickRollPageVisible = getComputedStyle(rickRollPage).display === "none";
 
-  if (!indexPageVisible && !loadingPageVisible && timerRunning) {
-    document.getElementById("fixedTimer").style.display = "inline-block";
-    const now = new Date();
+
+  if (indexPageVisible && loadingPageVisible && rickRollPageVisible) {
+    fixedTimer.style.display = "inline-block"; // Show the timer
+    const now = Date.now();
     const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
     const hours = Math.floor(elapsed / 3600);
     const minutes = Math.floor((elapsed % 3600) / 60);
     const seconds = elapsed % 60;
-    const formattedTime = `${hours}h ${String(minutes).padStart(
-      2,
-      "0"
-    )}m ${String(seconds).padStart(2, "0")}s`;
-    document.getElementById("timer").innerText = formattedTime;
+    const formattedTime = `${hours}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
+    fixedTimer.innerText = formattedTime; // Display the timer text
   } else {
-    document.getElementById("fixedTimer").style.display = "none";
+    fixedTimer.style.display = "none"; // Hide the timer
   }
 
   setTimeout(updateChallengeTimer, 1000); // Continue the loop
 }
+
 
 // Function to check if the page is a challenge page
 function isChallengePage(page) {
