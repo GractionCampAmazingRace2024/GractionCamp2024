@@ -362,7 +362,7 @@ function playRickRoll() {
   const results = document.getElementById("resultsContent");
 
   document.getElementById("rickRollPage").style.display = "block";
-  document.getElementById("mainBody").style.backgroundColor = "black";
+  document.querySelector(".mainBody").style.backgroundColor = "black";
   playButton.style.display = "none";
   video.style.display = "block";
   videoContainer.style.display = "flex";
@@ -379,7 +379,8 @@ function playRickRoll() {
     returnToIndex();
   };
   document.getElementById("rickrollButton").innerHTML = "Back";
-  document.getElementById("mainBody").style.backgroundColor = "red";
+  document.querySelector(".mainBody").style.backgroundColor = "black";
+
   results.innerHTML = "placeholder result text";
 }
 
