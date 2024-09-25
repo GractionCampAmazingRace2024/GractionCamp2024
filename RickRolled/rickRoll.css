@@ -1,26 +1,33 @@
-#rickRollPage{
+#rickRollPage {
     margin: 0;
     padding: 0;
-    overflow: hidden;  
-    overflow-y: hidden; 
-    overflow-x: hidden; 
-    width: 100vw;      
+    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 100vw;
     height: 100vh;
     background-color: red;
-    touch-action: none; /* Prevents touch scrolling */
-    overscroll-behavior: none; /* Prevents scroll bounce */
+    touch-action: none;
+    /* Prevents touch scrolling */
+    overscroll-behavior: none;
+    /* Prevents scroll bounce */
     scroll-snap-type: none;
-    user-select: none; /* Prevent text selection */
-    -webkit-user-select: none; /* Prevent selection in Safari (iOS) */
+    user-select: none;
+    /* Prevent text selection */
+    -webkit-user-select: none;
+    /* Prevent selection in Safari (iOS) */
     -moz-user-select: none;
     -ms-user-select: none;
 
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-    html, body {
+
+    html,
+    body {
         touch-action: none;
-        overscroll-behavior: none; /* Prevents scroll bounce */
+        overscroll-behavior: none;
+        /* Prevents scroll bounce */
         scroll-snap-type: none;
     }
 }
@@ -34,15 +41,16 @@ body {
     justify-content: center;
     padding: 0;
     margin: 0;
-    
+
 }
 
-.threeStripe{
+.threeStripe {
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center; /* Horizontally centers middleStripe */
-    position:absolute;
+    justify-content: center;
+    /* Horizontally centers middleStripe */
+    position: absolute;
 
     user-select: none;
     -moz-user-select: none;
@@ -50,11 +58,12 @@ body {
     -webkit-user-select: none;
     -o-user-select: none;
     touch-action: none;
-    overscroll-behavior: none; /* Prevents scroll bounce */
+    overscroll-behavior: none;
+    /* Prevents scroll bounce */
     scroll-snap-type: none;
 }
 
-.middleStripe{
+.middleStripe {
     width: 60vw;
     height: 100vh;
     background-color: black;
@@ -64,11 +73,11 @@ body {
     position: relative;
 }
 
-#content{
+#content {
     color: white;
-    width: 100vh; 
+    width: 100vh;
     height: 60vw;
-    transform: rotate(-90deg); 
+    transform: rotate(-90deg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -85,10 +94,10 @@ body {
     width: 20vw;
     height: 10vh;
     top: 0;
-    left:0vw;
+    left: 0vw;
     padding: 0;
     margin: 0;
-    background-color:transparent;
+    background-color: transparent;
     outline: none;
     border: none;
     z-index: 1000;
@@ -120,48 +129,61 @@ button {
     font-weight: bolder;
 }
 
-#resultsContent{
+#resultsContent {
     color: white;
     z-index: 9999;
 }
 
 
 #videoContainer {
-    position: fixed; /* Fix it in place over other elements */
+    position: fixed;
+    /* Fix it in place over other elements */
     top: 0;
     left: 0;
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
+    width: 100vw;
+    /* Full viewport width */
+    height: 100vh;
+    /* Full viewport height */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9998; /* High z-index to ensure it's on top of other elements */
-    background-color: rgba(0, 0, 0, 0.8); /* Optional: add a semi-transparent background */
-  }
-  
-  #rickRollVideo {
-    width: 100vh; /* Rotated to fit landscape mode */
-    transform: rotate(-90deg); /* Rotate video 90 degrees */
-    transform-origin: center center; /* Rotate from center */
-  }
+    z-index: 9998;
+    /* High z-index to ensure it's on top of other elements */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Optional: add a semi-transparent background */
+}
+
+#rickRollVideo {
+    width: 100vh;
+    /* Rotated to fit landscape mode */
+    transform: rotate(-90deg);
+    /* Rotate video 90 degrees */
+    transform-origin: center center;
+    /* Rotate from center */
+}
 
 
 
-  #challengeResults{
-    font-size: calc(min(10vw, 10vh));
-  }
-
-
-  #challengeResults {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
-    grid-gap: 10px; /* Adds space between items */
+#challengeResults {
     font-size: calc(min(10vw, 10vh));
 }
 
+
+#resultsContent {
+    display: grid;
+    grid-template-columns: 1fr; /* Start with a single column */
+    grid-auto-rows: auto; /* Automatically size rows based on content */
+    grid-gap: calc(min(30vw, 30vh)); /* Apply the gap to both columns and rows */
+    font-size: calc(min(10vw, 10vh)); /* Font size based on viewport */
+}
+
+#resultsContent > .challenge:nth-child(4) ~ .challenge {
+    grid-template-columns: repeat(2, 1fr); /* Start two columns from the 4th challenge onward */
+}
+
 .challenge {
-    padding: 10px;
-    background-color: #f0f0f0; /* Optional: style each challenge */
-    text-align: center; /* Optional: center the text */
-    border: 1px solid #ccc; /* Optional: border around challenges */
+    padding: 0;
+    text-align: center;
+    margin: 0;
+    font-size: calc(min(8vh, 8vw)); /* Slightly smaller font than the parent grid */
 }

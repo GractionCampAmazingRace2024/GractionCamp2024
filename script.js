@@ -435,7 +435,7 @@ function playRickRoll() {
     video.style.display = "none";
     videoContainer.style.display = "none";
   });
-  results.style.display = "block";
+  results.style.display = "grid";
 
   document.getElementById("rickrollButton").onclick = function () {
     returnToIndex();
@@ -443,12 +443,12 @@ function playRickRoll() {
   document.getElementById("rickrollButton").innerHTML = "Back";
   document.querySelector(".mainBody").style.backgroundColor = "red";
 
-  let headerLine = `You've completed The Amazing Race 2024! <br> Below are your challenge times!<br> Congratulations!!! Make sure to screenshot your results!<br>`; 
+  let headerLine = `<p>You've completed The Amazing Race 2024!</p>Congratulations!!! Make sure to screenshot your results!<p></p><p>Below are your challenge times!</p>`; 
   let resultsContent = ``
 
   
   roundTimers.forEach((time, index) => {
-    resultsContent += resultsContent += `<p id="challenge">${visitedPages[index]}: ${time}</p><br>`;
+    resultsContent += resultsContent += `<p class="challenge">${visitedPages[index]}: ${time}</p>`;
   });
   results.innerHTML = (headerLine += resultsContent);
 };
@@ -599,6 +599,7 @@ let timerRunning = false;  // Flag to indicate if a timer is running
 let roundTimers = [];      // Store total times between challenges
 let visitedPages = [];     // Track pages that have already been visited
 
+console.log("Visited Pages: ",visitedPages);
 
 function runningTime() {
   const totalTime = (challengeEnd - challengeStart) / 1000; // Convert to seconds
@@ -607,7 +608,7 @@ function runningTime() {
   const seconds = Math.floor(totalTime % 60);
   
   // Format the output to always show two digits for minutes and seconds
-  const formattedTime = `${hours}hours ${String(minutes).padStart(2, '0')}minutes ${String(seconds).padStart(2, '0')}seconds`;
+  const formattedTime = `${hours}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
   return formattedTime;
 }
 
