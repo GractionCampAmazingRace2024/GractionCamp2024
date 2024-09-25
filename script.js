@@ -73,7 +73,7 @@ const userCredentials = {
 
 
 let currentThemeMusicId = ""; // Variable to store the currently playing theme music
-let startTimer, endTimer;
+let challengeStart, challengeEnd;
 
 
 const errorMessages = [
@@ -281,7 +281,7 @@ function preloader() {
 
 
 function runningTime(){
-  const totalTime = (endTimer - startTimer) / 1000; // Convert milliseconds to seconds
+  const totalTime = (challengeEnd - challengeStart) / 1000; // Convert milliseconds to seconds
 
   const hours = Math.floor(totalTime / 3600);
   const minutes = Math.floor((totalTime % 3600) / 60);
@@ -294,11 +294,11 @@ function runningTime(){
   return formattedTime;
   };
 
-function startTimer() {
-  startTimer = Date.now();
-  console.log("Challenge started at: " + new Date(startTimer));
+function challengeStart() {
+  challengeStart = Date.now();
+  console.log("Challenge started at: " + new Date(challengeStart));
   const now = new Date();
-  const elapsed = Math.floor((now - startTimer) / 1000); // Time elapsed in seconds
+  const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
   const hours = Math.floor(elapsed / 3600);
   const minutes = Math.floor((elapsed % 3600) / 60);
   const seconds = elapsed % 60;
@@ -308,9 +308,9 @@ function startTimer() {
 };
 
 
-function endTimer() {
-  endTimer = Date.now();
-  console.log("Challenge ended at: " + new Date(endTimer));
+function challengeEnd() {
+  challengeEnd = Date.now();
+  console.log("Challenge ended at: " + new Date(challengeEnd));
 };
 
 
