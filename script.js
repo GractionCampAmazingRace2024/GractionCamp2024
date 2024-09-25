@@ -448,7 +448,7 @@ function playRickRoll() {
   let resultsContent = ``;
 
   roundTimers.forEach((time, index) => {
-      resultsContent += `<p class="challenge">${visitedPages[index]}: ${time}</p>`;
+      resultsContent += `<p class="challenge">${visitedChallenges[index]}: ${time}</p>`;
   });
   results.innerHTML = headerLine += resultsContent;
 }
@@ -547,6 +547,8 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
       playThemeMusic("unlockSound");
 
+      console.log("Round Timers: ", roundTimers);
+      console.log("Visited Pages: ", visitedChallenges);
       // When handling the login form submission or navigation to a new page
       if (
         !visitedChallenges.includes(userData.page) &&
@@ -599,10 +601,7 @@ let challengeEnd = null; // End time for the current challenge
 let timerRunning = false; // Flag to indicate if a timer is running
 let roundTimers = []; // Store total times between challenges
 let visitedChallenges = []; // Array to track visited challenges
-console.log(roundTimers);
-console.log("Round Timers: ", roundTimers);
-console.log(visitedChallenges);
-console.log("Visited Pages: ", visitedChallenges);
+
 
 function runningTime() {
   const totalTime = (challengeEnd - challengeStart) / 1000; // Convert to seconds
