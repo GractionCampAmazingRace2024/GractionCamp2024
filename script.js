@@ -235,8 +235,9 @@ function preloader() {
 
     const skipButton = document.getElementById("skipButton");
     setTimeout(() => {
-      skipButton.style.display = "inline"; // Show the skip button after 60 seconds
-    }, 60000);
+      skipButton.style.display = "inline";
+      // skipButton.onclick = challengeStartTimer
+    }, 15000); //TIMER FOR HOW LONG YOU WANT THE TIMER TO BE
 
     let videoLoadedPercentage = 0;
     if (buffered.length > 0) {
@@ -252,9 +253,6 @@ function preloader() {
 
     // Update button percentage
     button.innerHTML = `${totalLoadedPercentage.toFixed(2)}% Loaded`;
-
-    // TESTING PURPOSES ONLY
-    // document.getElementById("adminTest").innerHTML = `Audio Loaded: ${averageAudioPercentage}%`;
 
     // When both video and audio are fully loaded
     if (videoLoadedPercentage >= 100 && allLoaded) {
@@ -312,14 +310,13 @@ function challengeEndTimer() {
 }
 
 function updateChallengeTimer() {
-  // Check if indexPage or loadingPage is displayed
   const indexPage = document.getElementById('indexPage');
   const loadingPage = document.getElementById('loadingPage');
-  
+
   const indexPageVisible = getComputedStyle(indexPage).display === 'block';
   const loadingPageVisible = getComputedStyle(loadingPage).display === 'block';
 
-  // If neither indexPage nor loadingPage is visible and the timer is running, update the timer
+
   if (!indexPageVisible && !loadingPageVisible && timerRunning) {
     document.getElementById('timer').style.display="inline-block";
     const now = new Date();
@@ -386,7 +383,7 @@ function homePage() {
   document.getElementById("iphoneline").style.display = "block";
   document.body.style.backgroundColor = "yellow";
   document.documentElement.style.backgroundColor = "yellow";
-  // playThemeMusic("themeMusic");
+  challengeStartTimer()
 };
 
 // Team music player // Play team music
