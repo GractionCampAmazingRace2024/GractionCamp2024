@@ -164,15 +164,12 @@ button {
 
 
 
-/* #challengeResults {
-    font-size: calc(min(10vw, 10vh));
-} */
-
 
 #resultsContent {
     display: grid;
-    grid-template-columns: 1fr; /* One column for the first three lines of text */
+    grid-template-rows: auto 1fr; /* First three lines take up space, then challenges */
     font-size: calc(min(10vw, 10vh)); /* Font size based on viewport */
+    margin-bottom: 20px; /* Add some spacing between the header and challenges */
 }
 
 .challenge {
@@ -182,5 +179,11 @@ button {
     text-align: center;
     margin: 0;
     font-size: calc(min(8vh, 8vw)); 
-    grid-column-gap: calc(min30vh, 30vw);
+    grid-column-gap: calc(min(30vh, 30vw));
+}
+
+
+.challenge p {
+    margin: 0; 
+    padding: 10px; 
 }

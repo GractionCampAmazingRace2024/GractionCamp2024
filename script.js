@@ -444,7 +444,7 @@ function playRickRoll() {
   document.getElementById("rickrollButton").innerHTML = "Back";
   document.querySelector(".mainBody").style.backgroundColor = "red";
 
-  let headerLine = `<p>You've completed The Amazing Race 2024!</p>Congratulations!!! Make sure to screenshot your results!<p></p><p>Below are your challenge times!</p>`;
+  let headerLine = `<p>You've completed The Amazing Race 2024!</p> <p>Congratulations!!! Make sure to screenshot your results!</p> <p>Below are your challenge times!</p>`;
   let resultsContent = ``;
 
   roundTimers.forEach((time, index) => {
