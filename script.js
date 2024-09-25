@@ -381,7 +381,7 @@ function playRickRoll() {
   document.getElementById("rickrollButton").innerHTML = "Back";
   document.querySelector(".mainBody").style.backgroundColor = "red";
   const totalTime = runningTime()
-  results.innerHTML = `Total Elapsed Time: ${totalTime}`; 
+  results.innerHTML = `Congratulations! You've completed The Amazing Race 2024! <br> Your Total Elapsed Time Is... <br> ${totalTime}`; 
 }
 
 // Show/hide dropdown on button click
