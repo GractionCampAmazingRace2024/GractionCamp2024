@@ -167,22 +167,27 @@ button {
 
 #resultsContent {
     display: grid;
-    grid-template-rows: auto 1fr; 
-    font-size: calc(min(10vw, 10vh)); /* Font size based on viewport */
+    grid-template-rows: auto 1fr;
 }
 
-.challenge {
+
+.resultHeaders{
+    display: grid; /* Use grid to stack header lines vertically */
+    grid-template-rows: repeat(3, auto); /* Three rows for three headers */
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: calc(min(9vw, 9vh)); /* Font size based on viewport */
+}
+
+.challenges {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
     padding: 0;
     text-align: center;
     margin: 0;
     grid-column-gap: calc(min(30vh, 30vw));
+    font-size: calc(min(6vw, 6vh)); /* Font size based on viewport */
 }
 
-.resultHeaders{
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    font-size: calc(min(7vw, 7vh)); /* Font size based on viewport */
-}
+

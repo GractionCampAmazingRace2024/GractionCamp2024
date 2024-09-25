@@ -444,14 +444,14 @@ function playRickRoll() {
   document.getElementById("rickrollButton").innerHTML = "Back";
   document.querySelector(".mainBody").style.backgroundColor = "red";
 
-  let headerLine = `<div class="resultHeaders">You've completed The Amazing Race 2024!</div> <div class="resultHeaders">Congratulations!!! Make sure to screenshot your results!</div> <div class="resultHeaders">Below are your challenge times!</div><div class="challenge"></div>`;
+  let headerLine = `<div class="resultHeaders">You've completed The Amazing Race 2024!</div> <div class="resultHeaders">Congratulations!!! Make sure to screenshot your results!</div> <div class="resultHeaders">Below are your challenge times!</div><div class="challenge">`;
 
   let resultsContent = ``;
 
   roundTimers.forEach((time, index) => {
-      resultsContent += `<p class="challenges">${visitedChallenges[index]}: ${time}</p>`;
+      resultsContent += `<div class="challenges">${visitedChallenges[index]}: ${time}</div>`;
   });
-  results.innerHTML = headerLine += resultsContent;
+  results.innerHTML = headerLine += resultsContent + '</div>';
 }
 
 // Show/hide dropdown on button click
@@ -634,7 +634,7 @@ function updateChallengeTimer() {
   const indexPage = document.getElementById("indexPage");
   const loadingPage = document.getElementById("loadingPage");
   const rickRollPage = document.getElementById("rickRollPage");
-  
+
   const indexPageVisible = getComputedStyle(indexPage).display === "none";
   const loadingPageVisible = getComputedStyle(loadingPage).display === "none";
   const rickRollPageVisible = getComputedStyle(rickRollPage).display === "none";
