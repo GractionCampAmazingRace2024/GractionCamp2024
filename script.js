@@ -297,6 +297,9 @@ function runningTime(){
 function challengeStartTimer() {
   challengeStart = Date.now();
   console.log("Challenge started at: " + new Date(challengeStart));
+};
+
+function updateChallengeTier(){
   const now = new Date();
   const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
   const hours = Math.floor(elapsed / 3600);
@@ -304,8 +307,8 @@ function challengeStartTimer() {
   const seconds = elapsed % 60;
   const formattedTime = `${hours}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
   document.getElementById('timer').innerText = formattedTime;
-  setTimeout(updateTimer, 1000);
-};
+  setTimeout(updateChallengeTier, 1000);
+}
 
 
 function challengeEndTimer() {
