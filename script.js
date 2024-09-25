@@ -71,6 +71,11 @@ const userCredentials = {
   ],
 };
 
+
+let currentThemeMusicId = ""; // Variable to store the currently playing theme music
+let startTimer, endTimer;
+
+
 const errorMessages = [
   "Womp Womp...",
   "L Bozo",
@@ -151,7 +156,34 @@ const teamThemeMusic = {
   admin: 0,
 };
 
-let currentThemeMusicId = ""; // Variable to store the currently playing theme music
+
+
+
+function runningTime(){
+  const totalTime = (endTimer - startTimer) / 1000; // Convert milliseconds to seconds
+
+  const hours = Math.floor(totalTime / 3600);
+  const minutes = Math.floor((totalTime % 3600) / 60);
+  const seconds = Math.floor(totalTime % 60);
+
+  // Format the output to always show two digits for minutes and seconds
+  const formattedTime = `${hours}hours ${String(minutes).padStart(2, '0')}minutes ${String(seconds).padStart(2, '0')}seconds`;
+  
+  console.log("Total running time:", formattedTime);
+  return formattedTime;
+  }
+
+function startChallenge() {
+  startTimer = Date.now();
+  console.log("Challenge started at: " + new Date(startTimer));
+}
+
+function endChallenge() {
+  endTimer = Date.now();
+  console.log("Challenge ended at: " + new Date(endTimer));
+}
+
+
 
 function getRandomErrorMessage() {
   const randomIndex = Math.floor(Math.random() * errorMessages.length);
@@ -510,29 +542,3 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
 
 
-function runningTime(){
-  const totalTime = (endTimer - startTimer) / 1000; // Convert milliseconds to seconds
-
-  const hours = Math.floor(totalTime / 3600);
-  const minutes = Math.floor((totalTime % 3600) / 60);
-  const seconds = Math.floor(totalTime % 60);
-
-  // Format the output to always show two digits for minutes and seconds
-  const formattedTime = `${hours}hours ${String(minutes).padStart(2, '0')}minutes ${String(seconds).padStart(2, '0')}seconds`;
-  
-  console.log("Total running time:", formattedTime);
-  return formattedTime;
-  }
-
-
-let startTimer, endTimer;
-
-function startChallenge() {
-  startTimer = Date.now();
-  console.log("Challenge started at: " + new Date(startTimer));
-}
-
-function endChallenge() {
-  endTimer = Date.now();
-  console.log("Challenge ended at: " + new Date(endTimer));
-}
