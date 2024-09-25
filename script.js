@@ -379,9 +379,9 @@ function playRickRoll() {
     returnToIndex();
   };
   document.getElementById("rickrollButton").innerHTML = "Back";
-  document.querySelector(".mainBody").style.backgroundColor = "black";
-
-  results.innerHTML = "placeholder result text";
+  document.querySelector(".mainBody").style.backgroundColor = "red";
+  const totalTime = runningTime()
+  results.innerHTML = `Total Elapsed Time: ${totalTime} hours mins seconds whatever`; 
 }
 
 // Show/hide dropdown on button click
@@ -507,3 +507,8 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   }
 });
 
+
+
+function runningTime(){
+  return 60
+}
