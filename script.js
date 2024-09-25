@@ -448,7 +448,6 @@ function playRickRoll() {
   let resultsContent = ``;
 
   roundTimers.forEach((time, index) => {
-    resultsContent +=
       resultsContent += `<p class="challenge">${visitedPages[index]}: ${time}</p>`;
   });
   results.innerHTML = headerLine += resultsContent;
@@ -599,7 +598,7 @@ let challengeStart = null; // Start time for the current challenge
 let challengeEnd = null; // End time for the current challenge
 let timerRunning = false; // Flag to indicate if a timer is running
 let roundTimers = []; // Store total times between challenges
-let visitedPages = []; // Track pages that have already been visited
+let visitedChallenges = []; // Array to track visited challenges
 
 console.log(visitedPages);
 console.log("Visited Pages: ", visitedPages);
