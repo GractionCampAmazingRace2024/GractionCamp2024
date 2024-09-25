@@ -158,115 +158,6 @@ const teamThemeMusic = {
 
 
 
-
-function runningTime(){
-  const totalTime = (endTimer - startTimer) / 1000; // Convert milliseconds to seconds
-
-  const hours = Math.floor(totalTime / 3600);
-  const minutes = Math.floor((totalTime % 3600) / 60);
-  const seconds = Math.floor(totalTime % 60);
-
-  // Format the output to always show two digits for minutes and seconds
-  const formattedTime = `${hours}hours ${String(minutes).padStart(2, '0')}minutes ${String(seconds).padStart(2, '0')}seconds`;
-  
-  console.log("Total running time:", formattedTime);
-  return formattedTime;
-  }
-
-function startTimer() {
-  startTimer = Date.now();
-  console.log("Challenge started at: " + new Date(startTimer));
-  const now = new Date();
-  const elapsed = Math.floor((now - startTimer) / 1000); // Time elapsed in seconds
-  const hours = Math.floor(elapsed / 3600);
-  const minutes = Math.floor((elapsed % 3600) / 60);
-  const seconds = elapsed % 60;
-  const formattedTime = `${hours}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
-  document.getElementById('timer').innerText = formattedTime;
-  setTimeout(updateTimer, 1000);
-}
-
-
-function endTimer() {
-  endTimer = Date.now();
-  console.log("Challenge ended at: " + new Date(endTimer));
-}
-
-
-
-function getRandomErrorMessage() {
-  const randomIndex = Math.floor(Math.random() * errorMessages.length);
-  return errorMessages[randomIndex];
-}
-
-// Returns each teams page to the index and starts a theme music
-function returnToIndex() {
-  document.querySelectorAll(".page").forEach((page) => {
-    page.style.display = "none";
-  });
-
-  document.getElementById("indexPage").style.display = "block";
-
-  sessionStorage.removeItem("authenticatedUser");
-  sessionStorage.removeItem("authenticatedPassword");
-
-  // Clear the password input field
-  document.getElementById("password").value = "";
-
-  document.getElementById("dynamic-css").href = "/GractionCamp2024/style.css";
-  document.getElementById("iphoneline").style.display = "block";
-
-  // Remove any lingering error messages
-  document.getElementById("errorMessage").textContent = "";
-
-  // Play random theme music
-  const themeMusicOptions = [
-    "themeMusic",
-    "themeMusic1",
-    "themeMusic2",
-    "miiTheme",
-    "miiShop",
-  ];
-  const randomThemeMusicElement =
-    themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
-  playThemeMusic(randomThemeMusicElement);
-}
-
-// Shows the indexPage and closes off the loading page and starting the theme musc
-function homePage() {
-  document.querySelectorAll(".page").forEach((page) => {
-    page.style.display = "none";
-  });
-  document.getElementById("indexPage").style.display = "block";
-  document.getElementById("dynamic-css").href = "/GractionCamp2024/style.css";
-  document.getElementById("iphoneline").style.display = "block";
-  document.body.style.backgroundColor = "yellow";
-  document.documentElement.style.backgroundColor = "yellow";
-  // playThemeMusic("themeMusic");
-}
-
-// Team music player // Play team music
-function playThemeMusic(audioFile, startTime = 0) {
-  if (currentThemeMusicId) {
-    const currentMusicElement = document.getElementById(currentThemeMusicId);
-    if (currentMusicElement) {
-      currentMusicElement.pause();
-      currentMusicElement.currentTime = 0; // Reset the music to the start
-    }
-  }
-  const audioElement = document.getElementById(audioFile);
-  if (audioElement) {
-    audioElement.currentTime = startTime;
-    audioElement.muted = false;
-    audioElement.play(); // Play the selected audio
-    currentThemeMusicId = audioFile; // Store the new audio's ID
-  } else {
-    console.error(`Audio file with ID ${audioFile} not found`);
-  }
-}
-
-
-
 function audioLoaded() {
   let allLoaded = true;
   let totalAudioPercentage = 0; 
@@ -320,7 +211,7 @@ function audioLoaded() {
   allLoaded = Object.values(loadedAudioStatus).length === totalAudios;
 
   return { allLoaded, averageAudioPercentage };
-}
+};
 
 function preloadRickRoll() {
   playThemeMusic("miiTheme");
@@ -383,7 +274,119 @@ function preloadRickRoll() {
       clearInterval(checkBuffering); // Stop checking when the video is fully buffered
     }
   }, 500); // Check every 500 milliseconds
-}
+};
+
+
+
+
+
+function runningTime(){
+  const totalTime = (endTimer - startTimer) / 1000; // Convert milliseconds to seconds
+
+  const hours = Math.floor(totalTime / 3600);
+  const minutes = Math.floor((totalTime % 3600) / 60);
+  const seconds = Math.floor(totalTime % 60);
+
+  // Format the output to always show two digits for minutes and seconds
+  const formattedTime = `${hours}hours ${String(minutes).padStart(2, '0')}minutes ${String(seconds).padStart(2, '0')}seconds`;
+  
+  console.log("Total running time:", formattedTime);
+  return formattedTime;
+  };
+
+function startTimer() {
+  startTimer = Date.now();
+  console.log("Challenge started at: " + new Date(startTimer));
+  const now = new Date();
+  const elapsed = Math.floor((now - startTimer) / 1000); // Time elapsed in seconds
+  const hours = Math.floor(elapsed / 3600);
+  const minutes = Math.floor((elapsed % 3600) / 60);
+  const seconds = elapsed % 60;
+  const formattedTime = `${hours}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
+  document.getElementById('timer').innerText = formattedTime;
+  setTimeout(updateTimer, 1000);
+};
+
+
+function endTimer() {
+  endTimer = Date.now();
+  console.log("Challenge ended at: " + new Date(endTimer));
+};
+
+
+
+function getRandomErrorMessage() {
+  const randomIndex = Math.floor(Math.random() * errorMessages.length);
+  return errorMessages[randomIndex];
+};
+
+// Returns each teams page to the index and starts a theme music
+function returnToIndex() {
+  document.querySelectorAll(".page").forEach((page) => {
+    page.style.display = "none";
+  });
+
+  document.getElementById("indexPage").style.display = "block";
+
+  sessionStorage.removeItem("authenticatedUser");
+  sessionStorage.removeItem("authenticatedPassword");
+
+  // Clear the password input field
+  document.getElementById("password").value = "";
+
+  document.getElementById("dynamic-css").href = "/GractionCamp2024/style.css";
+  document.getElementById("iphoneline").style.display = "block";
+
+  // Remove any lingering error messages
+  document.getElementById("errorMessage").textContent = "";
+
+  // Play random theme music
+  const themeMusicOptions = [
+    "themeMusic",
+    "themeMusic1",
+    "themeMusic2",
+    "miiTheme",
+    "miiShop",
+  ];
+  const randomThemeMusicElement =
+    themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
+  playThemeMusic(randomThemeMusicElement);
+};
+
+// Shows the indexPage and closes off the loading page and starting the theme musc
+function homePage() {
+  document.querySelectorAll(".page").forEach((page) => {
+    page.style.display = "none";
+  });
+  document.getElementById("indexPage").style.display = "block";
+  document.getElementById("dynamic-css").href = "/GractionCamp2024/style.css";
+  document.getElementById("iphoneline").style.display = "block";
+  document.body.style.backgroundColor = "yellow";
+  document.documentElement.style.backgroundColor = "yellow";
+  // playThemeMusic("themeMusic");
+};
+
+// Team music player // Play team music
+function playThemeMusic(audioFile, startTime = 0) {
+  if (currentThemeMusicId) {
+    const currentMusicElement = document.getElementById(currentThemeMusicId);
+    if (currentMusicElement) {
+      currentMusicElement.pause();
+      currentMusicElement.currentTime = 0; // Reset the music to the start
+    }
+  }
+  const audioElement = document.getElementById(audioFile);
+  if (audioElement) {
+    audioElement.currentTime = startTime;
+    audioElement.muted = false;
+    audioElement.play(); // Play the selected audio
+    currentThemeMusicId = audioFile; // Store the new audio's ID
+  } else {
+    console.error(`Audio file with ID ${audioFile} not found`);
+  }
+};
+
+
 
 
 function showAdminTest() {
@@ -396,7 +399,7 @@ function showAdminTest() {
     adminTestElement.style.display = "none"; // Hide the element
     adminButton.style.color = "#333"
   }
-}
+};
 
 function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
@@ -424,7 +427,7 @@ function playRickRoll() {
   document.querySelector(".mainBody").style.backgroundColor = "red";
   const totalTime = runningTime()
   results.innerHTML = `Congratulations! You've completed The Amazing Race 2024! <br> Your Total Elapsed Time Is... <br> ${totalTime}`; 
-}
+};
 
 // Show/hide dropdown on button click
 document
