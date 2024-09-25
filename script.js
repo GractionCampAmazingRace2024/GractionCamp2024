@@ -443,22 +443,14 @@ function playRickRoll() {
   document.getElementById("rickrollButton").innerHTML = "Back";
   document.querySelector(".mainBody").style.backgroundColor = "red";
 
-  let resultsContent = `Congratulations! You've completed The Amazing Race 2024! <br> Below are your challenge times!<br> Make sure to screenshot your results!<br>`; 
+  let headerLine = `You've completed The Amazing Race 2024! <br> Below are your challenge times!<br> Congratulations!!! Make sure to screenshot your results!<br>`; 
+  let resultsContent = ``
 
   
   roundTimers.forEach((time, index) => {
-    let minutes = Math.floor(roundTimers[index] / 60);
-    let seconds = roundTimers[index] % 60;
-    
-    // Ensure seconds are displayed in two digits (e.g., 01, 02)
-    let formattedTime = `${minutes}m ${seconds < 10 ? '0' + seconds : seconds}s`;
-
-    resultsContent += resultsContent += `<p id="challenge">${visitedPages[index]}: ${formattedTime}</p><br>`;
+    resultsContent += resultsContent += `<p id="challenge">${visitedPages[index]}: ${time}</p><br>`;
   });
-
-
-
-  results.innerHTML = resultsContent;
+  results.innerHTML = (headerLine += resultsContent);
 };
 
 // Show/hide dropdown on button click
@@ -557,7 +549,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       playThemeMusic("unlockSound");
 
       // If this is the first visit to the page, start a new timer
-      if (!visitedPages.includes(userData.page)) {
+      if (!visitedPages.includes(userData.page) && userData.page != 'indexPage') {
         if (timerRunning) {
           challengeEndTimer(); // End previous timer
         }
