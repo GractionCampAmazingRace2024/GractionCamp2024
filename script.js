@@ -73,9 +73,9 @@ const userCredentials = {
 
 
 let currentThemeMusicId = ""; // Variable to store the currently playing theme music
-let challengeStart, challengeEnd;
-let timerRunning = false; // Flag to track if the timer is running
-
+// let challengeStart, challengeEnd;
+// let timerRunning = false; // Flag to track if the timer is running
+// let roundTimers = [];
 
 const errorMessages = [
   "Womp Womp...",
@@ -294,7 +294,6 @@ function runningTime(){
 
 function challengeStartTimer() {
   challengeStart = Date.now();
-  updateChallengeTimer();
   console.log("Challenge started at: " + new Date(challengeStart));
 
 };
@@ -382,7 +381,6 @@ function homePage() {
   document.getElementById("iphoneline").style.display = "block";
   document.body.style.backgroundColor = "yellow";
   document.documentElement.style.backgroundColor = "yellow";
-  challengeStartTimer()
 };
 
 // Team music player // Play team music
@@ -445,7 +443,11 @@ function playRickRoll() {
   document.getElementById("rickrollButton").innerHTML = "Back";
   document.querySelector(".mainBody").style.backgroundColor = "red";
   const totalTime = runningTime()
-  results.innerHTML = `Congratulations! You've completed The Amazing Race 2024! <br> Your Total Elapsed Time Is... <br> ${totalTime}`; 
+  let resultsContent = `Congratulations! You've completed The Amazing Race 2024! <br> Below are your challenge times!<br> Make sure to screenshot your results!<br>${totalTime}`; 
+  roundTimers.forEach((time, index) => {
+    resultsContent += `Challenge ${index + 1}: ${time} <br>`;
+  });
+  results.innerHTML = resultsContent;
 };
 
 // Show/hide dropdown on button click
@@ -509,22 +511,26 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
   });
 });
 
-// Handle login form submission
+
+
+
+
+
 document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault(); // Prevent form from submitting automatically
   const username = document.getElementById("teamSelection").value;
   const password = document.getElementById("password").value;
   document.getElementById("errorMessage").textContent = "";
+
   if (!username) {
-    document.getElementById("errorMessage").textContent =
-      "Please select a team first.";
+    document.getElementById("errorMessage").textContent = "Please select a team first.";
     return;
   }
   if (!password) {
-    document.getElementById("errorMessage").textContent =
-      "Please enter your password.";
+    document.getElementById("errorMessage").textContent = "Please enter your password.";
     return;
   }
+
   if (userCredentials[username]) {
     const credentials = userCredentials[username];
     const userData = credentials.find((cred) => cred.password === password);
@@ -533,19 +539,28 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       sessionStorage.setItem("authenticatedUser", username);
       sessionStorage.setItem("authenticatedPassword", password);
 
-      document
-        .querySelectorAll(".page")
-        .forEach((page) => (page.style.display = "none"));
-      document.getElementById(userData.page).style.display = "block";
+      document.querySelectorAll(".page").forEach((page) => (page.style.display = "none"));
+      const nextPage = document.getElementById(userData.page);
+      nextPage.style.display = "block";
+
       playThemeMusic("unlockSound");
+
+      // If this is the first visit to the page, start a new timer
+      if (!visitedPages.includes(userData.page)) {
+        if (timerRunning) {
+          challengeEndTimer(); // End previous timer
+        }
+        visitedPages.push(userData.page); // Mark page as visited
+        challengeStartTimer(); // Start new timer
+      }
 
       document.getElementById("iphoneline").style.display = "none";
       const linkElement = document.getElementById("dynamic-css");
-      linkElement.href = `/GractionCamp2024/${userData.css}`; // Corrected here
-      console.log("User Data / CSS is: ", userData.css); // Access the css property from userData
+      linkElement.href = `/GractionCamp2024/${userData.css}`;
+      console.log("User Data / CSS is: ", userData.css);
+
     } else {
-      document.getElementById("errorMessage").textContent =
-        getRandomErrorMessage();
+      document.getElementById("errorMessage").textContent = getRandomErrorMessage();
 
       // Play fail sound
       const failSound = document.getElementById("failSound");
@@ -556,8 +571,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
       failSound.addEventListener("ended", () => {
         if (currentThemeMusicId) {
-          const currentMusicElement =
-            document.getElementById(currentThemeMusicId);
+          const currentMusicElement = document.getElementById(currentThemeMusicId);
           if (currentMusicElement) {
             currentMusicElement.volume = 1; // Restore to original volume
           }
@@ -565,11 +579,67 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       });
     }
   } else {
-    // Show error message if the username is invalid
-    document.getElementById("errorMessage").textContent =
-      getRandomErrorMessage();
+    document.getElementById("errorMessage").textContent = getRandomErrorMessage();
   }
 });
 
 
 
+
+
+
+
+
+let challengeStart = null; // Start time for the current challenge
+let challengeEnd = null;   // End time for the current challenge
+let timerRunning = false;  // Flag to indicate if a timer is running
+let roundTimers = [];      // Store total times between challenges
+let visitedPages = [];     // Track pages that have already been visited
+
+function runningTime() {
+  const totalTime = (challengeEnd - challengeStart) / 1000; // Convert to seconds
+  const hours = Math.floor(totalTime / 3600);
+  const minutes = Math.floor((totalTime % 3600) / 60);
+  const seconds = Math.floor(totalTime % 60);
+  
+  // Format the output to always show two digits for minutes and seconds
+  const formattedTime = `${hours}hours ${String(minutes).padStart(2, '0')}minutes ${String(seconds).padStart(2, '0')}seconds`;
+  return formattedTime;
+}
+
+function challengeStartTimer() {
+  challengeStart = Date.now();
+  timerRunning = true;
+  console.log("Challenge started at: " + new Date(challengeStart));
+}
+
+function challengeEndTimer() {
+  challengeEnd = Date.now();
+  const totalTime = runningTime();
+  roundTimers.push(totalTime); // Append time to roundTimers
+  console.log("Challenge ended at: " + new Date(challengeEnd));
+  console.log(`Total Time: ${totalTime}`);
+}
+
+function updateChallengeTimer() {
+  const indexPage = document.getElementById('indexPage');
+  const loadingPage = document.getElementById('loadingPage');
+
+  const indexPageVisible = getComputedStyle(indexPage).display === 'block';
+  const loadingPageVisible = getComputedStyle(loadingPage).display === 'block';
+
+  if (!indexPageVisible && !loadingPageVisible && timerRunning) {
+    document.getElementById('timer').style.display = "inline-block";
+    const now = new Date();
+    const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
+    const hours = Math.floor(elapsed / 3600);
+    const minutes = Math.floor((elapsed % 3600) / 60);
+    const seconds = elapsed % 60;
+    const formattedTime = `${hours}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
+    document.getElementById('timer').innerText = formattedTime;
+  } else {
+    document.getElementById('timer').style.display = "none";
+  }
+
+  setTimeout(updateChallengeTimer, 1000); // Continue the loop
+}
