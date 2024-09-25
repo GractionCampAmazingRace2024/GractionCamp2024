@@ -120,6 +120,10 @@ const audioIds = [
   "yellowTheme",
   "purpleTheme",
   "adminTheme",
+  "miiShop",
+  "themeMusic1",
+  "themeMusic2",
+  "themeMusic3"
 ];
 
 // Map team colors to their corresponding gradient backgrounds
