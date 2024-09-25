@@ -633,7 +633,8 @@ function updateChallengeTimer() {
   const fixedTimer = document.getElementById("fixedTimer");
   const indexPage = document.getElementById("indexPage");
   const loadingPage = document.getElementById("loadingPage");
-
+  const rickRollPage = document.getElementById("rickRollPage");
+  
   const indexPageVisible = getComputedStyle(indexPage).display === "none";
   const loadingPageVisible = getComputedStyle(loadingPage).display === "none";
   const rickRollPageVisible = getComputedStyle(rickRollPage).display === "none";
