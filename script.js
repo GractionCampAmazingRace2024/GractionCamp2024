@@ -599,9 +599,10 @@ let challengeEnd = null; // End time for the current challenge
 let timerRunning = false; // Flag to indicate if a timer is running
 let roundTimers = []; // Store total times between challenges
 let visitedChallenges = []; // Array to track visited challenges
-
-console.log(visitedPages);
-console.log("Visited Pages: ", visitedPages);
+console.log(roundTimers);
+console.log("Round Timers: ", roundTimers);
+console.log(visitedChallenges);
+console.log("Visited Pages: ", visitedChallenges);
 
 function runningTime() {
   const totalTime = (challengeEnd - challengeStart) / 1000; // Convert to seconds
@@ -610,10 +611,7 @@ function runningTime() {
   const seconds = Math.floor(totalTime % 60);
 
   // Format the output to always show two digits for minutes and seconds
-  const formattedTime = `${hours}h ${String(minutes).padStart(
-    2,
-    "0"
-  )}m ${String(seconds).padStart(2, "0")}s`;
+  const formattedTime = `${hours}h ${String(minutes).padStart(2,"0")}m ${String(seconds).padStart(2, "0")}s`;
   return formattedTime;
 }
 
