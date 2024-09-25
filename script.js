@@ -381,7 +381,7 @@ function playRickRoll() {
   document.getElementById("rickrollButton").innerHTML = "Back";
   document.querySelector(".mainBody").style.backgroundColor = "red";
   const totalTime = runningTime()
-  results.innerHTML = `Total Elapsed Time: ${totalTime} hours mins seconds whatever`; 
+  results.innerHTML = `Total Elapsed Time: ${totalTime}`; 
 }
 
 // Show/hide dropdown on button click
@@ -510,5 +510,28 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
 
 function runningTime(){
-  return 60
+  const totalTime = (endTimer - startTimer) / 1000; // Convert milliseconds to seconds
+
+  const hours = Math.floor(totalTime / 3600);
+  const minutes = Math.floor((totalTime % 3600) / 60);
+  const seconds = Math.floor(totalTime % 60);
+
+  // Format the output to always show two digits for minutes and seconds
+  const formattedTime = `${hours}hours ${String(minutes).padStart(2, '0')}minutes ${String(seconds).padStart(2, '0')}seconds`;
+  
+  console.log("Total running time:", formattedTime);
+  return formattedTime;
+  }
+
+
+let startTimer, endTimer;
+
+function startChallenge() {
+  startTimer = Date.now();
+  console.log("Challenge started at: " + new Date(startTimer));
+}
+
+function endChallenge() {
+  endTimer = Date.now();
+  console.log("Challenge ended at: " + new Date(endTimer));
 }
