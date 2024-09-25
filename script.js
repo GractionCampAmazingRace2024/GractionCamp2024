@@ -74,6 +74,7 @@ const userCredentials = {
 
 let currentThemeMusicId = ""; // Variable to store the currently playing theme music
 let challengeStart, challengeEnd;
+let timerRunning = false; // Flag to track if the timer is running
 
 
 const errorMessages = [
@@ -301,7 +302,16 @@ function challengeStartTimer() {
 
 };
 
-function updateChallengeTier() {
+
+function challengeEndTimer() {
+  challengeEnd = Date.now();
+  timerRunning = false; // Set the timer running flag to false
+  const totalTime = runningTime(); // Optionally get the total running time
+  console.log("Challenge ended at: " + new Date(challengeEnd));
+  console.log(`Total Time: ${totalTime}`);
+}
+
+function updateChallengeTimer() {
   // Check if indexPage or loadingPage is displayed
   const indexPage = document.getElementById('indexPage');
   const loadingPage = document.getElementById('loadingPage');
@@ -309,9 +319,9 @@ function updateChallengeTier() {
   const indexPageVisible = getComputedStyle(indexPage).display === 'block';
   const loadingPageVisible = getComputedStyle(loadingPage).display === 'block';
 
-  // If neither indexPage nor loadingPage is visible, update the timer
-  if (!indexPageVisible && !loadingPageVisible) {
-    document.getElementById('timer').style.display="inline-block"
+  // If neither indexPage nor loadingPage is visible and the timer is running, update the timer
+  if (!indexPageVisible && !loadingPageVisible && timerRunning) {
+    document.getElementById('timer').style.display="inline-block";
     const now = new Date();
     const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
     const hours = Math.floor(elapsed / 3600);
@@ -320,20 +330,12 @@ function updateChallengeTier() {
     const formattedTime = `${hours}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
     
     document.getElementById('timer').innerText = formattedTime;
-  }
-  else{
-    document.getElementById('timer').style.display="none"
+  } else {
+    document.getElementById('timer').style.display="none";
   }
   
-  setTimeout(updateChallengeTier, 1000); // Continue the loop
+  setTimeout(updateChallengeTimer, 1000); // Continue the loop
 }
-
-
-function challengeEndTimer() {
-  challengeEnd = Date.now();
-  console.log("Challenge ended at: " + new Date(challengeEnd));
-};
-
 
 
 function getRandomErrorMessage() {
