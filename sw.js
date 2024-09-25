@@ -84,12 +84,13 @@ self.addEventListener("activate", (event) => {
       })
   );
 });
-
 self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches
-      .match(event.request)
-      .then((response) => {
+  const requestUrl = new URL(event.request.url);
+
+  // Handle HTML, JS, CSS (static files) with cache-first strategy
+  if (requestUrl.pathname.startsWith('/GractionCamp2024/')) {
+    event.respondWith(
+      caches.match(event.request).then((response) => {
         return (
           response ||
           fetch(event.request).then((fetchResponse) => {
@@ -100,11 +101,13 @@ self.addEventListener("fetch", (event) => {
           })
         );
       })
-      .catch((error) => {
-        console.error("Fetch failed:", error);
-        throw error;
-      })
-  );
+    );
+  } else {
+    // Handle other requests (e.g., API requests) with network-first strategy
+    event.respondWith(
+      fetch(event.request).catch(() => caches.match(event.request))
+    );
+  }
 });
 
 // Optional: Handle messages for fullscreen requests
@@ -117,3 +120,4 @@ self.addEventListener("message", (event) => {
     });
   }
 });
+

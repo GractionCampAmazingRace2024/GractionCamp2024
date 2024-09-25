@@ -482,15 +482,26 @@
   <script src="script.js" defer></script>
   <!-- <script src="GractionCamp2024/script.js"></script> -->
   <script>
+
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/GractionCamp2024/sw.js')
-        .then(registration => {
-          console.log('Service Worker registered with scope:', registration.scope);
-        })
-        .catch(error => {
-          console.log('Service Worker registration failed:', error);
-        });
+      // First, check if a service worker is already registered
+      navigator.serviceWorker.getRegistration().then((registration) => {
+        if (registration) {
+          // Force the service worker to update if it's already registered
+          registration.update();
+        } else {
+          // If no service worker is registered, register it
+          navigator.serviceWorker.register('/GractionCamp2024/sw.js')
+            .then((registration) => {
+              console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch((error) => {
+              console.log('Service Worker registration failed:', error);
+            });
+        }
+      });
     }
+    
 
 
     let lastTouchEnd = 0;
@@ -529,6 +540,8 @@
         }
       });
     }
+
+    
 
     window.onload = () => {
       preloadAllAudios();
