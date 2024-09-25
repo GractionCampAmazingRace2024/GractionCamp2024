@@ -236,7 +236,6 @@ function preloader() {
     const skipButton = document.getElementById("skipButton");
     setTimeout(() => {
       skipButton.style.display = "inline";
-      // skipButton.onclick = challengeStartTimer
     }, 15000); //TIMER FOR HOW LONG YOU WANT THE TIMER TO BE
 
     let videoLoadedPercentage = 0;
