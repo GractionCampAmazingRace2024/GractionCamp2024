@@ -144,3 +144,24 @@ button {
     transform: rotate(-90deg); /* Rotate video 90 degrees */
     transform-origin: center center; /* Rotate from center */
   }
+
+
+
+  #challengeResults{
+    font-size: calc(min(10vw, 10vh));
+  }
+
+
+  #challengeResults {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
+    grid-gap: 10px; /* Adds space between items */
+    font-size: calc(min(10vw, 10vh));
+}
+
+.challenge {
+    padding: 10px;
+    background-color: #f0f0f0; /* Optional: style each challenge */
+    text-align: center; /* Optional: center the text */
+    border: 1px solid #ccc; /* Optional: border around challenges */
+}

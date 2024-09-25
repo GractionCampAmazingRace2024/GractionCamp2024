@@ -442,11 +442,22 @@ function playRickRoll() {
   };
   document.getElementById("rickrollButton").innerHTML = "Back";
   document.querySelector(".mainBody").style.backgroundColor = "red";
-  const totalTime = runningTime()
-  let resultsContent = `Congratulations! You've completed The Amazing Race 2024! <br> Below are your challenge times!<br> Make sure to screenshot your results!<br>${totalTime}`; 
+
+  let resultsContent = `Congratulations! You've completed The Amazing Race 2024! <br> Below are your challenge times!<br> Make sure to screenshot your results!<br>`; 
+
+  
   roundTimers.forEach((time, index) => {
-    resultsContent += `Challenge ${index + 1}: ${time} <br>`;
+    let minutes = Math.floor(roundTimers[index] / 60);
+    let seconds = roundTimers[index] % 60;
+    
+    // Ensure seconds are displayed in two digits (e.g., 01, 02)
+    let formattedTime = `${minutes}m ${seconds < 10 ? '0' + seconds : seconds}s`;
+
+    resultsContent += resultsContent += `<p id="challenge">${visitedPages[index]}: ${formattedTime}</p><br>`;
   });
+
+
+
   results.innerHTML = resultsContent;
 };
 
@@ -596,6 +607,7 @@ let timerRunning = false;  // Flag to indicate if a timer is running
 let roundTimers = [];      // Store total times between challenges
 let visitedPages = [];     // Track pages that have already been visited
 
+
 function runningTime() {
   const totalTime = (challengeEnd - challengeStart) / 1000; // Convert to seconds
   const hours = Math.floor(totalTime / 3600);
@@ -629,7 +641,7 @@ function updateChallengeTimer() {
   const loadingPageVisible = getComputedStyle(loadingPage).display === 'block';
 
   if (!indexPageVisible && !loadingPageVisible && timerRunning) {
-    document.getElementById('timer').style.display = "inline-block";
+    document.getElementById('fixedTimer').style.display = "inline-block";
     const now = new Date();
     const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
     const hours = Math.floor(elapsed / 3600);
@@ -638,7 +650,7 @@ function updateChallengeTimer() {
     const formattedTime = `${hours}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
     document.getElementById('timer').innerText = formattedTime;
   } else {
-    document.getElementById('timer').style.display = "none";
+    document.getElementById('fixedTimer').style.display = "none";
   }
 
   setTimeout(updateChallengeTimer, 1000); // Continue the loop
