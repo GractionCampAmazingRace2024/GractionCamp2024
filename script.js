@@ -637,7 +637,7 @@ function updateChallengeTimer() {
   const hours = Math.floor(elapsed / 3600);
   const minutes = Math.floor((elapsed % 3600) / 60);
   const seconds = elapsed % 60;
-  // const formattedTime = `${hours}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
+  const formattedTime = `${hours}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
   fixedTimer.innerText = formattedTime; // Display the timer text
   setTimeout(updateChallengeTimer, 1000); // Continue the loop
 }
