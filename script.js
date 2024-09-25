@@ -173,12 +173,12 @@ function runningTime(){
   return formattedTime;
   }
 
-function startChallenge() {
+function startTimer() {
   startTimer = Date.now();
   console.log("Challenge started at: " + new Date(startTimer));
 }
 
-function endChallenge() {
+function endTimer() {
   endTimer = Date.now();
   console.log("Challenge ended at: " + new Date(endTimer));
 }
