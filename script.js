@@ -213,7 +213,7 @@ function audioLoaded() {
   return { allLoaded, averageAudioPercentage };
 };
 
-function preloadRickRoll() {
+function preloader() {
   playThemeMusic("miiTheme");
   const button = document.getElementById("startButton");
   button.innerHTML = "0% Loaded";
