@@ -632,13 +632,13 @@ function challengeEndTimer() {
 
 function updateChallengeTimer() {
   const fixedTimer = document.getElementById("fixedTimer");
-  // const now = Date.now();
-  // const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
-  // const hours = Math.floor(elapsed / 3600);
-  // const minutes = Math.floor((elapsed % 3600) / 60);
-  // const seconds = elapsed % 60;
+  const now = new Date.now();
+  const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
+  const hours = Math.floor(elapsed / 3600);
+  const minutes = Math.floor((elapsed % 3600) / 60);
+  const seconds = elapsed % 60;
   // const formattedTime = `${hours}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
-  fixedTimer.innerText = runningTime(); // Display the timer text
+  fixedTimer.innerText = formattedTime; // Display the timer text
   setTimeout(updateChallengeTimer, 1000); // Continue the loop
 }
 
