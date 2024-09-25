@@ -110,3 +110,7 @@ body {
     width: 100%; /* Make the video take the full width of the container */
     height: auto; /* Maintain the aspect ratio */
 }
+
+#fixedTimer{
+    display: inline-block;
+}

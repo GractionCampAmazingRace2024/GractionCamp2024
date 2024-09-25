@@ -99,3 +99,7 @@ body {
     font-size: calc(min(5vw, 5vh));
     color: #5a0e80;
 }
+
+#fixedTimer{
+    display: inline-block;
+}

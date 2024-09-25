@@ -268,3 +268,7 @@ button {
 #buffering {
     color: rgb(255, 0, 0)
 }
+
+#fixedTimer{
+    display: none;
+}

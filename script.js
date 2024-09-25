@@ -633,23 +633,13 @@ function updateChallengeTimer() {
   const fixedTimer = document.getElementById("fixedTimer");
   const indexPage = document.getElementById("indexPage");
   const loadingPage = document.getElementById("loadingPage");
-
-  const indexPageVisible = getComputedStyle(indexPage).display === "block";
-  const loadingPageVisible = getComputedStyle(loadingPage).display === "block";
-
-  if (!indexPageVisible && !loadingPageVisible) {
-    fixedTimer.style.display = "block"; // Show the timer
-    const now = Date.now();
-    const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
-    const hours = Math.floor(elapsed / 3600);
-    const minutes = Math.floor((elapsed % 3600) / 60);
-    const seconds = elapsed % 60;
-    const formattedTime = `${hours}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
-    fixedTimer.innerText = formattedTime; // Display the timer text
-  } else {
-    fixedTimer.style.display = "none"; // Hide the timer
-  }
-
+  const now = Date.now();
+  const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
+  const hours = Math.floor(elapsed / 3600);
+  const minutes = Math.floor((elapsed % 3600) / 60);
+  const seconds = elapsed % 60;
+  const formattedTime = `${hours}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
+  fixedTimer.innerText = formattedTime; // Display the timer text
   setTimeout(updateChallengeTimer, 1000); // Continue the loop
 }
 

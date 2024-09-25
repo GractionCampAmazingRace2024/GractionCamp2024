@@ -102,3 +102,7 @@ body {
     font-size: calc(min(5vw, 5vh));
     color: #53752e;
 }
+
+#fixedTimer{
+    display: inline-block;
+}

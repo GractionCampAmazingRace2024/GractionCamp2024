@@ -375,3 +375,6 @@ button:hover {
     75% { transform: scaleY(1.2); }
 }
 
+#fixedTimer{
+    display: none;
+}
