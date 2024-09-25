@@ -241,7 +241,7 @@ function audioLoaded() {
         if (state < 4) {
           console.log(`${id} - Ready State: ${state}`);
           allLoaded = false; 
-          bufferedInfo += `<div>Audio: ${id} | Buffered: 100%</div>`; 
+          bufferedInfo += `<div id='fullybuffered' >${id} | 100% Loaded</div>`; 
         }
 
         // Calculate percentage of audio loaded
@@ -249,7 +249,7 @@ function audioLoaded() {
           const bufferedAmount = audioElement.buffered.end(0);
           const totalDuration = audioElement.duration;
           const loadedPercentage = (bufferedAmount / totalDuration) * 100;
-          bufferedInfo += `<div>Audio: ${id} | Buffered: ${Math.round(loadedPercentage.toFixed(2))}%</div>`;
+          bufferedInfo += `<div id='buffering' >${id} | Loading: ${Math.round(loadedPercentage.toFixed(2))}%</div>`;
           console.log(`${id} - Loaded: ${loadedPercentage.toFixed(2)}%`);
 
           // Mark audio as loaded if fully buffered
@@ -262,7 +262,7 @@ function audioLoaded() {
       } else {
         // If already loaded, consider it fully buffered
         console.log(`${id} - Already Loaded`);
-        bufferedInfo += `<div>Audio: ${id} | Buffered: 100%</div>`; // Indicate it is fully loaded
+        bufferedInfo += `<div id='fullybuffered'>${id} | 100% Loaded</div>`; // Indicate it is fully loaded
       }
     } else {
       console.log(`${id} not found.`);
@@ -438,7 +438,7 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
       const colorTheme = `${[value]}Theme`;
       console.log("Color Theme is:", colorTheme);
       playThemeMusic(colorTheme, `${teamThemeMusic[value]}`);
-      console.log("Color Time Should be:", `${teamThemeMusic[value]}`);
+      console.log("Theme Start Time:", `${teamThemeMusic[value]}`);
     }
     document.querySelector(".dropdown-content").classList.remove("show");
     document.getElementById("errorMessage").textContent = "";

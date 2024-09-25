@@ -3,16 +3,21 @@
     padding: 0;
     box-sizing: border-box;
     scroll-snap-type: none;
-    user-select: none; /* Prevent text selection */
-    -webkit-user-select: none; /* Prevent selection in Safari (iOS) */
+    user-select: none;
+    /* Prevent text selection */
+    -webkit-user-select: none;
+    /* Prevent selection in Safari (iOS) */
     -moz-user-select: none;
     -ms-user-select: none;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-    html, body {
+
+    html,
+    body {
         touch-action: none;
-        overscroll-behavior: none; /* Prevents scroll bounce */
+        overscroll-behavior: none;
+        /* Prevents scroll bounce */
         scroll-snap-type: none;
     }
 }
@@ -23,11 +28,13 @@ html {
     margin: 0;
     padding: 0;
     background-color: black;
-    overflow: hidden;  
-    overflow-y: hidden; 
-    overflow-x: hidden;    
-    touch-action: none; /* Prevents touch scrolling */
-    overscroll-behavior: none; /* Prevents scroll bounce */
+    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    touch-action: none;
+    /* Prevents touch scrolling */
+    overscroll-behavior: none;
+    /* Prevents scroll bounce */
     scroll-snap-type: none;
 
     padding-bottom: env(safe-area-inset-bottom);
@@ -42,10 +49,12 @@ Body {
     height: 100vh;
     width: 100vw;
     color: white;
-    
+
     background: black;
-    touch-action: none; /* Disables all touch actions including zooming */
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+    touch-action: none;
+    /* Disables all touch actions including zooming */
+    overflow-x: hidden;
+    /* Prevents horizontal scrolling */
     padding-bottom: env(safe-area-inset-bottom);
 }
 
@@ -65,7 +74,8 @@ label {
     color: #555;
 }
 
-input, select {
+input,
+select {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -105,9 +115,11 @@ button {
 
 .teamIcon {
     margin: 0;
-    font-size: 24px; /* Adjust size as needed */
-    line-height: 1; /* Prevent extra spacing between icons */
-    
+    font-size: 24px;
+    /* Adjust size as needed */
+    line-height: 1;
+    /* Prevent extra spacing between icons */
+
 }
 
 
@@ -115,42 +127,52 @@ button {
     width: 100vw;
     height: 100vh;
     background-color: rgb(0, 0, 0);
-    position: relative; /* Set the parent to relative */
+    position: relative;
+    /* Set the parent to relative */
     z-index: 10;
 }
 
 .loading-content {
-    position: absolute; /* Use absolute positioning */
-    top: 50%; /* Move to the vertical center */
-    left: 50%; /* Move to the horizontal center */
-    transform: translate(-50%, -50%); /* Offset to center */
-    width: 80vw; 
-    max-width: 600px; 
-    text-align: center; 
+    position: absolute;
+    /* Use absolute positioning */
+    top: 50%;
+    /* Move to the vertical center */
+    left: 50%;
+    /* Move to the horizontal center */
+    transform: translate(-50%, -50%);
+    /* Offset to center */
+    width: 80vw;
+    max-width: 600px;
+    text-align: center;
 }
 
 .oneBox {
-    margin: 1rem; 
-    gap: 1rem; 
-    display: flex; /* You can still use flex for box items */
-    flex-direction: column; 
-    align-items: center; 
+    margin: 1rem;
+    gap: 1rem;
+    display: flex;
+    /* You can still use flex for box items */
+    flex-direction: column;
+    align-items: center;
     z-index: 30;
 }
 
 
 .boxContainer {
-    display: flex; /* Flexbox for boxes */
-    justify-content: space-between; /* Space boxes evenly */
+    display: flex;
+    /* Flexbox for boxes */
+    justify-content: space-between;
+    /* Space boxes evenly */
     height: 64px;
-    width: calc((0.5rem + 0.4rem) * 5); /* Width calculation */
+    width: calc((0.5rem + 0.4rem) * 5);
+    /* Width calculation */
     color: white;
 }
 
 .box {
     transform: scaleY(.3);
     height: 100%;
-    width: 0.5rem; /* Box width */
+    width: 0.5rem;
+    /* Box width */
     background: #12E2DC;
     animation-duration: 1.2s;
     animation-timing-function: ease-in-out;
@@ -159,28 +181,66 @@ button {
 }
 
 /* Box animations */
-.box1 { animation-name: quiet; }
-.box2 { animation-name: normal; }
-.box3 { animation-name: quiet; }
-.box4 { animation-name: loud; }
-.box5 { animation-name: quiet; }
+.box1 {
+    animation-name: quiet;
+}
+
+.box2 {
+    animation-name: normal;
+}
+
+.box3 {
+    animation-name: quiet;
+}
+
+.box4 {
+    animation-name: loud;
+}
+
+.box5 {
+    animation-name: quiet;
+}
 
 @keyframes quiet {
-    25% { transform: scaleY(.6); }
-    50% { transform: scaleY(.4); }
-    75% { transform: scaleY(.8); }
+    25% {
+        transform: scaleY(.6);
+    }
+
+    50% {
+        transform: scaleY(.4);
+    }
+
+    75% {
+        transform: scaleY(.8);
+    }
 }
 
 @keyframes normal {
-    25% { transform: scaleY(1); }
-    50% { transform: scaleY(.4); }
-    75% { transform: scaleY(.6); }
+    25% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(.4);
+    }
+
+    75% {
+        transform: scaleY(.6);
+    }
 }
 
 @keyframes loud {
-    25% { transform: scaleY(1); }
-    50% { transform: scaleY(.4); }
-    75% { transform: scaleY(1.2); }
+    25% {
+        transform: scaleY(1);
+    }
+
+    50% {
+        transform: scaleY(.4);
+    }
+
+    75% {
+        transform: scaleY(1.2);
+    }
 }
 
 
@@ -197,5 +257,14 @@ button {
     z-index: 1000;
     width: 12vw;
     background: none;
-  }
-  
+}
+
+
+
+#fullybuffered {
+    color: rgb(0, 73, 0);
+}
+
+#buffering {
+    color: rgb(255, 0, 0)
+}
