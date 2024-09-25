@@ -632,18 +632,18 @@ function challengeEndTimer() {
 
 function updateChallengeTimer() {
   const fixedTimer = document.getElementById("fixedTimer");
-  const now = Date.now();
-  const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
-  const hours = Math.floor(elapsed / 3600);
-  const minutes = Math.floor((elapsed % 3600) / 60);
-  const seconds = elapsed % 60;
-  const formattedTime = `${hours}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
-  fixedTimer.innerText = formattedTime; // Display the timer text
+  // const now = Date.now();
+  // const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
+  // const hours = Math.floor(elapsed / 3600);
+  // const minutes = Math.floor((elapsed % 3600) / 60);
+  // const seconds = elapsed % 60;
+  // const formattedTime = `${hours}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
+  fixedTimer.innerText = runningTime(); // Display the timer text
   setTimeout(updateChallengeTimer, 1000); // Continue the loop
 }
 
 
 // Function to check if the page is a challenge page
 function isChallengePage(page) {
-  return page.startsWith("Challenge"); // Adjust this condition based on your actual challenge page naming convention
+  return page.startsWith("Challenge");
 }
