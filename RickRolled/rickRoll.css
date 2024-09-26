@@ -88,31 +88,6 @@ body {
     top: 0;
 }
 
-
-#returnToIndex {
-    position: fixed;
-    width: 20vw;
-    height: 10vh;
-    top: 0;
-    left: 0vw;
-    padding: 0;
-    margin: 0;
-    background-color: transparent;
-    outline: none;
-    border: none;
-    z-index: 9876;
-}
-
-#returnToIndex span {
-    display: inline-block;
-    transform: rotate(-90deg);
-    transform-origin: center;
-    white-space: nowrap;
-    font-size: calc(min(5vw, 5vh));
-    color: rgb(49, 49, 49);
-}
-
-
 button {
     width: 30vh;
     height: 20vw;
@@ -131,7 +106,6 @@ button {
     color: white;
     z-index: 9000;
 }
-
 
 #videoContainer {
     position: fixed;
@@ -154,9 +128,6 @@ button {
     transform: rotate(-90deg);
     transform-origin: center center;
 }
-
-
-
 
 #resultsContent {
     display: grid;
@@ -183,8 +154,8 @@ button {
     padding: 0;
     text-align: center;
     margin: 0;
-    grid-column-gap: calc(min(30vh, 30vw));
-    font-size: calc(min(6vw, 6vh)); 
+    grid-column-gap: calc(min(5vw, 5vh)); 
+    font-size: calc(min(5vw, 5vh));
     padding-top: 3vh;
 }
 
