@@ -430,6 +430,7 @@ function playRickRoll() {
   document.querySelector(".mainBody").style.backgroundColor = pageBackground;
   playButton.style.display = "none";
 
+
   const isBuffered = video.buffered.length > 0 && video.buffered.end(0) >= video.duration;
   if (isBuffered) {
     video.style.display = "block";
@@ -448,22 +449,19 @@ function playRickRoll() {
       document.getElementById("rickrollButton").innerHTML = "Back";
     });
   }
-
   else{
     document.getElementById("rickrollButton").onclick = function () {
       returnToIndex();
     };
     document.getElementById("rickrollButton").innerHTML = "Back";
+
   }
 
   document.querySelector(".mainBody").style.backgroundColor = pageBackground;
 
-
   let headerLine = `<div class="resultHeaders">AMAZING RACE 2024 Results!
                       <div id="smallHeaders">Make sure to screenshot your results!</div></div>
                       <div class="challenge">`;
-
-  // <div id="smallHeaders">Below are your challenge times!</div>
 
   let resultsContent = ``;
 
@@ -471,7 +469,9 @@ function playRickRoll() {
     resultsContent += `<div class="challenges">${visitedChallenges[index]}: ${time}</div>`;
   });
 
+  document.getElementById("content").style.display = 'block';
   results.innerHTML = headerLine += resultsContent + "</div>";
+  playThemeMusic("adminTheme");
 }
 
 // Show/hide dropdown on button click
