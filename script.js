@@ -11,10 +11,20 @@ const userCredentials = {
     { password: "LushV3rd@nt", page: "Challenge9", css: "CSS/green.css" },
     { password: "Spr!ngL3@ps", page: "Challenge10", css: "CSS/green.css" },
 
-    { password: "f!nalP@ssword", page: "rickRollPage", css: "RickRolled/rickRoll.css"}
+    {
+      password: "f!nalP@ssword",
+      page: "Challenge11",
+      css: "CSS/green.css",
+    },
+
+    {
+      password: "JovinsAmazingRace",
+      page: "rickRollPage",
+      css: "RickRolled/rickRoll.css",
+    },
   ],
   purple: [
-    { password: "PRIYA", page: "Challenge1", css: "CSS/purple.css" }, 
+    { password: "PRIYA", page: "Challenge1", css: "CSS/purple.css" },
     { password: "Purpl3V!0l3t", page: "Challenge2", css: "CSS/purple.css" },
     { password: "L@v3nd3rDr3@m", page: "Challenge3", css: "CSS/purple.css" },
     { password: "R0yalR@!n", page: "Challenge4", css: "CSS/purple.css" },
@@ -25,10 +35,15 @@ const userCredentials = {
     { password: "Purpl3P@th", page: "Challenge9", css: "CSS/purple.css" },
     { password: "Plum3cst@sy", page: "Challenge10", css: "CSS/purple.css" },
 
-    { password: "fin@lP@ssword", page: "rickRollPage", css: "RickRolled/rickRoll.css"}
+    { password: "fin@lP@ssword", page: "Challenge11", css: "CSS/purple.css" },
+    {
+      password: "JovinsAmazingRace",
+      page: "rickRollPage",
+      css: "RickRolled/rickRoll.css",
+    },
   ],
   blue: [
-    { password: "ASHLYN", page: "Challenge1", css: "CSS/blue.css" }, 
+    { password: "ASHLYN", page: "Challenge1", css: "CSS/blue.css" },
     { password: "Blu3T!d3", page: "Challenge2", css: "CSS/blue.css" },
     { password: "W@v3r!d3r", page: "Challenge3", css: "CSS/blue.css" },
     { password: "S@pph!r3Spl@sh", page: "Challenge4", css: "CSS/blue.css" },
@@ -39,10 +54,19 @@ const userCredentials = {
     { password: "Blu3Sk!es", page: "Challenge9", css: "CSS/blue.css" },
     { password: "D33pS3@V3ntur3", page: "Challenge10", css: "CSS/blue.css" },
 
-    { password: "fin@lPas5word", page: "rickRollPage", css: "RickRolled/rickRoll.css"}
+    {
+      password: "fin@lPas5word",
+      page: "Challenge11",
+      css: "CSS/blue.css",
+    },
+    {
+      password: "JovinsAmazingRace",
+      page: "rickRollPage",
+      css: "RickRolled/rickRoll.css",
+    },
   ],
   orange: [
-    { password: "JAMES", page: "Challenge1", css: "CSS/orange.css" }, 
+    { password: "JAMES", page: "Challenge1", css: "CSS/orange.css" },
     { password: "0r@ng3Sunr!s3", page: "Challenge2", css: "CSS/orange.css" },
     { password: "T!gerStr!p3s", page: "Challenge3", css: "CSS/orange.css" },
     { password: "CitrusFl@re", page: "Challenge4", css: "CSS/orange.css" },
@@ -53,7 +77,16 @@ const userCredentials = {
     { password: "Bl@z!ngStr!d3", page: "Challenge9", css: "CSS/orange.css" },
     { password: "0r@ng3R@d!@nc3", page: "Challenge10", css: "CSS/orange.css" },
 
-    { password: "fin@lPas5w0rd", page: "rickRollPage", css: "RickRolled/rickRoll.css"}
+    {
+      password: "fin@lPas5w0rd",
+      page: "Challenge11",
+      css: "CSS/orange.css",
+    },
+    {
+      password: "JovinsAmazingRace",
+      page: "rickRollPage",
+      css: "RickRolled/rickRoll.css",
+    },
   ],
   yellow: [
     { password: "CIARA", page: "Challenge1", css: "CSS/yellow.css" },
@@ -67,20 +100,34 @@ const userCredentials = {
     { password: "M@r!g0ldSpr!nkl3s", page: "Challenge9", css: "CSS/yellow.css"},
     { password: "M!dD@ySh!n3", page: "Challenge10", css: "CSS/yellow.css" },
 
-    { password: "f!nalPas5w0rd", page: "rickRollPage", css: "RickRolled/rickRoll.css"}
+    {
+      password: "f!nalPas5w0rd",
+      page: "Challenge11",
+      css: "CSS/yellow.css",
+    },
+    {
+      password: "JovinsAmazingRace",
+      page: "rickRollPage",
+      css: "RickRolled/rickRoll.css",
+    },
   ],
 
-  admin: [
-    { password: "admin", page: "Challenge1", css: "CSS/admin.css" },
-    { password: "settings", page: "adminPage", css: "CSS/admin.css" },
-    { password: "rrtime", page: "rickRollPage", css: "RickRolled/rickRoll.css"}
-  ],
+  // admin: [
+  //   { password: "admin", page: "Challenge1", css: "CSS/admin.css" },
+  //   { password: "settings", page: "adminPage", css: "CSS/admin.css" },
+  //   { password: "rrtime", page: "rickRollPage", css: "RickRolled/rickRoll.css",},],
+
+
+
 };
 
 let currentThemeMusicId = ""; // Variable to store the currently playing theme music
-// let challengeStart, challengeEnd;
-// let timerRunning = false; // Flag to track if the timer is running
-// let roundTimers = [];
+let challengeStart = null; // Start time for the current challenge
+let challengeEnd = null; // End time for the current challenge
+let timerRunning = false; // Flag to indicate if a timer is running
+let roundTimers = []; // Store total times between challenges
+let visitedChallenges = [];
+
 
 const errorMessages = [
   "Womp Womp...",
@@ -148,12 +195,6 @@ const teamColors = {
 };
 
 const teamThemeMusic = {
-  // green: 10,
-  // purple: 60,
-  // blue: 30,
-  // orange: 8,
-  // yellow: 70,
-  // admin: 23,
   green: 0,
   purple: 0,
   blue: 0,
@@ -161,6 +202,59 @@ const teamThemeMusic = {
   yellow: 0,
   admin: 0,
 };
+
+
+
+
+function runningTime() {
+  const totalTime = (challengeEnd - challengeStart) / 1000; // Convert to seconds
+  const hours = Math.floor(totalTime / 3600);
+  const minutes = Math.floor((totalTime % 3600) / 60);
+  const seconds = Math.floor(totalTime % 60);
+
+  // Format the output to always show two digits for minutes and seconds
+  const formattedTime = `${hours}h ${String(minutes).padStart(
+    2,
+    "0"
+  )}m ${String(seconds).padStart(2, "0")}s`;
+  return formattedTime;
+}
+
+function challengeStartTimer() {
+  challengeStart = Date.now();
+  timerRunning = true;
+  updateChallengeTimer();
+  console.log("Challenge started at: " + new Date(challengeStart));
+}
+
+function challengeEndTimer() {
+  challengeEnd = Date.now();
+  const totalTime = runningTime();
+  roundTimers.push(totalTime); // Append time to roundTimers
+  console.log("Challenge ended at: " + new Date(challengeEnd));
+  console.log(`Total Time: ${totalTime}`);
+}
+
+function updateChallengeTimer() {
+  if (timerRunning === true) {
+    const fixedTimer = document.getElementById("fixedTimer");
+    const elapsed = Math.floor((Date.now() - challengeStart) / 1000); // Time elapsed in seconds
+    const hours = Math.floor(elapsed / 3600);
+    const minutes = Math.floor((elapsed % 3600) / 60);
+    const seconds = elapsed % 60;
+    const formattedTime = `${hours}h ${String(minutes).padStart(
+      2,
+      "0"
+    )}m ${String(seconds).padStart(2, "0")}s`;
+    fixedTimer.innerText = formattedTime; // Display the timer text
+    setTimeout(updateChallengeTimer, 1000); // Continue the loop
+  }
+}
+
+// Function to check if the page is a challenge page
+function isChallengePage(page) {
+  return page.startsWith("Challenge");
+}
 
 function audioLoaded() {
   let allLoaded = true;
@@ -427,7 +521,7 @@ function playRickRoll() {
   const results = document.getElementById("resultsContent");
 
   const pageBackground =
-  teamColors[document.querySelector("#teamSelection").value];
+    teamColors[document.querySelector("#teamSelection").value];
   document.getElementById("rickRollPage").style.display = "block";
   document.querySelector(".mainBody").style.backgroundColor = pageBackground;
   playButton.style.display = "none";
@@ -437,7 +531,7 @@ function playRickRoll() {
   <div class="challenge">`;
 
   let resultsContent = ``;
-  roundTimers.forEach((time, index) => {
+  roundTimers.slice(0, 10).forEach((time, index) => {
     resultsContent += `<div class="challenges">${visitedChallenges[index]}: ${time}</div>`;
   });
 
@@ -457,7 +551,6 @@ function playRickRoll() {
       document.querySelector(".mainBody").style.backgroundColor =
         pageBackground;
 
-      
       results.style.display = "block";
       document.getElementById("content").style.display = "block";
       results.innerHTML = headerLine += resultsContent + "</div>";
@@ -614,58 +707,3 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   }
 });
 
-let challengeStart = null; // Start time for the current challenge
-let challengeEnd = null; // End time for the current challenge
-let timerRunning = false; // Flag to indicate if a timer is running
-let roundTimers = []; // Store total times between challenges
-let visitedChallenges = [];
-
-function runningTime() {
-  const totalTime = (challengeEnd - challengeStart) / 1000; // Convert to seconds
-  const hours = Math.floor(totalTime / 3600);
-  const minutes = Math.floor((totalTime % 3600) / 60);
-  const seconds = Math.floor(totalTime % 60);
-
-  // Format the output to always show two digits for minutes and seconds
-  const formattedTime = `${hours}h ${String(minutes).padStart(
-    2,
-    "0"
-  )}m ${String(seconds).padStart(2, "0")}s`;
-  return formattedTime;
-}
-
-function challengeStartTimer() {
-  challengeStart = Date.now();
-  timerRunning = true;
-  updateChallengeTimer();
-  console.log("Challenge started at: " + new Date(challengeStart));
-}
-
-function challengeEndTimer() {
-  challengeEnd = Date.now();
-  const totalTime = runningTime();
-  roundTimers.push(totalTime); // Append time to roundTimers
-  console.log("Challenge ended at: " + new Date(challengeEnd));
-  console.log(`Total Time: ${totalTime}`);
-}
-
-function updateChallengeTimer() {
-  if (timerRunning === true) {
-    const fixedTimer = document.getElementById("fixedTimer");
-    const elapsed = Math.floor((Date.now() - challengeStart) / 1000); // Time elapsed in seconds
-    const hours = Math.floor(elapsed / 3600);
-    const minutes = Math.floor((elapsed % 3600) / 60);
-    const seconds = elapsed % 60;
-    const formattedTime = `${hours}h ${String(minutes).padStart(
-      2,
-      "0"
-    )}m ${String(seconds).padStart(2, "0")}s`;
-    fixedTimer.innerText = formattedTime; // Display the timer text
-    setTimeout(updateChallengeTimer, 1000); // Continue the loop
-  }
-}
-
-// Function to check if the page is a challenge page
-function isChallengePage(page) {
-  return page.startsWith("Challenge");
-}
