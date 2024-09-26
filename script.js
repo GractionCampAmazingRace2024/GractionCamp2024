@@ -9,7 +9,7 @@ const userCredentials = {
     { password: "Gr33nG!ant", page: "Challenge6", css: "CSS/green.css" },
     { password: "LushV3rd@nt", page: "Challenge1", css: "CSS/green.css" },
     { password: "Spr!ngL3@ps", page: "Challenge8", css: "CSS/green.css" },
-    { password: "JONO", page: "Challenge10", css: "CSS/green.css" }, 
+    { password: "JONO", page: "Challenge10", css: "CSS/green.css" },
   ],
   purple: [
     { password: "Purpl3V!0l3t", page: "Challenge5", css: "CSS/purple.css" },
@@ -67,7 +67,11 @@ const userCredentials = {
   admin: [
     { password: "admin", page: "Challenge1", css: "CSS/admin.css" },
     { password: "settings", page: "adminPage", css: "CSS/admin.css" },
-    { password: "rrtime", page: "rickRollPage", css: "RickRolled/rickRoll.css"},
+    {
+      password: "rrtime",
+      page: "rickRollPage",
+      css: "RickRolled/rickRoll.css",
+    },
   ],
 };
 
@@ -420,16 +424,18 @@ function playRickRoll() {
   const playButton = document.getElementById("playButton");
   const results = document.getElementById("resultsContent");
 
-  const pageBackground = teamColors[(document.querySelector("#teamSelection").value)]
+  const pageBackground =
+    teamColors[document.querySelector("#teamSelection").value];
   document.getElementById("rickRollPage").style.display = "block";
   document.querySelector(".mainBody").style.backgroundColor = pageBackground;
   playButton.style.display = "none";
-  
+
   video.style.display = "block";
   videoContainer.style.display = "flex";
-  
+
   // Check if the video is fully buffered
-  const isBuffered = video.buffered.length > 0 && video.buffered.end(0) >= video.duration;
+  const isBuffered =
+    video.buffered.length > 0 && video.buffered.end(0) >= video.duration;
 
   if (isBuffered) {
     document.querySelector(".mainBody").style.backgroundColor = "black";
@@ -450,11 +456,11 @@ function playRickRoll() {
   };
   document.getElementById("rickrollButton").innerHTML = "Back";
 
-
   let headerLine = `<div class="resultHeaders">AMAZING RACE 2024 Results!
-                      <div id="smallHeaders">Make sure to screenshot your results!</div>`;
-                      
-                      // <div id="smallHeaders">Below are your challenge times!</div>
+                      <div id="smallHeaders">Make sure to screenshot your results!</div></div>
+                      <div class="Challenge">`;
+
+  // <div id="smallHeaders">Below are your challenge times!</div>
 
   let resultsContent = ``;
 
@@ -462,9 +468,8 @@ function playRickRoll() {
     resultsContent += `<div class="challenges">${visitedChallenges[index]}: ${time}</div>`;
   });
 
-  results.innerHTML = headerLine += resultsContent + '</div>';
+  results.innerHTML = headerLine += resultsContent + "</div>";
 }
-
 
 // Show/hide dropdown on button click
 document
@@ -568,13 +573,10 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         userData.page !== "indexPage"
       ) {
         if (timerRunning) {
-          challengeEndTimer(); // End previous timer if there is one
-        }
-
-        // Check if the current page is a challenge page
-        if (isChallengePage(userData.page)) {
-          visitedChallenges.push(userData.page); // Mark challenge as visited
-          challengeStartTimer(); // Start new timer for this challenge
+          challengeEndTimer();
+        } else if (isChallengePage(userData.page) && !timerRunning) {
+          visitedChallenges.push(userData.page);
+          challengeStartTimer();
         }
       }
 
@@ -613,8 +615,7 @@ let challengeStart = null; // Start time for the current challenge
 let challengeEnd = null; // End time for the current challenge
 let timerRunning = false; // Flag to indicate if a timer is running
 let roundTimers = []; // Store total times between challenges
-let visitedChallenges = []; // Array to track visited challenges
-
+let visitedChallenges = [];
 
 function runningTime() {
   const totalTime = (challengeEnd - challengeStart) / 1000; // Convert to seconds
@@ -623,7 +624,10 @@ function runningTime() {
   const seconds = Math.floor(totalTime % 60);
 
   // Format the output to always show two digits for minutes and seconds
-  const formattedTime = `${hours}h ${String(minutes).padStart(2,"0")}m ${String(seconds).padStart(2, "0")}s`;
+  const formattedTime = `${hours}h ${String(minutes).padStart(
+    2,
+    "0"
+  )}m ${String(seconds).padStart(2, "0")}s`;
   return formattedTime;
 }
 
@@ -643,19 +647,20 @@ function challengeEndTimer() {
 }
 
 function updateChallengeTimer() {
-
-  if(timerRunning === true){
+  if (timerRunning === true) {
     const fixedTimer = document.getElementById("fixedTimer");
     const elapsed = Math.floor((Date.now() - challengeStart) / 1000); // Time elapsed in seconds
     const hours = Math.floor(elapsed / 3600);
     const minutes = Math.floor((elapsed % 3600) / 60);
     const seconds = elapsed % 60;
-    const formattedTime = `${hours}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
+    const formattedTime = `${hours}h ${String(minutes).padStart(
+      2,
+      "0"
+    )}m ${String(seconds).padStart(2, "0")}s`;
     fixedTimer.innerText = formattedTime; // Display the timer text
     setTimeout(updateChallengeTimer, 1000); // Continue the loop
   }
 }
-
 
 // Function to check if the page is a challenge page
 function isChallengePage(page) {
