@@ -199,15 +199,12 @@ function challengeStartTimer() {
   challengeStart = Date.now();
   timerRunning = true;
   updateChallengeTimer();
-  console.log("Challenge started at: " + new Date(challengeStart));
 }
 
 function challengeEndTimer() {
   challengeEnd = Date.now();
   const totalTime = runningTime();
   roundTimers.push(totalTime); // Append time to roundTimers
-  console.log("Challenge ended at: " + new Date(challengeEnd));
-  console.log(`Total Time: ${totalTime}`);
 }
 
 function updateChallengeTimer() {
@@ -241,7 +238,6 @@ function audioLoaded() {
       // Only proceed if the audio has not been marked as loaded
       if (!loadedAudioStatus[id]) {
         if (state < 4) {
-          console.log(`${id} - Ready State: ${state}`);
           allLoaded = false;
           bufferedInfo += `<div id='fullybuffered' >${id} | 100% Loaded</div>`;
         }
@@ -254,7 +250,6 @@ function audioLoaded() {
           bufferedInfo += `<div id='buffering' >${id} | Loading: ${Math.round(
             loadedPercentage.toFixed(2)
           )}%</div>`;
-          console.log(`${id} - Loaded: ${loadedPercentage.toFixed(2)}%`);
 
           // Mark audio as loaded if fully buffered
           if (loadedPercentage >= 100) {
@@ -264,19 +259,16 @@ function audioLoaded() {
           totalAudioPercentage += loadedPercentage;
         }
       } else {
-        // If already loaded, consider it fully buffered
-        console.log(`${id} - Already Loaded`);
         bufferedInfo += `<div id='fullybuffered'>${id} | 100% Loaded</div>`; // Indicate it is fully loaded
       }
-    } else {
-      console.log(`${id} not found.`);
-    }
+    } 
+
   });
 
   document.getElementById("adminTest").innerHTML = bufferedInfo;
 
   const averageAudioPercentage = totalAudioPercentage / totalAudios;
-  console.log(`Average Audio Loaded: ${averageAudioPercentage.toFixed(2)}%`);
+
 
   // Update allLoaded based on loadedAudioStatus
   allLoaded = Object.values(loadedAudioStatus).length === totalAudios;
@@ -312,7 +304,7 @@ function preloader() {
     if (buffered.length > 0) {
       const loaded = buffered.end(0); // Get how much of the video is buffered
       videoLoadedPercentage = (loaded / duration) * 100; // Calculate video loading percentage
-      console.log(`Buffered: ${videoLoadedPercentage.toFixed(2)}%`);
+
     }
 
     // Get audio loading status
@@ -331,7 +323,7 @@ function preloader() {
 
       const endTime = performance.now();
       const loadTime = (endTime - startTime) / 1000;
-      console.log(`Preloading completed in ${loadTime.toFixed(2)} seconds`);
+
 
       // Update the button to allow starting the main content
       button.onclick = homePage;
@@ -447,7 +439,6 @@ function playRickRoll() {
 
   let resultsContent = ``;
   roundTimers.slice(0, 10).forEach((time, index) => {
-    console.log('check: ', index)
     resultsContent += `<div class="challenges">${visitedChallenges[index]}: ${time}</div>`;
   });
 
@@ -533,7 +524,7 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
       document.body.style.backgroundColor = color;
 
       const colorTheme = `${[value]}Theme`;
-      console.log("Color Theme is:", colorTheme);
+
       playThemeMusic(colorTheme);
     }
     document.querySelector(".dropdown-content").classList.remove("show");
@@ -575,8 +566,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
       playThemeMusic("unlockSound");
 
-      console.log("Round Timers: ", roundTimers);
-      console.log("Visited Pages: ", visitedChallenges);
+
 
       if (
         !visitedChallenges.includes(userData.page) &&
@@ -594,7 +584,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       document.getElementById("iphoneline").style.display = "none";
       const linkElement = document.getElementById("dynamic-css");
       linkElement.href = `/GractionCamp2024/${userData.css}`;
-      console.log("User Data / CSS is: ", userData.css);
+
     } else {
       document.getElementById("errorMessage").textContent =
         getRandomErrorMessage();
@@ -602,9 +592,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       // Play fail sound
       const failSound = document.getElementById("failSound");
       failSound.volume = 0.3;
-      failSound.play().catch((error) => {
-        console.log("Error playing fail sound:", error);
-      });
+      failSound.play()
 
       failSound.addEventListener("ended", () => {
         if (currentThemeMusicId) {
