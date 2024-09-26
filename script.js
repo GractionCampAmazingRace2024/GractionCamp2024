@@ -617,8 +617,8 @@ function runningTime() {
 
 function challengeStartTimer() {
   challengeStart = Date.now();
-  updateChallengeTimer();
   timerRunning = true;
+  updateChallengeTimer();
   console.log("Challenge started at: " + new Date(challengeStart));
 }
 
@@ -631,15 +631,16 @@ function challengeEndTimer() {
 }
 
 function updateChallengeTimer() {
-  const fixedTimer = document.getElementById("fixedTimer");
-  const now = new Date.now();
-  const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
-  const hours = Math.floor(elapsed / 3600);
-  const minutes = Math.floor((elapsed % 3600) / 60);
-  const seconds = elapsed % 60;
-  const formattedTime = `${hours}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
-  fixedTimer.innerText = formattedTime; // Display the timer text
-  setTimeout(updateChallengeTimer, 1000); // Continue the loop
+  if(timerRunning === true){
+    const fixedTimer = document.getElementById("fixedTimer");
+    const elapsed = Math.floor((Date.now() - challengeStart) / 1000); // Time elapsed in seconds
+    const hours = Math.floor(elapsed / 3600);
+    const minutes = Math.floor((elapsed % 3600) / 60);
+    const seconds = elapsed % 60;
+    const formattedTime = `${hours}h ${String(minutes).padStart(2, "0")}m ${String(seconds).padStart(2, "0")}s`;
+    fixedTimer.innerText = formattedTime; // Display the timer text
+    setTimeout(updateChallengeTimer, 1000); // Continue the loop
+  }
 }
 
 
