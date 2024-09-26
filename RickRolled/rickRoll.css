@@ -6,7 +6,7 @@
     overflow-x: hidden;
     width: 100vw;
     height: 100vh;
-    background-color: red;
+    background-color: rgb(0, 0, 0);
     touch-action: none;
     /* Prevents touch scrolling */
     overscroll-behavior: none;
@@ -44,12 +44,14 @@ body {
 
 }
 
+
+/* 
 .threeStripe {
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
-    /* Horizontally centers middleStripe */
+
     position: absolute;
 
     user-select: none;
@@ -59,7 +61,7 @@ body {
     -o-user-select: none;
     touch-action: none;
     overscroll-behavior: none;
-    /* Prevents scroll bounce */
+
     scroll-snap-type: none;
 }
 
@@ -72,6 +74,7 @@ body {
     justify-content: center;
     position: relative;
 }
+*/
 
 #content {
     color: white;
@@ -100,9 +103,7 @@ body {
     background-color: transparent;
     outline: none;
     border: none;
-    z-index: 1000;
-
-
+    z-index: 9999;
 }
 
 #returnToIndex span {
@@ -111,7 +112,7 @@ body {
     transform-origin: center;
     white-space: nowrap;
     font-size: calc(min(5vw, 5vh));
-    color: rgb(92, 0, 0);
+    color: rgb(49, 49, 49);
 }
 
 
@@ -166,6 +167,7 @@ button {
 
 
 #resultsContent {
+
     display: grid;
     grid-template-rows: auto 1fr;
 }
@@ -178,6 +180,10 @@ button {
     margin: 0;
     text-align: center;
     font-size: calc(min(9vw, 9vh)); /* Font size based on viewport */
+}
+
+#smallHeaders{
+    font-size: calc(min(7vw, 7vh)); /* Font size based on viewport */
 }
 
 .challenge {

@@ -70,10 +70,16 @@
 
   <!-- Local Host Testing -->
 
-  <!-- <link rel="manifest" href="manifest.json">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="/CSS/admin.css">
   <link rel="stylesheet" href="/CSS/stickman.css">
-  <link rel="stylesheet" href="/CSS/loader.css">
-  <link id="dynamic-css" rel="stylesheet" href="style.css"> -->
+  <link rel="stylesheet" href="/RickRolled/rickRoll.css">
+  <!-- <link rel="stylesheet" href="/CSS/loader.css"> -->
+  <link id="dynamic-css" rel="stylesheet" href="style.css">
+
+
+
 
   <!-- Local Host Testing -->
 
@@ -266,15 +272,11 @@
 
   <div id="rickRollPage" class="page" style="display: none;">
     <button id="returnToIndex" onclick=""><span id="rickrollButton">Results</span></button>
-    <div class="threeStripe">
-      <div class="middleStripe">
         <div id="content">
           <p id="resultsContent" style="display: none;"></p>
           <button id="playButton" onclick="playRickRoll();" style="display: inline;">See Final
             Results</button>
         </div>
-      </div>
-    </div>
   </div>
 
 
@@ -466,11 +468,10 @@
 
 
 
-
   <div id="fixedTimer" style="  
   position: fixed;  
-  bottom: calc((min(5vh, 5vw) + 15px + 8vw)); 
-  left: -6vw;  
+  bottom: calc((min(5vh, 5vw) + 3.5vh)); 
+  left: -3vw;  
   transform: rotate(-90deg);
   background-color: rgba(0, 0, 0, 0.7);  
   transform-origin: center; 

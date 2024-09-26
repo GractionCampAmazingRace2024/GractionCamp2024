@@ -9,7 +9,7 @@ const userCredentials = {
     { password: "Gr33nG!ant", page: "Challenge6", css: "CSS/green.css" },
     { password: "LushV3rd@nt", page: "Challenge1", css: "CSS/green.css" },
     { password: "Spr!ngL3@ps", page: "Challenge8", css: "CSS/green.css" },
-    { password: "JONO", page: "Challenge10", css: "CSS/green.css" }, // Added
+    { password: "JONO", page: "Challenge10", css: "CSS/green.css" }, 
   ],
   purple: [
     { password: "Purpl3V!0l3t", page: "Challenge5", css: "CSS/purple.css" },
@@ -67,11 +67,7 @@ const userCredentials = {
   admin: [
     { password: "admin", page: "Challenge1", css: "CSS/admin.css" },
     { password: "settings", page: "adminPage", css: "CSS/admin.css" },
-    {
-      password: "rrtime",
-      page: "rickRollPage",
-      css: "RickRolled/rickRoll.css",
-    },
+    { password: "rrtime", page: "rickRollPage", css: "RickRolled/rickRoll.css"},
   ],
 };
 
@@ -424,35 +420,50 @@ function playRickRoll() {
   const playButton = document.getElementById("playButton");
   const results = document.getElementById("resultsContent");
 
+  const pageBackground = teamColors[(document.querySelector("#teamSelection").value)]
   document.getElementById("rickRollPage").style.display = "block";
-  document.querySelector(".mainBody").style.backgroundColor = "black";
+  document.querySelector(".mainBody").style.backgroundColor = pageBackground;
   playButton.style.display = "none";
+  
   video.style.display = "block";
   videoContainer.style.display = "flex";
-  video.muted = false;
-  video.play();
+  
+  // Check if the video is fully buffered
+  const isBuffered = video.buffered.length > 0 && video.buffered.end(0) >= video.duration;
 
-  video.addEventListener("ended", function () {
-    video.style.display = "none";
-    videoContainer.style.display = "none";
-  });
+  if (isBuffered) {
+    document.querySelector(".mainBody").style.backgroundColor = "black";
+    video.muted = false;
+    video.play();
+
+    video.addEventListener("ended", function () {
+      video.style.display = "none";
+      videoContainer.style.display = "none";
+    });
+  }
+
+  // Always display the results regardless of whether the video plays
   results.style.display = "grid";
-
+  document.querySelector(".mainBody").style.backgroundColor = pageBackground;
   document.getElementById("rickrollButton").onclick = function () {
     returnToIndex();
   };
   document.getElementById("rickrollButton").innerHTML = "Back";
-  document.querySelector(".mainBody").style.backgroundColor = "red";
 
-  let headerLine = `<div class="resultHeaders">AMAZING RACE 2024 Results!</div> <div class="resultHeaders">Make sure to screenshot your results!</div> <div class="resultHeaders">Below are your challenge times!</div><div class="challenge">`;
+
+  let headerLine = `<div class="resultHeaders">AMAZING RACE 2024 Results!</div> 
+                    <div class="resultHeaders" id="smallHeaders">Make sure to screenshot your results!</div> 
+                    <div class="resultHeaders" id="smallHeaders">Below are your challenge times!</div><div class="challenge">`;
 
   let resultsContent = ``;
 
   roundTimers.forEach((time, index) => {
-      resultsContent += `<div class="challenges">${visitedChallenges[index]}: ${time}</div>`;
+    resultsContent += `<div class="challenges">${visitedChallenges[index]}: ${time}</div>`;
   });
+
   results.innerHTML = headerLine += resultsContent + '</div>';
 }
+
 
 // Show/hide dropdown on button click
 document
