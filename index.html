@@ -8,7 +8,8 @@
 
   <link rel="manifest" href="/GractionCamp2024/manifest.json">
   <link rel="stylesheet" href="/GractionCamp2024/CSS/stickman.css">
-  <link rel="preload" id="dynamic-css" href="/GractionCamp2024/CSS/loader.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" id="dynamic-css" href="/GractionCamp2024/CSS/loader.css" as="style"
+    onload="this.rel='stylesheet'">
 
   <!--  IOS SPECIFIC STUFF -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -251,11 +252,11 @@
 
   <div id="rickRollPage" class="page" style="display: none;">
     <!-- <button id="returnToIndex" onclick=""><span id="rickrollButton">Results</span></button> -->
-        <div id="content">
-          <p id="resultsContent" style="display: none;"></p>
-          <button id="playButton" onclick="playRickRoll();" style="display: inline;">See Final
-            Results!</button>
-        </div>
+    <div id="content">
+      <p id="resultsContent" style="display: none;"></p>
+      <button id="playButton" onclick="playRickRoll();" style="display: inline;">See Final
+        Results!</button>
+    </div>
   </div>
 
   <div id="videoContainer" style="display: none;">
@@ -424,19 +425,20 @@
     </div>
   </div>
 
-  <div id="Challenge11" class="page" style="display: none;"></div>
-    <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
-    <div class="threeStripe">
-      <div class="middleStripe">
-        <div id="content">
-          <h2>Final Challenge</h2><br>
-          Back to the place where it all began,<br>
-          Where shadows danced and dreams first ran.<br>
-          The first challenge waits, your spirit's guide,<br>
-          In familiar grounds, let your heart abide.<br>
-        </div>
+
+  <div id="Challenge11" class="page" style="display: none;">
+  <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
+  <div class="threeStripe">
+    <div class="middleStripe">
+      <div id="content">
+        <h2>Final Challenge</h2><br>
+        Back to the place where it all began,<br>
+        Where shadows danced and dreams first ran.<br>
+        The first challenge waits, your spirit's guide,<br>
+        In familiar grounds, let your heart abide.<br>
       </div>
     </div>
+  </div>
   </div>
 
 
@@ -455,8 +457,8 @@
   font-size: calc(min(4vw, 4vh));
   font-family: Arial, sans-serif;
   border-radius: 5px;">
-  00h 00m 00s
-</div>
+    00h 00m 00s
+  </div>
 
 
 
@@ -484,7 +486,7 @@
         }
       });
     }
-    
+
 
 
     let lastTouchEnd = 0;
@@ -524,7 +526,7 @@
       });
     }
 
-    
+
 
     window.onload = () => {
       preloadAllAudios();
