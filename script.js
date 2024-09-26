@@ -473,9 +473,7 @@ function playRickRoll() {
 }
 
 // Show/hide dropdown on button click
-document
-  .querySelector(".customButton")
-  .addEventListener("click", function (event) {
+document.querySelector(".customButton").addEventListener("click", function (event) {
     event.stopPropagation(); // Prevent event from propagating to the document
     const dropdown = document.querySelector(".dropdown-content");
     dropdown.classList.toggle("show");
