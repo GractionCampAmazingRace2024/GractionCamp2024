@@ -230,7 +230,7 @@ button:hover {
 #option-blue { background-color: #01b0f1; }
 #option-orange { background-color: #ffc000; }
 #option-yellow { background-color: yellow; } 
-#option-admin { background-color: red; }
+
 
 @keyframes rgb-border {
     0% { 

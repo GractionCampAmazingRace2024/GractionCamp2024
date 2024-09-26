@@ -139,8 +139,8 @@
         <button id="startButton" onclick="preloader()">Press to load resources...</button>
         <p id="adminTest" style="display:none"></p>
         <button id="skipButton" onclick="returnToIndex();" style="display: none">Skip Resource Packages...<br>No Theme
-          Music :(</button>
-        <h4>Version 3.0.8.v9</h4>
+          Music</button>
+        <h4>Version 3.0.9.v1</h4>
       </div>
     </div>
   </div>
@@ -168,7 +168,6 @@
             <div class="dropdown-item" data-value="blue" id="option-blue">Kikorangi</div>
             <div class="dropdown-item" data-value="orange" id="option-orange">Karaka</div>
             <div class="dropdown-item" data-value="yellow" id="option-yellow">Kōwhai</div>
-            <!-- <div class="dropdown-item" data-value="admin" id="option-admin">Admin</div> -->
           </div>
           <input type="hidden" id="teamSelection" name="teamSelection">
         </div>
@@ -237,27 +236,6 @@
   </div>
 
 
-
-
-  <div id="adminPage" class="page" style="display: none;">
-    <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
-    <div class="threeStripe">
-      <div class="middleStripe">
-        <div id="content">
-          admin
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="rickRollPage" class="page" style="display: none;">
-    <!-- <button id="returnToIndex" onclick=""><span id="rickrollButton">Results</span></button> -->
-    <div id="content">
-      <p id="resultsContent" style="display: none;"></p>
-      <button id="playButton" onclick="playRickRoll();" style="display: inline;">See Final
-        Results!</button>
-    </div>
-  </div>
 
   <div id="videoContainer" style="display: none;">
     <video id="rickRollVideo" playsinline controls>
@@ -427,22 +405,28 @@
 
 
   <div id="Challenge11" class="page" style="display: none;">
-  <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
-  <div class="threeStripe">
-    <div class="middleStripe">
-      <div id="content">
-        <h2>Final Challenge</h2><br>
-        Back to the place where it all began,<br>
-        Where shadows danced and dreams first ran.<br>
-        The first challenge waits, your spirit's guide,<br>
-        In familiar grounds, let your heart abide.<br>
+    <button id="returnToIndex" onclick="returnToIndex()"><span>Back</span></button>
+    <div class="threeStripe">
+      <div class="middleStripe">
+        <div id="content">
+          <h2>Final Challenge</h2><br>
+          Back to the place where it all began,<br>
+          Where shadows danced and dreams first ran.<br>
+          The first challenge waits, your spirit's guide,<br>
+          In familiar grounds, let your heart abide.<br>
+        </div>
       </div>
     </div>
   </div>
+
+
+  <div id="rickRollPage" class="page" style="display: none;">
+    <div id="content">
+      <p id="resultsContent" style="display: none;"></p>
+      <button id="playButton" onclick="playRickRoll();" style="display: inline;">See Final
+        Results!</button>
+    </div>
   </div>
-
-
-
 
 
   <div id="fixedTimer" style="  

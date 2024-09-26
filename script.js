@@ -111,21 +111,13 @@ const userCredentials = {
       css: "RickRolled/rickRoll.css",
     },
   ],
-
-  // admin: [
-  //   { password: "admin", page: "Challenge1", css: "CSS/admin.css" },
-  //   { password: "settings", page: "adminPage", css: "CSS/admin.css" },
-  //   { password: "rrtime", page: "rickRollPage", css: "RickRolled/rickRoll.css",},],
-
-
-
 };
 
-let currentThemeMusicId = ""; // Variable to store the currently playing theme music
-let challengeStart = null; // Start time for the current challenge
-let challengeEnd = null; // End time for the current challenge
-let timerRunning = false; // Flag to indicate if a timer is running
-let roundTimers = []; // Store total times between challenges
+let currentThemeMusicId = ""; 
+let challengeStart = null; 
+let challengeEnd = null; 
+let timerRunning = false; 
+let roundTimers = []; 
 let visitedChallenges = [];
 
 
@@ -167,7 +159,7 @@ const errorMessages = [
   "Did you drop the phone?",
 ];
 
-const loadedAudioStatus = {}; // Object to track loading status of each audio
+const loadedAudioStatus = {}; 
 
 const audioIds = [
   "failSound",
@@ -184,26 +176,15 @@ const audioIds = [
   "themeMusic2",
 ];
 
-// Map team colors to their corresponding gradient backgrounds
+
 const teamColors = {
   green: "#92d14f",
   purple: "#cd66ff",
   blue: "#01b0f1",
   orange: "#ffc000",
   yellow: "yellow",
-  admin: "red",
+
 };
-
-const teamThemeMusic = {
-  green: 0,
-  purple: 0,
-  blue: 0,
-  orange: 0,
-  yellow: 0,
-  admin: 0,
-};
-
-
 
 
 function runningTime() {
@@ -236,7 +217,7 @@ function challengeEndTimer() {
 }
 
 function updateChallengeTimer() {
-  if (timerRunning === true) {
+  if (timerRunning == true) {
     const fixedTimer = document.getElementById("fixedTimer");
     const elapsed = Math.floor((Date.now() - challengeStart) / 1000); // Time elapsed in seconds
     const hours = Math.floor(elapsed / 3600);
@@ -406,27 +387,22 @@ function challengeEndTimer() {
 function updateChallengeTimer() {
   const indexPage = document.getElementById("indexPage");
   const loadingPage = document.getElementById("loadingPage");
-
+  const screenTimer =   document.getElementById("timer");
   const indexPageVisible = getComputedStyle(indexPage).display === "block";
   const loadingPageVisible = getComputedStyle(loadingPage).display === "block";
 
   if (!indexPageVisible && !loadingPageVisible && timerRunning) {
-    document.getElementById("timer").style.display = "inline-block";
+    screenTimer.style.display = "inline-block";
     const now = new Date();
     const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
     const hours = Math.floor(elapsed / 3600);
     const minutes = Math.floor((elapsed % 3600) / 60);
     const seconds = elapsed % 60;
-    const formattedTime = `${hours}h ${String(minutes).padStart(
-      2,
-      "0"
-    )}m ${String(seconds).padStart(2, "0")}s`;
-
-    document.getElementById("timer").innerText = formattedTime;
+    const formattedTime = `${hours}h ${String(minutes).padStart(2,"0")}m ${String(seconds).padStart(2, "0")}s`;
+    screenTimer.innerText = formattedTime;
   } else {
-    document.getElementById("timer").style.display = "none";
+    screenTimer.style.display = "none";
   }
-
   setTimeout(updateChallengeTimer, 1000); // Continue the loop
 }
 
@@ -463,8 +439,8 @@ function returnToIndex() {
     "miiTheme",
     "miiShop",
   ];
-  const randomThemeMusicElement =
-    themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
+  
+  const randomThemeMusicElement = themeMusicOptions[Math.floor(Math.random() * themeMusicOptions.length)];
   playThemeMusic(randomThemeMusicElement);
 }
 
@@ -477,11 +453,11 @@ function homePage() {
   document.getElementById("dynamic-css").href = "/GractionCamp2024/style.css";
   document.getElementById("iphoneline").style.display = "block";
   document.body.style.backgroundColor = "yellow";
-  document.documentElement.style.backgroundColor = "yellow";
+  // document.documentElement.style.backgroundColor = "yellow";
 }
 
 // Team music player // Play team music
-function playThemeMusic(audioFile, startTime = 0) {
+function playThemeMusic(audioFile) {
   if (currentThemeMusicId) {
     const currentMusicElement = document.getElementById(currentThemeMusicId);
     if (currentMusicElement) {
@@ -491,10 +467,10 @@ function playThemeMusic(audioFile, startTime = 0) {
   }
   const audioElement = document.getElementById(audioFile);
   if (audioElement) {
-    audioElement.currentTime = startTime;
+    audioElement.currentTime = 0;
     audioElement.muted = false;
-    audioElement.play(); // Play the selected audio
-    currentThemeMusicId = audioFile; // Store the new audio's ID
+    audioElement.play(); 
+    currentThemeMusicId = audioFile;
   } else {
     console.error(`Audio file with ID ${audioFile} not found`);
   }
@@ -507,10 +483,10 @@ function showAdminTest() {
     adminTestElement.style.display === "none" ||
     adminTestElement.style.display === ""
   ) {
-    adminTestElement.style.display = "block"; // Show the element
+    adminTestElement.style.display = "block";
     adminButton.style.color = "#12E2DC";
   } else {
-    adminTestElement.style.display = "none"; // Hide the element
+    adminTestElement.style.display = "none"; 
     adminButton.style.color = "#333";
   }
 }
@@ -519,11 +495,11 @@ function playRickRoll() {
   const video = document.getElementById("rickRollVideo");
   const playButton = document.getElementById("playButton");
   const results = document.getElementById("resultsContent");
-
+  const mainBodyElements =   document.querySelector(".mainBody");
   const pageBackground =
     teamColors[document.querySelector("#teamSelection").value];
   document.getElementById("rickRollPage").style.display = "block";
-  document.querySelector(".mainBody").style.backgroundColor = pageBackground;
+  mainBodyElements.style.backgroundColor = pageBackground;
   playButton.style.display = "none";
 
   let headerLine = `<div class="resultHeaders">AMAZING RACE 2024 Results!
@@ -532,6 +508,7 @@ function playRickRoll() {
 
   let resultsContent = ``;
   roundTimers.slice(0, 10).forEach((time, index) => {
+    console.log('check: ', index)
     resultsContent += `<div class="challenges">${visitedChallenges[index]}: ${time}</div>`;
   });
 
@@ -540,7 +517,7 @@ function playRickRoll() {
   if (isBuffered) {
     video.style.display = "block";
     videoContainer.style.display = "flex";
-    document.querySelector(".mainBody").style.backgroundColor = "black";
+    mainBodyElements.style.backgroundColor = "black";
     video.muted = false;
     video.play();
 
@@ -548,7 +525,7 @@ function playRickRoll() {
       video.style.display = "none";
       videoContainer.style.display = "none";
 
-      document.querySelector(".mainBody").style.backgroundColor =
+      mainBodyElements.style.backgroundColor =
         pageBackground;
 
       results.style.display = "block";
@@ -557,8 +534,7 @@ function playRickRoll() {
       playThemeMusic("adminTheme");
     });
   } else {
-    document.querySelector(".mainBody").style.backgroundColor = pageBackground;
-
+    mainBodyElements.style.backgroundColor = pageBackground;
     results.style.display = "block";
     document.getElementById("content").style.display = "block";
     results.innerHTML = headerLine += resultsContent + "</div>";
@@ -619,8 +595,7 @@ document.querySelectorAll(".dropdown-item").forEach((item) => {
 
       const colorTheme = `${[value]}Theme`;
       console.log("Color Theme is:", colorTheme);
-      playThemeMusic(colorTheme, `${teamThemeMusic[value]}`);
-      console.log("Theme Start Time:", `${teamThemeMusic[value]}`);
+      playThemeMusic(colorTheme);
     }
     document.querySelector(".dropdown-content").classList.remove("show");
     document.getElementById("errorMessage").textContent = "";
@@ -631,15 +606,16 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault(); // Prevent form from submitting automatically
   const username = document.getElementById("teamSelection").value;
   const password = document.getElementById("password").value;
-  document.getElementById("errorMessage").textContent = "";
+  const error = document.getElementById("errorMessage")
+  error.textContent = "";
 
   if (!username) {
-    document.getElementById("errorMessage").textContent =
+    error.textContent =
       "Please select a team first.";
     return;
   }
   if (!password) {
-    document.getElementById("errorMessage").textContent =
+    error.textContent =
       "Please enter your password.";
     return;
   }
@@ -662,7 +638,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
       console.log("Round Timers: ", roundTimers);
       console.log("Visited Pages: ", visitedChallenges);
-      // When handling the login form submission or navigation to a new page
+
       if (
         !visitedChallenges.includes(userData.page) &&
         userData.page !== "indexPage"

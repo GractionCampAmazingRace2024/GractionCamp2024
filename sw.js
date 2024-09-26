@@ -28,7 +28,7 @@ const resourcesToCache = [
   "/GractionCamp2024/Audio/yellowSub.mp3",
 
   // CSS
-  "/GractionCamp2024/CSS/admin.css",
+  // "/GractionCamp2024/CSS/admin.css",
   "/GractionCamp2024/CSS/blue.css",
   "/GractionCamp2024/CSS/green.css",
   "/GractionCamp2024/CSS/loader.css",
