@@ -461,7 +461,7 @@ function playRickRoll() {
 
   let headerLine = `<div class="resultHeaders">AMAZING RACE 2024 Results!
                       <div id="smallHeaders">Make sure to screenshot your results!</div></div>
-                      <div class="Challenge">`;
+                      <div class="challenge">`;
 
   // <div id="smallHeaders">Below are your challenge times!</div>
 
