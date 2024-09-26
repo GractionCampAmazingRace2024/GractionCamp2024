@@ -1,77 +1,79 @@
 const userCredentials = {
   green: [
-    { password: "Gr33nF0l!@ge", page: "Challenge9", css: "CSS/green.css" },
-    { password: "Fr0gst0mp!ng", page: "Challenge5", css: "CSS/green.css" },
-    { password: "Gr@ssBl@de", page: "Challenge2", css: "CSS/green.css" },
-    { password: "F!eld0fDr3@mz", page: "Challenge7", css: "CSS/green.css" },
-    { password: "M!ntyM0rning", page: "Challenge4", css: "CSS/green.css" },
-    { password: "F0r3stC@n0py", page: "Challenge3", css: "CSS/green.css" },
-    { password: "Gr33nG!ant", page: "Challenge6", css: "CSS/green.css" },
-    { password: "LushV3rd@nt", page: "Challenge1", css: "CSS/green.css" },
-    { password: "Spr!ngL3@ps", page: "Challenge8", css: "CSS/green.css" },
-    { password: "JONO", page: "Challenge10", css: "CSS/green.css" },
+    { password: "JONO", page: "Challenge1", css: "CSS/green.css" },
+    { password: "Gr33nF0l!@ge", page: "Challenge2", css: "CSS/green.css" },
+    { password: "Fr0gst0mp!ng", page: "Challenge3", css: "CSS/green.css" },
+    { password: "Gr@ssBl@de", page: "Challenge4", css: "CSS/green.css" },
+    { password: "F!eld0fDr3@mz", page: "Challenge5", css: "CSS/green.css" },
+    { password: "M!ntyM0rning", page: "Challenge6", css: "CSS/green.css" },
+    { password: "F0r3stC@n0py", page: "Challenge7", css: "CSS/green.css" },
+    { password: "Gr33nG!ant", page: "Challenge8", css: "CSS/green.css" },
+    { password: "LushV3rd@nt", page: "Challenge9", css: "CSS/green.css" },
+    { password: "Spr!ngL3@ps", page: "Challenge10", css: "CSS/green.css" },
+
+    { password: "f!nalP@ssword", page: "rickRollPage", css: "RickRolled/rickRoll.css"}
   ],
   purple: [
-    { password: "Purpl3V!0l3t", page: "Challenge5", css: "CSS/purple.css" },
+    { password: "PRIYA", page: "Challenge1", css: "CSS/purple.css" }, 
+    { password: "Purpl3V!0l3t", page: "Challenge2", css: "CSS/purple.css" },
     { password: "L@v3nd3rDr3@m", page: "Challenge3", css: "CSS/purple.css" },
-    { password: "R0yalR@!n", page: "Challenge7", css: "CSS/purple.css" },
-    { password: "Gr@p3Spl@sh", page: "Challenge2", css: "CSS/purple.css" },
-    { password: "Am3thystGl0w", page: "Challenge4", css: "CSS/purple.css" },
-    { password: "Tw!l!ghtDr!ft", page: "Challenge8", css: "CSS/purple.css" },
-    { password: "V!0l3tM!st", page: "Challenge1", css: "CSS/purple.css" },
-    { password: "Purpl3P@th", page: "Challenge10", css: "CSS/purple.css" },
-    { password: "Plum3cst@sy", page: "Challenge6", css: "CSS/purple.css" },
-    { password: "PRIYA", page: "Challenge9", css: "CSS/purple.css" }, // Added
+    { password: "R0yalR@!n", page: "Challenge4", css: "CSS/purple.css" },
+    { password: "Gr@p3Spl@sh", page: "Challenge5", css: "CSS/purple.css" },
+    { password: "Am3thystGl0w", page: "Challenge6", css: "CSS/purple.css" },
+    { password: "Tw!l!ghtDr!ft", page: "Challenge7", css: "CSS/purple.css" },
+    { password: "V!0l3tM!st", page: "Challenge8", css: "CSS/purple.css" },
+    { password: "Purpl3P@th", page: "Challenge9", css: "CSS/purple.css" },
+    { password: "Plum3cst@sy", page: "Challenge10", css: "CSS/purple.css" },
+
+    { password: "fin@lP@ssword", page: "rickRollPage", css: "RickRolled/rickRoll.css"}
   ],
   blue: [
-    { password: "Blu3T!d3", page: "Challenge7", css: "CSS/blue.css" },
-    { password: "W@v3r!d3r", page: "Challenge9", css: "CSS/blue.css" },
-    { password: "S@pph!r3Spl@sh", page: "Challenge3", css: "CSS/blue.css" },
-    { password: "0c3@nD3pth", page: "Challenge6", css: "CSS/blue.css" },
-    { password: "Blu3Lag00n", page: "Challenge4", css: "CSS/blue.css" },
-    { password: "Aqu@t!cDr34m", page: "Challenge10", css: "CSS/blue.css" },
-    { password: "BluM00n", page: "Challenge5", css: "CSS/blue.css" },
-    { password: "Blu3Sk!es", page: "Challenge2", css: "CSS/blue.css" },
-    { password: "D33pS3@V3ntur3", page: "Challenge8", css: "CSS/blue.css" },
-    { password: "ASHLYN", page: "Challenge1", css: "CSS/blue.css" }, // Added
+    { password: "ASHLYN", page: "Challenge1", css: "CSS/blue.css" }, 
+    { password: "Blu3T!d3", page: "Challenge2", css: "CSS/blue.css" },
+    { password: "W@v3r!d3r", page: "Challenge3", css: "CSS/blue.css" },
+    { password: "S@pph!r3Spl@sh", page: "Challenge4", css: "CSS/blue.css" },
+    { password: "0c3@nD3pth", page: "Challenge5", css: "CSS/blue.css" },
+    { password: "Blu3Lag00n", page: "Challenge6", css: "CSS/blue.css" },
+    { password: "Aqu@t!cDr34m", page: "Challenge7", css: "CSS/blue.css" },
+    { password: "BluM00n", page: "Challenge8", css: "CSS/blue.css" },
+    { password: "Blu3Sk!es", page: "Challenge9", css: "CSS/blue.css" },
+    { password: "D33pS3@V3ntur3", page: "Challenge10", css: "CSS/blue.css" },
+
+    { password: "fin@lPas5word", page: "rickRollPage", css: "RickRolled/rickRoll.css"}
   ],
   orange: [
-    { password: "0r@ng3Sunr!s3", page: "Challenge3", css: "CSS/orange.css" },
-    { password: "T!gerStr!p3s", page: "Challenge9", css: "CSS/orange.css" },
-    { password: "CitrusFl@re", page: "Challenge7", css: "CSS/orange.css" },
-    { password: "FieryBl@z3", page: "Challenge6", css: "CSS/orange.css" },
-    { password: "T@ng3rin3Sp!c3", page: "Challenge1", css: "CSS/orange.css" },
-    { password: "Autumn@ir", page: "Challenge2", css: "CSS/orange.css" },
-    { password: "M@ndr!nG!ng3r", page: "Challenge5", css: "CSS/orange.css" },
-    { password: "Bl@z!ngStr!d3", page: "Challenge10", css: "CSS/orange.css" },
-    { password: "0r@ng3R@d!@nc3", page: "Challenge4", css: "CSS/orange.css" },
-    { password: "JAMES", page: "Challenge8", css: "CSS/orange.css" }, // Added
+    { password: "JAMES", page: "Challenge1", css: "CSS/orange.css" }, 
+    { password: "0r@ng3Sunr!s3", page: "Challenge2", css: "CSS/orange.css" },
+    { password: "T!gerStr!p3s", page: "Challenge3", css: "CSS/orange.css" },
+    { password: "CitrusFl@re", page: "Challenge4", css: "CSS/orange.css" },
+    { password: "FieryBl@z3", page: "Challenge5", css: "CSS/orange.css" },
+    { password: "T@ng3rin3Sp!c3", page: "Challenge6", css: "CSS/orange.css" },
+    { password: "Autumn@ir", page: "Challenge7", css: "CSS/orange.css" },
+    { password: "M@ndr!nG!ng3r", page: "Challenge8", css: "CSS/orange.css" },
+    { password: "Bl@z!ngStr!d3", page: "Challenge9", css: "CSS/orange.css" },
+    { password: "0r@ng3R@d!@nc3", page: "Challenge10", css: "CSS/orange.css" },
+
+    { password: "fin@lPas5w0rd", page: "rickRollPage", css: "RickRolled/rickRoll.css"}
   ],
   yellow: [
-    { password: "Y3ll0wL!ght", page: "Challenge4", css: "CSS/yellow.css" },
-    { password: "G0ld3nB3@ms", page: "Challenge1", css: "CSS/yellow.css" },
-    { password: "L3m0nSpr!tz", page: "Challenge9", css: "CSS/yellow.css" },
-    { password: "Sunn!D@ze", page: "Challenge6", css: "CSS/yellow.css" },
-    { password: "H0n3yGl0w", page: "Challenge5", css: "CSS/yellow.css" },
-    { password: "B!tt3rSw33t", page: "Challenge2", css: "CSS/yellow.css" },
+    { password: "CIARA", page: "Challenge1", css: "CSS/yellow.css" },
+    { password: "Y3ll0wL!ght", page: "Challenge2", css: "CSS/yellow.css" },
+    { password: "G0ld3nB3@ms", page: "Challenge3", css: "CSS/yellow.css" },
+    { password: "L3m0nSpr!tz", page: "Challenge4", css: "CSS/yellow.css" },
+    { password: "Sunn!D@ze", page: "Challenge5", css: "CSS/yellow.css" },
+    { password: "H0n3yGl0w", page: "Challenge6", css: "CSS/yellow.css" },
+    { password: "B!tt3rSw33t", page: "Challenge7", css: "CSS/yellow.css" },
     { password: "Saffr0nFl@r3", page: "Challenge8", css: "CSS/yellow.css" },
-    {
-      password: "M@r!g0ldSpr!nkl3s",
-      page: "Challenge7",
-      css: "CSS/yellow.css",
-    },
-    { password: "M!dD@ySh!n3", page: "Challenge3", css: "CSS/yellow.css" },
-    { password: "CIARA", page: "Challenge10", css: "CSS/yellow.css" }, // Added
+    { password: "M@r!g0ldSpr!nkl3s", page: "Challenge9", css: "CSS/yellow.css"},
+    { password: "M!dD@ySh!n3", page: "Challenge10", css: "CSS/yellow.css" },
+
+    { password: "f!nalPas5w0rd", page: "rickRollPage", css: "RickRolled/rickRoll.css"}
   ],
 
   admin: [
     { password: "admin", page: "Challenge1", css: "CSS/admin.css" },
     { password: "settings", page: "adminPage", css: "CSS/admin.css" },
-    {
-      password: "rrtime",
-      page: "rickRollPage",
-      css: "RickRolled/rickRoll.css",
-    },
+    { password: "rrtime", page: "rickRollPage", css: "RickRolled/rickRoll.css"}
   ],
 };
 
@@ -425,7 +427,7 @@ function playRickRoll() {
   const results = document.getElementById("resultsContent");
 
   const pageBackground =
-    teamColors[document.querySelector("#teamSelection").value];
+  teamColors[document.querySelector("#teamSelection").value];
   document.getElementById("rickRollPage").style.display = "block";
   document.querySelector(".mainBody").style.backgroundColor = pageBackground;
   playButton.style.display = "none";
@@ -455,9 +457,7 @@ function playRickRoll() {
       document.querySelector(".mainBody").style.backgroundColor =
         pageBackground;
 
-      roundTimers.forEach((time, index) => {
-        resultsContent += `<div class="challenges">${visitedChallenges[index]}: ${time}</div>`;
-      });
+      
       results.style.display = "block";
       document.getElementById("content").style.display = "block";
       results.innerHTML = headerLine += resultsContent + "</div>";
