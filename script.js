@@ -574,7 +574,8 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       ) {
         if (timerRunning) {
           challengeEndTimer();
-        } else if (isChallengePage(userData.page) && !timerRunning) {
+        }
+        if (isChallengePage(userData.page)) {
           visitedChallenges.push(userData.page);
           challengeStartTimer();
         }
