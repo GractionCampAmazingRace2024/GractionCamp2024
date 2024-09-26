@@ -7,7 +7,7 @@ const resourcesToCache = [
   "/GractionCamp2024/manifest.json",
   "/GractionCamp2024/script.js",
   "/GractionCamp2024/style.css",
-
+  
   // RickRolled
   "/GractionCamp2024/RickRolled/rickRoll.mp4",
   "/GractionCamp2024/RickRolled/rickRoll.css",
@@ -88,7 +88,7 @@ self.addEventListener("fetch", (event) => {
   const requestUrl = new URL(event.request.url);
 
   // Handle HTML, JS, CSS (static files) with cache-first strategy
-  if (requestUrl.pathname.startsWith('/GractionCamp2024/')) {
+  if (requestUrl.pathname.startsWith("/GractionCamp2024/")) {
     event.respondWith(
       caches.match(event.request).then((response) => {
         return (
@@ -120,4 +120,3 @@ self.addEventListener("message", (event) => {
     });
   }
 });
-
