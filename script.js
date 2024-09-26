@@ -217,7 +217,7 @@ function challengeEndTimer() {
 }
 
 function updateChallengeTimer() {
-  if (timerRunning == true) {
+  if (timerRunning === true) {
     const fixedTimer = document.getElementById("fixedTimer");
     const elapsed = Math.floor((Date.now() - challengeStart) / 1000); // Time elapsed in seconds
     const hours = Math.floor(elapsed / 3600);
@@ -371,40 +371,6 @@ function runningTime() {
   return formattedTime;
 }
 
-function challengeStartTimer() {
-  challengeStart = Date.now();
-  console.log("Challenge started at: " + new Date(challengeStart));
-}
-
-function challengeEndTimer() {
-  challengeEnd = Date.now();
-  timerRunning = false; // Set the timer running flag to false
-  const totalTime = runningTime(); // Optionally get the total running time
-  console.log("Challenge ended at: " + new Date(challengeEnd));
-  console.log(`Total Time: ${totalTime}`);
-}
-
-function updateChallengeTimer() {
-  const indexPage = document.getElementById("indexPage");
-  const loadingPage = document.getElementById("loadingPage");
-  const screenTimer =   document.getElementById("timer");
-  const indexPageVisible = getComputedStyle(indexPage).display === "block";
-  const loadingPageVisible = getComputedStyle(loadingPage).display === "block";
-
-  if (!indexPageVisible && !loadingPageVisible && timerRunning) {
-    screenTimer.style.display = "inline-block";
-    const now = new Date();
-    const elapsed = Math.floor((now - challengeStart) / 1000); // Time elapsed in seconds
-    const hours = Math.floor(elapsed / 3600);
-    const minutes = Math.floor((elapsed % 3600) / 60);
-    const seconds = elapsed % 60;
-    const formattedTime = `${hours}h ${String(minutes).padStart(2,"0")}m ${String(seconds).padStart(2, "0")}s`;
-    screenTimer.innerText = formattedTime;
-  } else {
-    screenTimer.style.display = "none";
-  }
-  setTimeout(updateChallengeTimer, 1000); // Continue the loop
-}
 
 function getRandomErrorMessage() {
   const randomIndex = Math.floor(Math.random() * errorMessages.length);
