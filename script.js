@@ -430,14 +430,10 @@ function playRickRoll() {
   document.querySelector(".mainBody").style.backgroundColor = pageBackground;
   playButton.style.display = "none";
 
-  video.style.display = "block";
-  videoContainer.style.display = "flex";
-
-  // Check if the video is fully buffered
-  const isBuffered =
-    video.buffered.length > 0 && video.buffered.end(0) >= video.duration;
-
+  const isBuffered = video.buffered.length > 0 && video.buffered.end(0) >= video.duration;
   if (isBuffered) {
+    video.style.display = "block";
+    videoContainer.style.display = "flex";
     document.querySelector(".mainBody").style.backgroundColor = "black";
     video.muted = false;
     video.play();
@@ -445,16 +441,23 @@ function playRickRoll() {
     video.addEventListener("ended", function () {
       video.style.display = "none";
       videoContainer.style.display = "none";
+      
+      document.getElementById("rickrollButton").onclick = function () {
+        returnToIndex();
+      };
+      document.getElementById("rickrollButton").innerHTML = "Back";
     });
   }
 
-  // Always display the results regardless of whether the video plays
-  results.style.display = "grid";
+  else{
+    document.getElementById("rickrollButton").onclick = function () {
+      returnToIndex();
+    };
+    document.getElementById("rickrollButton").innerHTML = "Back";
+  }
+
   document.querySelector(".mainBody").style.backgroundColor = pageBackground;
-  document.getElementById("rickrollButton").onclick = function () {
-    returnToIndex();
-  };
-  document.getElementById("rickrollButton").innerHTML = "Back";
+
 
   let headerLine = `<div class="resultHeaders">AMAZING RACE 2024 Results!
                       <div id="smallHeaders">Make sure to screenshot your results!</div></div>
