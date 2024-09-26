@@ -141,23 +141,27 @@ button {
     padding: 0;
     margin: 0;
     text-align: center;
-    font-size: calc(min(9vw, 9vh));
+    font-size: calc(min(10vw, 10vh));
+    color: white;
 }
 
 #smallHeaders{
-    font-size: calc(min(7vw, 7vh)); 
+    font-size: calc(min(8vw, 8vh)); 
 }
 
 .challenge {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
     padding: 0;
     text-align: center;
-    margin: 0;
-    grid-column-gap: calc(min(5vw, 5vh)); 
-    font-size: calc(min(5vw, 5vh));
+    grid-column-gap: calc(min(20vw, 20ch));
+    font-size: calc(min(7vw, 7vh));
     padding-top: 3vh;
+    width: fit-content;
+    margin: auto;
 }
+
+
 
 
 #fixedTimer{
