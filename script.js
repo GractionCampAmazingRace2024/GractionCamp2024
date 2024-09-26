@@ -469,6 +469,7 @@ function playRickRoll() {
     results.style.display = "block";
     document.getElementById("content").style.display = "block";
     results.innerHTML = headerLine += resultsContent + "</div>";
+    document.querySelector(".resultHeaders").style.color = pageBackground
     playThemeMusic("adminTheme");
   }
 }
