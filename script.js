@@ -430,8 +430,17 @@ function playRickRoll() {
   document.querySelector(".mainBody").style.backgroundColor = pageBackground;
   playButton.style.display = "none";
 
+  let headerLine = `<div class="resultHeaders">AMAZING RACE 2024 Results!
+  <div id="smallHeaders">Make sure to screenshot your results!</div></div>
+  <div class="challenge">`;
 
-  const isBuffered = video.buffered.length > 0 && video.buffered.end(0) >= video.duration;
+  let resultsContent = ``;
+  roundTimers.forEach((time, index) => {
+    resultsContent += `<div class="challenges">${visitedChallenges[index]}: ${time}</div>`;
+  });
+
+  const isBuffered =
+    video.buffered.length > 0 && video.buffered.end(0) >= video.duration;
   if (isBuffered) {
     video.style.display = "block";
     videoContainer.style.display = "flex";
@@ -442,39 +451,26 @@ function playRickRoll() {
     video.addEventListener("ended", function () {
       video.style.display = "none";
       videoContainer.style.display = "none";
-      
-      // document.getElementById("rickrollButton").onclick = function () {
-      //   returnToIndex();
-      // };
-      // document.getElementById("rickrollButton").innerHTML = "Back";
+
+      document.querySelector(".mainBody").style.backgroundColor =
+        pageBackground;
+
+      roundTimers.forEach((time, index) => {
+        resultsContent += `<div class="challenges">${visitedChallenges[index]}: ${time}</div>`;
+      });
+      results.style.display = "block";
+      document.getElementById("content").style.display = "block";
+      results.innerHTML = headerLine += resultsContent + "</div>";
+      playThemeMusic("adminTheme");
     });
+  } else {
+    document.querySelector(".mainBody").style.backgroundColor = pageBackground;
 
+    results.style.display = "block";
+    document.getElementById("content").style.display = "block";
+    results.innerHTML = headerLine += resultsContent + "</div>";
+    playThemeMusic("adminTheme");
   }
-
-  
-  // else{
-  //   document.getElementById("rickrollButton").onclick = function () {
-  //     returnToIndex();
-  //   };
-  //   document.getElementById("rickrollButton").innerHTML = "Back";
-
-  // }
-
-  document.querySelector(".mainBody").style.backgroundColor = pageBackground;
-
-  let headerLine = `<div class="resultHeaders">AMAZING RACE 2024 Results!
-                      <div id="smallHeaders">Make sure to screenshot your results!</div></div>
-                      <div class="challenge">`;
-
-  let resultsContent = ``;
-
-  roundTimers.forEach((time, index) => {
-    resultsContent += `<div class="challenges">${visitedChallenges[index]}: ${time}</div>`;
-  });
-
-  document.getElementById("content").style.display = 'block';
-  results.innerHTML = headerLine += resultsContent + "</div>";
-  playThemeMusic("adminTheme");
 }
 
 // Show/hide dropdown on button click
