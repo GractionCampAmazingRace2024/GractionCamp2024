@@ -443,19 +443,22 @@ function playRickRoll() {
       video.style.display = "none";
       videoContainer.style.display = "none";
       
-      document.getElementById("rickrollButton").onclick = function () {
-        returnToIndex();
-      };
-      document.getElementById("rickrollButton").innerHTML = "Back";
+      // document.getElementById("rickrollButton").onclick = function () {
+      //   returnToIndex();
+      // };
+      // document.getElementById("rickrollButton").innerHTML = "Back";
     });
-  }
-  else{
-    document.getElementById("rickrollButton").onclick = function () {
-      returnToIndex();
-    };
-    document.getElementById("rickrollButton").innerHTML = "Back";
 
   }
+
+  
+  // else{
+  //   document.getElementById("rickrollButton").onclick = function () {
+  //     returnToIndex();
+  //   };
+  //   document.getElementById("rickrollButton").innerHTML = "Back";
+
+  // }
 
   document.querySelector(".mainBody").style.backgroundColor = pageBackground;
 
