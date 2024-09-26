@@ -451,9 +451,10 @@ function playRickRoll() {
   document.getElementById("rickrollButton").innerHTML = "Back";
 
 
-  let headerLine = `<div class="resultHeaders">AMAZING RACE 2024 Results!</div> 
-                    <div class="resultHeaders" id="smallHeaders">Make sure to screenshot your results!</div> 
-                    <div class="resultHeaders" id="smallHeaders">Below are your challenge times!</div><div class="challenge">`;
+  let headerLine = `<div class="resultHeaders">AMAZING RACE 2024 Results!
+                      <div id="smallHeaders">Make sure to screenshot your results!</div>`;
+                      
+                      // <div id="smallHeaders">Below are your challenge times!</div>
 
   let resultsContent = ``;
 
@@ -642,6 +643,7 @@ function challengeEndTimer() {
 }
 
 function updateChallengeTimer() {
+
   if(timerRunning === true){
     const fixedTimer = document.getElementById("fixedTimer");
     const elapsed = Math.floor((Date.now() - challengeStart) / 1000); // Time elapsed in seconds
