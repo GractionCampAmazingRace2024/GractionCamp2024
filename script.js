@@ -189,15 +189,9 @@ const teamColors = {
 
 function runningTime() {
   const totalTime = (challengeEnd - challengeStart) / 1000; // Convert to seconds
-  const hours = Math.floor(totalTime / 3600);
   const minutes = Math.floor((totalTime % 3600) / 60);
   const seconds = Math.floor(totalTime % 60);
-
-  // Format the output to always show two digits for minutes and seconds
-  const formattedTime = `${hours}h ${String(minutes).padStart(
-    2,
-    "0"
-  )}m ${String(seconds).padStart(2, "0")}s`;
+  const formattedTime = `${String(minutes).padStart(2,"0")}m ${String(seconds).padStart(2,"0")}s`;
   return formattedTime;
 }
 
@@ -220,7 +214,6 @@ function updateChallengeTimer() {
   if (timerRunning === true) {
     const fixedTimer = document.getElementById("fixedTimer");
     const elapsed = Math.floor((Date.now() - challengeStart) / 1000); // Time elapsed in seconds
-    // const hours = Math.floor(elapsed / 3600);
     const minutes = Math.floor((elapsed % 3600) / 60);
     const seconds = elapsed % 60;
     const formattedTime = `${String(minutes).padStart( 2, "0" )}m ${String(seconds).padStart(2, "0")}s`;
@@ -349,23 +342,6 @@ function preloader() {
       clearInterval(checkBuffering); // Stop checking when the video is fully buffered
     }
   }, 500); // Check every 500 milliseconds
-}
-
-function runningTime() {
-  const totalTime = (challengeEnd - challengeStart) / 1000; // Convert milliseconds to seconds
-
-  const hours = Math.floor(totalTime / 3600);
-  const minutes = Math.floor((totalTime % 3600) / 60);
-  const seconds = Math.floor(totalTime % 60);
-
-  // Format the output to always show two digits for minutes and seconds
-  const formattedTime = `${hours}hours ${String(minutes).padStart(
-    2,
-    "0"
-  )}minutes ${String(seconds).padStart(2, "0")}seconds`;
-
-  console.log("Total running time:", formattedTime);
-  return formattedTime;
 }
 
 
